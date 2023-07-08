@@ -1,0 +1,39 @@
+.header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  height: 150px;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+
+.logo {
+  margin-left: 25px; 
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: inherit;
+}
+
+.button-group {
+  display: flex;
+  justify-self: center; 
+  gap: 20px; 
+}
+
+.button-group .nav-link {
+  text-decoration: none; 
+  color: lightblue;
+  font-size: 25px; 
+}
+
+.button-group .nav-link:hover {
+  text-decoration: underline; 
+  color: lightblue;
+}
