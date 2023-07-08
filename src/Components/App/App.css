@@ -1,4 +1,6 @@
 .App {
+  display: flex;
+  flex-direction: column;
   background: linear-gradient(
     to bottom,
     rgba(44, 23, 84, 0.9),
