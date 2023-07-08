@@ -1,6 +1,86 @@
-## RESTful Endpoints
+# graphQL schema and types
 
-<details close>
+## Get a User
+   ``` 
+type User {
+  id: ID! # User ID
+  username: String! # Username
+  password: String! # Password
+  city: String! # City
+  state: String! # State
+  lat: Float! # Latitude
+  long: Float! # Longitude
+  hosted_events: [Event!]! # Hosted events
+  attending_events: [Event!]! # Attending events
+  game_collection: [Game!]! # Game collection
+}
+```
+## Get Events
+
+  ```
+type Event {
+  id: ID! # Event ID
+  date: String! # Date
+  location: Location! # Event location
+  game_details: GameDetails! # Game details
+  attendees: [User!]! # Attendees
+  host_id: ID! # Host ID
+  event_description: String! # Event description
+  cancelled: Boolean! # Event cancellation status
+}
+```
+## Get User Events
+```
+type Query {
+  getUser(id: ID!): User # Get a user
+  getEvents: [Event!]! # Get events
+  getUserEvent(userId: ID!, eventId: ID!): Event # Get a user event
+}
+```
+## Post a New Event
+```
+type Mutation {
+  createEvent(eventInput: EventInput!): Event # Create a new event
+  addUserToEvent(userId: ID!, eventId: ID!): Event # Add a user to an event
+  removeUserFromEvent(userId: ID!, eventId: ID!): Event # Remove a user from an event
+  cancelEvent(eventId: ID!): Event # Cancel an event
+  updateEvent(eventId: ID!, eventInput: EventInput!): Event # Update an event
+}
+```
+## Input types
+```
+input EventInput {
+  date: String! # Date
+  location: LocationInput! # Event location
+  game_details: GameDetailsInput! # Game details
+  host_id: ID! # Host ID
+  event_description: String! # Event description
+  cancelled: Boolean! # Event cancellation status
+}
+
+input LocationInput {
+  address: String! # Address
+  city: String! # City
+  state: String! # State
+  zip: String! # Zip code
+  lat: Float! # Latitude
+  long: Float! # Longitude
+}
+
+input GameDetailsInput {
+  game_title: String! # Game title
+  game_description: String! # Game description
+  category: String! # Game category
+  game_img_big: String! # URL for the big game image
+  game_img_thumb: String! # URL for the thumbnail game image
+  min_players: Int! # Minimum number of players
+  max_players: Int! # Maximum number of players
+  min_playtime: Int! # Minimum playtime in minutes
+  max_playtime: Int! # Maximum playtime in minutes
+}
+```
+
+## RESTful Endpoints
 
 
 ### Get a User
