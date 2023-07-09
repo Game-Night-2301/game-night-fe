@@ -4,10 +4,13 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import WelcomePage from '../WelcomePage/WelcomePage';
 import BrowseEvent from '../BrowseEvent/BrowseEvent';
 import './App.css';
+import Form from '../EventDetails/Form/Form';
+import Error from '../Error/Error';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
+  const [user, setUser] = useState('');
 
   const loginUser = (userId) => {
     setSelectedUser(userId);
@@ -38,6 +41,15 @@ function App() {
               <Redirect to="/" />
             )}
           </Route> */}
+     {/* <Route exact path="/profile">
+          <User />
+        </Route> */}
+        <Route exact path="/new-event">
+          <Form />
+        </Route>
+        <Route exact path="/*">
+          <Error />
+        </Route>
         </Switch>
       </main>
     </Router>
