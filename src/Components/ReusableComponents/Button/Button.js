@@ -1,9 +1,16 @@
-import React from "react";
-import "../Button/Button.css";
+import React from 'react';
+import '../Button/Button.css';
 
-const Button = ({text}) => {
+const Button = ({ text, onClick }) => {
+  const handleClick = () => {
+    if (onClick) {
+      onClick();
+    }
+  };
+
   return (
-    <button className="button">{text}
+    <button className="button" onClick={handleClick}>
+      {text}
     </button>
   );
 };

@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Header from '../ReusableComponents/Header/Header';
 import BrowserHeader from '../ReusableComponents/BrowserHeader/BrowserHeader';
+import Card from '../BrowseEvent/Card/Card';
 import PropTypes from 'prop-types';
 import './BrowseEvent.css';
 
@@ -55,3 +56,4 @@ const BrowseEvent = ({ user }) => {
     </>
   )
 }
+export default BrowseEvent
