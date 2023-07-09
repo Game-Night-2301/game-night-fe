@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Pills from '../ReusableComponents/Pills/Pills';
+import Pills from '../../ReusableComponents/Pills/Pills';
+import { NavLink } from 'react-router-dom';
 import './Card.css';
 
 const Card = ({ user, id, gameDetails, location, date, time, attendees, host, description }) => {
