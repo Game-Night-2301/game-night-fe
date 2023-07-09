@@ -6,9 +6,15 @@
   justify-content: center; 
 }
 
-.logo {
-  max-width: 70%;
-  max-height: 70%;
+.dice {
+  max-width: 60%;
+  max-height: 60%;
+}
+
+h1,
+h3 {
+  color:#fefefe;
+
 }
 
 .button-container {

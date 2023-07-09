@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-// import Header from '../ReusableComponents/Header/Header';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import BrowseEvent from '../BrowseEvent/BrowseEvent';
 import './App.css';
@@ -25,7 +24,6 @@ function App() {
   return (
     <Router>
       <main className="App">
-        {/* <Header /> */}
         <Switch>
           <Route exact path="/">
             {loggedIn ? (
@@ -34,13 +32,13 @@ function App() {
               <WelcomePage loginUser={loginUser} logoutUser={logoutUser} />
             )}
           </Route>
-          {/* <Route exact path="/browse">
+          <Route exact path="/browse">
             {loggedIn ? (
               <BrowseEvent selectedUser={selectedUser} />
             ) : (
               <Redirect to="/" />
             )}
-          </Route> */}
+          </Route>
      {/* <Route exact path="/profile">
           <User />
         </Route> */}

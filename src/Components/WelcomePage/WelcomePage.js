@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '../ReusableComponents/Button/Button';
-import logo from '../../assets/Logo.svg';
+import dice from '../../assets/Dice.svg';
 import './WelcomePage.css';
 
 function WelcomePage({ loginUser, logoutUser, loggedIn }) {
@@ -16,7 +16,9 @@ function WelcomePage({ loginUser, logoutUser, loggedIn }) {
 
   return (
     <div className="welcome-page-container">
-      <img src={logo} alt="Logo" className="logo" />
+      <h1 className="welcome-page-title">Game Night</h1>
+      <img src={dice} alt="Dice logo" className="dice" />
+      <h3 className="welcome-page-subtitle">Define your roll</h3>
       <div className="button-container">
         {!loggedIn ? (
           <>
