@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import WelcomePage from '../WelcomePage/WelcomePage';
 import BrowseEvent from '../BrowseEvent/BrowseEvent';
 import './App.css';
-import Form from '../EventDetails/Form/Form';
+import Form from '../EventCreation/Form/Form';
 import Error from '../Error/Error';
 
 function App() {
