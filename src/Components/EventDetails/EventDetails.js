@@ -6,7 +6,7 @@ import './Description/Description';
 import './EventInfo/EventInfo';
 import PropTypes from 'prop-types';
 
-export const EventDetails = () => {
+export const EventDetails = ({ user, id, gameDetails, date, time, attendees, host, description }) => {
   return (
     <div>
       <Header />
