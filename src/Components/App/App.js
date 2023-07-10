@@ -66,8 +66,8 @@ function App() {
           <Route exact path="/new-event">
             <Form />
           </Route>
-          <Route>
-            <Error  Route exact path="/*"/>
+          <Route exact path="/*">
+            <Error />
           </Route>
         </Switch>
       </main>
