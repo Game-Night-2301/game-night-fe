@@ -5,6 +5,7 @@ import './WelcomePage.css';
 
 function WelcomePage({ loginUser, logoutUser, loggedIn }) {
   const handleLogin = (userId) => {
+    console.log('Logging in user:', userId);
     loginUser(userId);
     console.log(`User ${userId} logged in.`);
   };
