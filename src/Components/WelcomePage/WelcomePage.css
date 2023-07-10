@@ -13,8 +13,20 @@
 
 h1,
 h3 {
-  color:#fefefe;
+  color : #FEFEFE;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
 
+h1 {
+  font-family : Avenir Next;
+  font-weight: bolder;
+  font-size : 90px;
+  margin-bottom: 0;
+}
+
+h3 {
+  font-weight: 400;
+  margin-top: 0;
 }
 
 .button-container {
@@ -24,6 +36,7 @@ h3 {
   justify-content: space-evenly;
   margin: 0;
   padding: 0;
+  margin-top: 0;
 }
 
 button {
@@ -32,4 +45,5 @@ button {
   border: none;
   padding: 15px 30px;
   font-size: 16px;
+  margin-top: 2rem;
 }
