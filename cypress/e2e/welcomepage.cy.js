@@ -5,7 +5,7 @@ describe('WelcomePage', () => {
         req.reply({ data: { myData: 'Stubbed data for query 1' } });
       }
     });
-    cy.visit('http://localhost:3000/'); 
+    cy.visit('https://game-night-fe.vercel.app/'); 
   });
 
   it('should display the welcome page with the correct elements', () => {
