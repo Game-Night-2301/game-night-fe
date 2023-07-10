@@ -44,7 +44,7 @@ function App() {
 
   return (
     <Router>
-      <div className="App">
+      <main className="App">
         <Switch>
           <Route exact path="/">
             {loggedIn ? (
@@ -67,10 +67,10 @@ function App() {
             <Form />
           </Route>
           <Route>
-            <Error />
+            <Error  Route exact path="/*"/>
           </Route>
         </Switch>
-      </div>
+      </main>
     </Router>
   );
 }
