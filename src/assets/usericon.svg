@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 147 147">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fefefe;
+        filter: url(#outer-glow-1);
+      }
+
+      .cls-2 {
+        fill: #ffa0e4;
+      }
+    </style>
+    <filter id="outer-glow-1" filterUnits="userSpaceOnUse">
+      <feOffset dx="0" dy="0"/>
+      <feGaussianBlur result="blur" stdDeviation="5"/>
+      <feFlood flood-color="#fefefe" flood-opacity=".6"/>
+      <feComposite in2="blur" operator="in"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Layer_2" data-name="Layer 2">
+    <circle class="cls-2" cx="73.5" cy="73.5" r="73.5"/>
+    <path class="cls-1" d="m105.73,64.91c-4.44-14.78-10.68-35.6-23.12-37.07-9.91-1.17-20.01,10.42-24.64,18.75-11.47,20.6,1.23,37.87-12.41,54.28-4.68,5.63-10.83,9.19-9.64,12.19,1.24,3.14,9.59,3.26,15.41,2.19,10.89-2,12.92-8.14,19.2-7.09,7.88,1.32,9.96,11.88,15.01,11.03,4.62-.77,4.53-9.85,9.8-11.03,5.15-1.16,8.63,6.77,11.94,5.82,5.42-1.55,5.53-25.45-1.56-49.06h0Zm-30.31-3.62c-.72,18.88-15.96,10.9-9.18-4.21,3.27-7.29,9.45-2.91,9.18,4.21Zm18.33,2.59c-.36,2.7-10.2,11.08-11.2,2.69-2.25-18.92,11.07-17.27,11.2-2.69Z"/>
+  </g>
+</svg>

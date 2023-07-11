@@ -1,0 +1,23 @@
+.description-header, .description-text {
+  color: #FEFEFE;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+}
+
+.description-header {
+  font-size: 1.75em;
+  font-weight: 300;
+  margin-bottom: 0em;
+}
+
+.description-text {
+  font-size: 1em;
+  font-weight: 300;
+}
+
+.description-line {
+  border-color: #FFA0E4;
+}
+
+.description-wrapper {
+  width: 50%;
+}

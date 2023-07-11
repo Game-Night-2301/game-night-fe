@@ -1,0 +1,20 @@
+.attendee-header {
+  font-size: 1.75em;
+  font-weight: 300;
+  color: #FEFEFE;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+  margin-bottom: 0em;
+}
+
+.attendee-line {
+  border-color: #FFA0E4;
+}
+
+.attendee-img {
+  height: 4em;
+  margin-right: .75em;
+}
+.attendees-wrapper {
+  width: 50%;
+}
+
