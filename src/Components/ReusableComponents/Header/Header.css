@@ -8,31 +8,29 @@
 }
 
 .logo {
-  height : 6.5rem;
+  height: 6.5rem;
   margin: 0;
 }
 
-.link {
-  text-decoration: none;
-  color: inherit;
-}
 
-.link:hover {
+.header-nav-link:hover {
   text-decoration: none;
   color: inherit;
 }
 
 .button-group {
   display: flex;
-  justify-self: center; 
+  justify-self: center;
   width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
-.nav-link {
-  text-decoration: none; 
-  color: #E6E6E6;
+.header-nav-link {
+  text-decoration: none;
+  color: #e6e6e6;
   font-weight: 500;
-  font-size: 1.5rem; 
+  font-size: 1.5rem;
   line-height: 3.5rem;
   width: 25%;
   text-align: center;
@@ -44,7 +42,5 @@
 }
 
 .profile-link {
-  height : 4.5rem;
-  border-radius : 13px;
-  justify-self: end;
+  height: 4.5rem;
 }
