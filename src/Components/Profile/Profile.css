@@ -9,12 +9,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 25px;
+  width: 50%;
 }
 
 .profile-image img {
-  width: 150px;
-  height: 150px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
+}
+
+.user-name {
+  color: white;
+  border-bottom: 2px solid rgba(255, 160, 228, 1);
 }
 
 .profile-info {
@@ -29,7 +36,8 @@
 
 .games-collection h2 {
   color: white;
-  border-bottom: 2px solid white;
+  font-size: 35px;
+  border-bottom: 2px solid rgba(255, 160, 228, 1);
   margin-bottom: 10px;
 }
 
@@ -44,8 +52,8 @@
   justify-content: center;
   width: 100px;
   height: 100px;
+  border: 2px solid white;
   border-radius: 50%;
-  background-color: #ddd;
   margin-right: 10px;
 }
 

@@ -4,8 +4,6 @@ import Header from '../ReusableComponents/Header/Header';
 import userIcon from '../../assets/usericon.svg';
 import diceicon from '../../assets/diceicon.png';
 
-
-
 const ProfilePage = () => {
   return (
     <>
@@ -16,7 +14,8 @@ const ProfilePage = () => {
             <img src={userIcon} alt="Profile-Img" />
           </div>
           <div className="profile-info">
-            <h2 className="user-name">John Doe</h2>
+            <h2 className="user-name">Personal Info</h2>
+            <p>Name: John Doe</p>
             <p>Games Hosted: 5</p>
             <p>Location: City, State</p>
           </div>
