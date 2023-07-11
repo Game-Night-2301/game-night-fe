@@ -3,6 +3,7 @@ import { useQuery } from '@apollo/client';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import BrowseEvent from '../BrowseEvent/BrowseEvent';
+import ProfilePage from '../Profile/Profile';
 import './App.css';
 import Form from '../EventCreation/Form/Form';
 import Error from '../Error/Error';
@@ -63,9 +64,9 @@ function App() {
               <Redirect to="/" />
             )}
           </Route>
-     {/* <Route exact path="/profile">
-          <User />
-        </Route> */}
+        <Route exact path="/profile">
+          <ProfilePage />
+        </Route>
         <Route exact path="/new-event">
           <Form />
         </Route>

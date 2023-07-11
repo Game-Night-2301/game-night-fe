@@ -6,7 +6,7 @@ const Form = () => {
     <form>
       <div className="container">
         <h2>Game</h2>
-        <div className="game-details">
+        <div className="gameDetails">
           <label htmlFor="game">Game:</label>
           <select id="game" name="game">
             <option value="game1">Game 1</option>
@@ -21,7 +21,7 @@ const Form = () => {
           </select>
         </div>
         <h2>Location</h2>
-        <div className="location-details">
+        <div className="locationDetails">
           <label htmlFor="address">Address:</label>
           <input type="text" id="address" name="address" />
           <label htmlFor="city">City:</label>
@@ -30,10 +30,14 @@ const Form = () => {
           <input type="text" id="state" name="state" />
           <label htmlFor="zip">Zip:</label>
           <input type="text" id="zip" name="zip" />
+          <label htmlFor="start-time">Start Time:</label>
+          <input type="time" id="start-time" name="start-time" />
+          <label htmlFor="end-time">End Time:</label>
+          <input type="time" id="end-time" name="end-time" />
         </div>
         <h2>Event Details</h2>
-        <div className="event-details">
-          <textarea id="event-description" name="event-description" rows="4" cols="50" />
+        <div className="eventDetails">
+          <textarea id="eventDescription" name="eventDescription" rows="4" cols="50" />
         </div>
         <button type="submit">Submit</button>
       </div>
