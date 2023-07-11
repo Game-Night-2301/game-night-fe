@@ -28,11 +28,13 @@ export const EventDetails = () => {
     <div>
       <Header />
       {data && (
-        <>
-          <EventInfo hostId={data.event.hostId} id={data.event.id} game={data.event.game} date={data.event.date} time={data.event.time} attendees={data.event.attendees}/>
-          <Description description={data.event.description} />
-          <Attendees attendees={data.event.attendees}/>
-        </>
+        <div className='event-body'>
+          <EventInfo className="event-info" hostId={data.event.hostId} id={data.event.id} game={data.event.game} date={data.event.date} time={data.event.time} attendees={data.event.attendees}/>
+          <div className="event-right">
+            <Description description={data.event.description} />
+            <Attendees attendees={data.event.attendees}/>
+          </div>
+        </div>
       )}
     </div>
   )
