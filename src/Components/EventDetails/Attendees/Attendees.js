@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import userIcon from '../../assets/usericon.svg';
+import userIcon from '../../../assets/usericon.svg';
 import './Attendees.css';
 
 export const Attendees = ( { user, attendees, id, gameDetails} ) => {

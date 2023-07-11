@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Pills from '../../ReusableComponents/Pills/Pills';
-import { Button } from '../..ReusableComponents/Button/Button'
+import Button from '../../ReusableComponents/Button/Button'
 import './EventInfo.css';
 
 export const EventInfo = ({ user, id, gameDetails, date, time, attendees, host}) => {

@@ -49,7 +49,7 @@ const BrowseEvent = ({ user }) => {
   return (
     <>
       <Header/>
-      <BrowserHeader/>
+      {/* <BrowserHeader/> */}
       <section className='browse-event-container'>
         {displayEvents()}
       </section>

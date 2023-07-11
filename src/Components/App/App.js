@@ -5,6 +5,7 @@ import BrowseEvent from '../BrowseEvent/BrowseEvent';
 import './App.css';
 import Form from '../EventCreation/Form/Form';
 import Error from '../Error/Error';
+import { EventDetails } from '../EventDetails/EventDetails';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -44,6 +45,9 @@ function App() {
         </Route> */}
         <Route exact path="/new-event">
           <Form />
+        </Route>
+        <Route path="/events/:id">
+          <EventDetails />
         </Route>
         <Route exact path="/*">
           <Error />
