@@ -46,7 +46,7 @@ function App() {
         <Route exact path="/new-event">
           <Form />
         </Route>
-        <Route path="/events/:id">
+        <Route exact path="/events/:id">
           <EventDetails />
         </Route>
         <Route exact path="/*">
