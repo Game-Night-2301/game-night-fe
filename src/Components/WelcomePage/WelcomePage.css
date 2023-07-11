@@ -11,20 +11,20 @@
   max-height: 60%;
 }
 
-h1,
-h3 {
+.welcome-page-title,
+.welcome-page-subtitle {
   color : #FEFEFE;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
 }
 
-h1 {
+.welcome-page-title {
   font-family : Avenir Next;
   font-weight: bolder;
   font-size : 90px;
   margin-bottom: 0;
 }
 
-h3 {
+.welcome-page-subtitle {
   font-weight: 400;
   margin-top: 0;
 }
