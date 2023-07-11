@@ -1,4 +1,3 @@
-import React from 'react';
 import './Profile.css'
 import Header from '../ReusableComponents/Header/Header';
 import userIcon from '../../assets/usericon.svg';

@@ -7,7 +7,7 @@ import { EventInfo } from './EventInfo/EventInfo';
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client'; 
 import { useParams } from 'react-router-dom';
-import { getEvent } from '../../queries';
+import { getEvent } from '../../queries/index';
 
 export const EventDetails = () => {
   const {id} = useParams();
@@ -16,15 +16,24 @@ export const EventDetails = () => {
     id
   }, skip: !id });
 
+  useEffect(() => {
+    console.log('Selected event:', id);
+    console.log('Retrieved event:', data);
+  }, []);
+
   if (loading) return <p>Loading...</p>; 
   if (error) return <p>Error :</p>; 
 
   return (
     <div>
       <Header />
-      <EventInfo hostId={data.hostId} id={data.id} game={data.game} date={data.date} time={data.time} attendees={data.attendees}/>
-      <Description description={data.description} />
-      <Attendees attendees={data.attendees}/>
+      {data && (
+        <>
+          <EventInfo hostId={data.event.hostId} id={data.event.id} game={data.event.game} date={data.event.date} time={data.event.time} attendees={data.event.attendees}/>
+          <Description description={data.event.description} />
+          <Attendees attendees={data.event.attendees}/>
+        </>
+      )}
     </div>
   )
 }
