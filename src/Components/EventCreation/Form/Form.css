@@ -26,9 +26,9 @@ form label {
   font-weight: bold;
 }
 
-form .game-details,
-form .location-details,
-form .event-details {
+form .gameDetails,
+form .locationDetails,
+form .eventDetails {
   display:flex;
   flex-direction: row;
   align-items: center;
