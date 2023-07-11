@@ -30,6 +30,10 @@ const Form = () => {
           <input type="text" id="state" name="state" />
           <label htmlFor="zip">Zip:</label>
           <input type="text" id="zip" name="zip" />
+          <label htmlFor="start-time">Start Time:</label>
+          <input type="time" id="start-time" name="start-time" />
+          <label htmlFor="end-time">End Time:</label>
+          <input type="time" id="end-time" name="end-time" />
         </div>
         <h2>Event Details</h2>
         <div className="event-details">

@@ -3,7 +3,7 @@ form {
 }
 
 .container {
-  width: 75%;
+  width: 100%;
   margin: auto;
   padding: 20px;
   box-sizing: border-box;
@@ -32,10 +32,6 @@ form .event-details {
   display:flex;
   flex-direction: row;
   align-items: center;
-}
-
-.event-description {
-  width: 100%;
 }
 
 form input[type="text"],
