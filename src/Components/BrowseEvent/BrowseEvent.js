@@ -5,7 +5,7 @@ import Card from '../BrowseEvent/Card/Card';
 import PropTypes from 'prop-types';
 import './BrowseEvent.css';
 
-const BrowseEvent = ({ user }) => {
+const BrowseEvent = ({ user, logoutUser }) => {
   const [events, setEvents] = useState([]);
   const [error, setError] = useState('');
 
@@ -48,7 +48,7 @@ const BrowseEvent = ({ user }) => {
 
   return (
     <>
-      <Header/>
+      <Header logoutUser={logoutUser}/>
       {/* <BrowserHeader/> */}
       <section className='browse-event-container'>
         {/* {displayEvents()} */}

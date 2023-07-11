@@ -1,27 +1,30 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Header.css';
-import PropTypes from 'prop-types';
+import logo from '../../../assets/Logo.svg';
+import usericon from '../../../assets/usericon.svg';
 
-const Header = () => {
+const Header = ({logoutUser}) => {
+  const handleLogout = () => {
+    logoutUser();
+  };
+
   return (
     <header className="header">
-      <Link to="/" className="link">
-        <h1 className="logo">Logo</h1>
-      </Link>
+      <NavLink to="/browse" className="link">
+        <img src={logo} alt="Game Night Logo" className="logo" />
+      </NavLink>
       <nav className="button-group">
-        <NavLink to="/Profile" className="nav-link">Profile</NavLink>
         <NavLink to="/Groups" className="nav-link">Groups</NavLink>
         <NavLink to="/Collection" className="nav-link">Game Collection</NavLink>
         <NavLink to="/Create" className="nav-link">Create</NavLink>
+        <NavLink to="/" className="nav-link" onClick={handleLogout}>Logout</NavLink>
       </nav>
-      <div className="profile-link"></div>
+      <NavLink to="/Profile" className="nav-link">
+        <img src={usericon} alt="User Icon" className='profile-link' />
+      </NavLink>
     </header>
   );
 };
 
 export default Header;
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}

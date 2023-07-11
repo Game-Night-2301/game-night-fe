@@ -53,12 +53,12 @@ function App() {
             {loggedIn ? (
               <Redirect to="/browse" />
             ) : (
-              <WelcomePage loginUser={loginUser} logoutUser={logoutUser} />
+              <WelcomePage loginUser={loginUser} />
             )}
           </Route>
           <Route exact path="/browse">
             {loggedIn ? (
-              <BrowseEvent selectedUser={selectedUser} />
+              <BrowseEvent selectedUser={selectedUser} logoutUser={logoutUser}/>
             ) : (
               <Redirect to="/" />
             )}

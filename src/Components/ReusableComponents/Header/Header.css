@@ -8,10 +8,7 @@
 }
 
 .logo {
-  font-family: 'Avenir Next';
-  font-size: 3rem; 
-  font-weight: 700;
-  line-height: 3.5rem;
+  height : 6.5rem;
   margin: 0;
 }
 
@@ -47,11 +44,7 @@
 }
 
 .profile-link {
-  background : #802381;
-  width : 80%;
-  height : 2.5rem;
+  height : 4.5rem;
   border-radius : 13px;
-  -moz-border-radius : 13px;
-  -webkit-border-radius : 13px; 
   justify-self: end;
 }
