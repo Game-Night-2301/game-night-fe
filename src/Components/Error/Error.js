@@ -3,7 +3,9 @@ import PropTypes from 'prop-types'
 
 const Error = ({ error }) => {
     return (
-        <p className='message'>{error}</p>
+        <div className="errorContainer">
+            <p className='message'>{error}</p>
+        </div>
     )
 }
 

@@ -67,7 +67,7 @@ function App() {
             <Form />
           </Route>
           <Route exact path="/*">
-            <Error />
+            <Error error="No board games here!"/>
           </Route>
         </Switch>
       </main>
