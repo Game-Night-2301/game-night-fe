@@ -1,21 +1,20 @@
 .event-title, .event-date, .event-time {
   color: #FEFEFE;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
 }
 
 .event-title {
-  font-size: 4em;
-  margin-bottom: 0em;
+  font-size: 3.5em;
+  margin: 0em;
 }
 
 .event-date {
-  font-size: 1.75em;
+  font-size: 1.5em;
   margin-bottom: .5em;
   font-weight: 400;
 }
 
 .event-time {
-  font-size: 1.5em;
+  font-size: 1.25em;
   margin-bottom: 1em;
   font-weight: 200;
 }

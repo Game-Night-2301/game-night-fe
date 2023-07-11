@@ -1,0 +1,64 @@
+.profile-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+}
+
+.profile-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 25px;
+  width: 50%;
+}
+
+.profile-image img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+}
+
+.user-name {
+  color: white;
+  border-bottom: 2px solid rgba(255, 160, 228, 1);
+}
+
+.profile-info {
+  text-align: center;
+  color: white;
+  margin-top: 10px;
+}
+
+.games-collection {
+  text-align: center;
+}
+
+.games-collection h2 {
+  color: white;
+  font-size: 35px;
+  border-bottom: 2px solid rgba(255, 160, 228, 1);
+  margin-bottom: 10px;
+}
+
+.games-images {
+  display: flex;
+  justify-content: center;
+}
+
+.game-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 100px;
+  border: 2px solid white;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.game-circle img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+}

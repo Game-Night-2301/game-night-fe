@@ -3,57 +3,57 @@ import Header from '../ReusableComponents/Header/Header';
 import BrowserHeader from '../ReusableComponents/BrowserHeader/BrowserHeader';
 import Card from '../BrowseEvent/Card/Card';
 import PropTypes from 'prop-types';
+import { useQuery } from '@apollo/client';
+import { getAllEvents } from '../../queries/index';
+import { cleanEvents, filterEvents, sortEvents } from '../../utils/cleaning';
 import './BrowseEvent.css';
 
 const BrowseEvent = ({ user, logoutUser }) => {
-  const [events, setEvents] = useState([]);
-  const [error, setError] = useState('');
-
-  const getEvents = useCallback(async () => {
-    try {
-      const data = await // graphql query to get events
-      // const cleanedEvents = cleanEvents(data)
-      // we'll need to reformat the data, filter out cancelled events if the query doesn't handle that, and sort them in some way
-      setEvents(data)
-    } catch (error) {
-      setError(error.message)
-    }
-  }, [])
+  const { loading, error, data } = useQuery(getAllEvents);
 
   useEffect(() => {
-    getEvents()
-  }, [getEvents])
-
+    console.log('Retrieved events:', data?.events);
+  }, [data]);
+  
   const displayEvents = () => {
-    if(!events.length) {
+    if(!data?.events?.length) {
       return <h2>No Events</h2>
     } else {
-      return events.map(event => {
+      const filteredEvents = filterEvents(data.events)
+      const cleanedEvents = cleanEvents(filteredEvents)
+      const sortedEvents = sortEvents(cleanedEvents)
+      return sortedEvents.map(event => {
         return (
           <Card
             key={event.id}
             id={event.id}
-            gameDetails={event.game_details}
-            location={event.location}
+            title={event.title}
+            city={event.city}
+            state={event.state}
+            zip={event.zip}
             date={event.date}
-            time={event.time}
             attendees={event.attendees}
-            host={event.host_id}
-            description={event.event_description}
+            host={event.hostId}
+            description={event.description}
           />
         )
       })
     }
   }
-
+  
   return (
     <>
       <Header logoutUser={logoutUser}/>
-      {/* <BrowserHeader/> */}
-      <section className='browse-event-container'>
-        {/* {displayEvents()} */}
-        <Card/>
-      </section>
+      {loading && <p>Loading...</p>}
+      {error && <p>Error: {error.message}</p>}
+      {data && 
+        <>
+          <BrowserHeader/>
+          <section className='browse-event-container'>
+            {displayEvents()}
+          </section>
+        </>
+      }
     </>
   )
 }
