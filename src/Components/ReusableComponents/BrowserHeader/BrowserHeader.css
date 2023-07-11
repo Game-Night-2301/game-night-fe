@@ -1,0 +1,12 @@
+.browser-header-title {
+  font-family: 'Avenir Next';
+  font-size : 2rem;
+  font-weight: 250;
+  color : #FFFFFF;
+  color : rgb(255, 255, 255);
+  opacity : 0.9;
+  margin: 3rem 0 0rem 0;
+  padding-left: 0.2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1px solid rgba(255, 160, 228, 1);
+}
