@@ -7,7 +7,7 @@ import Form from '../EventCreation/Form/Form';
 import Error from '../Error/Error';
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const [selectedUser, setSelectedUser] = useState(null);
   const [user, setUser] = useState('');
 

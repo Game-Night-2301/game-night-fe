@@ -51,7 +51,8 @@ const BrowseEvent = ({ user }) => {
       <Header/>
       <BrowserHeader/>
       <section className='browse-event-container'>
-        {displayEvents()}
+        {/* {displayEvents()} */}
+        <Card/>
       </section>
     </>
   )
