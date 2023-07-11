@@ -12,11 +12,12 @@ export const Attendees = ( { attendees, id, game} ) => {
 
   return (
     <div className="attendees-wrapper">
-      <h4 className="attendee-text">People</h4>
+      <h4 className="attendee-header">People</h4>
       <hr className="attendee-line" />
-        <div>
-          {renderAttendees}
-        </div>
+      <div className="attendees-holder">
+        {renderAttendees}
+      </div>
     </div>
+    
   )
 }

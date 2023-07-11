@@ -1,5 +1,5 @@
-.attendee-text {
-  font-size: 2em;
+.attendee-header {
+  font-size: 1.75em;
   font-weight: 300;
   color: #FEFEFE;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
@@ -7,7 +7,7 @@
 }
 
 .attendee-line {
-  background-color: #FFA0E4;
+  border-color: #FFA0E4;
 }
 
 .attendee-img {
@@ -17,3 +17,4 @@
 .attendees-wrapper {
   width: 50%;
 }
+
