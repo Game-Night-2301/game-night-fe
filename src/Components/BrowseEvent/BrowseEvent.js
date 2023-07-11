@@ -8,7 +8,7 @@ import { getAllEvents } from '../../queries/index';
 import { cleanEvents, filterEvents, sortEvents } from '../../utils/cleaning';
 import './BrowseEvent.css';
 
-const BrowseEvent = ({ user }) => {
+const BrowseEvent = ({ user, logoutUser }) => {
   const { loading, error, data } = useQuery(getAllEvents);
 
   useEffect(() => {
@@ -43,7 +43,7 @@ const BrowseEvent = ({ user }) => {
   
   return (
     <>
-      <Header/>
+      <Header logoutUser={logoutUser}/>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
       {data && 
