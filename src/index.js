@@ -7,7 +7,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 
 const link = createHttpLink({
-  uri: 'https://3a37418b-8832-4f02-baa4-d1b850a92d70.mock.pstmn.io/graphql',
+  uri: 'https://game-night-backend-172o.onrender.com/graphql',
 });
 
 const client = new ApolloClient({
