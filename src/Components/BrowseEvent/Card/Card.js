@@ -5,21 +5,29 @@ import { NavLink } from 'react-router-dom';
 import './Card.css';
 
 const Card = ({ user, id, gameDetails, location, date, time, attendees, host, description }) => {
-  // const isAttending = attendees.includes(user.id)
-  // const isHost = host === user.id
-  // const isFull = attendees.length === gameDetails.max_players
+  const renderPills = () => {
+    // const isHost = host === user.id;
+    // const isAttending = attendees.includes(user.id);
+    // const isFull = attendees.length === gameDetails.max_players;
+    // const capacity = `${gameDetails.min_players}-${gameDetails.max_players}`;
+    // const gameLength = gameDetails.game_length;
 
-  // const renderPills = () => {
-  //   if (isHost) {
-  //     <Pills content='Host' />
-  //   }
-  //   if (isAttending) {
-  //     <Pills content='Attending' />
-  //   } 
-  //   if (isFull) {
-  //     <Pills content='Full' />
-  //   }
-  // }
+    // const tags = [
+    //   { label: 'mins', value: gameLength },
+    //   { label: 'min/max', value: capacity },
+    //   { label: 'players', value: attendees.length },
+    //   isHost && { value: 'host' },
+    //   isAttending && { value: 'attending' },
+    //   isFull && { value: 'full' },
+    // ].filter(Boolean); // To remove falsey values from the tags array
+
+    return   <Pills tags={[
+      { label: 'mins', value: '120' },
+      { label: 'min/max', value: '5-10' },
+      { label: 'players', value: '7/10' },
+      { value: 'host' },
+    ]} />
+  };
 
   return (
     <div className='card'>
@@ -28,7 +36,7 @@ const Card = ({ user, id, gameDetails, location, date, time, attendees, host, de
         <h4 className='event-card-subtitle'>(Denver, CO)</h4>
         <h4 className='event-card-subtitle event-date'>Friday, 17th July 23 @ 7:00PM</h4>
         <div className='event-pill-holder'>
-          {/* {renderPills()} */}
+          {renderPills()}
         </div>
       </div>
       <div className='card-body'>

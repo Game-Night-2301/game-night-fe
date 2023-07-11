@@ -10,7 +10,8 @@
 }
 
 .card-header {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.2fr 0.7fr 2fr 5fr;
   justify-content: flex-start;
   align-items: center;
   background: #8E87FA;
@@ -28,17 +29,22 @@
 }
 
 .event-card-subtitle {
-  margin-left: 1.5rem;
   font-size: 1.2rem;
   font-weight: 400;
 }
 
 .event-date {
   font-style: italic;
+  margin-right: 25%;
 }
 
 .card-body {
   align-self: center;
   height: auto;
   padding: 0.8rem 3rem 0 3rem;
+}
+
+.event-pill-holder {
+  display: flex;
+  justify-content: center;
 }
