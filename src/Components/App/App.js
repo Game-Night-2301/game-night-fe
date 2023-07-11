@@ -17,7 +17,7 @@ import {
   // cancelEvent
 } from '../../queries/index';
 function App() {
-  const [loggedIn, setLoggedIn] = useState(true);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
 
   const { loading, error, data } = useQuery(getUser, { variables: { id: selectedUser }, skip: !selectedUser });
