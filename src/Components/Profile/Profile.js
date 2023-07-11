@@ -10,27 +10,27 @@ const ProfilePage = () => {
   return (
     <>
     <Header />
-      <div className="profilePage">
-        <div className="profileDetails">
-          <div className="profileImage">
+      <div className="profile-page">
+        <div className="profile-details">
+          <div className="profile-image">
             <img src={userIcon} alt="Profile-Img" />
           </div>
-          <div className="profileInfo">
-            <h2 className="userName">John Doe</h2>
+          <div className="profile-info">
+            <h2 className="user-name">John Doe</h2>
             <p>Games Hosted: 5</p>
             <p>Location: City, State</p>
           </div>
         </div>
-        <div className="gamesCollection">
+        <div className="games-collection">
           <h2>Game Collection</h2>
-          <div className="gamesImages">
-            <div className="gameCircle">
+          <div className="games-images">
+            <div className="game-circle">
               <img src={diceicon} alt="Game 1" />
             </div>
-            <div className="gameCircle">
+            <div className="game-circle">
               <img src={diceicon} alt="Game 2" />
             </div>
-            <div className="gameCircle">
+            <div className="game-circle">
               <img src={diceicon} alt="Game 3" />
             </div>
           </div>

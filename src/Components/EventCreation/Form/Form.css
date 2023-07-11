@@ -26,12 +26,16 @@ form label {
   font-weight: bold;
 }
 
-form .gameDetails,
-form .locationDetails,
-form .eventDetails {
+form .game-details,
+form .location-details,
+form .event-details {
   display:flex;
   flex-direction: row;
   align-items: center;
+}
+
+.event-description {
+  width: 100%;
 }
 
 form input[type="text"],
