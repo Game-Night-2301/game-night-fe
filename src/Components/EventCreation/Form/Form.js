@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import { createEvent } from '../../queries/index'
 import './Form.css';
 
-const Form = (logoutUser) => {
+const Form = ({logoutUser}) => {
   const [game, setGame] = useState('');
   const [category, setCategory] = useState('');
   const [address, setAddress] = useState('');
