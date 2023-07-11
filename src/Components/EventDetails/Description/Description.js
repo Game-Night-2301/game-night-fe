@@ -4,9 +4,10 @@ import './Description.css';
 
 export const Description = ( { description } ) => {
   return (
-    <div>
-      <h4>Description</h4>
-      <p>{description}</p>
+    <div className="description-wrapper">
+      <h4 className="description-header">Description</h4>
+      < hr className="description-line" />
+      <p className="description-text">{description}</p>
     </div>
   )
 }
