@@ -3,20 +3,19 @@ import PropTypes from 'prop-types';
 import userIcon from '../../../assets/usericon.svg';
 import './Attendees.css';
 
-export const Attendees = ( { user, attendees, id, gameDetails} ) => {
-  const renderAttendees = () => {
-    for (let i = 0; i < attendees.length; i++) {
+export const Attendees = ( { attendees, id, game} ) => {
+  const renderAttendees = attendees.map( attendee => {
       return (
-          <img src={userIcon} alt={user.id} className="dice" />
+        <img src={userIcon} alt={attendee.id} className="attendee-img" />
       )
-    }
-  }
+    });
 
   return (
-    <div>
-      <h4>People</h4>
+    <div className="attendees-wrapper">
+      <h4 className="attendee-text">People</h4>
+      <hr className="attendee-line" />
         <div>
-          {renderAttendees()}
+          {renderAttendees}
         </div>
     </div>
   )
