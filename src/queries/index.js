@@ -20,9 +20,9 @@ query getUser($id: ID!) {
           title
           cancelled
           description
-          host_id
+          hostId
           game
-          game_type
+          gameType
           lat
           lon
         }
@@ -36,9 +36,9 @@ query getUser($id: ID!) {
           title
           cancelled
           description
-          host_id
+          hostId
           game
-          game_type
+          gameType
           lat
           lon
         }  	
