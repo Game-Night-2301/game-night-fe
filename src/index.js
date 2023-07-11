@@ -4,10 +4,10 @@ import './index.css';
 import App from './Components/App/App.js';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom'
-import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, gql } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 
 const link = createHttpLink({
-  uri: 'http://localhost:3000/graphql',
+  uri: 'https://3a37418b-8832-4f02-baa4-d1b850a92d70.mock.pstmn.io/graphql',
 });
 
 const client = new ApolloClient({

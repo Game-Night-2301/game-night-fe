@@ -1,15 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useQuery } from '@apollo/client'; 
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import BrowseEvent from '../BrowseEvent/BrowseEvent';
 import './App.css';
 import Form from '../EventCreation/Form/Form';
 import Error from '../Error/Error';
-
+import {
+  getUser,
+  // getAllUsers, 
+  // getEvent,
+  // getAllEvents,
+  // createEvent,
+  // addUserToEvent,
+  // removeUserFromEvent,
+  // cancelEvent
+} from '../../queries/index';
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
-  const [user, setUser] = useState('');
+
+  const { loading, error, data } = useQuery(getUser, { variables: { id: selectedUser }, skip: !selectedUser });
+
+  useEffect(() => {
+    console.log('Selected user:', selectedUser);
+    if (!loading && !error && data) {
+      console.log('Retrieved user:', data.user);
+    }
+  }, [loading, error, data, selectedUser]);
 
   const loginUser = (userId) => {
     setSelectedUser(userId);
@@ -20,6 +38,9 @@ function App() {
     setSelectedUser(null);
     setLoggedIn(false);
   };
+
+  if (loading) return <p>Loading...</p>; 
+  if (error) return <p>Error :</p>; 
 
   return (
     <Router>
@@ -39,15 +60,15 @@ function App() {
               <Redirect to="/" />
             )}
           </Route>
-     {/* <Route exact path="/profile">
-          <User />
-        </Route> */}
-        <Route exact path="/new-event">
-          <Form />
-        </Route>
-        <Route exact path="/*">
-          <Error />
-        </Route>
+          {/* <Route exact path="/profile">
+            <User />
+          </Route> */}
+          <Route exact path="/new-event">
+            <Form />
+          </Route>
+          <Route exact path="/*">
+            <Error />
+          </Route>
         </Switch>
       </main>
     </Router>
