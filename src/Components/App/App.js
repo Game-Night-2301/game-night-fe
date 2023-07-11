@@ -6,6 +6,7 @@ import BrowseEvent from '../BrowseEvent/BrowseEvent';
 import './App.css';
 import Form from '../EventCreation/Form/Form';
 import Error from '../Error/Error';
+import { EventDetails } from '../EventDetails/EventDetails';
 import {
   getUser,
   // getAllUsers, 
@@ -16,6 +17,8 @@ import {
   // removeUserFromEvent,
   // cancelEvent
 } from '../../queries/index';
+
+
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
@@ -60,15 +63,18 @@ function App() {
               <Redirect to="/" />
             )}
           </Route>
-          {/* <Route exact path="/profile">
-            <User />
-          </Route> */}
-          <Route exact path="/new-event">
-            <Form />
-          </Route>
-          <Route exact path="/*">
-            <Error />
-          </Route>
+     {/* <Route exact path="/profile">
+          <User />
+        </Route> */}
+        <Route exact path="/new-event">
+          <Form />
+        </Route>
+        <Route exact path="/events/:id">
+          <EventDetails />
+        </Route>
+        <Route exact path="/*">
+          <Error />
+        </Route>
         </Switch>
       </main>
     </Router>
