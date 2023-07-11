@@ -1,14 +1,18 @@
 .header {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: 1fr 3fr 1fr;
+  padding: 3rem 0;
   align-items: center;
-  height: 150px;
   width: 100%;
-  border-bottom: 2px solid black;
+  margin-bottom: 1rem;
 }
 
 .logo {
-  margin-left: 25px; 
+  font-family: 'Avenir Next';
+  font-size: 3rem; 
+  font-weight: 700;
+  line-height: 3.5rem;
+  margin: 0;
 }
 
 .link {
@@ -24,16 +28,30 @@
 .button-group {
   display: flex;
   justify-self: center; 
-  gap: 20px; 
+  width: 100%;
 }
 
-.button-group .nav-link {
+.nav-link {
   text-decoration: none; 
-  color: lightblue;
-  font-size: 25px; 
+  color: #E6E6E6;
+  font-weight: 500;
+  font-size: 1.5rem; 
+  line-height: 3.5rem;
+  width: 25%;
+  text-align: center;
 }
 
 .button-group .nav-link:hover {
-  text-decoration: underline; 
-  color: lightblue;
+  scale: 1.1;
+  color: rgba(255, 160, 228, 1);
+}
+
+.profile-link {
+  background : #802381;
+  width : 80%;
+  height : 2.5rem;
+  border-radius : 13px;
+  -moz-border-radius : 13px;
+  -webkit-border-radius : 13px; 
+  justify-self: end;
 }

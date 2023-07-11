@@ -15,7 +15,7 @@ const Header = () => {
         <NavLink to="/Collection" className="nav-link">Game Collection</NavLink>
         <NavLink to="/Create" className="nav-link">Create</NavLink>
       </nav>
-      <div></div>
+      <div className="profile-link"></div>
     </header>
   );
 };
