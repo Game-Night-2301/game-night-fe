@@ -1,0 +1,76 @@
+{
+  "data": {
+      "user": {
+          "sortedEvents": [
+              {
+                  "id": "1",
+                  "date": "2023-01-01T00:00:00Z",
+                  "address": "304 W 34th St",
+                  "city": "new york",
+                  "state": "new york",
+                  "zip": 10001,
+                  "title": "1 title",
+                  "cancelled": false,
+                  "description": "1 description",
+                  "host": {
+                      "id": "1",
+                      "username": "user 1"
+                  },
+                  "game": 1,
+                  "gameType": "board game",
+                  "attendees": [
+                      {
+                          "id": "1",
+                          "username": "user 1"
+                      },
+                      {
+                          "id": "2",
+                          "username": "user 2"
+                      },
+                      {
+                          "id": "3",
+                          "username": "user 3"
+                      }
+                  ],
+                  "playerCount": 3
+              },
+              {
+                  "id": "2",
+                  "date": "2023-02-02T00:00:00Z",
+                  "address": "100 E Camelback Rd",
+                  "city": "phoenix",
+                  "state": "arizona",
+                  "zip": 85012,
+                  "title": "2 title",
+                  "cancelled": false,
+                  "description": "2 description",
+                  "host": {
+                      "id": "2",
+                      "username": "user 2"
+                  },
+                  "game": 2,
+                  "gameType": "board game",
+                  "attendees": [
+                      {
+                          "id": "1",
+                          "username": "user 1"
+                      },
+                      {
+                          "id": "2",
+                          "username": "user 2"
+                      },
+                      {
+                          "id": "4",
+                          "username": "user 4"
+                      },
+                      {
+                          "id": "5",
+                          "username": "user 5"
+                      }
+                  ],
+                  "playerCount": 4
+              }
+          ]
+      }
+  }
+}
