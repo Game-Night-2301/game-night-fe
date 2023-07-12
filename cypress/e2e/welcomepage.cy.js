@@ -2,7 +2,7 @@ describe('WelcomePage', () => {
   beforeEach(() => {
     cy.intercept('POST', '/graphql', (req) => {
       if (req.body.operationName === 'WelcomePageQuery') {
-        req.reply({ data: { myData: 'Stubbed data for query 1' } });
+        req.reply({ fixture: 'getUserById.json' });
       }
     });
     cy.visit('https://game-night-fe.vercel.app/'); 

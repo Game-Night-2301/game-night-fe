@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import './Header.css';
-import logo from '../../../assets/Logo.svg';
+import logo from '../../../assets/Dice.svg';
 import usericon from '../../../assets/usericon.svg';
 import { Menu, MenuItem, IconButton } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
@@ -35,9 +35,9 @@ const Header = ({ logoutUser }) => {
         <img src={logo} alt="Game Night Logo" className="logo" />
       </NavLink>
       <nav className="button-group">
-        <NavLink to="/create" className="header-nav-link">
-          Create
-        </NavLink>
+        <NavLink to="/create" className="header-nav-link">Create Event</NavLink>
+        <NavLink to="/" className="header-nav-link" onClick={handleLogout}>Logout</NavLink>
+
       </nav>
       <div>
         <IconButton onClick={handleOpenMenu} color="inherit">
