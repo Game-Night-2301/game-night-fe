@@ -1,12 +1,32 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
+import { NavLink, useHistory } from 'react-router-dom';
 import './Header.css';
 import logo from '../../../assets/Logo.svg';
 import usericon from '../../../assets/usericon.svg';
+import { Menu, MenuItem, IconButton } from '@mui/material';
+import { AccountCircle } from '@mui/icons-material';
 
-const Header = ({logoutUser}) => {
+const Header = ({ logoutUser }) => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const history = useHistory();
+
+  const handleOpenMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleCloseMenu = () => {
+    setAnchorEl(null);
+  };
+
+  const handleProfile = () => {
+    history.push('/profile');
+    handleCloseMenu();
+  };
+
   const handleLogout = () => {
-    logoutUser();
+    logoutUser(); 
+    history.push('/');
+    handleCloseMenu();
   };
 
   return (
@@ -15,14 +35,23 @@ const Header = ({logoutUser}) => {
         <img src={logo} alt="Game Night Logo" className="logo" />
       </NavLink>
       <nav className="button-group">
-        <NavLink to="/Groups" className="header-nav-link">Groups</NavLink>
-        <NavLink to="/Collection" className="header-nav-link">Game Collection</NavLink>
-        <NavLink to="/Create" className="header-nav-link">Create</NavLink>
-        <NavLink to="/" className="header-nav-link" onClick={handleLogout}>Logout</NavLink>
+        <NavLink to="/create" className="header-nav-link">
+          Create
+        </NavLink>
       </nav>
-      <NavLink to="/Profile" className="header-nav-link">
-        <img src={usericon} alt="User Icon" className='profile-link' />
-      </NavLink>
+      <div>
+        <IconButton onClick={handleOpenMenu} color="inherit">
+          <img src={usericon} alt="User Icon" className="profile-link" />
+        </IconButton>
+        <Menu
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={handleCloseMenu}
+        >
+          <MenuItem onClick={handleProfile}>Profile</MenuItem>
+          <MenuItem onClick={handleLogout}>Logout</MenuItem>
+        </Menu>
+      </div>
     </header>
   );
 };
