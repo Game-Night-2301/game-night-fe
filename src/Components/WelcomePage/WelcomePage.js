@@ -23,8 +23,9 @@ function WelcomePage({ loginUser, logoutUser, loggedIn }) {
       <div className="welcome-button-container">
         {!loggedIn ? (
           <>
-            <Button className="welcome-button" text="User 1" onClick={() => handleLogin(1)} />
-            <Button className="welcome-button" text="User 2" onClick={() => handleLogin(2)} />
+      <Button className="welcome-button" text="User 1" onClick={() => handleLogin(1)} />
+      <div className="welcome-spacer"></div>
+      <Button className="welcome-button" text="User 2" onClick={() => handleLogin(2)} />
           </>
         ) : (
           <Button text="Log Out" onClick={handleLogout} />
