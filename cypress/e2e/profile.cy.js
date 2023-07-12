@@ -5,7 +5,7 @@ describe('ProfilePage', () => {
         req.reply({ fixture: 'allUsers.json' });
       }
     });
-    cy.visit('https://game-night-fe.vercel.app/');
+    cy.visit('https://game-night-fe.vercel.app/profile');
     
     
   })
