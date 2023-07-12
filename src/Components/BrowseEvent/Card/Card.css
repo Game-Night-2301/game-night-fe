@@ -1,27 +1,38 @@
+.card-link-wrapper {
+  text-decoration: none;
+}
+
 .card {
     width: 100%;
-    height: 11em;
+    height: 9em;
     border-radius : 15px;
     -moz-border-radius : 15px;
     -webkit-border-radius : 15px;
     background: rgb(255, 255, 255, 0.85);
+    box-shadow: 0 0 10px rgba(234, 232, 232, 0.2);
     overflow: hidden;
     margin: 3rem 0;
 }
 
 .card-header {
-  display: grid;
-  grid-template-columns: 1.2fr 0.7fr 2fr 5fr;
+  display: flex;
   justify-content: flex-start;
   align-items: center;
   background: #8E87FA;
   height: 30%;
-  padding: 0.3rem 3rem;
+  padding: 0.3rem 0.5rem 0.3rem 3rem;
+}
+
+.card-header-left {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .event-card-title, .event-card-subtitle {
-  font-size: 1.4rem;
-  line-height: 1.6rem;
+  font-size: 1.1rem;
+  line-height: 1.2rem;
   font-weight: 800;
   color: black;
   text-shadow: none;
@@ -29,22 +40,32 @@
 }
 
 .event-card-subtitle {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 400;
+  margin-left: 1.5rem;
 }
 
-.event-date {
+.event-card-date {
   font-style: italic;
-  margin-right: 25%;
+  margin-right: 1rem;
+  font-size: 1rem;
 }
 
 .card-body {
   align-self: center;
   height: auto;
   padding: 0.8rem 3rem 0 3rem;
+  background: none;
+}
+
+.event-card-description {
+  color: rgb(51, 50, 50);
+  font-size: 0.9rem;
+  font-weight: 200;
 }
 
 .event-pill-holder {
   display: flex;
-  justify-content: center;
+  width: 60%;
+  justify-content: flex-end;
 }

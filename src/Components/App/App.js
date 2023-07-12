@@ -21,7 +21,7 @@ import {
 
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(true);
   const [selectedUser, setSelectedUser] = useState(null);
 
   const { loading, error, data } = useQuery(getUser, { variables: { id: selectedUser }, skip: !selectedUser });
