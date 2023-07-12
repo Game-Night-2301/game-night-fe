@@ -1,0 +1,49 @@
+{
+  "data": {
+    "event": {
+      "id": "1",
+      "date": "2023-01-01T00:00:00Z",
+      "address": "1 One street",
+      "state": "1 state",
+      "city": "1 city",
+      "zip": 11111,
+      "title": "1 title",
+      "cancelled": false,
+      "description": "1 description",
+      "hostId": 1,
+      "game": 1,
+      "gameType": "board game",
+      "playerCount": 3,
+      "gameDetails": {
+        "id": "1",
+        "name": "Scythe",
+        "minPlayers": 1,
+        "maxPlayers": 5,
+        "minPlaytime": 90,
+        "maxPlaytime": 120,
+        "description": "<p><em>Scythe</em> gives players almost complete control over their fate. Other than each player's individual hidden objective card, the only elements of luck or variability are &quot;Encounter&quot; cards that players will draw as they interact with the citizens of newly explored lands. Each encounter card provides the player with several options, allowing them to mitigate the luck of the draw through their selection. Combat is also driven by choices, not luck or randomness.<br /><br /><em>Scythe</em> uses a streamlined action-selection mechanism (no rounds or phases) to keep gameplay moving at a brisk pace and reduce downtime between turns. While there is plenty of direct conflict for players who seek it, there is no player elimination.<br /><br />Every part of <em>Scythe</em> has an aspect of engine-building to it. Players can upgrade actions to become more efficient, build structures that improve their position on the map, enlist new recruits to enhance character abilities, activate mechs to deter opponents from invading, and expand their borders to reap greater types and quantities of resources. These engine-building aspects create a sense of momentum and progress throughout the game. The order in which players improve their engine adds to the unique feel of each game, even when playing one faction multiple times.</p>",
+        "imageUrl": "https://cdn.shopify.com/s/files/1/0513/4077/1515/products/scythe-board-game.jpg?v=1611090922",
+        "averageUserRating": 4.210037711313391,
+        "averageStrategyComplexity": 3.235294117647059
+      },
+      "host": {
+        "id": "1",
+        "username": "user 1"
+      },
+      "attendees": [
+        {
+          "id": "1",
+          "username": "user 1"
+        },
+        {
+          "id": "2",
+          "username": "user 2"
+        },
+        {
+          "id": "3",
+          "username": "user 3"
+        }
+      ]
+    }
+  }
+}
