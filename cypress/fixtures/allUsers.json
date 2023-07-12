@@ -1,0 +1,340 @@
+{
+  "data": {
+    "users": [
+      {
+        "id": "1",
+        "username": "user 1",
+        "password": "password",
+        "city": "city 1",
+        "state": "state 1",
+        "lat": 1.1111111,
+        "lon": 1.11111111,
+        "ownedGames": [
+          {
+            "id": "35",
+            "name": "Welcome to...",
+            "minPlayers": 1,
+            "maxPlayers": 100,
+            "minPlaytime": 25,
+            "maxPlaytime": 30,
+            "description": "<p>A roll and write without dice! Players will become architects in the American 50's as they use combinations of cards and actions to construct American dream real estate.<br /><br />As an architect in Welcome to, you want to build the best new town in the United States during the 1950s. Players are developing estates, parks, pools, hiring employees, and more. Welcome to plays like a roll-and-write dice game in which you mark results on a scoresheet... but without dice.</p>",
+            "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1538760962647",
+            "averageUserRating": 3.806702060669231,
+            "averageStrategyComplexity": 2.666666666666667
+          },
+          {
+            "id": "36",
+            "name": "Clank! A Deck-Building Adventure",
+            "minPlayers": 2,
+            "maxPlayers": 4,
+            "minPlaytime": 30,
+            "maxPlaytime": 60,
+            "description": "<p>Burgle your way to adventure in Clank!, the new deck-building board game.<br /><br />Sneak into an angry dragon's mountain lair to steal precious artifacts. Delve deeper to find more valuable loot. Acquire cards for your deck and watch your thievish abilities grow.<br /><br />Be quick and be quiet. One false-step and --CLANK! Each careless sound draws the attention of the dragon, and each artifact stolen increases its rage. You can only enjoy your plunder if you make it out of the depths alive!</p>",
+            "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559254970101-61gHdS3ds2L.jpg",
+            "averageUserRating": 3.798759555769579,
+            "averageStrategyComplexity": 2
+          },
+          {
+            "id": "37",
+            "name": "Forbidden Island",
+            "minPlayers": 2,
+            "maxPlayers": 4,
+            "minPlaytime": 30,
+            "maxPlaytime": 45,
+            "description": "<p>Dare to discover <strong>Forbidden Island</strong>! Join a team of fearless adventurers on a do-or-die mission to capture four sacred treasures from the ruins of this perilous paradise. Your team will have to work together and make some pulse-pounding maneuvers, as the island will sink beneath every step! Race to collect the treasures and make a triumphant escape before you are swallowed into the watery abyss!</p>\r\n<p>Nominated for the 2011 Spiel des Jahres (Game of the Year) Award.</p>",
+            "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629323006480.jpg",
+            "averageUserRating": 3.452614864864865,
+            "averageStrategyComplexity": 2
+          },
+          {
+            "id": "38",
+            "name": "Orléans",
+            "minPlayers": 2,
+            "maxPlayers": 4,
+            "minPlaytime": 90,
+            "maxPlaytime": 90,
+            "description": "<div>\r\n\r\n<div>\r\n<p>During the medieval goings-on around Orléans, you must assemble a following of farmers, merchants, knights, monks, etc. to gain supremacy through trade, construction and science in medieval France.</p>\r\n<p>In the city of Orléans and the area of the Loire, you can take trade trips to other cities to acquire coveted goods and build trading posts. You need followers and their abilities to expand your dominance by putting them to work as traders, builders, and scientists. Knights expand your scope of action and secure your mercantile expeditions. Craftsmen build trading stations and tools to facilitate work. Scholars make progress in science, and last but not least it cannot hurt to get active in monasteries since with monks on your side you are much less likely to fall prey to fate.</p>\r\n<p>In <em><strong>Orléans</strong></em>, you will always want to take more actions than possible, and there are many paths to victory. The challenge is to combine all elements as best as possible with regard to your strategy.</p>\r\n</div>\r\n\r\n</div>",
+            "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629325156820.jpg",
+            "averageUserRating": 4.029227073271145,
+            "averageStrategyComplexity": 3
+          },
+          {
+            "id": "39",
+            "name": "Five Tribes",
+            "minPlayers": 2,
+            "maxPlayers": 4,
+            "minPlaytime": 60,
+            "maxPlaytime": 90,
+            "description": "<p>Crossing into the Land of 1001 Nights, your caravan arrives at the fabled Sultanate of Naqala.<br /><br />The old sultan just died and control of Naqala is up for grabs!<br /><br />The oracles foretold of strangers who would maneuver the Five Tribes to gain influence over the legendary city-state.<br /><br />Will you fulfill the prophecy? Invoke the old Djinns, move the Tribes into position at the right time and the Sultanate may become yours!</p>",
+            "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559254126853-611YVb5GCwL.jpg",
+            "averageUserRating": 3.820830344382423,
+            "averageStrategyComplexity": 3.5
+          }
+        ],
+        "attendingEvents": [
+          {
+            "id": "1",
+            "date": "2023-01-01T00:00:00Z",
+            "address": "1 One street",
+            "city": "1 city",
+            "state": "1 state",
+            "zip": 11111,
+            "title": "1 title",
+            "cancelled": false,
+            "description": "1 description",
+            "hostId": 1,
+            "game": 1,
+            "gameType": "board game",
+            "lat": 1.1111111,
+            "lon": 1.1111111
+          },
+          {
+            "id": "2",
+            "date": "2023-02-02T00:00:00Z",
+            "address": "2 One street",
+            "city": "2 city",
+            "state": "2 state",
+            "zip": 22222,
+            "title": "2 title",
+            "cancelled": false,
+            "description": "2 description",
+            "hostId": 2,
+            "game": 2,
+            "gameType": "board game",
+            "lat": 2.1111111,
+            "lon": 2.1111111
+          }
+        ],
+        "hostedEvents": [
+          {
+            "id": "1",
+            "date": "2023-01-01T00:00:00Z",
+            "address": "1 One street",
+            "city": "1 city",
+            "state": "1 state",
+            "zip": 11111,
+            "title": "1 title",
+            "cancelled": false,
+            "description": "1 description",
+            "hostId": 1,
+            "game": 1,
+            "gameType": "board game",
+            "lat": 1.1111111,
+            "lon": 1.1111111
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "username": "user 2",
+        "password": "password",
+        "city": "city 2",
+        "state": "state 2",
+        "lat": 2.1111111,
+        "lon": 2.11111111,
+        "ownedGames": [
+          {
+            "id": "40",
+            "name": "Puerto Rico",
+            "minPlayers": 2,
+            "maxPlayers": 5,
+            "minPlaytime": 90,
+            "maxPlaytime": 150,
+            "description": "<p>Prospector, captain, mayor, trader, settler, craftsman, or builder? Which roles will you play in the new world? Will you own the most prosperous plantations? Will you build the most valuable buildings? You have but one goal: achieve the greatest prosperity and highest respect! This is shown by the player who earns the most victory points. He will win the game!</p>\r\n<div>\r\n<div>\r\n<p>In Puerto Rico, players assume the roles of colonial governors on the island of Puerto Rico. The aim of the game is to amass victory points by shipping goods to Europe or by constructing buildings.</p>\r\n<p>Each player uses a separate small board with spaces for city buildings, plantations, and resources. Shared between the players are three ships, a trading house, and a supply of resources and doubloons.</p>\r\n<p>The resource cycle of the game is that players grow crops which they exchange for points or doubloons. Doubloons can then be used to buy buildings, which allow players to produce more crops or give them other abilities. Buildings and plantations do not work unless they are manned by colonists.</p>\r\n<p>During each round, players take turns selecting a role card from those on the table (such as &quot;Trader&quot; or &quot;Builder&quot;). When a role is chosen, every player gets to take the action appropriate to that role. The player that selected the role also receives a small privilege for doing so - for example, choosing the &quot;Builder&quot; role allows all players to construct a building, but the player who chose the role may do so at a discount on that turn. Unused roles gain a doubloon bonus at the end of each turn, so the next player who chooses that role gets to keep any doubloon bonus associated with it. This encourages players to make use of all the roles throughout a typical course of a game.</p>\r\n<p>Puerto Rico uses a variable phase order mechanism in which a &quot;governor&quot; token is passed clockwise to the next player at the conclusion of a turn. The player with the token begins the round by choosing a role and taking the first action.</p>\r\n<p>Players earn victory points for owning buildings, for shipping goods, and for manned &quot;large buildings.&quot; Each player's accumulated shipping chips are kept face down and come in denominations of one or five. This prevents other players from being able to determine the exact score of another player. Goods and doubloons are placed in clear view of other players and the totals of each can always be requested by a player. As the game enters its later stages, the unknown quantity of shipping tokens and its denominations require players to consider their options before choosing a role that can end the game.</p>\r\n<p>In 2011 and mostly afterwards, Puerto Rico was published to include both Puerto Rico: Expansion I – New Buildings and Puerto Rico: Expansion II – The Nobles. These versions are included in the other game entry Puerto Rico (with two expansions), not this regular game entry for Puerto Rico. Some editions of Puerto Rico list the player count as 2-5 instead of 3-5, and they include variant rules for games with only two players.</p>\r\n</div>\r\n</div>\r\n<div>\r\n<div>\r\n<div>0 Links</div>\r\n</div>\r\n</div>",
+            "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559255812091-51jb0LuMmEL.jpg",
+            "averageUserRating": 3.7574769938650316,
+            "averageStrategyComplexity": 4
+          },
+          {
+            "id": "41",
+            "name": "Clans of Caledonia",
+            "minPlayers": 1,
+            "maxPlayers": 4,
+            "minPlaytime": 30,
+            "maxPlaytime": 120,
+            "description": "<p>Clans of Caledonia is a mid-to-heavy economic game set in 19th-century Scotland. At this time, Scotland made the transition from an agricultural to an industrialized country that heavily relied on trade and export. In the following years, food production increased significantly to feed the population growth. Linen was increasingly substituted by the cheaper cotton and raising sheep was given high importance. More and more distilleries were founded and whisky became the premium alcoholic beverage in Europe. Players represent historic clans with unique abilities and compete to produce, trade and export agricultural goods and of course whisky! The game comes with nine different clans, a modular board with 16 configurations, nine port bonuses and nine round scoring tiles.</p>",
+            "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1604080716475",
+            "averageUserRating": 4.030645980670621,
+            "averageStrategyComplexity": 3.3333333333333335
+          },
+          {
+            "id": "13",
+            "name": "Carcassonne",
+            "minPlayers": 2,
+            "maxPlayers": 5,
+            "minPlaytime": 30,
+            "maxPlaytime": 45,
+            "description": "<p>Each game of <em>Carcassonne</em> reveals a unique environment as tiles form a landscape of cities, roads, fields, and monasteries. Claim these features with your followers to win the game.</p>\r\n<p><em>Carcassonne</em> is a tile placement game where players collectively construct the area around the medieval French city of Carcassonne while competing to place followers on various features and score the most points.</p>\r\n<p>First published in 2000, the game's accessible yet deep design has attracted a wide fan base and led to the development of numerous expansions (eg Rivers) and standalone titles in the <em>Carcassonne</em> line.</p>",
+            "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1634417910623",
+            "averageUserRating": 3.7376520270270266,
+            "averageStrategyComplexity": 3.0000000000000004
+          },
+          {
+            "id": "14",
+            "name": "Codenames",
+            "minPlayers": 2,
+            "maxPlayers": 8,
+            "minPlaytime": 15,
+            "maxPlaytime": 15,
+            "description": "<p>The two rival spymasters know the secret identities of 25 agents. Their teammates know the agents only by their CODENAMES.<br /><br />The teams compete to see who can make contact with all of their agents first. Spymasters give one-word clues that can point to multiple words on the board. Their teammates try to guess words of the right color while avoiding those that belong to the opposing team. And everyone wants to avoid the assassin.<br /><br />Codenames: win or lose, it's fun to figure out the clues.</p>",
+            "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/userfiles/1679240870315-codenames_masked.png",
+            "averageUserRating": 3.662203211902115,
+            "averageStrategyComplexity": 2.2
+          },
+          {
+            "id": "15",
+            "name": "Splendor",
+            "minPlayers": 2,
+            "maxPlayers": 4,
+            "minPlaytime": 30,
+            "maxPlaytime": 60,
+            "description": "<p>As a wealthy Renaissance merchant, acquire mines and transportation, hire artisans and woo the nobility. Create the most fantastic jewelry to become the best-known merchant of them all! Acquire precious stones to trade them for development cards. Use development cards to acquire more gem stones. Use your gems and gold to create the most fantastic jewelry, and appeal to the nobles to gain the prestige you need to win.<br /><br />Splendor is a fast-paced and addictive game of chip-collecting and card development. Players are merchants of the Renaissance trying to buy gem mines, means of transportation, shops; all in order to acquire the most prestige points. If you're wealthy enough, you might even receive a visit from a noble at some point, which of course will further increase your prestige.<br /><br />On your turn, you may (1) collect chips (gems), or (2) buy and build a card, or (3) reserve one card. If you collect chips, you take either three different kinds of chips or two chips of the same kind. If you buy a card, you pay its price in chips and add it to your playing area. To reserve a card, you place it in front of you face down for later building; this costs you a round, but you also get gold in the form of a joker chip, which you can use as any gem.<br /><br />All of the cards you buy increase your wealth as they give you a permanent gem bonus for later buys; some of the cards also give you prestige points. In order to win the game, you must reach 15 prestige points before your opponents do.</p>",
+            "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559254164722-51AHDwGznvL.jpg",
+            "averageUserRating": 3.6935914498141256,
+            "averageStrategyComplexity": 3
+          }
+        ],
+        "attendingEvents": [
+          {
+            "id": "1",
+            "date": "2023-01-01T00:00:00Z",
+            "address": "1 One street",
+            "city": "1 city",
+            "state": "1 state",
+            "zip": 11111,
+            "title": "1 title",
+            "cancelled": false,
+            "description": "1 description",
+            "hostId": 1,
+            "game": 1,
+            "gameType": "board game",
+            "lat": 1.1111111,
+            "lon": 1.1111111
+          },
+          {
+            "id": "2",
+            "date": "2023-02-02T00:00:00Z",
+            "address": "2 One street",
+            "city": "2 city",
+            "state": "2 state",
+            "zip": 22222,
+            "title": "2 title",
+            "cancelled": false,
+            "description": "2 description",
+            "hostId": 2,
+            "game": 2,
+            "gameType": "board game",
+            "lat": 2.1111111,
+            "lon": 2.1111111
+          }
+        ],
+        "hostedEvents": [
+          {
+            "id": "2",
+            "date": "2023-02-02T00:00:00Z",
+            "address": "2 One street",
+            "city": "2 city",
+            "state": "2 state",
+            "zip": 22222,
+            "title": "2 title",
+            "cancelled": false,
+            "description": "2 description",
+            "hostId": 2,
+            "game": 2,
+            "gameType": "board game",
+            "lat": 2.1111111,
+            "lon": 2.1111111
+          }
+        ]
+      },
+      {
+        "id": "3",
+        "username": "user 3",
+        "password": "password",
+        "city": "city 3",
+        "state": "state 3",
+        "lat": 3.1111111,
+        "lon": 3.11111111,
+        "ownedGames": [],
+        "attendingEvents": [
+          {
+            "id": "1",
+            "date": "2023-01-01T00:00:00Z",
+            "address": "1 One street",
+            "city": "1 city",
+            "state": "1 state",
+            "zip": 11111,
+            "title": "1 title",
+            "cancelled": false,
+            "description": "1 description",
+            "hostId": 1,
+            "game": 1,
+            "gameType": "board game",
+            "lat": 1.1111111,
+            "lon": 1.1111111
+          }
+        ],
+        "hostedEvents": []
+      },
+      {
+        "id": "4",
+        "username": "user 4",
+        "password": "password",
+        "city": "city 4",
+        "state": "state 4",
+        "lat": 4.1111111,
+        "lon": 4.11111111,
+        "ownedGames": [],
+        "attendingEvents": [
+          {
+            "id": "2",
+            "date": "2023-02-02T00:00:00Z",
+            "address": "2 One street",
+            "city": "2 city",
+            "state": "2 state",
+            "zip": 22222,
+            "title": "2 title",
+            "cancelled": false,
+            "description": "2 description",
+            "hostId": 2,
+            "game": 2,
+            "gameType": "board game",
+            "lat": 2.1111111,
+            "lon": 2.1111111
+          }
+        ],
+        "hostedEvents": []
+      },
+      {
+        "id": "5",
+        "username": "user 5",
+        "password": "password",
+        "city": "city 5",
+        "state": "state 5",
+        "lat": 5.1111111,
+        "lon": 5.11111111,
+        "ownedGames": [],
+        "attendingEvents": [
+          {
+            "id": "2",
+            "date": "2023-02-02T00:00:00Z",
+            "address": "2 One street",
+            "city": "2 city",
+            "state": "2 state",
+            "zip": 22222,
+            "title": "2 title",
+            "cancelled": false,
+            "description": "2 description",
+            "hostId": 2,
+            "game": 2,
+            "gameType": "board game",
+            "lat": 2.1111111,
+            "lon": 2.1111111
+          }
+        ],
+        "hostedEvents": []
+      }
+    ]
+  }
+}
+
