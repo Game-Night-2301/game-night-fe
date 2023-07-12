@@ -90,28 +90,54 @@ export const getEvent = gql`
 `;
 
 export const getAllEvents = gql`
-{
-  events {
-    id
-    date
-    address
-    state
-    city
-    zip
-    title
-    cancelled
-    description
-    hostId
-    game
-    gameType
-    playerCount
-    attendees {
-      id
-      username
-    }
+query getUser($id: ID!) {
+  user(id: $id) {
+      sortedEvents {
+          id
+          date
+          address
+          city
+          state
+          zip
+          title
+          cancelled
+          description
+          host {
+            id
+            username
+          }
+          game
+          gameType
+          attendees {
+            id
+            username
+          }
+          playerCount
+      }
   }
 }
 `;
+
+export const getUserGames = gql`
+  query getUser($id: ID!) {
+    user(id: $id) {
+      ownedGames {
+        id
+        name
+        minPlayers
+        maxPlayers
+        minPlaytime
+        maxPlaytime
+        description
+        imageUrl
+        averageUserRating
+        averageStrategyComplexity
+      }
+    }
+  }
+`;
+
+
 
 export const createEvent = (event) => gql`
   mutation createEvent($input: EventInput!) {

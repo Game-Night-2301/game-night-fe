@@ -1,27 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Pills from '../../ReusableComponents/Pills/Pills';
 import { NavLink } from 'react-router-dom';
+import { useQuery } from '@apollo/client';
+import { getUserGames } from '../../../queries/index';
 import './Card.css';
 
 const Card = ({ userId, attendees, id, city, state, zip, title, date, hostId, description }) => {
+  const { loading, error, data } = useQuery(getUserGames, { variables: { id: userId }, skip: !id });
+  const [cardGame, setCardGame] = useState(null);
+
+  useEffect(() => {
+    if (data) {
+      setCardGame(data.user.ownedGames.find(game => game.id === id));
+    }
+  }, [data, id]);
+
   const renderPills = () => {
-    const isHost = hostId === userId;
-    const isAttending = attendees.includes(userId);
-    const isFull = true;
-    const capacity = "4/10";
-    const gameLength = 120;
+    if (cardGame) {
+      const isHost = hostId === userId;
+      const isAttending = attendees.includes(userId);
+      const isFull = cardGame.maxPlayers === attendees.length;
 
-    const tags = [
-      { label: 'mins', value: gameLength },
-      { label: 'player', value: capacity },
-      { label: 'players', value: attendees.length },
-      isHost && { value: 'host' },
-      isAttending && { value: 'attending' },
-      isFull && { value: 'full' },
-    ].filter(Boolean); // To remove falsey values from the tags array
+      const tags = [
+        isHost && { value: 'host' },
+        isAttending && { value: 'attending' },
+        isFull && { value: 'full' },
+      ].filter(Boolean);
 
-    return   <Pills tags={tags} />
+      return <Pills tags={tags} />
+    }
   };
 
   return (
@@ -34,7 +42,7 @@ const Card = ({ userId, attendees, id, city, state, zip, title, date, hostId, de
             <h4 className='event-card-subtitle event-card-date'>{date}</h4>
           </div>
           <div className='event-pill-holder'>
-            {renderPills()}
+            {data && renderPills()}
           </div>
         </div>
         <div className='card-body'>

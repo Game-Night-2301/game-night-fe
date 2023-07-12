@@ -9,20 +9,15 @@ import { cleanEvents, filterEvents, sortEvents } from '../../utils/cleaning';
 import './BrowseEvent.css';
 
 const BrowseEvent = ({ selectedUser, logoutUser }) => {
-  const { loading, error, data } = useQuery(getAllEvents);
+  const { loading, error, data } = useQuery(getAllEvents, { variables: { id: selectedUser }, skip: !selectedUser });
 
-  useEffect(() => {
-    console.log('Retrieved events:', data?.events);
-  }, [data]);
-  
   const displayEvents = () => {
-    if(!data?.events?.length) {
+    if(!data?.user.sortedEvents?.length) {
       return <h2>No Events</h2>
     } else {
-      const filteredEvents = filterEvents(data.events)
+      const filteredEvents = filterEvents(data.user.sortedEvents)
       const cleanedEvents = cleanEvents(filteredEvents)
-      const sortedEvents = sortEvents(cleanedEvents)
-      return sortedEvents.map(event => {
+      return cleanedEvents.map(event => {
         return (
           <Card
             key={event.id}
