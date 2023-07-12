@@ -15,8 +15,6 @@ const Header = ({logoutUser}) => {
         <img src={logo} alt="Game Night Logo" className="logo" />
       </NavLink>
       <nav className="button-group">
-        {/* <NavLink to="/Groups" className="header-nav-link">Groups</NavLink>
-        <NavLink to="/Collection" className="header-nav-link">Game Collection</NavLink> */}
         <NavLink to="/Create" className="header-nav-link">Create Event</NavLink>
         <NavLink to="/" className="header-nav-link" onClick={handleLogout}>Logout</NavLink>
       </nav>
