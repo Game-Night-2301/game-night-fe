@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import userIcon from '../../../assets/usericon.svg';
+import Tooltip from '@mui/material/Tooltip';
 import './Attendees.css';
 
 export const Attendees = ( { attendees, id, game} ) => {
   const renderAttendees = attendees.map( attendee => {
       return (
+        <Tooltip title={attendee.username}>
         <img src={userIcon} alt={attendee.id} className="attendee-img" />
+        </Tooltip>
       )
     });
 

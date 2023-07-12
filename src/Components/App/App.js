@@ -71,7 +71,7 @@ function App() {
           <Form />
         </Route>
         <Route exact path="/events/:id">
-          <EventDetails />
+          <EventDetails loggedInUser={selectedUser}/>
         </Route>
         <Route exact path="/*">
           <Error />
