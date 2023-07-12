@@ -8,7 +8,7 @@ import { getAllEvents } from '../../queries/index';
 import { cleanEvents, filterEvents, sortEvents } from '../../utils/cleaning';
 import './BrowseEvent.css';
 
-const BrowseEvent = ({ user }) => {
+const BrowseEvent = ({ selectedUser, logoutUser }) => {
   const { loading, error, data } = useQuery(getAllEvents);
 
   useEffect(() => {
@@ -26,6 +26,7 @@ const BrowseEvent = ({ user }) => {
         return (
           <Card
             key={event.id}
+            userId={selectedUser}
             id={event.id}
             title={event.title}
             city={event.city}
@@ -43,7 +44,7 @@ const BrowseEvent = ({ user }) => {
   
   return (
     <>
-      <Header/>
+      <Header logoutUser={logoutUser}/>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
       {data && 
