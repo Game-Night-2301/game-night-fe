@@ -44,3 +44,8 @@
 .profile-link {
   height: 4.5rem;
 }
+
+.menu-link {
+  text-decoration: none;
+  color: inherit;
+}

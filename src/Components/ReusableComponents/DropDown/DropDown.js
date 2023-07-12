@@ -1,24 +1,36 @@
-import React from "react";
-import { PopupState, bindTrigger, bindMenu } from "material-ui-popup-state";
-import { Menu, MenuItem, Button } from "@material-ui/core";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Menu, MenuItem, IconButton } from '@mui/material';
 
-const DropDown = () => {
+const DropDown = ({ menuItems, renderTrigger }) => {
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleOpenMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleCloseMenu = () => {
+    setAnchorEl(null);
+  };
+
   return (
-    <PopupState variant="popover" popupId="demo-popup-menu">
-      {(popupState) => (
-        <React.Fragment>
-          <Button variant="contained" {...bindTrigger(popupState)}>
-            Dashboard
-          </Button>
-          <Menu {...bindMenu(popupState)}>
-            <MenuItem onClick={popupState.close}>Profile</MenuItem>
-            <MenuItem onClick={popupState.close}>My account</MenuItem>
-            <MenuItem onClick={popupState.close}>Logout</MenuItem>
-          </Menu>
-        </React.Fragment>
-      )}
-    </PopupState>
+    <div>
+      {renderTrigger(handleOpenMenu)} 
+      <Menu
+        anchorEl={anchorEl}
+        open={Boolean(anchorEl)}
+        onClose={handleCloseMenu}
+      >
+        {menuItems.map((item, index) => (
+          <MenuItem key={index} onClick={item.handler}>
+            <Link to={item.link} className="menu-link">{item.label}</Link>
+          </MenuItem>
+        ))}
+      </Menu>
+    </div>
   );
 };
 
 export default DropDown;
+
+

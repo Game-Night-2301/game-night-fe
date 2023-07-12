@@ -1,33 +1,30 @@
-import React, { useState } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import React from 'react';
+import { NavLink } from 'react-router-dom';
 import './Header.css';
 import logo from '../../../assets/Dice.svg';
 import usericon from '../../../assets/usericon.svg';
-import { Menu, MenuItem, IconButton } from '@mui/material';
-import { AccountCircle } from '@mui/icons-material';
+import DropDown from '../DropDown/DropDown';
 
 const Header = ({ logoutUser }) => {
-  const [anchorEl, setAnchorEl] = useState(null);
-  const history = useHistory();
+  const menuItems = [
+    {
+      label: 'Profile',
+      link: '/profile',
+      handler: () => {
+      }
+    },
+    {
+      label: 'Logout',
+      link: '/',
+      handler: () => {
+        logoutUser();
+      }
+    }
+  ];
 
-  const handleOpenMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleCloseMenu = () => {
-    setAnchorEl(null);
-  };
-
-  const handleProfile = () => {
-    history.push('/profile');
-    handleCloseMenu();
-  };
-
-  const handleLogout = () => {
-    logoutUser(); 
-    history.push('/');
-    handleCloseMenu();
-  };
+  const renderDropDownTrigger = (handleOpenMenu) => (
+    <img src={usericon} alt="User Icon" className="profile-link" onClick={handleOpenMenu} />
+  );
 
   return (
     <header className="header">
@@ -36,22 +33,8 @@ const Header = ({ logoutUser }) => {
       </NavLink>
       <nav className="button-group">
         <NavLink to="/create" className="header-nav-link">Create Event</NavLink>
-        <NavLink to="/" className="header-nav-link" onClick={handleLogout}>Logout</NavLink>
-
       </nav>
-      <div>
-        <IconButton onClick={handleOpenMenu} color="inherit">
-          <img src={usericon} alt="User Icon" className="profile-link" />
-        </IconButton>
-        <Menu
-          anchorEl={anchorEl}
-          open={Boolean(anchorEl)}
-          onClose={handleCloseMenu}
-        >
-          <MenuItem onClick={handleProfile}>Profile</MenuItem>
-          <MenuItem onClick={handleLogout}>Logout</MenuItem>
-        </Menu>
-      </div>
+      <DropDown menuItems={menuItems} renderTrigger={renderDropDownTrigger} />
     </header>
   );
 };
