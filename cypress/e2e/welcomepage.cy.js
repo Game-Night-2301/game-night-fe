@@ -15,7 +15,7 @@ describe('WelcomePage', () => {
         cy.get('.welcome-page-title').should('contain', 'Game Night');
         cy.get('.dice').should('be.visible');
         cy.get('.welcome-page-subtitle').should('contain', 'Define your roll');
-        cy.get('.button-container')
+        cy.get('.welcome-button-container')
           .should('be.visible')
           .within(() => {
             cy.get('button').contains('User 1').should('be.visible');
