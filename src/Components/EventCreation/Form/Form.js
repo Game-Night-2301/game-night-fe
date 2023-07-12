@@ -5,7 +5,6 @@ import TextField from "@mui/material/TextField";
 import Button from "../../ReusableComponents/Button/Button";
 import MenuItem from "@mui/material/MenuItem";
 import dayjs from "dayjs";
-import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
@@ -78,8 +77,6 @@ const Form = () => {
             label="Address"
             sx={{margin: "1em"}}
           />
-          {/* <label htmlFor="address">Address:</label>
-          <input type="text" id="address" name="address" value={address} onChange={(e) => setAddress(e.target.value)} /> */}
           <TextField
             required
             onChange={(e) => setCity(e.target.value)}
@@ -88,8 +85,6 @@ const Form = () => {
             label="City"
             sx={{margin: "1em"}}
           />
-          {/* <label htmlFor="city">City:</label>
-          <input type="text" id="city" name="city" value={city} onChange={(e) => setCity(e.target.value)} /> */}
           <TextField
             required
             onChange={(e) => setState(e.target.value)}
@@ -98,8 +93,6 @@ const Form = () => {
             label="State"
             sx={{margin: "1em"}}
           />
-          {/* <label htmlFor="state">State:</label>
-          <input type="text" id="state" name="state" value={state} onChange={(e) => setState(e.target.value)} /> */}
           <TextField
             required
             onChange={(e) => setZip(e.target.value)}
@@ -108,16 +101,6 @@ const Form = () => {
             label="Zip Code"
             sx={{margin: "1em"}}
           />
-          {/* <label htmlFor="zip">Zip:</label>
-          <input type="text" id="zip" name="zip" value={zip} onChange={(e) => setZip(e.target.value)} /> */}
-          {/* <label htmlFor="date">Date:</label>
-          <input
-            type="date"
-            id="date"
-            name="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          /> */}
           <h2 className="form-header">Date and Time</h2>
           <hr className="line" />
           <div className="event-time-and-date">
@@ -143,23 +126,6 @@ const Form = () => {
               />
             </LocalizationProvider>
           </div>
-
-          {/* <label htmlFor="start-time">Start Time:</label>
-          <input
-            type="time"
-            id="start-time"
-            name="start-time"
-            value={startTime}
-            onChange={(e) => setStartTime(e.target.value)}
-          />
-          <label htmlFor="end-time">End Time:</label>
-          <input
-            type="time"
-            id="end-time"
-            name="end-time"
-            value={endTime}
-            onChange={(e) => setEndTime(e.target.value)}
-          /> */}
         </div>
         <h2 className="form-header">Event Details</h2>
         <hr className="line" />
@@ -173,16 +139,8 @@ const Form = () => {
             width: "98%"}}
             onChange={(e) => setEventDescription(e.target.value)}
           />
-          {/* <textarea
-            id="eventDescription"
-            name="event-description"
-            rows="4"
-            cols="50"
-            value={eventDescription}
-            onChange={(e) => setEventDescription(e.target.value)}
-          /> */}
         </div>
-        <Button text="Submit" />
+        <Button className="button" text="Submit" />
       </div>
     </form>
   );
