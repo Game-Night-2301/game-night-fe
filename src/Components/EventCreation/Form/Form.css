@@ -17,7 +17,7 @@ form {
   filter: alpha(opacity=85) progid:DXImageTransform.Microsoft.Alpha(opacity=85);
 }
 
-h2 {
+.form-header {
   color: rgb(128, 35, 129);
   border-bottom: 2px solid black; 
 }

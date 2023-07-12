@@ -29,7 +29,7 @@ const Form = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className="container">
-        <h2>Game</h2>
+        <h2 className="form-header">Game</h2>
         <div className="game-details">
           <label htmlFor="game">Game:</label>
           <select id="game" name="game" value={game} onChange={(e) => setGame(e.target.value)}>
@@ -44,7 +44,7 @@ const Form = () => {
             <option value="category3">Category 3</option>
           </select>
         </div>
-        <h2>Location</h2>
+        <h2 className="form-header">Location</h2>
         <div className="location-details">
           <label htmlFor="address">Address:</label>
           <input type="text" id="address" name="address" value={address} onChange={(e) => setAddress(e.target.value)} />
@@ -61,7 +61,7 @@ const Form = () => {
           <label htmlFor="end-time">End Time:</label>
           <input type="time" id="end-time" name="end-time" value={endTime} onChange={(e) => setEndTime(e.target.value)} />
         </div>
-        <h2>Event Details</h2>
+        <h2 className="form-header">Event Details</h2>
         <div className="event-details">
           <textarea
             id="eventDescription"
