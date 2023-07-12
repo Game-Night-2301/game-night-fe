@@ -72,7 +72,7 @@ helperText="Please select a game"
         <div className="location-details">
         <TextField
       required
-      onChange={(e) => setCity(e.target.value)}
+      onChange={(e) => setAddress(e.target.value)}
       id="address"
       label="Address"
     />
