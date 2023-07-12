@@ -28,15 +28,18 @@ const Header = ({ logoutUser }) => {
 
   return (
     <header className="header">
-      <NavLink to="/browse" className="header-nav-link">
+      <NavLink to="/browse" className="browse-link">
         <img src={logo} alt="Game Night Logo" className="logo" />
       </NavLink>
-      <nav className="button-group">
-        <NavLink to="/create" className="header-nav-link">Create Event</NavLink>
-      </nav>
-      <DropDown menuItems={menuItems} renderTrigger={renderDropDownTrigger} />
+      <div className="user-container">
+        <nav className="button-group">
+          <NavLink to="/create" className="create-link">Create Event</NavLink>
+          <DropDown menuItems={menuItems} renderTrigger={renderDropDownTrigger} />
+        </nav>
+      </div>
     </header>
   );
+  
 };
 
 export default Header;
