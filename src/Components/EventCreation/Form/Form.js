@@ -6,7 +6,7 @@ import Button from '../../ReusableComponents/Button/Button';
 import MenuItem from '@mui/material/MenuItem';
 
 
-const Form = () => {
+const Form = ({logoutUser}) => {
   const [game, setGame] = useState('');
   const [category, setCategory] = useState('');
   const [address, setAddress] = useState('');

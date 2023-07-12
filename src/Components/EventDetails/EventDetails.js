@@ -9,7 +9,7 @@ import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { getEvent } from '../../queries/index';
 
-export const EventDetails = () => {
+export const EventDetails = ({logoutUser}) => {
   const {id} = useParams();
 
   const { loading, error, data } = useQuery(getEvent, { variables: {
@@ -26,7 +26,7 @@ export const EventDetails = () => {
 
   return (
     <div>
-      <Header />
+      <Header logoutUser={logoutUser}/>
       {data && (
         <div className='event-body'>
           <EventInfo className="event-info" hostId={data.event.hostId} id={data.event.id} game={data.event.game} date={data.event.date} time={data.event.time} attendees={data.event.attendees}/>

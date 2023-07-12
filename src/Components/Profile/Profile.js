@@ -3,10 +3,10 @@ import Header from '../ReusableComponents/Header/Header';
 import userIcon from '../../assets/usericon.svg';
 import diceicon from '../../assets/diceicon.png';
 
-const ProfilePage = () => {
+const ProfilePage = ({logoutUser}) => {
   return (
     <>
-    <Header />
+    <Header logoutUser={logoutUser} />
       <div className="profile-page">
         <div className="profile-details">
           <div className="profile-image">
