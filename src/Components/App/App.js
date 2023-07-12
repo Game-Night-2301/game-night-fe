@@ -65,13 +65,13 @@ function App() {
             )}
           </Route>
         <Route exact path="/profile">
-          <ProfilePage />
+          <ProfilePage logoutUser={logoutUser}/>
         </Route>
         <Route exact path="/new-event">
-          <Form />
+          <Form logoutUser={logoutUser}/>
         </Route>
         <Route exact path="/events/:id">
-          <EventDetails />
+          <EventDetails logoutUser={logoutUser}/>
         </Route>
         <Route exact path="/*">
           <Error />

@@ -1,7 +1,7 @@
 .pill {
   background : #000000;
   background : rgba(0, 0, 0, 1);
-  width : 10rem;
+  width : 5rem;
   height : 2rem;
   margin: 0 1rem;
   border-radius : 15px;
@@ -15,7 +15,7 @@
 
 .pill-text {
   font-family: 'Avenir Next';
-  font-size: 1.2rem;
+  font-size: 0.7rem;
   font-weight: 500;
   color: white;
   text-align: center;
