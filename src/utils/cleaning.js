@@ -35,7 +35,21 @@ export const sortEvents = (events) => {
 }
 
 export const detailsDateFormatter = (date) => {
-  return(
-    date = dayjs(date).format('dddd, MMMM D')
-  )
-}
+  const dayOfMonth = dayjs(date).format('D');
+  let suffix;
+
+  if (dayOfMonth === '1' || dayOfMonth === '21' || dayOfMonth === '31') {
+    suffix = 'st';
+  } 
+  else if (dayOfMonth === '2' || dayOfMonth === '22') {
+    suffix = 'nd';
+  } 
+  else if (dayOfMonth === '3' || dayOfMonth === '23') {
+    suffix = 'rd';
+  } 
+  else {
+    suffix = 'th';
+  }
+
+  return dayjs(date).format(`dddd, MMMM D`) + suffix;
+};

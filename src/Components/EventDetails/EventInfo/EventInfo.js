@@ -41,11 +41,11 @@ export const EventInfo = ({ hostId, id, game, time, date, attendees, loggedInUse
   return (
     <div>
         <h1 className='event-title'>{game}</h1>
-        <h2 className='event-date'>{detailsDateFormatter(date)}</h2>
-        <h2 className='event-time'>{time}</h2>
         <div className='event-pill-holder'>
           { renderRolePill() }
         </div>
+        <h2 className='event-date'>{detailsDateFormatter(date)}</h2>
+        <h2 className='event-time'>{time}</h2>
         <div className='event-button-holder'>
           { renderButton() }
         </div>
