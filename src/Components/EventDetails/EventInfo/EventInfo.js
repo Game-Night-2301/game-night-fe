@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Pills from '../../ReusableComponents/Pills/Pills';
 import Button from '../../ReusableComponents/Button/Button'
 import './EventInfo.css';
+import { detailsDateFormatter } from '../../../utils/cleaning';
 
 export const EventInfo = ({ hostId, id, game, time, date, attendees, loggedInUser}) => {
 
@@ -40,7 +41,7 @@ export const EventInfo = ({ hostId, id, game, time, date, attendees, loggedInUse
   return (
     <div>
         <h1 className='event-title'>{game}</h1>
-        <h2 className='event-date'>{date}</h2>
+        <h2 className='event-date'>{detailsDateFormatter(date)}</h2>
         <h2 className='event-time'>{time}</h2>
         <div className='event-pill-holder'>
           { renderRolePill() }

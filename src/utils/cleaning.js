@@ -33,3 +33,9 @@ export const sortEvents = (events) => {
     return new Date(b.date) - new Date(a.date)
   })
 }
+
+export const detailsDateFormatter = (date) => {
+  return(
+    date = dayjs(date).format('dddd, MMMM D')
+  )
+}
