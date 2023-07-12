@@ -1,27 +1,59 @@
-import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import React, { useState } from 'react';
+import { NavLink, useHistory } from 'react-router-dom';
 import './Header.css';
-import PropTypes from 'prop-types';
+import logo from '../../../assets/Dice.svg';
+import usericon from '../../../assets/usericon.svg';
+import { Menu, MenuItem, IconButton } from '@mui/material';
+import { AccountCircle } from '@mui/icons-material';
 
-const Header = () => {
+const Header = ({ logoutUser }) => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const history = useHistory();
+
+  const handleOpenMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleCloseMenu = () => {
+    setAnchorEl(null);
+  };
+
+  const handleProfile = () => {
+    history.push('/profile');
+    handleCloseMenu();
+  };
+
+  const handleLogout = () => {
+    logoutUser(); 
+    history.push('/');
+    handleCloseMenu();
+  };
+
   return (
     <header className="header">
-      <Link to="/" className="link">
-        <h1 className="logo">Logo</h1>
-      </Link>
+      <NavLink to="/browse" className="header-nav-link">
+        <img src={logo} alt="Game Night Logo" className="logo" />
+      </NavLink>
       <nav className="button-group">
-        <NavLink to="/Profile" className="nav-link">Profile</NavLink>
-        <NavLink to="/Groups" className="nav-link">Groups</NavLink>
-        <NavLink to="/Collection" className="nav-link">Game Collection</NavLink>
-        <NavLink to="/Create" className="nav-link">Create</NavLink>
+        <NavLink to="/create" className="header-nav-link">Create Event</NavLink>
+        <NavLink to="/" className="header-nav-link" onClick={handleLogout}>Logout</NavLink>
+
       </nav>
-      <div className="profile-link"></div>
+      <div>
+        <IconButton onClick={handleOpenMenu} color="inherit">
+          <img src={usericon} alt="User Icon" className="profile-link" />
+        </IconButton>
+        <Menu
+          anchorEl={anchorEl}
+          open={Boolean(anchorEl)}
+          onClose={handleCloseMenu}
+        >
+          <MenuItem onClick={handleProfile}>Profile</MenuItem>
+          <MenuItem onClick={handleLogout}>Logout</MenuItem>
+        </Menu>
+      </div>
     </header>
   );
 };
 
 export default Header;
-
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}

@@ -44,7 +44,7 @@ function App() {
   };
 
   if (loading) return <p>Loading...</p>; 
-  if (error) return <p>Error :</p>; 
+  if (error) return <p>Error : {error.message}</p>; 
 
   return (
     <Router>
@@ -54,24 +54,24 @@ function App() {
             {loggedIn ? (
               <Redirect to="/browse" />
             ) : (
-              <WelcomePage loginUser={loginUser} logoutUser={logoutUser} />
+              <WelcomePage loginUser={loginUser} />
             )}
           </Route>
           <Route exact path="/browse">
             {loggedIn ? (
-              <BrowseEvent selectedUser={selectedUser} />
+              <BrowseEvent selectedUser={selectedUser} logoutUser={logoutUser}/>
             ) : (
               <Redirect to="/" />
             )}
           </Route>
         <Route exact path="/profile">
-          <ProfilePage />
+          <ProfilePage logoutUser={logoutUser}/>
         </Route>
         <Route exact path="/new-event">
-          <Form />
+          <Form logoutUser={logoutUser}/>
         </Route>
         <Route exact path="/events/:id">
-          <EventDetails loggedInUser={selectedUser}/>
+          <EventDetails loggedInUser={selectedUser} logoutUser={logoutUser}/>
         </Route>
         <Route exact path="/*">
           <Error />

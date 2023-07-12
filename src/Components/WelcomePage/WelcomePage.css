@@ -11,39 +11,39 @@
   max-height: 60%;
 }
 
-h1,
-h3 {
+.welcome-page-title,
+.welcome-page-subtitle {
   color : #FEFEFE;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
 }
 
-h1 {
+.welcome-page-title {
   font-family : Avenir Next;
   font-weight: bolder;
   font-size : 90px;
   margin-bottom: 0;
 }
 
-h3 {
+.welcome-page-subtitle {
   font-weight: 400;
   margin-top: 0;
 }
 
-.button-container {
+.welcome-button-container {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
-  margin: 0;
-  padding: 0;
-  margin-top: 0;
 }
 
-button {
+.welcome-button {
   opacity: 0.9;
   border-radius: 8px;
   border: none;
   padding: 15px 30px;
   font-size: 16px;
-  margin-top: 2rem;
+  margin: 10rem !important;
+}
+
+.welcome-spacer {
+  width: 2rem !important;
 }

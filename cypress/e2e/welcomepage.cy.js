@@ -2,7 +2,7 @@ describe('WelcomePage', () => {
   beforeEach(() => {
     cy.intercept('POST', '/graphql', (req) => {
       if (req.body.operationName === 'WelcomePageQuery') {
-        req.reply({ data: { myData: 'Stubbed data for query 1' } });
+        req.reply({ fixture: 'getUserById.json' });
       }
     });
     cy.visit('https://game-night-fe.vercel.app/'); 
@@ -15,7 +15,7 @@ describe('WelcomePage', () => {
         cy.get('.welcome-page-title').should('contain', 'Game Night');
         cy.get('.dice').should('be.visible');
         cy.get('.welcome-page-subtitle').should('contain', 'Define your roll');
-        cy.get('.button-container')
+        cy.get('.welcome-button-container')
           .should('be.visible')
           .within(() => {
             cy.get('button').contains('User 1').should('be.visible');

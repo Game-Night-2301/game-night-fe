@@ -1,0 +1,25 @@
+{
+  "data": {
+      "event": {
+          "id": "1",
+          "date": "2023/12/12T00:00:00Z",
+          "address": "123 Street street",
+          "state": "fake state",
+          "city": "face city",
+          "zip": 15555,
+          "title": "Grandma's basement",
+          "cancelled": false,
+          "description": "We'll be playing caracasonne for 9 hours",
+          "hostId": 4744564,
+          "game": 97833646,
+          "gameType": "board game",
+          "playerCount": 1,
+          "attendees": [
+              {
+                  "id": "4744564",
+                  "username": "user 4744564"
+              }
+          ]
+      }
+  }
+}
