@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, MenuItem, IconButton } from '@mui/material';
+import './DropDown.css'
 
 const DropDown = ({ menuItems, renderTrigger }) => {
   const [anchorEl, setAnchorEl] = useState(null);
