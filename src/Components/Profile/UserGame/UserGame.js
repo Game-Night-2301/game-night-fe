@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Collapse, Button } from '@mui/material';
 import './UserGame.css';
+import PropTypes from 'prop-types';
 
 const UserGame = ({name, imageUrl, maxPlayers, minPlayers, maxPlaytime, minPlaytime, averageUserRating, averageStrategyComplexity, description, handleExpand, expanded, hidden }) => {
   const handleExpandClick = () => {
@@ -68,3 +69,18 @@ const UserGame = ({name, imageUrl, maxPlayers, minPlayers, maxPlaytime, minPlayt
 }
 
 export default UserGame;
+
+UserGame.propTypes = {
+  name: PropTypes.string.isRequired,
+  imageUrl: PropTypes.string.isRequired,
+  maxPlayers: PropTypes.number.isRequired,
+  minPlayers: PropTypes.number.isRequired,
+  maxPlaytime: PropTypes.number.isRequired,
+  minPlaytime: PropTypes.number.isRequired,
+  averageUserRating: PropTypes.number.isRequired,
+  averageStrategyComplexity: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
+  handleExpand: PropTypes.func.isRequired,
+  expanded: PropTypes.bool.isRequired,
+  hidden: PropTypes.bool.isRequired,
+};
