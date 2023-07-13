@@ -5,7 +5,7 @@ import Pills from '../../ReusableComponents/Pills/Pills';
 import Button from '../../ReusableComponents/Button/Button';
 import './EventInfo.css';
 import { detailsDateFormatter } from '../../../utils/cleaning';
-import { addUserToEvent } from '../../../queries';
+import { addUserToEvent, getEvent, removeUserFromEvent } from '../../../queries';
 
 export const EventInfo = ({ hostId, id, game, time, date, attendees, loggedInUser}) => {
 
@@ -13,7 +13,10 @@ export const EventInfo = ({ hostId, id, game, time, date, attendees, loggedInUse
   const isAttending = attendees.some((attendee) => parseInt(attendee.id) === loggedInUser)
   const isHost = loggedInUser === hostId
 
-  const [joinEvent, {data, loading, error}] = useMutation(addUserToEvent);
+  const [joinEvent, { data: joinData, loading: joinLoading, error: joinError }] = useMutation(addUserToEvent, {
+    refetchQueries:[getEvent]
+  });
+  const [leaveEvent, { data: leaveData, loading: leaveLoading, error: leaveError }] = useMutation(removeUserFromEvent);
 
   const renderRolePill = () => {
   
@@ -35,18 +38,18 @@ export const EventInfo = ({ hostId, id, game, time, date, attendees, loggedInUse
         <Button text='Host Actions'/>
       )
     }
-    else if (!isAttending) {
+    else if (!isAttending && loggedInUser) {
       return (
-        <Button text='Join' disabled={loading} onClick={()=>{
-          joinEvent({variables: {input: {userId: loggedInUser, eventId: id}}})
-        }}/>
+        <Button text='Join' disabled={joinLoading} onClick={()=>{
+          joinEvent({variables: {input: {userId: parseInt(loggedInUser), eventId: parseInt(id)}}})}}
+          />
       )
     }
     else if (isAttending) {
       return (
         <Button text='Leave Group' 
-        // onClick={()=>{
-          // joinEvent({variables: {input: {userId: loggedInUser, eventId: id}}})}}
+        onClick={()=>{
+          leaveEvent({variables: {input: {userId: parseInt(loggedInUser), eventId: parseInt(id)}}})}}
           />
       )
     }
