@@ -75,3 +75,13 @@ const ProfilePage = ({logoutUser, selectedUser, userData}) => {
 };
 
 export default ProfilePage
+
+ProfilePage.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  selectedUser: PropTypes.string.isRequired,
+  userData: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+  }).isRequired,
+};
