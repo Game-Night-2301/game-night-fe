@@ -1,12 +1,23 @@
-describe('WelcomePage', () => {
-  beforeEach(() => {
-    cy.intercept('POST', '/graphql', (req) => {
-      if (req.body.operationName === 'WelcomePageQuery') {
-        req.reply({ fixture: 'getUserById.json' });
+beforeEach(() => {
+  cy.fixture('getUserById.json').then((getUser) => {
+    cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
+      if (req.body.operationName === 'getUser') {
+        req.reply({ data: getUser });
       }
-    });
-    cy.visit('https://game-night-fe.vercel.app/'); 
+    }).as('getUser');
   });
+
+  cy.fixture('AllEvents.json').then((getAllEvents) => {
+    cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
+      if (req.body.operationName === 'getUser') {
+        req.reply({ data: getAllEvents });
+      }
+    }).as('getAllEvents');
+  });
+
+  cy.visit('https://game-night-fe.vercel.app/');
+});
+
 
   it('should display the welcome page with the correct elements', () => {
     cy.get('.welcome-page-container')
@@ -24,29 +35,32 @@ describe('WelcomePage', () => {
       });
   });
 
-  // it('should login User 1 and switch to logout button', () => {
-  //   cy.get('button').contains('User 1').click();
-  //   cy.get('.button-container')
-  //     .within(() => {
-  //       cy.get('button').contains('Log Out').should('be.visible');
-  //     });
+  // it('should display the browse page with the dropdown menu', () => {
+  //   cy.get('.welcome-button-container').find('button').contains('User 1').click();
+  //   cy.wait('@getAllEvents').its('response.body').should('have.property', 'data');
+  //   cy.get('.browse-event-container').should('be.visible');
+  //   cy.get('.profile-link').click();
+  //   cy.get('.dropdown-menu').should('be.visible');
+  //   cy.get('.dropdown-menu').within(() => {
+  //     cy.contains('Create Event').should('be.visible');
+  //     cy.contains('Profile').should('be.visible');
+  //     cy.contains('Logout').should('be.visible');
+  //   });
+  //   cy.contains('Logout').click({ force: true });
+  //   cy.get('.welcome-page-container').should('be.visible');
   // });
 
-  // it('should login User 2 and switch to logout button', () => {
-  //   cy.get('button').contains('User 2').click();
-  //   cy.get('.button-container')
-  //     .within(() => {
-  //       cy.get('button').contains('Log Out').should('be.visible');
-  //     });
+  // it('should display the browse page with the dropdown menu', () => {
+  //   cy.get('.welcome-button-container').find('button').contains('User 1').click();
+  //   cy.get('.browse-event-container').should('be.visible');
+  //   cy.get('.profile-link').click();
+  //   cy.get('.dropdown-menu').should('be.visible');
+  //   cy.get('.dropdown-menu').within(() => {
+  //     cy.contains('Create Event').should('be.visible');
+  //     cy.contains('Profile').should('be.visible');
+  //     cy.contains('Logout').should('be.visible');
+  //   });
+  //   cy.contains('Logout').click({ force: true });
+  //   cy.get('.welcome-page-container').should('be.visible');
   // });
 
-  // it('should logout User and switch to login buttons', () => {
-  //   cy.get('button').contains('User 1').click(); 
-  //   cy.get('button').contains('Log Out').click();
-  //   cy.get('.button-container')
-  //     .within(() => {
-  //       cy.get('button').contains('User 1').should('be.visible');
-  //       cy.get('button').contains('User 2').should('be.visible');
-  //     });
-  // });
-});

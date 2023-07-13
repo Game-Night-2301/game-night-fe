@@ -1,0 +1,32 @@
+{
+  "data": {
+    "user": {
+      "ownedGames": [
+        {
+          "id": "game1",
+          "name": "Game A",
+          "minPlayers": 1,
+          "maxPlayers": 4,
+          "minPlaytime": 30,
+          "maxPlaytime": 60,
+          "description": "Game A is a fun and engaging board game.",
+          "imageUrl": "https://example.com/gameA.jpg",
+          "averageUserRating": 4.5,
+          "averageStrategyComplexity": 3.8
+        },
+        {
+          "id": "game2",
+          "name": "Game B",
+          "minPlayers": 2,
+          "maxPlayers": 6,
+          "minPlaytime": 45,
+          "maxPlaytime": 120,
+          "description": "Game B is a strategic card game with beautiful artwork.",
+          "imageUrl": "https://example.com/gameB.jpg",
+          "averageUserRating": 4.2,
+          "averageStrategyComplexity": 4.2
+        }
+      ]
+    }
+  }
+}

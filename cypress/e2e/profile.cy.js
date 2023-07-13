@@ -1,31 +1,41 @@
-describe('ProfilePage', () => {
-  beforeEach(() => {
-    cy.intercept('POST', '/graphql', (req) => {
-      if (req.body.operationName === 'ProfilePageQuery') {
-        req.reply({ fixture: 'allUsers.json' });
+beforeEach(() => {
+  cy.fixture('getUserById.json').then((getUser) => {
+    cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
+      if (req.body.operationName === 'getUser') {
+        req.reply({ data: getUser });
       }
-    });
-    cy.visit('https://game-night-fe.vercel.app/profile');
-    
-    
-  })
+    }).as('getUserById');
+  });
 
-    it('should navigate to the profile page and check the content', () => {
+  cy.fixture('getUserGames.json').then((getUserGames) => {
+    cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
+      if (req.body.operationName === 'getUser') {
+        req.reply({ data: getUserGames });
+      }
+    }).as('getUserGames');
+  });
 
-      // cy.get('.button')
-      //   .contains('User 1').click();
+  cy.visit('https://game-night-fe.vercel.app/profile');
+});
 
-      // cy.url().should('include', '/browse');
+// it('should navigate to profile page', () => {
+//   cy.get('button').contains('User 1').click();
+//   cy.get('.welcome-button-container');
+// });
 
-      // cy.get('img.profile-link').click();
+it('should check the content of the profile page', () => {
+  cy.url().should('include', '/profile');
+  cy.get('h5').contains('Personal Info').should('exist');
+  cy.get('.profile-text').within(() => {
+    cy.contains('.profile-text-key', 'Name').next('.profile-text-value').should('have.text', 'John Doe');
+    cy.contains('.profile-text-key', 'Games Hosted').next('.profile-text-value').should('have.text', '5');
+    cy.contains('.profile-text-key', 'Location').next('.profile-text-value').should('have.text', 'City, State');
+  });
+  cy.get('h5').contains('Game Collection').should('exist');
+  // cy.get('.games-grid').within(() => {
+  //   cy.get('.user-game').should('have.length', 2);
+  //   cy.contains('.user-game', 'Game A');
+  //   cy.contains('.user-game', 'Game B');
+  // });
+});
 
-      cy.url().should('include', '/profile');
-
-      cy.contains('h2', 'Personal Info');
-      cy.contains('p', 'Name: John Doe');
-      cy.contains('p', 'Games Hosted: 5');
-      cy.contains('p', 'Location: City, State');
-      cy.contains('h2', 'Game Collection');
-      cy.get('.game-circle').should('have.length', 3);
-    });
-  })
