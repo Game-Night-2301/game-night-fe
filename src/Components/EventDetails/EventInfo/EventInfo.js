@@ -1,15 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useMutation } from '@apollo/client';
 import Pills from '../../ReusableComponents/Pills/Pills';
-import Button from '../../ReusableComponents/Button/Button'
+import Button from '../../ReusableComponents/Button/Button';
 import './EventInfo.css';
 import { detailsDateFormatter } from '../../../utils/cleaning';
+import { addUserToEvent, getEvent, removeUserFromEvent } from '../../../queries';
 
 export const EventInfo = ({ hostId, id, game, time, date, attendees, loggedInUser}) => {
 
 
   const isAttending = attendees.some((attendee) => parseInt(attendee.id) === loggedInUser)
   const isHost = loggedInUser === hostId
+
+  const [joinEvent, { data: joinData, loading: joinLoading, error: joinError }] = useMutation(addUserToEvent, {
+    refetchQueries:[getEvent]
+  });
+  const [leaveEvent, { data: leaveData, loading: leaveLoading, error: leaveError }] = useMutation(removeUserFromEvent);
 
   const renderRolePill = () => {
   
@@ -31,13 +38,23 @@ export const EventInfo = ({ hostId, id, game, time, date, attendees, loggedInUse
         <Button text='Host Actions'/>
       )
     }
-    else if (!isAttending) {
+    else if (!isAttending && loggedInUser) {
       return (
-        <Button Join='Join'/>
+        <Button text='Join' disabled={joinLoading} onClick={()=>{
+          joinEvent({variables: {input: {userId: parseInt(loggedInUser), eventId: parseInt(id)}}})}}
+          />
+      )
+    }
+    else if (isAttending) {
+      return (
+        <Button text='Leave Group' 
+        onClick={()=>{
+          leaveEvent({variables: {input: {userId: parseInt(loggedInUser), eventId: parseInt(id)}}})}}
+          />
       )
     }
   }
-
+console.log(attendees)
   return (
     <div>
         <h1 className='event-title'>{game}</h1>
