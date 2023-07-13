@@ -113,6 +113,7 @@ export const getAllEvents = gql`
           username
         }
         playerCount
+        distanceFrom
       }
     }
   }

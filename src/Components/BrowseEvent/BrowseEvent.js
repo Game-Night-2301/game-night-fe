@@ -31,6 +31,7 @@ const BrowseEvent = ({ selectedUser, logoutUser }) => {
             attendees={event.attendees}
             host={event.hostId}
             description={event.description}
+            distance={event.distanceFrom}
           />
         )
       })
