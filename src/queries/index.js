@@ -90,33 +90,34 @@ export const getEvent = gql`
 `;
 
 export const getAllEvents = gql`
-query getUser($id: ID!) {
-  user(id: $id) {
+  query getAllEvents($id: ID!) {
+    user(id: $id) {
       sortedEvents {
+        id
+        date
+        address
+        city
+        state
+        zip
+        title
+        cancelled
+        description
+        host {
           id
-          date
-          address
-          city
-          state
-          zip
-          title
-          cancelled
-          description
-          host {
-            id
-            username
-          }
-          game
-          gameType
-          attendees {
-            id
-            username
-          }
-          playerCount
+          username
+        }
+        game
+        gameType
+        attendees {
+          id
+          username
+        }
+        playerCount
       }
+    }
   }
-}
 `;
+
 
 export const getUserGames = gql`
   query getUser($id: ID!) {
@@ -137,7 +138,34 @@ export const getUserGames = gql`
   }
 `;
 
-export const createEvent = gql`
+export const getUserProfile = gql`
+  query getUser($id: ID!) {
+    user(id: $id) {
+      id
+      username
+      city
+      state
+      attendingEvents {
+        id
+      }
+      hostedEvents {
+        id
+      }
+      ownedGames {
+        id
+        name
+        minPlayers
+        maxPlayers
+        minPlaytime
+        maxPlaytime
+        description
+        imageUrl
+        averageUserRating
+        averageStrategyComplexity
+      }
+    }
+  }
+`;export const createEvent = gql`
   mutation createEvent($input: EventInput!) {
     createEvent(input: $input) {
       event {

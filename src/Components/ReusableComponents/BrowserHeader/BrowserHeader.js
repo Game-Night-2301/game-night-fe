@@ -1,10 +1,10 @@
 import React from 'react';
 import './BrowserHeader.css';
 
-const BrowserHeader = () => {
+const BrowserHeader = ({text, nomargin}) => {
   return (
     <>
-      <h5 className="browser-header-title">Open Games</h5>
+      <h5 className={`browser-header-title ${nomargin ? 'browser-header-no-margin' : ''}`}>{text}</h5>
     </>
   )
 }

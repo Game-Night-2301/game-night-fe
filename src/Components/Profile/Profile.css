@@ -1,21 +1,25 @@
 .profile-page {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .profile-details {
+  grid-column: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 25px;
-  width: 50%;
+  width: 90%;
+}
+
+.profile-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .profile-image img {
-  width: 250px;
-  height: 250px;
+  width: 12rem;
+  height: 10rem;
   border-radius: 50%;
 }
 
@@ -25,13 +29,40 @@
 }
 
 .profile-info {
-  text-align: center;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.profile-text {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.profile-key-value {
+  align-items: center;
+  width: 90%;
+  margin-left: 0.2rem;
+}
+
+.profile-text-key, .profile-text-value {
   color: white;
-  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
+.profile-text-key {
+  font-weight: 600;
+  margin: 0;
+}
+
+.profile-text-value {
+  margin: 0.3rem 0 2rem 0;
 }
 
 .games-collection {
-  text-align: center;
+  grid-column: 2;
+  width: 90%;
+  justify-self: end;
 }
 
 .games-collection h2 {
@@ -41,24 +72,9 @@
   margin-bottom: 10px;
 }
 
-.games-images {
-  display: flex;
-  justify-content: center;
+.games-grid {
+  margin-top: 2rem;
+  display: grid;
+  grid-gap: 3rem;
 }
 
-.game-circle {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;
-  height: 100px;
-  border: 2px solid white;
-  border-radius: 50%;
-  margin-right: 10px;
-}
-
-.game-circle img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-}
