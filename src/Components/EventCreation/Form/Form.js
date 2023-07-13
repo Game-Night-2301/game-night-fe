@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { createEvent } from '../../queries/index'
+import { useMutation } from '@apollo/client';
 import "./Form.css";
 import TextField from "@mui/material/TextField";
 import Button from "../../ReusableComponents/Button/Button";
@@ -9,30 +9,39 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
+import { createEvent } from "../../../queries";
 
-const Form = ({logoutUser}) => {
+const Form = ({logoutUser, loggedInUser}) => {
   const [game, setGame] = useState('');
   const [category, setCategory] = useState('');
-  const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [state, setState] = useState('');
-  const [zip, setZip] = useState('');
-  const [date, setDate] = useState('');
-  const [startTime, setStartTime] = useState('');
-  const [endTime, setEndTime] = useState('');
-  const [eventDescription, setEventDescription] = useState('');
+  const [address, setAddress] = useState();
+  const [city, setCity] = useState();
+  const [state, setState] = useState();
+  const [zip, setZip] = useState();
+  const [date, setDate] = useState();
+  const [startTime, setStartTime] = useState();
+  const [endTime, setEndTime] = useState();
+  const [eventDescription, setEventDescription] = useState();
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // const formData = {
-
-    // };
-
-    // useEffect(() => {
-
-    // })
+    createNewEvent({
+      variables: {
+        input: {
+          date: date,
+          address: address,
+          city: city,
+          state: state,
+          zip: zip,
+          title: game,
+          description: eventDescription,
+          hostId: loggedInUser,
+        },
+      },
+    });
   };
+  const [createNewEvent, { data: data, loading: loading, error: error }] = useMutation(createEvent);
 
   return (
     <form className="form" onSubmit={handleSubmit}>
@@ -44,6 +53,7 @@ const Form = ({logoutUser}) => {
             className="game-selector"
             id="game"
             value={game}
+            onChange={(e) => setGame(e.target.value)}
             select
             label="Games"
             sx={{margin: "1em"}}
@@ -57,6 +67,7 @@ const Form = ({logoutUser}) => {
             id="category"
             value={category}
             select
+            onChange={(e) => setCategory(e.target.value)}
             label="Category"
             sx={{margin: "1em"}}
             helperText="Please select a category"
@@ -71,7 +82,7 @@ const Form = ({logoutUser}) => {
         <div className="location-details">
           <TextField
             required
-            onChange={(e) => setCity(e.target.value)}
+            onChange={(e) => setAddress(e.target.value)}
             id="address"
             value={address}
             label="Address"
@@ -107,6 +118,7 @@ const Form = ({logoutUser}) => {
             <LocalizationProvider dateAdapter={AdapterDayjs}>
               <DatePicker
                 label="Date"
+            required
                 value={date}
                 sx={{margin: "1em"}}
                 onChange={(newDate) => setDate(newDate)}
@@ -114,12 +126,14 @@ const Form = ({logoutUser}) => {
 
               <TimePicker
                 label="Start Time"
+            required
                 value={startTime}
                 sx={{margin: "1em"}}
                 onChange={(newTime) => setStartTime(newTime)}
               />
               <TimePicker
                 label="End Time"
+            required
                 value={endTime}
                 sx={{margin: "1em"}}
                 onChange={(newTime) => setEndTime(newTime)}
@@ -134,13 +148,24 @@ const Form = ({logoutUser}) => {
             id="outlined-multiline-static"
             label="Details"
             multiline
+            value={eventDescription}
             rows={6}
             sx={{margin: "1em",
             width: "98%"}}
             onChange={(e) => setEventDescription(e.target.value)}
           />
         </div>
-        <Button className="button" text="Submit" />
+        <Button className="button" text="Submit" onClick={()=>{createNewEvent({variables: {input: { 
+        date: date,
+        address: address,
+        state: state,
+        city: city,
+        zip: zip,
+        title: game,
+        cancelled: false,
+        description: eventDescription,
+        hostId: loggedInUser,
+        }}})}}/>
       </div>
     </form>
   );

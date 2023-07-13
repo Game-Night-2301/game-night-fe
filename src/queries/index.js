@@ -137,9 +137,7 @@ export const getUserGames = gql`
   }
 `;
 
-
-
-export const createEvent = (event) => gql`
+export const createEvent = gql`
   mutation createEvent($input: EventInput!) {
     createEvent(input: $input) {
       event {
@@ -165,37 +163,80 @@ export const createEvent = (event) => gql`
   }
 `;
 
-export const addUserToEvent = gql`
-  mutation createUserEvent($userId: ID!, $eventId: ID!) {
-    createUserEvent(userId: $userId, eventId: $eventId)
-  }
-`;
+// export const createEvent = (event) => gql`
+//   mutation createEvent($input: EventInput!) {
+//     createEvent(input: $input) {
+//       event {
+//         id
+//         date
+//         address
+//         state
+//         city
+//         zip
+//         title
+//         cancelled
+//         description
+//         hostId
+//         game
+//         gameType
+//         playerCount
+//         attendees {
+//           id
+//           username
+//         }
+//       }
+//     }
+//   }
+// `;
 
-export const removeUserFromEvent = gql`
-  mutation removeUserFromEvent($userId: ID!, $eventId: ID!) {
-    removeUserFromEvent(userId: $userId, eventId: $eventId) {
-      event {
+export const addUserToEvent = gql`
+  mutation createUserEvent($input: CreateUserEventInput!) {
+    createUserEvent(input: $input) {
+      userEvent {
         id
-        date
-        address
-        state
-        city
-        zip
-        title
-        cancelled
-        description
-        hostId
-        game
-        gameType
-        playerCount
-        attendees {
-          id
-          username
-        }
+        userId
+        eventId
       }
     }
   }
 `;
+
+export const removeUserFromEvent = gql`
+  mutation destroyUserEvent($input: DestroyUserEventInput!) {
+    removeUserFromEvent(input: $input) {
+      userEvent {
+        userId
+        eventId
+      }
+    }
+  }
+`;
+
+// export const removeUserFromEvent = gql`
+//   mutation removeUserFromEvent($userId: ID!, $eventId: ID!) {
+//     removeUserFromEvent(userId: $userId, eventId: $eventId) {
+//       event {
+//         id
+//         date
+//         address
+//         state
+//         city
+//         zip
+//         title
+//         cancelled
+//         description
+//         hostId
+//         game
+//         gameType
+//         playerCount
+//         attendees {
+//           id
+//           username
+//         }
+//       }
+//     }
+//   }
+// `;
 
 export const cancelEvent = gql`
   mutation cancelEvent($eventId: ID!) {
