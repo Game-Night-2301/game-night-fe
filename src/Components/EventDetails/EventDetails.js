@@ -32,3 +32,8 @@ export const EventDetails = ({loggedInUser, logoutUser}) => {
       </div>
     );
 }
+
+EventDetails.propTypes = {
+  loggedInUser: PropTypes.object.isRequired,
+  logoutUser: PropTypes.func.isRequired,
+};

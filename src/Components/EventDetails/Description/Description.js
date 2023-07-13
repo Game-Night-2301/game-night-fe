@@ -11,3 +11,7 @@ export const Description = ( { description } ) => {
     </div>
   )
 }
+
+Description.propTypes = {
+  description: PropTypes.string.isRequired,
+};

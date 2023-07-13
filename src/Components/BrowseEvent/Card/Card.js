@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/client';
 import { getUserGames } from '../../../queries/index';
 import './Card.css';
 
-const Card = ({ userId, attendees, id, city, state, zip, title, date, hostId, description }) => {
+const Card = ({ userId, attendees, id, city, state, zip, title, date, hostId, description, distance }) => {
   const { loading, error, data } = useQuery(getUserGames, { variables: { id: userId }, skip: !id });
   const [cardGame, setCardGame] = useState(null);
 
@@ -50,7 +50,20 @@ const Card = ({ userId, attendees, id, city, state, zip, title, date, hostId, de
         </div>
       </section>
     </NavLink>
-  )
-}
+  );
+};
 
 export default Card;
+
+Card.propTypes = {
+  userId: PropTypes.string.isRequired,
+  attendees: PropTypes.arrayOf(PropTypes.string).isRequired,
+  id: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  state: PropTypes.string.isRequired,
+  zip: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  hostId: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};
