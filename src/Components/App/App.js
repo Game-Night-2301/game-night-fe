@@ -71,7 +71,7 @@ function App() {
           <Form logoutUser={logoutUser}/>
         </Route>
         <Route exact path="/events/:id">
-          <EventDetails logoutUser={logoutUser}/>
+          <EventDetails loggedInUser={selectedUser} logoutUser={logoutUser}/>
         </Route>
         <Route exact path="/*">
           <Error />

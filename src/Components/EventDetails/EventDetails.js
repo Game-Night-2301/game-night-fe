@@ -9,17 +9,12 @@ import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { getEvent } from '../../queries/index';
 
-export const EventDetails = ({logoutUser}) => {
+export const EventDetails = ({loggedInUser, logoutUser}) => {
   const {id} = useParams();
 
   const { loading, error, data } = useQuery(getEvent, { variables: {
     id
   }, skip: !id });
-
-  useEffect(() => {
-    console.log('Selected event:', id);
-    console.log('Retrieved event:', data);
-  }, []);
 
   if (loading) return <p>Loading...</p>; 
   if (error) return <p>Error :</p>; 
@@ -27,15 +22,13 @@ export const EventDetails = ({logoutUser}) => {
   return (
     <div>
       <Header logoutUser={logoutUser}/>
-      {data && (
         <div className='event-body'>
-          <EventInfo className="event-info" hostId={data.event.hostId} id={data.event.id} game={data.event.game} date={data.event.date} time={data.event.time} attendees={data.event.attendees}/>
+          <EventInfo className="event-info" loggedInUser={loggedInUser} hostId={data.event.hostId} id={data.event.id} game={data.event.game} date={data.event.date} time={data.event.time} attendees={data.event.attendees}/>
           <div className="event-right">
             <Description description={data.event.description} />
-            <Attendees attendees={data.event.attendees}/>
+            <Attendees attendees={data.event.attendees} />
           </div>
         </div>
-      )}
-    </div>
-  )
+      </div>
+    );
 }
