@@ -50,20 +50,20 @@ const Card = ({ userId, attendees, id, city, state, zip, title, date, hostId, de
         </div>
       </section>
     </NavLink>
-  )
-}
+  );
+};
 
 export default Card;
 
-// Card.propTypes = {
-//   userId: PropTypes.string.isRequired,
-//   attendees: PropTypes.arrayOf(PropTypes.string).isRequired,
-//   id: PropTypes.string.isRequired,
-//   city: PropTypes.string.isRequired,
-//   state: PropTypes.string.isRequired,
-//   zip: PropTypes.string.isRequired,
-//   title: PropTypes.string.isRequired,
-//   date: PropTypes.string.isRequired,
-//   hostId: PropTypes.string.isRequired,
-//   description: PropTypes.string.isRequired,
-// };
+Card.propTypes = {
+  userId: PropTypes.string.isRequired,
+  attendees: PropTypes.arrayOf(PropTypes.string).isRequired,
+  id: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  state: PropTypes.string.isRequired,
+  zip: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  hostId: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};

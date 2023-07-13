@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { getUserGames } from '../../queries/index';
 import userIcon from '../../assets/usericon.svg';
 import diceicon from '../../assets/diceicon.png';
+import PropTypes from 'prop-types'
 
 const ProfilePage = ({logoutUser, selectedUser, userData}) => {
   const { loading, error, data } = useQuery(getUserGames, { variables: { id: selectedUser } });
