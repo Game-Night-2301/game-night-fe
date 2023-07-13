@@ -16,7 +16,6 @@ const BrowseEvent = ({ selectedUser, logoutUser }) => {
       return <h2>No Events</h2>
     } else {
       const filteredEvents = filterEvents(data.user.sortedEvents)
-      console.log(filteredEvents)
       const cleanedEvents = cleanEvents(filteredEvents)
       return cleanedEvents.map(event => {
         return (
