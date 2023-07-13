@@ -1,12 +1,6 @@
 .App {
   display: flex;
   flex-direction: column;
-  background: linear-gradient(
-    to bottom,
-    rgba(44, 23, 84, 0.9),
-    rgba(42, 21, 83, 0.93),
-    rgba(41, 20, 82, 1)
-  );
   min-height: 100vh;
   max-width: 100vw;
 }
