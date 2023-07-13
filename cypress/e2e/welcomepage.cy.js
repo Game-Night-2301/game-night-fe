@@ -22,7 +22,7 @@ beforeEach(() => {
       }
     }).as('getUserGames');
   });
-  cy.visit('http://localhost:3000/');
+  cy.visit('https://game-night-fe.vercel.app/');
 });
 
 
