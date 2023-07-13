@@ -1,55 +1,1185 @@
 {
-  "data": {
-    "user": {
+  "user": {
+      "__typename": "User",
       "sortedEvents": [
-        {
-          "id": "1",
-          "date": "2023-07-15",
-          "address": "123 Main St",
-          "city": "Example City",
-          "state": "Example State",
-          "zip": "12345",
-          "title": "Example Event 1",
-          "cancelled": false,
-          "description": "This is the description for Example Event 1.",
-          "host": {
-            "id": "101",
-            "username": "example_user1"
+          {
+              "__typename": "Event",
+              "id": "7",
+              "date": "2023-01-01T00:00:00Z",
+              "address": "1 One street",
+              "city": "1 city",
+              "state": "1 state",
+              "zip": 11111,
+              "title": "1 title",
+              "cancelled": false,
+              "description": "1 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "16",
+                  "username": "user 1"
+              },
+              "game": 1,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "5",
+                      "username": "user 5"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "16",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "17",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "18",
+                      "username": "user 3"
+                  }
+              ],
+              "playerCount": 4
           },
-          "game": "Chess",
-          "gameType": "Casual",
-          "attendees": [
-            {
-              "id": "201",
-              "username": "example_user2"
-            },
-            {
-              "id": "301",
-              "username": "example_user3"
-            }
-          ],
-          "playerCount": 3
-        },
-        {
-          "id": "2",
-          "date": "2023-07-20",
-          "address": "456 Elm St",
-          "city": "Sample City",
-          "state": "Sample State",
-          "zip": "67890",
-          "title": "Example Event 2",
-          "cancelled": false,
-          "description": "This is the description for Example Event 2.",
-          "host": {
-            "id": "102",
-            "username": "example_user4"
+          {
+              "__typename": "Event",
+              "id": "13",
+              "date": "2023-01-01T00:00:00Z",
+              "address": "1 One street",
+              "city": "1 city",
+              "state": "1 state",
+              "zip": 11111,
+              "title": "1 title",
+              "cancelled": false,
+              "description": "1 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "31",
+                  "username": "user 1"
+              },
+              "game": 1,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "31",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "32",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "33",
+                      "username": "user 3"
+                  }
+              ],
+              "playerCount": 3
           },
-          "game": "Poker",
-          "gameType": "Professional",
-          "attendees": [],
-          "playerCount": 0
-        }
+          {
+              "__typename": "Event",
+              "id": "5",
+              "date": "2023-01-01T00:00:00Z",
+              "address": "1 One street",
+              "city": "1 city",
+              "state": "1 state",
+              "zip": 11111,
+              "title": "1 title",
+              "cancelled": false,
+              "description": "1 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "11",
+                  "username": "user 1"
+              },
+              "game": 1,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "11",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "12",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "13",
+                      "username": "user 3"
+                  }
+              ],
+              "playerCount": 3
+          },
+          {
+              "__typename": "Event",
+              "id": "15",
+              "date": "2023-01-01T00:00:00Z",
+              "address": "1 One street",
+              "city": "1 city",
+              "state": "1 state",
+              "zip": 11111,
+              "title": "1 title",
+              "cancelled": false,
+              "description": "1 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "36",
+                  "username": "user 1"
+              },
+              "game": 1,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "36",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "37",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "38",
+                      "username": "user 3"
+                  }
+              ],
+              "playerCount": 3
+          },
+          {
+              "__typename": "Event",
+              "id": "1",
+              "date": "2023-01-01T00:00:00Z",
+              "address": "1 One street",
+              "city": "1 city",
+              "state": "1 state",
+              "zip": 11111,
+              "title": "1 title",
+              "cancelled": false,
+              "description": "1 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "1",
+                  "username": "user 1"
+              },
+              "game": 1,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "1",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "2",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "3",
+                      "username": "user 3"
+                  }
+              ],
+              "playerCount": 3
+          },
+          {
+              "__typename": "Event",
+              "id": "17",
+              "date": "2023-01-01T00:00:00Z",
+              "address": "1 One street",
+              "city": "1 city",
+              "state": "1 state",
+              "zip": 11111,
+              "title": "1 title",
+              "cancelled": false,
+              "description": "1 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "41",
+                  "username": "user 1"
+              },
+              "game": 1,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "41",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "42",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "43",
+                      "username": "user 3"
+                  }
+              ],
+              "playerCount": 3
+          },
+          {
+              "__typename": "Event",
+              "id": "9",
+              "date": "2023-01-01T00:00:00Z",
+              "address": "1 One street",
+              "city": "1 city",
+              "state": "1 state",
+              "zip": 11111,
+              "title": "1 title",
+              "cancelled": false,
+              "description": "1 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "21",
+                  "username": "user 1"
+              },
+              "game": 1,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "21",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "22",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "23",
+                      "username": "user 3"
+                  }
+              ],
+              "playerCount": 3
+          },
+          {
+              "__typename": "Event",
+              "id": "19",
+              "date": "2023-01-01T00:00:00Z",
+              "address": "1 One street",
+              "city": "1 city",
+              "state": "1 state",
+              "zip": 11111,
+              "title": "1 title",
+              "cancelled": false,
+              "description": "1 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "46",
+                  "username": "user 1"
+              },
+              "game": 1,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "46",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "47",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "48",
+                      "username": "user 3"
+                  }
+              ],
+              "playerCount": 3
+          },
+          {
+              "__typename": "Event",
+              "id": "3",
+              "date": "2023-01-01T00:00:00Z",
+              "address": "1 One street",
+              "city": "1 city",
+              "state": "1 state",
+              "zip": 11111,
+              "title": "1 title",
+              "cancelled": false,
+              "description": "1 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "6",
+                  "username": "user 1"
+              },
+              "game": 1,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "6",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "7",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "8",
+                      "username": "user 3"
+                  }
+              ],
+              "playerCount": 3
+          },
+          {
+              "__typename": "Event",
+              "id": "21",
+              "date": "2023-01-01T00:00:00Z",
+              "address": "1 One street",
+              "city": "1 city",
+              "state": "1 state",
+              "zip": 11111,
+              "title": "1 title",
+              "cancelled": false,
+              "description": "1 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "51",
+                  "username": "user 1"
+              },
+              "game": 1,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "51",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "52",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "53",
+                      "username": "user 3"
+                  }
+              ],
+              "playerCount": 3
+          },
+          {
+              "__typename": "Event",
+              "id": "11",
+              "date": "2023-01-01T00:00:00Z",
+              "address": "1 One street",
+              "city": "1 city",
+              "state": "1 state",
+              "zip": 11111,
+              "title": "1 title",
+              "cancelled": false,
+              "description": "1 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "26",
+                  "username": "user 1"
+              },
+              "game": 1,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "26",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "27",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "28",
+                      "username": "user 3"
+                  }
+              ],
+              "playerCount": 3
+          },
+          {
+              "__typename": "Event",
+              "id": "16",
+              "date": "2023-02-02T00:00:00Z",
+              "address": "2 One street",
+              "city": "2 city",
+              "state": "2 state",
+              "zip": 22222,
+              "title": "2 title",
+              "cancelled": false,
+              "description": "2 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "37",
+                  "username": "user 2"
+              },
+              "game": 2,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "36",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "37",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "39",
+                      "username": "user 4"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "40",
+                      "username": "user 5"
+                  }
+              ],
+              "playerCount": 4
+          },
+          {
+              "__typename": "Event",
+              "id": "2",
+              "date": "2023-02-02T00:00:00Z",
+              "address": "2 One street",
+              "city": "2 city",
+              "state": "2 state",
+              "zip": 22222,
+              "title": "2 title",
+              "cancelled": false,
+              "description": "2 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "2",
+                  "username": "user 2"
+              },
+              "game": 2,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "1",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "2",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "4",
+                      "username": "user 4"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "5",
+                      "username": "user 5"
+                  }
+              ],
+              "playerCount": 4
+          },
+          {
+              "__typename": "Event",
+              "id": "4",
+              "date": "2023-02-02T00:00:00Z",
+              "address": "2 One street",
+              "city": "2 city",
+              "state": "2 state",
+              "zip": 22222,
+              "title": "2 title",
+              "cancelled": false,
+              "description": "2 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "7",
+                  "username": "user 2"
+              },
+              "game": 2,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "2",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "6",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "7",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "9",
+                      "username": "user 4"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "10",
+                      "username": "user 5"
+                  }
+              ],
+              "playerCount": 5
+          },
+          {
+              "__typename": "Event",
+              "id": "6",
+              "date": "2023-02-02T00:00:00Z",
+              "address": "2 One street",
+              "city": "2 city",
+              "state": "2 state",
+              "zip": 22222,
+              "title": "2 title",
+              "cancelled": false,
+              "description": "2 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "12",
+                  "username": "user 2"
+              },
+              "game": 2,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "11",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "12",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "14",
+                      "username": "user 4"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "15",
+                      "username": "user 5"
+                  }
+              ],
+              "playerCount": 4
+          },
+          {
+              "__typename": "Event",
+              "id": "8",
+              "date": "2023-02-02T00:00:00Z",
+              "address": "2 One street",
+              "city": "2 city",
+              "state": "2 state",
+              "zip": 22222,
+              "title": "2 title",
+              "cancelled": false,
+              "description": "2 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "17",
+                  "username": "user 2"
+              },
+              "game": 2,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "16",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "17",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "19",
+                      "username": "user 4"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "20",
+                      "username": "user 5"
+                  }
+              ],
+              "playerCount": 4
+          },
+          {
+              "__typename": "Event",
+              "id": "10",
+              "date": "2023-02-02T00:00:00Z",
+              "address": "2 One street",
+              "city": "2 city",
+              "state": "2 state",
+              "zip": 22222,
+              "title": "2 title",
+              "cancelled": false,
+              "description": "2 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "22",
+                  "username": "user 2"
+              },
+              "game": 2,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "21",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "22",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "24",
+                      "username": "user 4"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "25",
+                      "username": "user 5"
+                  }
+              ],
+              "playerCount": 4
+          },
+          {
+              "__typename": "Event",
+              "id": "12",
+              "date": "2023-02-02T00:00:00Z",
+              "address": "2 One street",
+              "city": "2 city",
+              "state": "2 state",
+              "zip": 22222,
+              "title": "2 title",
+              "cancelled": false,
+              "description": "2 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "27",
+                  "username": "user 2"
+              },
+              "game": 2,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "2",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "26",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "27",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "29",
+                      "username": "user 4"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "30",
+                      "username": "user 5"
+                  }
+              ],
+              "playerCount": 5
+          },
+          {
+              "__typename": "Event",
+              "id": "14",
+              "date": "2023-02-02T00:00:00Z",
+              "address": "2 One street",
+              "city": "2 city",
+              "state": "2 state",
+              "zip": 22222,
+              "title": "2 title",
+              "cancelled": false,
+              "description": "2 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "32",
+                  "username": "user 2"
+              },
+              "game": 2,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "2",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "31",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "32",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "34",
+                      "username": "user 4"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "35",
+                      "username": "user 5"
+                  }
+              ],
+              "playerCount": 5
+          },
+          {
+              "__typename": "Event",
+              "id": "18",
+              "date": "2023-02-02T00:00:00Z",
+              "address": "2 One street",
+              "city": "2 city",
+              "state": "2 state",
+              "zip": 22222,
+              "title": "2 title",
+              "cancelled": false,
+              "description": "2 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "42",
+                  "username": "user 2"
+              },
+              "game": 2,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "41",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "42",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "44",
+                      "username": "user 4"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "45",
+                      "username": "user 5"
+                  }
+              ],
+              "playerCount": 4
+          },
+          {
+              "__typename": "Event",
+              "id": "20",
+              "date": "2023-02-02T00:00:00Z",
+              "address": "2 One street",
+              "city": "2 city",
+              "state": "2 state",
+              "zip": 22222,
+              "title": "2 title",
+              "cancelled": false,
+              "description": "2 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "47",
+                  "username": "user 2"
+              },
+              "game": 2,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "46",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "47",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "49",
+                      "username": "user 4"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "50",
+                      "username": "user 5"
+                  }
+              ],
+              "playerCount": 4
+          },
+          {
+              "__typename": "Event",
+              "id": "22",
+              "date": "2023-02-02T00:00:00Z",
+              "address": "2 One street",
+              "city": "2 city",
+              "state": "2 state",
+              "zip": 22222,
+              "title": "2 title",
+              "cancelled": false,
+              "description": "2 description",
+              "host": {
+                  "__typename": "User",
+                  "id": "52",
+                  "username": "user 2"
+              },
+              "game": 2,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "51",
+                      "username": "user 1"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "52",
+                      "username": "user 2"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "54",
+                      "username": "user 4"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "55",
+                      "username": "user 5"
+                  }
+              ],
+              "playerCount": 4
+          },
+          {
+              "__typename": "Event",
+              "id": "28",
+              "date": "2023-10-04T00:00:00Z",
+              "address": "37 N Main St",
+              "city": "Rutland",
+              "state": "Vermont",
+              "zip": 5701,
+              "title": "Chipotle",
+              "cancelled": false,
+              "description": "Hello. My name is Inigo Montoya. You killed my father. Prepare to die!",
+              "host": null,
+              "game": 2,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "56",
+                      "username": "Arahael"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "57",
+                      "username": "Edrahil"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "58",
+                      "username": "Thrór"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "62",
+                      "username": "Sancho Proudfoot"
+                  }
+              ],
+              "playerCount": 4
+          },
+          {
+              "__typename": "Event",
+              "id": "29",
+              "date": "2023-10-21T00:00:00Z",
+              "address": "205 Dorset St",
+              "city": "South Burlington",
+              "state": "Vermont",
+              "zip": 5403,
+              "title": "Chipotle",
+              "cancelled": false,
+              "description": "But first things first. To the death!",
+              "host": null,
+              "game": 2,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "59",
+                      "username": "Guthláf"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "61",
+                      "username": "Bruno Bracegirdle"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "66",
+                      "username": "Gundahad Bolger"
+                  }
+              ],
+              "playerCount": 3
+          },
+          {
+              "__typename": "Event",
+              "id": "27",
+              "date": "2023-10-15T00:00:00Z",
+              "address": "580 Shelburne Rd ",
+              "city": "Burlington",
+              "state": "Vermont",
+              "zip": 5401,
+              "title": "Chipotle",
+              "cancelled": false,
+              "description": "Do you have 6 fingers on your left hand?",
+              "host": null,
+              "game": 2,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "63",
+                      "username": "Cirion"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "66",
+                      "username": "Gundahad Bolger"
+                  }
+              ],
+              "playerCount": 2
+          },
+          {
+              "__typename": "Event",
+              "id": "26",
+              "date": "2023-10-16T00:00:00Z",
+              "address": "2027 S Shepherd Dr",
+              "city": "Houston",
+              "state": "Texas",
+              "zip": 77019,
+              "title": "Chipotle",
+              "cancelled": false,
+              "description": "I'm not a witch I'm your wife. But after what you just said I'm not even sure I want to be that anymore.",
+              "host": null,
+              "game": 2,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "62",
+                      "username": "Sancho Proudfoot"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "63",
+                      "username": "Cirion"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "64",
+                      "username": "Halbarad"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "65",
+                      "username": "Hirgon"
+                  }
+              ],
+              "playerCount": 4
+          },
+          {
+              "__typename": "Event",
+              "id": "23",
+              "date": "2023-10-01T00:00:00Z",
+              "address": "10515 N Mopac Expy",
+              "city": "Austin",
+              "state": "Texas",
+              "zip": 78759,
+              "title": "Chipotle",
+              "cancelled": false,
+              "description": "I'm not a witch I'm your wife. But after what you just said I'm not even sure I want to be that anymore.",
+              "host": {
+                  "__typename": "User",
+                  "id": "56",
+                  "username": "Arahael"
+              },
+              "game": 1,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "56",
+                      "username": "Arahael"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "57",
+                      "username": "Edrahil"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "58",
+                      "username": "Thrór"
+                  }
+              ],
+              "playerCount": 3
+          },
+          {
+              "__typename": "Event",
+              "id": "25",
+              "date": "2023-10-15T00:00:00Z",
+              "address": "2700 W Anderson Ln",
+              "city": "Austin",
+              "state": "Texas",
+              "zip": 78757,
+              "title": "Chipotle",
+              "cancelled": false,
+              "description": "Inconceivable!",
+              "host": null,
+              "game": 2,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "61",
+                      "username": "Bruno Bracegirdle"
+                  }
+              ],
+              "playerCount": 1
+          },
+          {
+              "__typename": "Event",
+              "id": "30",
+              "date": "2023-10-08T00:00:00Z",
+              "address": "2320 S Lamar Blvd",
+              "city": "Austin",
+              "state": "Texas",
+              "zip": 78704,
+              "title": "Chipotle",
+              "cancelled": false,
+              "description": "Are you coming down into the pit? Westly's got his strength back, I'm starting him on the machine tonight.",
+              "host": null,
+              "game": 2,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "60",
+                      "username": "Hamson Gamgee"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "65",
+                      "username": "Hirgon"
+                  }
+              ],
+              "playerCount": 2
+          },
+          {
+              "__typename": "Event",
+              "id": "31",
+              "date": "2023-12-12T00:00:00Z",
+              "address": "2707 Valmont Road",
+              "city": "Boulder",
+              "state": "Colorado",
+              "zip": 80304,
+              "title": "This is my actual address",
+              "cancelled": null,
+              "description": "Please don't stalk me",
+              "host": {
+                  "__typename": "User",
+                  "id": "1",
+                  "username": "user 1"
+              },
+              "game": 100,
+              "gameType": "Board Game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "1",
+                      "username": "user 1"
+                  }
+              ],
+              "playerCount": 1
+          },
+          {
+              "__typename": "Event",
+              "id": "24",
+              "date": "2023-10-28T00:00:00Z",
+              "address": "100 E Camelback Rd",
+              "city": "phoenix",
+              "state": "arizona",
+              "zip": 85012,
+              "title": "Chipotle",
+              "cancelled": false,
+              "description": "What you do not smell is called Iocane Power.",
+              "host": {
+                  "__typename": "User",
+                  "id": "57",
+                  "username": "Edrahil"
+              },
+              "game": 2,
+              "gameType": "board game",
+              "attendees": [
+                  {
+                      "__typename": "User",
+                      "id": "57",
+                      "username": "Edrahil"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "59",
+                      "username": "Guthláf"
+                  },
+                  {
+                      "__typename": "User",
+                      "id": "60",
+                      "username": "Hamson Gamgee"
+                  }
+              ],
+              "playerCount": 3
+          }
       ]
-    }
   }
 }
