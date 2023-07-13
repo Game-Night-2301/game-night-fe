@@ -6,7 +6,7 @@ import { useQuery } from '@apollo/client';
 import { getUserGames } from '../../../queries/index';
 import './Card.css';
 
-const Card = ({ userId, attendees, id, city, state, zip, title, date, hostId, description }) => {
+const Card = ({ userId, attendees, id, city, state, zip, title, date, hostId, description, distance }) => {
   const { loading, error, data } = useQuery(getUserGames, { variables: { id: userId }, skip: !id });
   const [cardGame, setCardGame] = useState(null);
 
