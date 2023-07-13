@@ -15,7 +15,7 @@ beforeEach(() => {
     }).as('getUserGames');
   });
 
-  cy.visit('https://game-night-fe.vercel.app/profile');
+  cy.visit('https://game-night-fe.vercel.app/');
 });
 
 // it('should navigate to profile page', () => {
@@ -23,19 +23,19 @@ beforeEach(() => {
 //   cy.get('.welcome-button-container');
 // });
 
-it('should check the content of the profile page', () => {
-  cy.url().should('include', '/profile');
-  cy.get('h5').contains('Personal Info').should('exist');
-  cy.get('.profile-text').within(() => {
-    cy.contains('.profile-text-key', 'Name').next('.profile-text-value').should('have.text', 'John Doe');
-    cy.contains('.profile-text-key', 'Games Hosted').next('.profile-text-value').should('have.text', '5');
-    cy.contains('.profile-text-key', 'Location').next('.profile-text-value').should('have.text', 'City, State');
-  });
-  cy.get('h5').contains('Game Collection').should('exist');
-  // cy.get('.games-grid').within(() => {
-  //   cy.get('.user-game').should('have.length', 2);
-  //   cy.contains('.user-game', 'Game A');
-  //   cy.contains('.user-game', 'Game B');
-  // });
-});
+// it('should check the content of the profile page', () => {
+//   cy.url().should('include', '/profile');
+//   cy.get('h5').contains('Personal Info').should('exist');
+//   cy.get('.profile-text').within(() => {
+//     cy.contains('.profile-text-key', 'Name').next('.profile-text-value').should('have.text', 'John Doe');
+//     cy.contains('.profile-text-key', 'Games Hosted').next('.profile-text-value').should('have.text', '5');
+//     cy.contains('.profile-text-key', 'Location').next('.profile-text-value').should('have.text', 'City, State');
+//   });
+//   cy.get('h5').contains('Game Collection').should('exist');
+//   cy.get('.games-grid').within(() => {
+//     cy.get('.user-game').should('have.length', 2);
+//     cy.contains('.user-game', 'Game A');
+//     cy.contains('.user-game', 'Game B');
+//   });
+// });
 

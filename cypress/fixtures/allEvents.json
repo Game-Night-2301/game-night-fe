@@ -1,72 +1,55 @@
 {
-  "getUser": {
+  "data": {
     "user": {
-      "id": "1",
-      "username": "example_user1"
-    }
-  },
-  "getAllEvents": {
-    "sortedEvents": [
-      {
-        "id": "1",
-        "date": "2023-07-15",
-        "address": "123 Main St",
-        "city": "Example City",
-        "state": "Example State",
-        "zip": "12345",
-        "title": "Example Event 1",
-        "cancelled": false,
-        "description": "This is the description for Example Event 1.",
-        "host": {
-          "id": "101",
-          "username": "example_user1"
-        },
-        "game": "Chess",
-        "gameType": "Casual",
-        "attendees": [
-          {
-            "id": "201",
-            "username": "example_user2"
+      "sortedEvents": [
+        {
+          "id": "1",
+          "date": "2023-07-15",
+          "address": "123 Main St",
+          "city": "Example City",
+          "state": "Example State",
+          "zip": "12345",
+          "title": "Example Event 1",
+          "cancelled": false,
+          "description": "This is the description for Example Event 1.",
+          "host": {
+            "id": "101",
+            "username": "example_user1"
           },
-          {
-            "id": "301",
-            "username": "example_user3"
-          }
-        ],
-        "playerCount": 3
-      },
-      {
-        "id": "2",
-        "date": "2023-07-20",
-        "address": "456 Elm St",
-        "city": "Sample City",
-        "state": "Sample State",
-        "zip": "67890",
-        "title": "Example Event 2",
-        "cancelled": true,
-        "description": "This is the description for Example Event 2.",
-        "host": {
-          "id": "101",
-          "username": "example_user1"
+          "game": "Chess",
+          "gameType": "Casual",
+          "attendees": [
+            {
+              "id": "201",
+              "username": "example_user2"
+            },
+            {
+              "id": "301",
+              "username": "example_user3"
+            }
+          ],
+          "playerCount": 3
         },
-        "game": "Poker",
-        "gameType": "Tournament",
-        "attendees": [
-          {
-            "id": "401",
+        {
+          "id": "2",
+          "date": "2023-07-20",
+          "address": "456 Elm St",
+          "city": "Sample City",
+          "state": "Sample State",
+          "zip": "67890",
+          "title": "Example Event 2",
+          "cancelled": false,
+          "description": "This is the description for Example Event 2.",
+          "host": {
+            "id": "102",
             "username": "example_user4"
           },
-          {
-            "id": "501",
-            "username": "example_user5"
-          },
-          {
-            "id": "601",
-            "username": "example_user6"
-          }
-        ],
-        "playerCount": 6
-      }
-    ]
+          "game": "Poker",
+          "gameType": "Professional",
+          "attendees": [],
+          "playerCount": 0
+        }
+      ]
+    }
   }
 }
