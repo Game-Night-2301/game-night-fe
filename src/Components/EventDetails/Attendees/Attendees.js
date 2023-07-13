@@ -8,7 +8,7 @@ export const Attendees = ( { attendees, id, game} ) => {
   const renderAttendees = attendees.map( attendee => {
       return (
         <Tooltip title={attendee.username}>
-        <img src={userIcon} alt={attendee.id} className="attendee-img" />
+        <img src={userIcon} key={attendee.id} alt={attendee.id} className="attendee-img" />
         </Tooltip>
       )
     });
@@ -24,3 +24,14 @@ export const Attendees = ( { attendees, id, game} ) => {
     
   )
 }
+
+Attendees.propTypes = {
+  attendees: PropTypes.arrayOf(
+    PropTypes.shape({
+      username: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  id: PropTypes.string.isRequired,
+  game: PropTypes.string.isRequired,
+};
