@@ -21,7 +21,7 @@ import {
 
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(null);
+  const [loggedIn, setLoggedIn] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
 
   const { loading, error, data } = useQuery(getUser, { variables: { id: selectedUser }, skip: !selectedUser });
@@ -50,32 +50,34 @@ function App() {
     <Router>
       <main className="App">
         <Switch>
-          <Route exact path="/">
-            {loggedIn ? (
-              <Redirect to="/browse" />
-            ) : (
-              <WelcomePage loginUser={loginUser} />
-            )}
-          </Route>
-          <Route exact path="/browse">
-            {loggedIn ? (
-              <BrowseEvent selectedUser={selectedUser} logoutUser={logoutUser}/>
-            ) : (
-              <Redirect to="/" />
-            )}
-          </Route>
-        <Route exact path="/profile">
-          <ProfilePage logoutUser={logoutUser} selectedUser={selectedUser} userData={data.user}/>
-        </Route>
-        <Route exact path="/new-event">
-          <Form logoutUser={logoutUser}/>
-        </Route>
-        <Route exact path="/events/:id">
-          <EventDetails loggedInUser={selectedUser} logoutUser={logoutUser}/>
-        </Route>
-        <Route exact path="/*">
-          <Error />
-        </Route>
+          {loggedIn ? (
+            <>
+              <Route exact path="/browse">
+                <BrowseEvent selectedUser={selectedUser} logoutUser={logoutUser}/>
+              </Route>
+              <Route exact path="/profile">
+                <ProfilePage logoutUser={logoutUser} selectedUser={selectedUser} userData={data.user}/>
+              </Route>
+              <Route exact path="/new-event">
+                <Form logoutUser={logoutUser}/>
+              </Route>
+              <Route exact path="/events/:id">
+                <EventDetails loggedInUser={selectedUser} logoutUser={logoutUser}/>
+              </Route>
+              <Route path="*">
+                <Redirect to="/browse" />
+              </Route>
+            </>
+          ) : (
+            <>
+              <Route exact path="/">
+                <WelcomePage loginUser={loginUser} />
+              </Route>
+              <Route path="*">
+                <Redirect to="/" />
+              </Route>
+            </>
+          )}
         </Switch>
       </main>
     </Router>
