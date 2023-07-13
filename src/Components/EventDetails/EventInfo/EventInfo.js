@@ -52,3 +52,17 @@ export const EventInfo = ({ hostId, id, game, time, date, attendees, loggedInUse
     </div>
   )
 }
+
+EventInfo.propTypes = {
+  hostId: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  game: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  attendees: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  loggedInUser: PropTypes.number.isRequired,
+};
