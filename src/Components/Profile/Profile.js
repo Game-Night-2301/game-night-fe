@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { getUserGames } from '../../queries/index';
 import userIcon from '../../assets/usericon.svg';
 import diceicon from '../../assets/diceicon.png';
+import PropTypes from 'prop-types'
 
 const ProfilePage = ({logoutUser, selectedUser, userData}) => {
   const { loading, error, data } = useQuery(getUserGames, { variables: { id: selectedUser } });
@@ -75,3 +76,13 @@ const ProfilePage = ({logoutUser, selectedUser, userData}) => {
 };
 
 export default ProfilePage
+
+ProfilePage.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  selectedUser: PropTypes.string.isRequired,
+  userData: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+  }).isRequired,
+};

@@ -55,3 +55,8 @@ const BrowseEvent = ({ selectedUser, logoutUser }) => {
   )
 }
 export default BrowseEvent
+
+BrowseEvent.propTypes = {
+  selectedUser: PropTypes.string.isRequired,
+  logoutUser: PropTypes.func.isRequired,
+};

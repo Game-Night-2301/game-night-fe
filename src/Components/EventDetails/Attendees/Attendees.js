@@ -24,3 +24,14 @@ export const Attendees = ( { attendees, id, game} ) => {
     
   )
 }
+
+Attendees.propTypes = {
+  attendees: PropTypes.arrayOf(
+    PropTypes.shape({
+      username: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  id: PropTypes.string.isRequired,
+  game: PropTypes.string.isRequired,
+};

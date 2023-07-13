@@ -2,6 +2,7 @@ import React from 'react';
 import Button from '../ReusableComponents/Button/Button';
 import dice from '../../assets/Dice.svg';
 import './WelcomePage.css';
+import PropTypes from 'prop-types';
 
 function WelcomePage({ loginUser, logoutUser, loggedIn }) {
   const handleLogin = (userId) => {
@@ -27,3 +28,9 @@ function WelcomePage({ loginUser, logoutUser, loggedIn }) {
 }
 
 export default WelcomePage;
+
+WelcomePage.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+  logoutUser: PropTypes.func.isRequired,
+  loggedIn: PropTypes.bool.isRequired,
+};
