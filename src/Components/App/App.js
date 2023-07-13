@@ -64,6 +64,9 @@ function App() {
               <Route exact path="/events/:id">
                 <EventDetails loggedInUser={selectedUser} logoutUser={logoutUser}/>
               </Route>
+              <Route path="/error">
+                <Error error="Oops! Looks like we rolled a critical error. Time to reshuffle the digital deck!" />
+              </Route>
               <Route path="*">
                 <Redirect to="/browse" />
               </Route>
@@ -72,6 +75,9 @@ function App() {
             <>
               <Route exact path="/">
                 <WelcomePage loginUser={loginUser} />
+              </Route>
+              <Route path="/error">
+                <Error error="Oops! Looks like we rolled a critical error. Time to reshuffle the digital deck!" />
               </Route>
               <Route path="*">
                 <Redirect to="/" />
