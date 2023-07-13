@@ -65,7 +65,7 @@ function App() {
             )}
           </Route>
         <Route exact path="/profile">
-          <ProfilePage logoutUser={logoutUser}/>
+          <ProfilePage logoutUser={logoutUser} selectedUser={selectedUser}/>
         </Route>
         <Route exact path="/new-event">
           <Form logoutUser={logoutUser}/>

@@ -44,7 +44,7 @@ const BrowseEvent = ({ selectedUser, logoutUser }) => {
       {error && <p>Error: {error.message}</p>}
       {data && 
         <>
-          <BrowserHeader/>
+          <BrowserHeader text="Open Games"/>
           <section className='browse-event-container'>
             {displayEvents()}
           </section>
