@@ -119,7 +119,6 @@ export const getAllEvents = gql`
   }
 `;
 
-
 export const getUserGames = gql`
   query getUser($id: ID!) {
     user(id: $id) {
@@ -166,57 +165,18 @@ export const getUserProfile = gql`
       }
     }
   }
-`;export const createEvent = gql`
-  mutation createEvent($input: EventInput!) {
-    createEvent(input: $input) {
-      event {
-        id
-        date
-        address
-        state
-        city
-        zip
-        title
-        cancelled
-        description
-        hostId
-        game
-        gameType
-        playerCount
-        attendees {
-          id
-          username
-        }
-      }
-    }
-  }
 `;
 
-// export const createEvent = (event) => gql`
-//   mutation createEvent($input: EventInput!) {
-//     createEvent(input: $input) {
-//       event {
-//         id
-//         date
-//         address
-//         state
-//         city
-//         zip
-//         title
-//         cancelled
-//         description
-//         hostId
-//         game
-//         gameType
-//         playerCount
-//         attendees {
-//           id
-//           username
-//         }
-//       }
-//     }
-//   }
-// `;
+export const createEventMutation = gql`
+mutation CreateEvent($input: CreateEventInput!) {
+  createEvent(input: $input) {
+    event {
+      id
+    }
+    errors
+  }
+}
+`;
 
 export const addUserToEvent = gql`
   mutation createUserEvent($input: CreateUserEventInput!) {
