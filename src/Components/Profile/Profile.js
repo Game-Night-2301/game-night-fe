@@ -3,12 +3,22 @@ import Header from '../ReusableComponents/Header/Header';
 import BrowserHeader from '../ReusableComponents/BrowserHeader/BrowserHeader';
 import UserGame from './UserGame/UserGame';
 import { useQuery } from '@apollo/client';
+import { useState } from 'react';
 import { getUserGames } from '../../queries/index';
 import userIcon from '../../assets/usericon.svg';
 import diceicon from '../../assets/diceicon.png';
 
-const ProfilePage = ({logoutUser, selectedUser}) => {
-  const { loading, error, data } = useQuery(getUserGames, { variables: { id: 1 } });
+const ProfilePage = ({logoutUser, selectedUser, userData}) => {
+  const { loading, error, data } = useQuery(getUserGames, { variables: { id: selectedUser } });
+  const [expandedGame, setExpandedGame] = useState(null);
+
+  const handleExpandClick = (gameName) => {
+    if(expandedGame === gameName) {
+      setExpandedGame(null);
+    } else {
+      setExpandedGame(gameName);
+    }
+  };
 
   const mapUserGames = () => {
     if(data?.user?.ownedGames?.length) {
@@ -17,14 +27,10 @@ const ProfilePage = ({logoutUser, selectedUser}) => {
         return (
           <UserGame 
             key={game.id}
-            name={game.name}
-            image={game.imageUrl}
-            maxPlayers={game.maxPlayers}
-            minPlayers={game.minPlayers}
-            minPlaytime={game.minPlaytime}
-            maxPlaytime={game.maxPlaytime}
-            complexity={game.averageStrategyComplexity}
-            rating={game.averageUserRating}
+            {...game}
+            handleExpand={handleExpandClick}
+            expanded={expandedGame === game.name}
+            hidden={expandedGame && expandedGame !== game.name}
           />
         )
       })
@@ -44,15 +50,15 @@ const ProfilePage = ({logoutUser, selectedUser}) => {
               <section className="profile-text">
                 <div className="profile-key-value">
                   <p className="profile-text-key">Name</p>
-                  <p className="profile-text-value">John Doe</p>
+                  <p className="profile-text-value">{userData.username}</p>
                 </div>
                 <div className="profile-key-value">
-                  <p className="profile-text-key">Games Hosted</p>
-                  <p className="profile-text-value">5</p>
+                  <p className="profile-text-key">Games Owned</p>
+                  <p className="profile-text-value">{data.user.ownedGames.length}</p>
                 </div>
                 <div className="profile-key-value">
                   <p className="profile-text-key">Location</p>
-                  <p className="profile-text-value">City, State</p>
+                  <p className="profile-text-value">{userData.city}, {userData.state}</p>
                 </div>
               </section>
             </div>
