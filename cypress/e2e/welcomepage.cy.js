@@ -7,7 +7,7 @@ beforeEach(() => {
     }).as('getUser');
   });
 
-  cy.fixture('AllEvents.json').then((getAllEvents) => {
+  cy.fixture('allEvents.json').then((getAllEvents) => {
     cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
       if (req.body.operationName === 'getUser') {
         req.reply({ data: getAllEvents });
