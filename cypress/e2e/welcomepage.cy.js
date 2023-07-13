@@ -2,7 +2,7 @@ beforeEach(() => {
   cy.fixture('getUserById.json').then((getUser) => {
     cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
       if (req.body.operationName === 'getUser') {
-        req.reply({ data: getUser });
+        req.reply({ data: getUserById });
       }
     }).as('getUser');
   });
