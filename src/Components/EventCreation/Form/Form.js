@@ -9,42 +9,93 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { createEvent } from "../../../queries";
+import { createEventMutation } from "../../../queries";
 
 const Form = ({logoutUser, loggedInUser}) => {
   const [game, setGame] = useState('');
   const [category, setCategory] = useState('');
-  const [address, setAddress] = useState();
-  const [city, setCity] = useState();
-  const [state, setState] = useState();
-  const [zip, setZip] = useState();
-  const [date, setDate] = useState();
-  const [startTime, setStartTime] = useState();
-  const [endTime, setEndTime] = useState();
-  const [eventDescription, setEventDescription] = useState();
+  const [address, setAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setEState] = useState('');
+  const [zip, setZip] = useState(null);
+  const [date, setDate] = useState(null);
+  const [startTime, setStartTime] = useState(null);
+  const [endTime, setEndTime] = useState(null);
+  const [eventDescription, setEventDescription] = useState('');
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const [createEvent, { data, loading, error }] = useMutation(createEventMutation);
 
-    createNewEvent({
-      variables: {
-        input: {
-          date: date,
-          address: address,
-          city: city,
-          state: state,
-          zip: zip,
-          title: game,
-          description: eventDescription,
-          hostId: loggedInUser,
-        },
-      },
-    });
+  const onCreateEvent = async(input) => {
+    try {
+      const { data } = await createEvent({ variables: { input } });
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   };
-  const [createNewEvent, { data: data, loading: loading, error: error }] = useMutation(createEvent);
+
+
+  const handleGameChange = (e) => {
+    setGame(e.target.value);
+  };
+  
+  const handleDateChange = (date) => {
+    setDate(date);
+  };
+
+  const handleStartTimeChange = (time) => {
+    setStartTime(time);
+  };
+
+  const handleEndTimeChange = (time) => {
+    setEndTime(time);
+  };
+
+  const handleCategoryChange = (e) => {
+    setCategory(e.target.value);
+  };
+
+  const handleAddressChange = (e) => {
+    setAddress(e.target.value);
+  };
+
+  const handleCityChange = (e) => {
+    setCity(e.target.value);
+  };
+
+  const handleStateChange = (e) => {
+    setEState(e.target.value);
+  };
+
+  const handleZipChange = (e) => {
+    setZip(e.target.value);
+  };
+
+  const handleEventDescriptionChange = (e) => {
+    setEventDescription(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    const newEvent = {
+      date: dayjs(date).format("YYYY/MM/DD"),
+      address: address,
+      city: city,
+      state: state,
+      zip: parseInt(zip),
+      title: game,
+      description: eventDescription,
+      host: loggedInUser,
+      game: 1,
+      gameType: category,
+      startTime: dayjs(startTime).format("HH:mm:ss"),
+      endTime: dayjs(endTime).format("HH:mm:ss"),
+    }    
+    console.log(newEvent)
+    onCreateEvent(newEvent);
+  };
 
   return (
-    <form className="form" onSubmit={handleSubmit}>
+    <form className="form">
       <div className="container">
         <h2 className="form-header">Game</h2>
         <hr className="line" />
@@ -53,7 +104,7 @@ const Form = ({logoutUser, loggedInUser}) => {
             className="game-selector"
             id="game"
             value={game}
-            onChange={(e) => setGame(e.target.value)}
+            onChange={(e) => handleGameChange(e)}
             select
             label="Games"
             sx={{margin: "1em"}}
@@ -67,7 +118,7 @@ const Form = ({logoutUser, loggedInUser}) => {
             id="category"
             value={category}
             select
-            onChange={(e) => setCategory(e.target.value)}
+            onChange={(e) => handleCategoryChange(e)}
             label="Category"
             sx={{margin: "1em"}}
             helperText="Please select a category"
@@ -82,7 +133,7 @@ const Form = ({logoutUser, loggedInUser}) => {
         <div className="location-details">
           <TextField
             required
-            onChange={(e) => setAddress(e.target.value)}
+            onChange={(e) => handleAddressChange(e)}
             id="address"
             value={address}
             label="Address"
@@ -90,7 +141,7 @@ const Form = ({logoutUser, loggedInUser}) => {
           />
           <TextField
             required
-            onChange={(e) => setCity(e.target.value)}
+            onChange={(e) => handleCityChange(e)}
             id="city"
             value={city}
             label="City"
@@ -98,7 +149,7 @@ const Form = ({logoutUser, loggedInUser}) => {
           />
           <TextField
             required
-            onChange={(e) => setState(e.target.value)}
+            onChange={(e) => handleStateChange(e)}
             id="state"
             value={state}
             label="State"
@@ -106,7 +157,7 @@ const Form = ({logoutUser, loggedInUser}) => {
           />
           <TextField
             required
-            onChange={(e) => setZip(e.target.value)}
+            onChange={(e) => handleZipChange(e)}
             id="zip"
             value={zip}
             label="Zip Code"
@@ -121,7 +172,7 @@ const Form = ({logoutUser, loggedInUser}) => {
             required
                 value={date}
                 sx={{margin: "1em"}}
-                onChange={(newDate) => setDate(newDate)}
+                onChange={(newDate) => handleDateChange(newDate)}
               />
 
               <TimePicker
@@ -129,14 +180,14 @@ const Form = ({logoutUser, loggedInUser}) => {
             required
                 value={startTime}
                 sx={{margin: "1em"}}
-                onChange={(newTime) => setStartTime(newTime)}
+                onChange={(startTime) => handleStartTimeChange(startTime)}
               />
               <TimePicker
                 label="End Time"
             required
                 value={endTime}
                 sx={{margin: "1em"}}
-                onChange={(newTime) => setEndTime(newTime)}
+                onChange={(endTime) => handleEndTimeChange(endTime)}
               />
             </LocalizationProvider>
           </div>
@@ -152,20 +203,10 @@ const Form = ({logoutUser, loggedInUser}) => {
             rows={6}
             sx={{margin: "1em",
             width: "98%"}}
-            onChange={(e) => setEventDescription(e.target.value)}
+            onChange={(e) => handleEventDescriptionChange(e)}
           />
         </div>
-        <Button className="button" text="Submit" onClick={()=>{createNewEvent({variables: {input: { 
-        date: date,
-        address: address,
-        state: state,
-        city: city,
-        zip: zip,
-        title: game,
-        cancelled: false,
-        description: eventDescription,
-        hostId: loggedInUser,
-        }}})}}/>
+        <Button className="button" text="Submit" onClick={handleSubmit} />
       </div>
     </form>
   );

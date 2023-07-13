@@ -58,7 +58,7 @@ function App() {
               <Route exact path="/profile">
                 <ProfilePage logoutUser={logoutUser} selectedUser={selectedUser} userData={data.user}/>
               </Route>
-              <Route exact path="/new-event">
+              <Route exact path="/create">
                 <Form logoutUser={logoutUser} loggedInUser={selectedUser}/>
               </Route>
               <Route exact path="/events/:id">
