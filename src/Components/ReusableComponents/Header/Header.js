@@ -8,6 +8,12 @@ import DropDown from '../DropDown/DropDown';
 const Header = ({ logoutUser }) => {
   const menuItems = [
     {
+      label: 'Create Event',
+      link: '/create',
+      handler: () => {
+      }
+    },
+    {
       label: 'Profile',
       link: '/profile',
       handler: () => {
@@ -32,14 +38,11 @@ const Header = ({ logoutUser }) => {
         <img src={logo} alt="Game Night Logo" className="logo" />
       </NavLink>
       <div className="user-container">
-        <nav className="button-group">
-          <NavLink to="/create" className="create-link">Create Event</NavLink>
           <DropDown menuItems={menuItems} renderTrigger={renderDropDownTrigger} />
-        </nav>
       </div>
     </header>
   );
-  
+
 };
 
 export default Header;

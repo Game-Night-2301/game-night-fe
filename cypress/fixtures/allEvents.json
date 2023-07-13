@@ -1,136 +1,55 @@
 {
   "data": {
-    "events": [
-      {
-        "id": "1",
-        "date": "2023-01-01T00:00:00Z",
-        "address": "1 One street",
-        "state": "1 state",
-        "city": "1 city",
-        "zip": 11111,
-        "title": "1 title",
-        "cancelled": false,
-        "description": "1 description",
-        "hostId": 1,
-        "game": 1,
-        "gameType": "board game",
-        "playerCount": 3,
-        "gameDetails": {
+    "user": {
+      "sortedEvents": [
+        {
           "id": "1",
-          "name": "Scythe",
-          "minPlayers": 1,
-          "maxPlayers": 5,
-          "minPlaytime": 90,
-          "maxPlaytime": 120,
-          "description": "<p><em>Scythe</em> gives players almost complete control over their fate. Other than each player's individual hidden objective card, the only elements of luck or variability are &quot;Encounter&quot; cards that players will draw as they interact with the citizens of newly explored lands. Each encounter card provides the player with several options, allowing them to mitigate the luck of the draw through their selection. Combat is also driven by choices, not luck or randomness.<br /><br /><em>Scythe</em> uses a streamlined action-selection mechanism (no rounds or phases) to keep gameplay moving at a brisk pace and reduce downtime between turns. While there is plenty of direct conflict for players who seek it, there is no player elimination.<br /><br />Every part of <em>Scythe</em> has an aspect of engine-building to it. Players can upgrade actions to become more efficient, build structures that improve their position on the map, enlist new recruits to enhance character abilities, activate mechs to deter opponents from invading, and expand their borders to reap greater types and quantities of resources. These engine-building aspects create a sense of momentum and progress throughout the game. The order in which players improve their engine adds to the unique feel of each game, even when playing one faction multiple times.</p>",
-          "imageUrl": "https://cdn.shopify.com/s/files/1/0513/4077/1515/products/scythe-board-game.jpg?v=1611090922",
-          "averageUserRating": 4.210037711313391,
-          "averageStrategyComplexity": 3.235294117647059
-        },
-        "host": {
-          "id": "1",
-          "username": "user 1"
-        },
-        "attendees": [
-          {
-            "id": "1",
-            "username": "user 1"
+          "date": "2023-07-15",
+          "address": "123 Main St",
+          "city": "Example City",
+          "state": "Example State",
+          "zip": "12345",
+          "title": "Example Event 1",
+          "cancelled": false,
+          "description": "This is the description for Example Event 1.",
+          "host": {
+            "id": "101",
+            "username": "example_user1"
           },
-          {
-            "id": "2",
-            "username": "user 2"
-          },
-          {
-            "id": "3",
-            "username": "user 3"
-          }
-        ]
-      },
-      {
-        "id": "2",
-        "date": "2023-02-02T00:00:00Z",
-        "address": "2 One street",
-        "state": "2 state",
-        "city": "2 city",
-        "zip": 22222,
-        "title": "2 title",
-        "cancelled": false,
-        "description": "2 description",
-        "hostId": 2,
-        "game": 2,
-        "gameType": "board game",
-        "playerCount": 4,
-        "gameDetails": {
+          "game": "Chess",
+          "gameType": "Casual",
+          "attendees": [
+            {
+              "id": "201",
+              "username": "example_user2"
+            },
+            {
+              "id": "301",
+              "username": "example_user3"
+            }
+          ],
+          "playerCount": 3
+        },
+        {
           "id": "2",
-          "name": "Wingspan",
-          "minPlayers": 1,
-          "maxPlayers": 5,
-          "minPlaytime": 40,
-          "maxPlaytime": 70,
-          "description": "<p><em><strong>Wingspan</strong></em> is a competitive, medium-weight, card-driven, engine-building board game from Stonemaier Games.</p>\r\n<p>You are bird enthusiasts—researchers, bird watchers, ornithologists, and collectors—seeking to discover and attract the best birds to your aviary. Each bird extends a chain of powerful combinations in one of your habitats (actions). These habitats focus on several key aspects of growth:</p>\r\n<ul>\r\n<li>Gain food tokens via custom dice in a birdfeeder dice tower</li>\r\n<li>Lay eggs using egg miniatures in a variety of colors</li>\r\n<li>Draw from hundreds of unique bird cards and play them</li>\r\n</ul>\r\n<p>The winner is the player with the most points after 4 rounds.</p>",
-          "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1629325193747.png",
-          "averageUserRating": 4.156873858333332,
-          "averageStrategyComplexity": 2.833333333333333
-        },
-        "host": {
-          "id": "2",
-          "username": "user 2"
-        },
-        "attendees": [
-          {
-            "id": "1",
-            "username": "user 1"
+          "date": "2023-07-20",
+          "address": "456 Elm St",
+          "city": "Sample City",
+          "state": "Sample State",
+          "zip": "67890",
+          "title": "Example Event 2",
+          "cancelled": false,
+          "description": "This is the description for Example Event 2.",
+          "host": {
+            "id": "102",
+            "username": "example_user4"
           },
-          {
-            "id": "2",
-            "username": "user 2"
-          },
-          {
-            "id": "4",
-            "username": "user 4"
-          },
-          {
-            "id": "5",
-            "username": "user 5"
-          }
-        ]
-      },
-      {
-        "id": "3",
-        "date": "2023-11-07T00:00:00Z",
-        "address": "123 This street",
-        "state": "Colorado",
-        "city": "Denver",
-        "zip": 15555,
-        "title": "Grandma's basement",
-        "cancelled": null,
-        "description": "We'll be playing caracasonne for 9 hours",
-        "hostId": 4744564,
-        "game": 97833646,
-        "gameType": "board game",
-        "playerCount": 0,
-        "gameDetails": null,
-        "host": null,
-        "attendees": []
-      },
-      {
-        "id": "4",
-        "date": "2023-11-07T00:00:00Z",
-        "address": "123 This street",
-        "state": "Colorado",
-        "city": "Denver",
-        "zip": 15555,
-        "title": "Grandma's basement",
-        "cancelled": null,
-        "description": "We'll be playing caracasonne for 9 hours",
-        "hostId": 4744564,
-        "game": 97833646,
-        "gameType": "board game",
-        "playerCount": 0,
-        "gameDetails": null,
-        "host": null,
-        "attendees": []
-      }
-    ]
+          "game": "Poker",
+          "gameType": "Professional",
+          "attendees": [],
+          "playerCount": 0
+        }
+      ]
+    }
   }
 }

@@ -10,26 +10,17 @@ function WelcomePage({ loginUser, logoutUser, loggedIn }) {
     console.log(`User ${userId} logged in.`);
   };
 
-  const handleLogout = () => {
-    logoutUser();
-    console.log('User logged out.');
-  };
-
   return (
     <div className="welcome-page-container">
       <h1 className="welcome-page-title">Game Night</h1>
       <img src={dice} alt="Dice logo" className="dice" />
       <h3 className="welcome-page-subtitle">Define your roll</h3>
       <div className="welcome-button-container">
-        {!loggedIn ? (
           <>
       <Button className="welcome-button" text="User 1" onClick={() => handleLogin(1)} />
       <div className="welcome-spacer"></div>
       <Button className="welcome-button" text="User 2" onClick={() => handleLogin(2)} />
           </>
-        ) : (
-          <Button text="Log Out" onClick={handleLogout} />
-        )}
       </div>
     </div>
   );
