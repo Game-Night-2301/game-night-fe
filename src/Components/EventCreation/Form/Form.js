@@ -5,6 +5,7 @@ import TextField from "@mui/material/TextField";
 import Button from "../../ReusableComponents/Button/Button";
 import MenuItem from "@mui/material/MenuItem";
 import dayjs from "dayjs";
+import Header from "../../ReusableComponents/Header/Header";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
@@ -95,6 +96,8 @@ const Form = ({logoutUser, loggedInUser}) => {
   };
 
   return (
+    <>
+    <Header logoutUser={logoutUser}/>
     <form className="form">
       <div className="container">
         <h2 className="form-header">Game</h2>
@@ -209,6 +212,7 @@ const Form = ({logoutUser, loggedInUser}) => {
         <Button className="button" text="Submit" onClick={handleSubmit} />
       </div>
     </form>
+    </>
   );
 };
 
