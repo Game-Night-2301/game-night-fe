@@ -1,123 +1,124 @@
 {
-  "user": {
+    "user": {
       "__typename": "User",
       "sortedEvents": [
-          {
-              "__typename": "Event",
-              "id": "7",
-              "date": "2023-01-01T00:00:00Z",
-              "address": "1 One street",
-              "city": "1 city",
-              "state": "1 state",
-              "zip": 11111,
-              "title": "1 title",
-              "cancelled": false,
-              "description": "1 description",
-              "host": {
-                  "__typename": "User",
-                  "id": "16",
-                  "username": "user 1"
-              },
-              "game": 1,
-              "gameType": "board game",
-              "attendees": [
-                  {
-                      "__typename": "User",
-                      "id": "5",
-                      "username": "user 5"
-                  },
-                  {
-                      "__typename": "User",
-                      "id": "16",
-                      "username": "user 1"
-                  },
-                  {
-                      "__typename": "User",
-                      "id": "17",
-                      "username": "user 2"
-                  },
-                  {
-                      "__typename": "User",
-                      "id": "18",
-                      "username": "user 3"
-                  }
-              ],
-              "playerCount": 4
+        {
+          "__typename": "Event",
+          "id": "7",
+          "date": "2022-10-31T20:00:00Z",
+          "address": "1 One street",
+          "city": "1 city",
+          "state": "1 state",
+          "zip": 11111,
+          "title": "1 title",
+          "cancelled": false,
+          "description": "1 description",
+          "host": {
+            "__typename": "User",
+            "id": "16",
+            "username": "user 1"
           },
-          {
-              "__typename": "Event",
-              "id": "13",
-              "date": "2023-01-01T00:00:00Z",
-              "address": "1 One street",
-              "city": "1 city",
-              "state": "1 state",
-              "zip": 11111,
-              "title": "1 title",
-              "cancelled": false,
-              "description": "1 description",
-              "host": {
-                  "__typename": "User",
-                  "id": "31",
-                  "username": "user 1"
-              },
-              "game": 1,
-              "gameType": "board game",
-              "attendees": [
-                  {
-                      "__typename": "User",
-                      "id": "31",
-                      "username": "user 1"
-                  },
-                  {
-                      "__typename": "User",
-                      "id": "32",
-                      "username": "user 2"
-                  },
-                  {
-                      "__typename": "User",
-                      "id": "33",
-                      "username": "user 3"
-                  }
-              ],
-              "playerCount": 3
-          },
-          {
-              "__typename": "Event",
+          "game": 1,
+          "gameType": "board game",
+          "attendees": [
+            {
+              "__typename": "User",
               "id": "5",
-              "date": "2023-01-01T00:00:00Z",
-              "address": "1 One street",
-              "city": "1 city",
-              "state": "1 state",
-              "zip": 11111,
-              "title": "1 title",
-              "cancelled": false,
-              "description": "1 description",
-              "host": {
-                  "__typename": "User",
-                  "id": "11",
-                  "username": "user 1"
-              },
-              "game": 1,
-              "gameType": "board game",
-              "attendees": [
-                  {
-                      "__typename": "User",
-                      "id": "11",
-                      "username": "user 1"
-                  },
-                  {
-                      "__typename": "User",
-                      "id": "12",
-                      "username": "user 2"
-                  },
-                  {
-                      "__typename": "User",
-                      "id": "13",
-                      "username": "user 3"
-                  }
-              ],
-              "playerCount": 3
-          }
+              "username": "user 5"
+            },
+            {
+              "__typename": "User",
+              "id": "16",
+              "username": "user 1"
+            },
+            {
+              "__typename": "User",
+              "id": "17",
+              "username": "user 2"
+            },
+            {
+              "__typename": "User",
+              "id": "18",
+              "username": "user 3"
+            }
+          ],
+          "playerCount": 4
+        },
+        {
+          "__typename": "Event",
+          "id": "13",
+          "date": "2022-10-31T20:00:00Z",
+          "address": "1 One street",
+          "city": "1 city",
+          "state": "1 state",
+          "zip": 11111,
+          "title": "1 title",
+          "cancelled": false,
+          "description": "1 description",
+          "host": {
+            "__typename": "User",
+            "id": "31",
+            "username": "user 1"
+          },
+          "game": 1,
+          "gameType": "board game",
+          "attendees": [
+            {
+              "__typename": "User",
+              "id": "31",
+              "username": "user 1"
+            },
+            {
+              "__typename": "User",
+              "id": "32",
+              "username": "user 2"
+            },
+            {
+              "__typename": "User",
+              "id": "33",
+              "username": "user 3"
+            }
+          ],
+          "playerCount": 3
+        },
+        {
+          "__typename": "Event",
+          "id": "5",
+          "date": "2022-10-31T20:00:00Z",
+          "address": "1 One street",
+          "city": "1 city",
+          "state": "1 state",
+          "zip": 11111,
+          "title": "1 title",
+          "cancelled": false,
+          "description": "1 description",
+          "host": {
+            "__typename": "User",
+            "id": "11",
+            "username": "user 1"
+          },
+          "game": 1,
+          "gameType": "board game",
+          "attendees": [
+            {
+              "__typename": "User",
+              "id": "11",
+              "username": "user 1"
+            },
+            {
+              "__typename": "User",
+              "id": "12",
+              "username": "user 2"
+            },
+            {
+              "__typename": "User",
+              "id": "13",
+              "username": "user 3"
+            }
+          ],
+          "playerCount": 3
+        }
       ]
+    }
   }
-}
+  
