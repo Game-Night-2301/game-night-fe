@@ -23,6 +23,15 @@ describe('Create Event Page', () => {
           }
         }).as('getUserGames');
       });
+
+      cy.fixture('postEvent.json').then((CreateEvent) => {
+        cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
+          if (req.body.operationName === 'CreateEvent') {
+            req.reply({ data: CreateEvent });
+          }
+        }).as('getUserGames');
+      });
+      
       cy.visit('https://game-night-fe.vercel.app/');
     });
   });
@@ -42,7 +51,7 @@ describe('Create Event Page', () => {
   });
 
 
-  it("Checks contents of form", () => {
+  it("Navigates to and checks contents of form", () => {
     cy.get('.welcome-button-container').find('button').contains('User 1').click();
     cy.get('.profile-link').click();
     cy.get('.menu-link').should('be.visible');
@@ -60,4 +69,25 @@ describe('Create Event Page', () => {
     cy.get("#outlined-multiline-static")
     cy.get(".MuiButton-root").contains('Submit')
   });
+
+  it('Navigate to and fill out and submit the form', () => {
+    cy.get('.welcome-button-container').find('button').contains('User 1').click();
+    cy.get('.profile-link').click();
+    cy.get('.menu-link').should('be.visible');
+    cy.get('.menu-link').contains('Create Event').click();
+
+    cy.get("#game").click()
+      .get('.MuiList-root > [tabindex="0"]').click()
+    cy.get("#category").click()
+      .get('.MuiList-root > [tabindex="0"]').click()
+    cy.get("#address").type("402 S Walnut")
+    cy.get("#city").type("Truth or Consequences")
+    cy.get("#state").type("New Mexico")
+    cy.get("#zip").type("86753")
+    cy.get(".event-time-and-date > :nth-child(1) > .MuiInputBase-root").type("12/31/2023")
+    cy.get('.event-time-and-date > :nth-child(2) > .MuiInputBase-root').type("12:05 AM")
+    cy.get('.event-time-and-date > :nth-child(3) > .MuiInputBase-root').type("12:10 PM")
+    cy.get("#outlined-multiline-static").type("The coolest thing you'll ever play in your entire life.")
+    cy.get(".MuiButton-root").contains('Submit').click()
+  })
 });
