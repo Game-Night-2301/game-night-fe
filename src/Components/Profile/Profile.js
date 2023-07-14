@@ -79,7 +79,7 @@ export default ProfilePage
 
 ProfilePage.propTypes = {
   logoutUser: PropTypes.func.isRequired,
-  selectedUser: PropTypes.string.isRequired,
+  selectedUser: PropTypes.number.isRequired,
   userData: PropTypes.shape({
     username: PropTypes.string.isRequired,
     city: PropTypes.string.isRequired,

@@ -12,13 +12,13 @@ import { getEvent } from '../../queries/index';
 export const EventDetails = ({loggedInUser, logoutUser}) => {
   const {id} = useParams();
 
+
   const { loading, error, data } = useQuery(getEvent, { variables: {
     id
   }, skip: !id });
-
   if (loading) return <p>Loading...</p>; 
   if (error) return <p>Error :</p>; 
-
+  console.log('data',data)
   return (
     <div>
       <Header logoutUser={logoutUser}/>
@@ -34,6 +34,6 @@ export const EventDetails = ({loggedInUser, logoutUser}) => {
 }
 
 EventDetails.propTypes = {
-  loggedInUser: PropTypes.object.isRequired,
+  loggedInUser: PropTypes.number.isRequired,
   logoutUser: PropTypes.func.isRequired,
 };
