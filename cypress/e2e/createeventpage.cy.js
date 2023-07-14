@@ -29,7 +29,7 @@ describe('Create Event Page', () => {
           if (req.body.operationName === 'CreateEvent') {
             req.reply({ data: CreateEvent });
           }
-        }).as('getUserGames');
+        }).as('CreateEvent');
       });
       
       cy.visit('https://game-night-fe.vercel.app/');
