@@ -26,6 +26,11 @@
   padding: 0 2em;
 }
 
+.success-message, .error-message {
+  color: rgb(128, 35, 129);
+  font-size: 1.5em;
+  text-align: center;
+}
 .button-container {
   display: flex;
   justify-content: center;

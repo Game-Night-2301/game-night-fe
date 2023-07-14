@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 import { useMutation } from '@apollo/client';
-import "./Form.css";
-import TextField from "@mui/material/TextField";
-import Button from "../../ReusableComponents/Button/Button";
-import MenuItem from "@mui/material/MenuItem";
-import dayjs from "dayjs";
-import Header from "../../ReusableComponents/Header/Header";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { TimePicker } from "@mui/x-date-pickers/TimePicker";
-import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import { createEventMutation } from "../../../queries";
-import { Tooltip } from "@mui/material";
+import './Form.css';
+import TextField from '@mui/material/TextField';
+import Button from '../../ReusableComponents/Button/Button';
+import MenuItem from '@mui/material/MenuItem';
+import dayjs from 'dayjs';
+import Header from '../../ReusableComponents/Header/Header';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { TimePicker } from '@mui/x-date-pickers/TimePicker';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { createEventMutation } from '../../../queries';
+import { Tooltip } from '@mui/material';
 
 const Form = ({ logoutUser, loggedInUser, userData }) => {
   const [game, setGame] = useState(null);
@@ -19,31 +19,70 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [state, setEState] = useState('');
-  const [zip, setZip] = useState(null);
-  const [date, setDate] = useState(null);
-  const [startTime, setStartTime] = useState(null);
+  const [zip, setZip] = useState();
+  const [date, setDate] = useState();
+  const [startTime, setStartTime] = useState();
   const [maxStartTime, setMaxStartTime] = useState(null);
   const [minEndTime, setMinEndTime] = useState(null);
-  const [endTime, setEndTime] = useState(null);
-  const [eventDescription, setEventDescription] = useState('');
+  const [endTime, setEndTime] = useState();
+  const [eventDescription, setEventDescription] = useState();
+
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSuccess = (message) => {
+    setSuccessMessage(message);
+    setErrorMessage('');
+  };
+
+  const handleError = (message) => {
+    setSuccessMessage('');
+    setErrorMessage(message);
+  };
   const [reqCompleted, setReqCompleted] = useState(false);
 
-  const [createEvent, { data, loading, error }] = useMutation(createEventMutation);
+  const [createEvent, { data, loading, error }] =
+    useMutation(createEventMutation);
 
   const onCreateEvent = async (input) => {
     try {
       const { data } = await createEvent({ variables: { input } });
+      handleSuccess('Your event is set, and your next adventure awaits!');
     } catch (error) {
+      handleError(
+        'Critical fail! Your event was unable to be created, please try again!'
+      );
     }
   };
   useEffect(() => {
-    if (game && category && address && city && state && zip && date && startTime && endTime && eventDescription) {
+    if (
+      game &&
+      category &&
+      address &&
+      city &&
+      state &&
+      zip &&
+      date &&
+      startTime &&
+      endTime &&
+      eventDescription
+    ) {
       setReqCompleted(true);
     } else {
       setReqCompleted(false);
     }
-  }, [game, category, address, city, state, zip, date, startTime, endTime, eventDescription]);
-  
+  }, [
+    game,
+    category,
+    address,
+    city,
+    state,
+    zip,
+    date,
+    startTime,
+    endTime,
+    eventDescription,
+  ]);
 
   const populateGameOptions = () => {
     return userData.ownedGames.map((game, i) => {
@@ -53,7 +92,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
         </MenuItem>
       );
     });
-  }
+  };
 
   const handleGameChange = (e) => {
     setGame(e.target.value);
@@ -92,17 +131,17 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
   const handleZipChange = (e) => {
     const zip = e.target.value;
     if (!/^\d*$/.test(zip)) {
-      alert("Zip code can only contain digits");
-      setZip(null)
+      alert('Zip code can only contain digits');
+      setZip(null);
       return;
     }
     if (zip.length !== 5) {
-      alert("Zip code must be exactly 5 digits long");
-      setZip(null)
+      alert('Zip code must be exactly 5 digits long');
+      setZip(null);
       return;
     }
     setZip(zip);
-  }
+  };
 
   const handleEventDescriptionChange = (e) => {
     setEventDescription(e.target.value);
@@ -110,7 +149,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
 
   const handleSubmit = () => {
     const newEvent = {
-      date: dayjs(date).format("YYYY/MM/DD"),
+      date: dayjs(date).format('YYYY/MM/DD'),
       address: address,
       city: city,
       state: state,
@@ -120,14 +159,14 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
       host: loggedInUser,
       game: game,
       gameType: category,
-      startTime: dayjs(startTime).format("HH:mm:ss"),
-      endTime: dayjs(endTime).format("HH:mm:ss"),
+      startTime: dayjs(startTime).format('HH:mm:ss'),
+      endTime: dayjs(endTime).format('HH:mm:ss'),
     };
     onCreateEvent(newEvent);
   };
 
   return (
-    <>
+    <div>
       <Header logoutUser={logoutUser} />
       <form className="form">
         <div className="container">
@@ -141,7 +180,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
               onChange={(e) => handleGameChange(e)}
               select
               label="Games"
-              sx={{ margin: "1em" }}
+              sx={{ margin: '1em' }}
               helperText="Please select a game"
             >
               {populateGameOptions()}
@@ -152,12 +191,31 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
               select
               onChange={(e) => handleCategoryChange(e)}
               label="Category"
-              sx={{ margin: "1em" }}
+              sx={{ margin: '1em' }}
               helperText="Please select a category"
             >
-              <MenuItem value={"Category 1"}>{"Category 1"}</MenuItem>
-              <MenuItem value={"Category 2"}>{"Category 2"}</MenuItem>
-              <MenuItem value={"Category 3"}>{"Category 3"}</MenuItem>
+              <MenuItem value={'Card Game'}>{'Card Game'}</MenuItem>
+              <MenuItem value={'Fantasy'}>{'Fantasy'}</MenuItem>
+              <MenuItem value={'Sci-Fi'}>{'Sci-Fi'}</MenuItem>
+              <MenuItem value={'City Builder'}>{'City Builder'}</MenuItem>
+              <MenuItem value={'Medieval'}>{'Medieval'}</MenuItem>
+              <MenuItem value={'Adventure'}>{'Adventure'}</MenuItem>
+              <MenuItem value={'Fighting'}>{'Fighting'}</MenuItem>
+              <MenuItem value={'Territory Building'}>
+                {'Territory Building'}
+              </MenuItem>
+              <MenuItem value={'Party Game'}>{'Party Game'}</MenuItem>
+              <MenuItem value={'Ancient'}>{'Ancient'}</MenuItem>
+              <MenuItem value={'Bluffing'}>{'Bluffing'}</MenuItem>
+              <MenuItem value={'Mythology'}>{'Mythology'}</MenuItem>
+              <MenuItem value={'Deduction'}>{'Deduction'}</MenuItem>
+              <MenuItem value={'Puzzle'}>{'Puzzle'}</MenuItem>
+              <MenuItem value={'Dice'}>{'Dice'}</MenuItem>
+              <MenuItem value={'Resource Management'}>
+                {'Resource Management'}
+              </MenuItem>
+              <MenuItem value={'Exploration'}>{'Exploration'}</MenuItem>
+              <MenuItem value={'Cooperative'}>{'Cooperative'}</MenuItem>
             </TextField>
           </div>
           <h2 className="form-header">Location</h2>
@@ -169,7 +227,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
               id="address"
               value={address}
               label="Address"
-              sx={{ margin: "1em" }}
+              sx={{ margin: '1em' }}
             />
             <TextField
               required
@@ -177,7 +235,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
               id="city"
               value={city}
               label="City"
-              sx={{ margin: "1em" }}
+              sx={{ margin: '1em' }}
             />
             <TextField
               required
@@ -185,7 +243,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
               id="state"
               value={state}
               label="State"
-              sx={{ margin: "1em" }}
+              sx={{ margin: '1em' }}
             />
             <TextField
               required
@@ -193,7 +251,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
               id="zip"
               value={zip}
               label="Zip Code"
-              sx={{ margin: "1em" }}
+              sx={{ margin: '1em' }}
             />
             <h2 className="form-header">Date and Time</h2>
             <hr className="line" />
@@ -204,7 +262,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
                   required
                   minDate={dayjs()}
                   value={date}
-                  sx={{ margin: "1em" }}
+                  sx={{ margin: '1em' }}
                   onChange={(newDate) => handleDateChange(newDate)}
                 />
 
@@ -213,7 +271,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
                   required
                   value={startTime}
                   maxTime={maxStartTime}
-                  sx={{ margin: "1em" }}
+                  sx={{ margin: '1em' }}
                   onChange={(startTime) => handleStartTimeChange(startTime)}
                 />
                 <TimePicker
@@ -221,7 +279,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
                   required
                   value={endTime}
                   minTime={minEndTime}
-                  sx={{ margin: "1em" }}
+                  sx={{ margin: '1em' }}
                   onChange={(endTime) => handleEndTimeChange(endTime)}
                 />
               </LocalizationProvider>
@@ -237,8 +295,8 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
               value={eventDescription}
               rows={6}
               sx={{
-                margin: "1em",
-                width: "98%"
+                margin: '1em',
+                width: '98%',
               }}
               inputProps={{
                 maxLength: 500,
@@ -246,19 +304,22 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
               onChange={(e) => handleEventDescriptionChange(e)}
             />
           </div>
-          <Tooltip title={!reqCompleted ? 'Please fill out all fields!' : ''} placement="top">
+          <Tooltip
+            title={!reqCompleted ? 'Please fill out all fields!' : ''}
+            placement="top"
+          >
             <span>
-              <Button 
-                className="form-button" 
-                text="Submit" 
-                onClick={handleSubmit} 
+              <Button
+                className="form-button"
+                text="Submit"
+                onClick={handleSubmit}
                 disabled={!reqCompleted}
               />
             </span>
           </Tooltip>
         </div>
       </form>
-    </>
+    </div>
   );
 };
 
