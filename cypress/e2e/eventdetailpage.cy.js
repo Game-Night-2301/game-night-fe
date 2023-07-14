@@ -16,6 +16,14 @@ beforeEach(() => {
     }).as('getAllEvents');
   });
 
+  cy.fixture('eventById.json').then((getEvent) => {
+    cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
+      if (req.body.operationName === 'getEvent') {
+        req.reply({ data: getEvent });
+      }
+    }).as('getEvent');
+  });
+
   cy.fixture('getUserGames.json').then((getUserGames) => {
     cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
       if (req.body.operationName === 'getUser') {
