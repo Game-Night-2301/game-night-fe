@@ -136,8 +136,20 @@ export const EventInfo = ({
 EventInfo.propTypes = {
   hostId: PropTypes.number.isRequired,
   id: PropTypes.string.isRequired,
-  game: PropTypes.string.isRequired,
-  time: PropTypes.string.isRequired,
+  gameDetails: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    minPlayers: PropTypes.number.isRequired,
+    maxPlayers: PropTypes.number.isRequired,
+    minPlaytime: PropTypes.number.isRequired,
+    maxPlaytime: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    averageUserRating: PropTypes.number.isRequired,
+    averageStrategyComplexity: PropTypes.number.isRequired,
+  }).isRequired,
+  startTime: PropTypes.string.isRequired,
+  endTime: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   attendees: PropTypes.arrayOf(
     PropTypes.shape({

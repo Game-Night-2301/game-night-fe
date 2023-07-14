@@ -28,7 +28,5 @@ Attendees.propTypes = {
       username: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
     })
-  ).isRequired,
-  id: PropTypes.string.isRequired,
-  game: PropTypes.string.isRequired,
+  ).isRequired
 };

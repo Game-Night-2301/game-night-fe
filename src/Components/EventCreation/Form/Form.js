@@ -18,11 +18,11 @@ const Form = ({ logoutUser, loggedInUser }) => {
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [state, setEState] = useState('');
-  const [zip, setZip] = useState(null);
-  const [date, setDate] = useState(null);
-  const [startTime, setStartTime] = useState(null);
-  const [endTime, setEndTime] = useState(null);
-  const [eventDescription, setEventDescription] = useState('');
+  const [zip, setZip] = useState();
+  const [date, setDate] = useState();
+  const [startTime, setStartTime] = useState();
+  const [endTime, setEndTime] = useState();
+  const [eventDescription, setEventDescription] = useState();
 
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
