@@ -7,13 +7,19 @@ import { EventInfo } from './EventInfo/EventInfo';
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
-import { getEvent } from '../../queries/index';
+import { fullQuery, getEvent } from '../../queries/index';
 
 export const EventDetails = ({ loggedInUser, logoutUser }) => {
   const { id } = useParams();
   const { loading, error, data } = useQuery(getEvent, { variables: {
     id
   }, skip: !id });
+
+  const { loading: fullLoading, error: fullError, data: fullData } = useQuery(fullQuery, { variables: {
+    id
+  }, skip: !id });
+
+  
 
   if (loading) return <p>Loading...</p>; 
   if (error) return <p>Error :</p>; 
@@ -29,12 +35,19 @@ export const EventDetails = ({ loggedInUser, logoutUser }) => {
           id={data.event.id}
           game={data.event.game}
           date={data.event.date}
-          time={data.event.time}
+          startTime={data.event.startTime}
+          endTime={data.event.endTime}
           attendees={data.event.attendees}
           cancelled={data.event.cancelled}
+          gameDetails={data.event.gameDetails}
+          full={fullData}
         />
         <div className="event-right">
-          <Description description={data.event.description} />
+          <Description gameDescription={data.event.gameDetails.description} description={data.event.description} lat={data.event.lat} lon={data.event.lon} 
+          address={data.event.address} 
+          city={data.event.city} 
+          state={data.event.state} 
+          zip={data.event.zip}/>
           <Attendees attendees={data.event.attendees} />
         </div>
       </div>

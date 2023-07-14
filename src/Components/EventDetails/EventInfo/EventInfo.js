@@ -15,12 +15,14 @@ import {
 export const EventInfo = ({
   hostId,
   id,
-  game,
-  time,
+  startTime,
+  endTime,
   date,
   attendees,
   loggedInUser,
   cancelled,
+  gameDetails,
+  full,
 }) => {
   const isAttending = attendees.some(
     (attendee) => parseInt(attendee.id) === loggedInUser
@@ -47,17 +49,19 @@ export const EventInfo = ({
   });
 
   const renderRolePill = () => {
-    if (isHost) {
+    if (cancelled) {
+      return <Pills tags={[{ value: 'Cancelled' }]} />;
+    } else if (isHost) {
       return <Pills tags={[{ value: 'Host' }]} />;
     } else if (isAttending) {
       return <Pills tags={[{ value: 'Attending' }]} />;
-    } else if (cancelled) {
-      return <Pills tags={[{ value: 'Cancelled' }]} />;
+    } else if (full) {
+      return <Pills tags={[{ value: 'Event Full' }]} />;
     }
   };
 
   const renderButton = () => {
-    if (isHost) {
+    if (isHost && !cancelled) {
       return (
         <Button
           text="Cancel Event"
@@ -74,7 +78,7 @@ export const EventInfo = ({
           }}
         />
       );
-    } else if (!isAttending && loggedInUser) {
+    } else if (!isAttending && loggedInUser && !cancelled && !full) {
       return (
         <Button
           text="Join"
@@ -91,7 +95,7 @@ export const EventInfo = ({
           }}
         />
       );
-    } else if (isAttending) {
+    } else if (isAttending && !cancelled) {
       return (
         <Button
           text="Leave Group"
@@ -111,10 +115,19 @@ export const EventInfo = ({
   };
   return (
     <div>
-      <h1 className="event-title">{game}</h1>
+      <h1 className="event-title">{gameDetails.name}</h1>
       <div className="event-pill-holder">{renderRolePill()}</div>
       <h2 className="event-date">{detailsDateFormatter(date)}</h2>
-      <h2 className="event-time">{time}</h2>
+      <h2 className="event-time">
+        {startTime} - {endTime}
+      </h2>
+      <div>
+        <img
+          className="game-image"
+          src={gameDetails.imageUrl}
+          alt={gameDetails.name}
+        />
+      </div>
       <div className="event-button-holder">{renderButton()}</div>
     </div>
   );
@@ -123,8 +136,20 @@ export const EventInfo = ({
 EventInfo.propTypes = {
   hostId: PropTypes.number.isRequired,
   id: PropTypes.string.isRequired,
-  game: PropTypes.string.isRequired,
-  time: PropTypes.string.isRequired,
+  gameDetails: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    minPlayers: PropTypes.number.isRequired,
+    maxPlayers: PropTypes.number.isRequired,
+    minPlaytime: PropTypes.number.isRequired,
+    maxPlaytime: PropTypes.number.isRequired,
+    description: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string.isRequired,
+    averageUserRating: PropTypes.number.isRequired,
+    averageStrategyComplexity: PropTypes.number.isRequired,
+  }).isRequired,
+  startTime: PropTypes.string.isRequired,
+  endTime: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   attendees: PropTypes.arrayOf(
     PropTypes.shape({

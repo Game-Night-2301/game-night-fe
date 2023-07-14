@@ -26,7 +26,7 @@ export const cleanEvents = (events) => {
 
 export const filterEvents = (events) => {
   return events.filter(event => {
-    return event.cancelled === false;
+    return !event.cancelled;
   })
 }
 

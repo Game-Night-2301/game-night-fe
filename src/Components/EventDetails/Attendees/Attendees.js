@@ -4,8 +4,7 @@ import userIcon from '../../../assets/usericon.svg';
 import Tooltip from '@mui/material/Tooltip';
 import './Attendees.css';
 
-export const Attendees = ({ attendees, id, game }) => {
-
+export const Attendees = ({ attendees }) => {
   const renderAttendees = attendees.map((attendee) => {
     return (
       <Tooltip title={attendee.username} key={attendee.id}>
@@ -29,7 +28,5 @@ Attendees.propTypes = {
       username: PropTypes.string.isRequired,
       id: PropTypes.string.isRequired,
     })
-  ).isRequired,
-  id: PropTypes.string.isRequired,
-  game: PropTypes.string.isRequired,
+  ).isRequired
 };
