@@ -192,32 +192,6 @@ export const getUserProfile = gql`
   }
 `;
 
-// export const createEvent = (event) => gql`
-//   mutation createEvent($input: EventInput!) {
-//     createEvent(input: $input) {
-//       event {
-//         id
-//         date
-//         address
-//         state
-//         city
-//         zip
-//         title
-//         cancelled
-//         description
-//         hostId
-//         game
-//         gameType
-//         playerCount
-//         attendees {
-//           id
-//           username
-//         }
-//       }
-//     }
-//   }
-// `;
-
 export const addUserToEvent = gql`
   mutation createUserEvent($input: CreateUserEventInput!) {
     createUserEvent(input: $input) {
@@ -231,62 +205,25 @@ export const addUserToEvent = gql`
 `;
 
 export const removeUserFromEvent = gql`
-  mutation destroyUserEvent($input: DestroyUserEventInput!) {
-    removeUserFromEvent(input: $input) {
-      userEvent {
-        userId
-        eventId
+  mutation deleteUserEvent($input: DeleteUserEventInput!) {
+    deleteUserEvent(input: $input) {
+      event {
+        attendees{
+          id
+          username
+        }
       }
     }
   }
 `;
 
-// export const removeUserFromEvent = gql`
-//   mutation removeUserFromEvent($userId: ID!, $eventId: ID!) {
-//     removeUserFromEvent(userId: $userId, eventId: $eventId) {
-//       event {
-//         id
-//         date
-//         address
-//         state
-//         city
-//         zip
-//         title
-//         cancelled
-//         description
-//         hostId
-//         game
-//         gameType
-//         playerCount
-//         attendees {
-//           id
-//           username
-//         }
-//       }
-//     }
-//   }
-// `;
-
 export const cancelEvent = gql`
-  mutation cancelEvent($eventId: ID!) {
-    cancelEvent(id: $eventId, attributes: { cancelled: true }) {
+  mutation cancelEvent($input: CancelEventInput!) {
+    cancelEvent(input: $input) {
       event {
-        id
-        date
-        address
-        city
-        state
-        zip
-        title
-        cancelled
-        description
         hostId
-        game
-        gameType
-        lat
-        lon
-        attendees
-        playerCount
+        id
+        cancelled
       }
     }
   }
