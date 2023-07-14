@@ -62,5 +62,3 @@ BrowseEvent.propTypes = {
   selectedUser: PropTypes.number,
   logoutUser: PropTypes.func,
 };
-
-export default BrowseEvent;
