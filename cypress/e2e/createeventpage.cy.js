@@ -6,25 +6,36 @@ describe('Create Event Page', () => {
           req.reply({ data: getUser });
         }
       }).as('getUser');
-    });
 
-    cy.fixture('allEvents.json').then((getAllEvents) => {
-      cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
-        if (req.body.operationName === 'getAllEvents') {
-          req.reply({ data: getAllEvents });
-        }
-      }).as('getAllEvents');
-    });
 
-    cy.fixture('getUserGames.json').then((getUserGames) => {
-      cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
-        if (req.body.operationName === 'getUser') {
-          req.reply({ data: getUserGames });
-        }
-      }).as('getUserGames');
+      cy.fixture('allEvents.json').then((getAllEvents) => {
+        cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
+          if (req.body.operationName === 'getAllEvents') {
+            req.reply({ data: getAllEvents });
+          }
+        }).as('getAllEvents');
+      });
+
+      cy.fixture('getUserGames.json').then((getUserGames) => {
+        cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
+          if (req.body.operationName === 'getUser') {
+            req.reply({ data: getUserGames });
+          }
+        }).as('getUserGames');
+      });
+
+      cy.fixture('postEvent.json').then((CreateEvent) => {
+        cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
+          if (req.body.operationName === 'CreateEvent') {
+            req.reply({ data: CreateEvent });
+          }
+        }).as('CreateEvent');
+      });
+      
+      cy.visit('https://game-night-fe.vercel.app/');
     });
-    cy.visit('https://game-night-fe.vercel.app/');
   });
+
 
   it('should display the create event page', () => {
     cy.get('.welcome-button-container').find('button').contains('User 1').click();
@@ -34,8 +45,49 @@ describe('Create Event Page', () => {
     cy.get('.menu-link').should('be.visible');
     cy.get('.menu-link').contains('Create Event').should('be.visible');
     cy.contains('Create Event').click({ force: true })
-    .then(() => {
-      cy.url().should('include', '/create');
+      .then(() => {
+        cy.url().should('include', '/create');
+      });
   });
-});
+
+
+  it("Navigates to and checks contents of form", () => {
+    cy.get('.welcome-button-container').find('button').contains('User 1').click();
+    cy.get('.profile-link').click();
+    cy.get('.menu-link').should('be.visible');
+    cy.get('.menu-link').contains('Create Event').click();
+
+    cy.get("#game")
+    cy.get("#category")
+    cy.get("#address")
+    cy.get("#city")
+    cy.get("#state")
+    cy.get("#zip")
+    cy.get(".event-time-and-date > :nth-child(1) > .MuiInputBase-root")
+    cy.get(cy.get('.event-time-and-date > :nth-child(2) > .MuiInputBase-root'))
+    cy.get('.event-time-and-date > :nth-child(3) > .MuiInputBase-root')
+    cy.get("#outlined-multiline-static")
+    cy.get(".MuiButton-root").contains('Submit')
+  });
+
+  it('Navigate to and fill out and submit the form', () => {
+    cy.get('.welcome-button-container').find('button').contains('User 1').click();
+    cy.get('.profile-link').click();
+    cy.get('.menu-link').should('be.visible');
+    cy.get('.menu-link').contains('Create Event').click();
+
+    cy.get("#game").click()
+      .get('.MuiList-root > [tabindex="0"]').click()
+    cy.get("#category").click()
+      .get('.MuiList-root > [tabindex="0"]').click()
+    cy.get("#address").type("402 S Walnut")
+    cy.get("#city").type("Truth or Consequences")
+    cy.get("#state").type("New Mexico")
+    cy.get("#zip").type("86753")
+    cy.get(".event-time-and-date > :nth-child(1) > .MuiInputBase-root").type("12/31/2023")
+    cy.get('.event-time-and-date > :nth-child(2) > .MuiInputBase-root').type("12:05 AM")
+    cy.get('.event-time-and-date > :nth-child(3) > .MuiInputBase-root').type("12:10 PM")
+    cy.get("#outlined-multiline-static").type("The coolest thing you'll ever play in your entire life.")
+    cy.get(".MuiButton-root").contains('Submit').click()
+  })
 });

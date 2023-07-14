@@ -82,5 +82,5 @@ UserGame.propTypes = {
   description: PropTypes.string.isRequired,
   handleExpand: PropTypes.func.isRequired,
   expanded: PropTypes.bool.isRequired,
-  hidden: PropTypes.bool,
+  hidden: PropTypes.string.isRequired,
 };
