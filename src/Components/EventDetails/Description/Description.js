@@ -6,7 +6,7 @@ export const Description = ({ description }) => {
   return (
     <div className="description-wrapper">
       <h4 className="description-header">Description</h4>
-      < hr className="description-line" />
+      <hr className="description-line" />
       <p className="description-text">{description}</p>
     </div>
   );

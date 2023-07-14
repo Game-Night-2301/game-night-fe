@@ -11,21 +11,28 @@ import { getEvent } from '../../queries/index';
 
 export const EventDetails = ({ loggedInUser, logoutUser }) => {
   const { id } = useParams();
+  const { loading, error, data } = useQuery(getEvent, { variables: {
+    id
+  }, skip: !id });
 
-  const { loading, error, data } = useQuery(getEvent, {
-    variables: {
-      id
-    }, skip: !id
-  });
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :</p>;
+  if (loading) return <p>Loading...</p>; 
+  if (error) return <p>Error :</p>; 
 
   return (
     <div>
       <Header logoutUser={logoutUser} />
-      <div className='event-body'>
-        <EventInfo className="event-info" loggedInUser={loggedInUser} hostId={data.event.hostId} id={data.event.id} game={data.event.game} date={data.event.date} time={data.event.time} attendees={data.event.attendees} />
+      <div className="event-body">
+        <EventInfo
+          className="event-info"
+          loggedInUser={loggedInUser}
+          hostId={data.event.hostId}
+          id={data.event.id}
+          game={data.event.game}
+          date={data.event.date}
+          time={data.event.time}
+          attendees={data.event.attendees}
+          cancelled={data.event.cancelled}
+        />
         <div className="event-right">
           <Description description={data.event.description} />
           <Attendees attendees={data.event.attendees} />
