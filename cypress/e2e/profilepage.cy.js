@@ -29,6 +29,11 @@ describe('Profile Page', () => {
 
   it('should navigate to profile page', () => {
     cy.get('button').contains('User 1').click();
+    cy.get('button').contains('User 1').click();
+    cy.get('img.profile-link').click();
+    cy.get('.MuiList-root');
+    cy.get('.menu-link').contains('Profile').should('be.visible').click();
+    cy.url().should('include', '/profile');
   });
 
   it('should check the content of the profile page', () => {
