@@ -11,6 +11,7 @@
 .description-text {
   font-size: 1em;
   font-weight: 300;
+  color: black;
 }
 
 .description-line {
@@ -19,4 +20,12 @@
 
 .description-wrapper {
   width: 100%;
+}
+
+.map-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
