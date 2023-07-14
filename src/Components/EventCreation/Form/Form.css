@@ -1,9 +1,9 @@
 .form {
-  margin-top:3em;
+  margin-top: 3em;
   padding: 1.25em 0em;
-  background : rgba(255, 255, 255, 1);
-  opacity : 0.85;
-  border-radius : 8px;
+  background: rgba(255, 255, 255, 1);
+  opacity: 0.85;
+  border-radius: 8px;
 }
 
 .button {
@@ -12,7 +12,7 @@
 
 .form-header {
   color: rgb(128, 35, 129);
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
 
 .line {
@@ -23,9 +23,9 @@
 }
 
 .game-selector {
-  margin: 0em 2em; 
+  margin: 0em 2em;
 }
 
 .container {
-  padding: 0 2em
+  padding: 0 2em;
 }

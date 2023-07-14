@@ -1,18 +1,18 @@
 .attendee-header {
   font-size: 1.75em;
   font-weight: 300;
-  color: #FEFEFE;
+  color: #fefefe;
   margin-bottom: 0em;
 }
 
 .attendee-line {
-  border-color: #FFA0E4;
+  border-color: #ffa0e4;
 }
 
 .attendee-img {
   height: 4em;
-  margin-top: .5em;
-  margin-right: .75em;
+  margin-top: 0.5em;
+  margin-right: 0.75em;
 }
 
 .attendees-wrapper {
@@ -23,4 +23,3 @@
   display: flex;
   flex-direction: row;
 }
-

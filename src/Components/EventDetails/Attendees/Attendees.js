@@ -5,6 +5,7 @@ import Tooltip from '@mui/material/Tooltip';
 import './Attendees.css';
 
 export const Attendees = ({ attendees, id, game }) => {
+
   const renderAttendees = attendees.map((attendee) => {
     return (
       <Tooltip title={attendee.username} key={attendee.id}>

@@ -28,7 +28,7 @@ const Card = ({ userId, attendees, id, city, state, zip, title, date, hostId, de
         isFull && { value: 'full' },
       ].filter(Boolean);
 
-      return <Pills tags={tags} />
+      return <Pills tags={tags} />;
     }
   };
 
