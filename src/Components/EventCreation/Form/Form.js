@@ -14,7 +14,7 @@ import { createEventMutation } from "../../../queries";
 import { Tooltip } from "@mui/material";
 
 const Form = ({ logoutUser, loggedInUser, userData }) => {
-  const [game, setGame] = useState('');
+  const [game, setGame] = useState(null);
   const [category, setCategory] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
@@ -22,6 +22,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
   const [zip, setZip] = useState(null);
   const [date, setDate] = useState(null);
   const [startTime, setStartTime] = useState(null);
+  const [maxStartTime, setMaxStartTime] = useState(null);
   const [minEndTime, setMinEndTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
   const [eventDescription, setEventDescription] = useState('');
@@ -68,6 +69,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
   };
 
   const handleEndTimeChange = (time) => {
+    setMaxStartTime(time);
     setEndTime(time);
   };
 
@@ -116,7 +118,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
       title: game,
       description: eventDescription,
       host: loggedInUser,
-      game: 1,
+      game: game,
       gameType: category,
       startTime: dayjs(startTime).format("HH:mm:ss"),
       endTime: dayjs(endTime).format("HH:mm:ss"),
@@ -210,6 +212,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
                   label="Start Time"
                   required
                   value={startTime}
+                  maxTime={maxStartTime}
                   sx={{ margin: "1em" }}
                   onChange={(startTime) => handleStartTimeChange(startTime)}
                 />
