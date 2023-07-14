@@ -83,3 +83,8 @@
   font-size: 0.9rem;
   color: black;
 }
+
+.card-body {
+  max-height: 10rem;
+  overflow-y: auto;
+}

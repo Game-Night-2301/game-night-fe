@@ -41,12 +41,11 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
   };
   const [reqCompleted, setReqCompleted] = useState(false);
 
-  const [createEvent, { data, loading, error }] =
-    useMutation(createEventMutation);
+  const [createEvent, { data, loading, error }] = useMutation(createEventMutation);
 
   const onCreateEvent = async (input) => {
     try {
-      const { data } = await createEvent({ variables: { input } });
+      const data = await createEvent({ variables: { input } });
       handleSuccess('Your event is set, and your next adventure awaits!');
     } catch (error) {
       handleError(
@@ -308,7 +307,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
             title={!reqCompleted ? 'Please fill out all fields!' : ''}
             placement="top"
           >
-            <span>
+            <span className="button-container">
               <Button
                 className="form-button"
                 text="Submit"
