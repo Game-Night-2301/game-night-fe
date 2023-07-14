@@ -6,21 +6,14 @@ import { useQuery } from '@apollo/client';
 import { getUserGames } from '../../../queries/index';
 import './Card.css';
 
-const Card = ({ userId, attendees, id, city, state, zip, title, date, hostId, description, distance }) => {
+const Card = ({ userId, attendees, id, maxPlayers, city, state, zip, title, date, hostId, description, distance, gameName }) => {
   const { loading, error, data } = useQuery(getUserGames, { variables: { id: userId }, skip: !id });
   const [cardGame, setCardGame] = useState(null);
 
-  useEffect(() => {
-    if (data) {
-      setCardGame(data.user.ownedGames.find(game => game.id === id));
-    }
-  }, [data, id]);
-
   const renderPills = () => {
-    if (cardGame) {
       const isHost = hostId === userId;
       const isAttending = attendees.includes(userId);
-      const isFull = cardGame.maxPlayers === attendees.length;
+      const isFull = maxPlayers === attendees.length;
 
       const tags = [
         isHost && { value: 'host' },
@@ -29,7 +22,6 @@ const Card = ({ userId, attendees, id, city, state, zip, title, date, hostId, de
       ].filter(Boolean);
 
       return <Pills tags={tags} />;
-    }
   };
 
   return (
@@ -37,7 +29,7 @@ const Card = ({ userId, attendees, id, city, state, zip, title, date, hostId, de
       <section className='card'>
         <div className='card-header'>
           <div className='card-header-left'>
-            <h3 className='event-card-title'>{title}</h3>
+            <h3 className='event-card-title'>{gameName}</h3>
             <h4 className='event-card-subtitle'>{city}, {state} ({zip})</h4>
             <h4 className='event-card-subtitle event-card-date'>{date}</h4>
           </div>
@@ -64,6 +56,6 @@ Card.propTypes = {
   zip: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  hostId: PropTypes.string,
+  hostId: PropTypes.number,
   description: PropTypes.string.isRequired,
 };

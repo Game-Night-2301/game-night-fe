@@ -35,6 +35,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
     } catch (error) {
     }
   };
+
   useEffect(() => {
     if (game && category && address && city && state && zip && date && startTime && endTime && eventDescription) {
       setReqCompleted(true);
@@ -88,17 +89,6 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
   };
 
   const handleZipChange = (e) => {
-    const zip = e.target.value;
-    if (!/^\d*$/.test(zip)) {
-      alert("Zip code can only contain digits");
-      setZip(null)
-      return;
-    }
-    if (zip.length !== 5) {
-      alert("Zip code must be exactly 5 digits long");
-      setZip(null)
-      return;
-    }
     setZip(zip);
   }
 
