@@ -31,16 +31,16 @@
   font-weight: 400;
   font-size: 1rem;
   line-height: 3.5rem;
-  margin: .75rem;
+  margin: 0.75rem;
 }
 
 .create-link:hover,
 .profile-link:hover,
-.logo:hover  {
+.logo:hover {
   transform: scale(1.1);
   color: rgba(255, 160, 228, 1) !important;
 }
 
 .user-container {
-  display:flex;
+  display: flex;
 }

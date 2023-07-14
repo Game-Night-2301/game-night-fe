@@ -3,22 +3,22 @@
 }
 
 .card {
-    width: 100%;
-    height: 9em;
-    border-radius : 15px;
-    -moz-border-radius : 15px;
-    -webkit-border-radius : 15px;
-    background: rgb(255, 255, 255, 0.85);
-    box-shadow: 0 0 10px rgba(234, 232, 232, 0.2);
-    overflow: hidden;
-    margin: 3rem 0;
+  width: 100%;
+  height: 9em;
+  border-radius: 15px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  background: rgb(255, 255, 255, 0.85);
+  box-shadow: 0 0 10px rgba(234, 232, 232, 0.2);
+  overflow: hidden;
+  margin: 3rem 0;
 }
 
 .card-header {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background: #8E87FA;
+  background: #8e87fa;
   height: 30%;
   padding: 0.3rem 0.5rem 0.3rem 3rem;
 }
@@ -30,7 +30,8 @@
   align-items: center;
 }
 
-.event-card-title, .event-card-subtitle {
+.event-card-title,
+.event-card-subtitle {
   font-size: 1.1rem;
   line-height: 1.2rem;
   font-weight: 800;

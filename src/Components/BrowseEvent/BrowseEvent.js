@@ -20,7 +20,7 @@ const BrowseEvent = ({ selectedUser, logoutUser }) => {
     } else {
       const filteredEvents = filterEvents(data.user.sortedEvents);
       const cleanedEvents = cleanEvents(filteredEvents);
-      return cleanedEvents.map((event) => {
+      return cleanedEvents.map(event => {
         return (
           <Card
             key={event.id}
@@ -55,10 +55,10 @@ const BrowseEvent = ({ selectedUser, logoutUser }) => {
     </>
   );
 };
+export default BrowseEvent;
+
 
 BrowseEvent.propTypes = {
   selectedUser: PropTypes.number,
   logoutUser: PropTypes.func,
 };
-
-export default BrowseEvent;

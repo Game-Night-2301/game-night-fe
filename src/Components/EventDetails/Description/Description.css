@@ -1,5 +1,6 @@
-.description-header, .description-text {
-  color: #FEFEFE;
+.description-header,
+.description-text {
+  color: #fefefe;
 }
 
 .description-header {
@@ -15,7 +16,7 @@
 }
 
 .description-line {
-  border-color: #FFA0E4;
+  border-color: #ffa0e4;
 }
 
 .description-wrapper {

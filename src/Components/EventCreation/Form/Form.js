@@ -106,7 +106,6 @@ const Form = ({ logoutUser, loggedInUser }) => {
       startTime: dayjs(startTime).format('HH:mm:ss'),
       endTime: dayjs(endTime).format('HH:mm:ss'),
     };
-    console.log(newEvent);
     onCreateEvent(newEvent);
   };
 
@@ -244,8 +243,6 @@ const Form = ({ logoutUser, loggedInUser }) => {
           </div>
           <Button className="button" text="Submit" onClick={handleSubmit} />
         </div>
-        {successMessage && <p className="success-message">{successMessage}</p>}
-        {errorMessage && <p className="error-message">{errorMessage}</p>}
       </form>
     </div>
   );

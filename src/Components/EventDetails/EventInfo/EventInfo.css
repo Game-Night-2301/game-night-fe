@@ -1,5 +1,7 @@
-.event-title, .event-date, .event-time {
-  color: #FEFEFE;
+.event-title,
+.event-date,
+.event-time {
+  color: #fefefe;
 }
 
 .event-title {
@@ -9,7 +11,7 @@
 
 .event-date {
   font-size: 1.25em;
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
   font-weight: 400;
 }
 

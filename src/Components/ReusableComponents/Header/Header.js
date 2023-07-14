@@ -38,7 +38,7 @@ const Header = ({ logoutUser }) => {
         <img src={logo} alt="Game Night Logo" className="logo" />
       </NavLink>
       <div className="user-container">
-          <DropDown menuItems={menuItems} renderTrigger={renderDropDownTrigger} />
+        <DropDown menuItems={menuItems} renderTrigger={renderDropDownTrigger} />
       </div>
     </header>
   );

@@ -11,7 +11,6 @@ import { fullQuery, getEvent } from '../../queries/index';
 
 export const EventDetails = ({ loggedInUser, logoutUser }) => {
   const { id } = useParams();
-
   const { loading, error, data } = useQuery(getEvent, { variables: {
     id
   }, skip: !id });

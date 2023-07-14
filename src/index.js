@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './Components/App/App.js';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom';
 import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink } from '@apollo/client';
 
 const link = createHttpLink({
@@ -23,7 +23,7 @@ root.render(
         <App />
       </React.StrictMode>
     </ApolloProvider>
-  </Router>  
+  </Router>
 );
 
 // If you want to start measuring performance in your app, pass a function

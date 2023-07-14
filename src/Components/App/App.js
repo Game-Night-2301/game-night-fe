@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useQuery } from '@apollo/client'; 
+import { useQuery } from '@apollo/client';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import BrowseEvent from '../BrowseEvent/BrowseEvent';
@@ -27,9 +27,7 @@ function App() {
   const { loading, error, data } = useQuery(getUser, { variables: { id: selectedUser }, skip: !selectedUser });
 
   useEffect(() => {
-    console.log('Selected user:', selectedUser);
     if (!loading && !error && data) {
-      console.log('Retrieved user:', data.user);
     }
   }, [loading, error, data, selectedUser]);
 
@@ -43,8 +41,8 @@ function App() {
     setLoggedIn(false);
   };
 
-  if (loading) return <p>Loading...</p>; 
-  if (error) return <p>Error : {error.message}</p>; 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error : {error.message}</p>;
 
   return (
     <Router>
@@ -53,16 +51,16 @@ function App() {
           {loggedIn ? (
             <>
               <Route exact path="/browse">
-                <BrowseEvent selectedUser={selectedUser} logoutUser={logoutUser}/>
+                <BrowseEvent selectedUser={selectedUser} logoutUser={logoutUser} />
               </Route>
               <Route exact path="/profile">
-                <ProfilePage logoutUser={logoutUser} selectedUser={selectedUser} userData={data.user}/>
+                <ProfilePage logoutUser={logoutUser} selectedUser={selectedUser} userData={data.user} />
               </Route>
               <Route exact path="/create">
-                <Form logoutUser={logoutUser} loggedInUser={selectedUser}/>
+                <Form logoutUser={logoutUser} loggedInUser={selectedUser} />
               </Route>
               <Route exact path="/events/:id">
-                <EventDetails loggedInUser={selectedUser} logoutUser={logoutUser}/>
+                <EventDetails loggedInUser={selectedUser} logoutUser={logoutUser} />
               </Route>
               <Route path="/error">
                 <Error error="Oops! Looks like we rolled a critical error. Time to reshuffle the digital deck!" />
