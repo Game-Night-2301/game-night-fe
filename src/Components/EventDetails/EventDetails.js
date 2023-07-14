@@ -36,6 +36,6 @@ export const EventDetails = ({ loggedInUser, logoutUser }) => {
 };
 
 EventDetails.propTypes = {
-  loggedInUser: PropTypes.object.isRequired,
+  loggedInUser: PropTypes.number.isRequired,
   logoutUser: PropTypes.func.isRequired,
 };

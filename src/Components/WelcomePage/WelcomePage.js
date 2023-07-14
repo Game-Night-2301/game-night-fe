@@ -28,7 +28,7 @@ function WelcomePage({ loginUser, logoutUser, loggedIn }) {
 export default WelcomePage;
 
 WelcomePage.propTypes = {
-  loginUser: PropTypes.func.isRequired,
-  logoutUser: PropTypes.func.isRequired,
-  loggedIn: PropTypes.bool.isRequired,
+  loginUser: PropTypes.func,
+  logoutUser: PropTypes.func,
+  loggedIn: PropTypes.bool,
 };

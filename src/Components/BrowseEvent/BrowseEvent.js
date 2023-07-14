@@ -9,7 +9,10 @@ import { cleanEvents, filterEvents, sortEvents } from '../../utils/cleaning';
 import './BrowseEvent.css';
 
 const BrowseEvent = ({ selectedUser, logoutUser }) => {
-  const { loading, error, data } = useQuery(getAllEvents, { variables: { id: selectedUser }, skip: !selectedUser });
+  const { loading, error, data } = useQuery(getAllEvents, {
+    variables: { id: selectedUser },
+    skip: !selectedUser
+  });
 
   const displayEvents = () => {
     if (!data?.user.sortedEvents?.length) {
@@ -43,20 +46,21 @@ const BrowseEvent = ({ selectedUser, logoutUser }) => {
       <Header logoutUser={logoutUser} />
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
-      {data &&
+      {data && (
         <>
           <BrowserHeader text="Open Games" />
-          <section className='browse-event-container'>
-            {displayEvents()}
-          </section>
+          <section className="browse-event-container">{displayEvents()}</section>
         </>
-      }
+      )}
     </>
   );
 };
 export default BrowseEvent;
 
+
 BrowseEvent.propTypes = {
-  selectedUser: PropTypes.string.isRequired,
-  logoutUser: PropTypes.func.isRequired,
+  selectedUser: PropTypes.number,
+  logoutUser: PropTypes.func,
 };
+
+export default BrowseEvent;
