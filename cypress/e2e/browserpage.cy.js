@@ -50,7 +50,7 @@ describe('Browse Page', () => {
         cy.get('.card-link-wrapper').first()
           .within(() => {
             cy.get('.event-card-title').should('have.text', '1 title');
-            cy.get('.event-card-subtitle').should('have.text', '1 city, 1 state (11111)12/31/2023');
+            cy.get('.event-card-subtitle').should('have.text', '1 city, 1 state (11111)10/31/2022');
             cy.get('.event-card-description').should('have.text', '1 description');
             cy.url().should('include', '/browse');
           });
