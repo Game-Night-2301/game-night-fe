@@ -6,10 +6,6 @@
   border-radius: 8px;
 }
 
-.button {
-  align-items: center;
-}
-
 .form-header {
   color: rgb(128, 35, 129);
   margin-bottom: 0.5em;
@@ -28,4 +24,9 @@
 
 .container {
   padding: 0 2em;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
 }

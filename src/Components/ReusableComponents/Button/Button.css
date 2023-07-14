@@ -7,6 +7,17 @@
   margin: 5rem;
 }
 
+.button-disabled {
+  background-color: #cccccc;
+  color: #808080;
+  cursor: not-allowed;
+}
+
+.form-button {
+  width: 100%;
+  margin: 0;
+}
+
 .button:hover {
   animation: glowing 2s infinite;
 }

@@ -41,6 +41,10 @@ query getUser($id: ID!) {
           gameType
           lat
           lon
+        }
+        ownedGames {
+          id
+          name
         }  	
     }
   }`;
@@ -108,6 +112,10 @@ export const getAllEvents = gql`
         }
         game
         gameType
+        gameDetails {
+          name
+          maxPlayers
+        }
         attendees {
           id
           username

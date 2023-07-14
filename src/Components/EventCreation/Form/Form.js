@@ -11,9 +11,10 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { createEventMutation } from "../../../queries";
+import { Tooltip } from "@mui/material";
 
-const Form = ({ logoutUser, loggedInUser }) => {
-  const [game, setGame] = useState('');
+const Form = ({ logoutUser, loggedInUser, userData }) => {
+  const [game, setGame] = useState(null);
   const [category, setCategory] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
@@ -21,8 +22,11 @@ const Form = ({ logoutUser, loggedInUser }) => {
   const [zip, setZip] = useState(null);
   const [date, setDate] = useState(null);
   const [startTime, setStartTime] = useState(null);
+  const [maxStartTime, setMaxStartTime] = useState(null);
+  const [minEndTime, setMinEndTime] = useState(null);
   const [endTime, setEndTime] = useState(null);
   const [eventDescription, setEventDescription] = useState('');
+  const [reqCompleted, setReqCompleted] = useState(false);
 
   const [createEvent, { data, loading, error }] = useMutation(createEventMutation);
 
@@ -32,7 +36,24 @@ const Form = ({ logoutUser, loggedInUser }) => {
     } catch (error) {
     }
   };
+  useEffect(() => {
+    if (game && category && address && city && state && zip && date && startTime && endTime && eventDescription) {
+      setReqCompleted(true);
+    } else {
+      setReqCompleted(false);
+    }
+  }, [game, category, address, city, state, zip, date, startTime, endTime, eventDescription]);
+  
 
+  const populateGameOptions = () => {
+    return userData.ownedGames.map((game, i) => {
+      return (
+        <MenuItem key={i} value={game.id}>
+          {game.name}
+        </MenuItem>
+      );
+    });
+  }
 
   const handleGameChange = (e) => {
     setGame(e.target.value);
@@ -44,9 +65,11 @@ const Form = ({ logoutUser, loggedInUser }) => {
 
   const handleStartTimeChange = (time) => {
     setStartTime(time);
+    setMinEndTime(time);
   };
 
   const handleEndTimeChange = (time) => {
+    setMaxStartTime(time);
     setEndTime(time);
   };
 
@@ -67,8 +90,19 @@ const Form = ({ logoutUser, loggedInUser }) => {
   };
 
   const handleZipChange = (e) => {
-    setZip(e.target.value);
-  };
+    const zip = e.target.value;
+    if (!/^\d*$/.test(zip)) {
+      alert("Zip code can only contain digits");
+      setZip(null)
+      return;
+    }
+    if (zip.length !== 5) {
+      alert("Zip code must be exactly 5 digits long");
+      setZip(null)
+      return;
+    }
+    setZip(zip);
+  }
 
   const handleEventDescriptionChange = (e) => {
     setEventDescription(e.target.value);
@@ -84,7 +118,7 @@ const Form = ({ logoutUser, loggedInUser }) => {
       title: game,
       description: eventDescription,
       host: loggedInUser,
-      game: 1,
+      game: game,
       gameType: category,
       startTime: dayjs(startTime).format("HH:mm:ss"),
       endTime: dayjs(endTime).format("HH:mm:ss"),
@@ -110,9 +144,7 @@ const Form = ({ logoutUser, loggedInUser }) => {
               sx={{ margin: "1em" }}
               helperText="Please select a game"
             >
-              <MenuItem value={"Game 1"}>{"Game 1"}</MenuItem>
-              <MenuItem value={"Game 2"}>{"Game 2"}</MenuItem>
-              <MenuItem value={"Game 3"}>{"Game 3"}</MenuItem>
+              {populateGameOptions()}
             </TextField>
             <TextField
               id="category"
@@ -170,6 +202,7 @@ const Form = ({ logoutUser, loggedInUser }) => {
                 <DatePicker
                   label="Date"
                   required
+                  minDate={dayjs()}
                   value={date}
                   sx={{ margin: "1em" }}
                   onChange={(newDate) => handleDateChange(newDate)}
@@ -179,6 +212,7 @@ const Form = ({ logoutUser, loggedInUser }) => {
                   label="Start Time"
                   required
                   value={startTime}
+                  maxTime={maxStartTime}
                   sx={{ margin: "1em" }}
                   onChange={(startTime) => handleStartTimeChange(startTime)}
                 />
@@ -186,6 +220,7 @@ const Form = ({ logoutUser, loggedInUser }) => {
                   label="End Time"
                   required
                   value={endTime}
+                  minTime={minEndTime}
                   sx={{ margin: "1em" }}
                   onChange={(endTime) => handleEndTimeChange(endTime)}
                 />
@@ -197,7 +232,7 @@ const Form = ({ logoutUser, loggedInUser }) => {
           <div className="event-details">
             <TextField
               id="outlined-multiline-static"
-              label="Details"
+              label="Event Details (max 500 characters)"
               multiline
               value={eventDescription}
               rows={6}
@@ -205,10 +240,22 @@ const Form = ({ logoutUser, loggedInUser }) => {
                 margin: "1em",
                 width: "98%"
               }}
+              inputProps={{
+                maxLength: 500,
+              }}
               onChange={(e) => handleEventDescriptionChange(e)}
             />
           </div>
-          <Button className="button" text="Submit" onClick={handleSubmit} />
+          <Tooltip title={!reqCompleted ? 'Please fill out all fields!' : ''} placement="top">
+            <span>
+              <Button 
+                className="form-button" 
+                text="Submit" 
+                onClick={handleSubmit} 
+                disabled={!reqCompleted}
+              />
+            </span>
+          </Tooltip>
         </div>
       </form>
     </>
