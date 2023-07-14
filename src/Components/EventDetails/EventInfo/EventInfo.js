@@ -5,11 +5,11 @@ import Pills from '../../ReusableComponents/Pills/Pills';
 import Button from '../../ReusableComponents/Button/Button';
 import './EventInfo.css';
 import { detailsDateFormatter } from '../../../utils/cleaning';
-import { addUserToEvent, getEvent, removeUserFromEvent } from '../../../queries';
+import { addUserToEvent, getEvent, cancelEvent, removeUserFromEvent, getUserGames } from '../../../queries';
 
 export const EventInfo = ({ hostId, id, game, time, date, attendees, loggedInUser}) => {
 
-
+ 
   const isAttending = attendees.some((attendee) => parseInt(attendee.id) === loggedInUser)
   const isHost = loggedInUser === hostId
 
@@ -17,6 +17,7 @@ export const EventInfo = ({ hostId, id, game, time, date, attendees, loggedInUse
     refetchQueries:[getEvent]
   });
   const [leaveEvent, { data: leaveData, loading: leaveLoading, error: leaveError }] = useMutation(removeUserFromEvent);
+  const [cancelGroupEvent, { data: cancelData, loading: cancelLoading, error: cancelError }] = useMutation(cancelEvent);
 
   const renderRolePill = () => {
   
@@ -33,10 +34,16 @@ export const EventInfo = ({ hostId, id, game, time, date, attendees, loggedInUse
     }
 
   const renderButton = () => {
-    if(isHost) {
+    if (isHost) {
       return (
-        <Button text='Host Actions'/>
-      )
+        <Button
+        text='Cancel Event'
+        onClick={() => {
+          cancelEvent({ variables: { eventId: id } });
+        }}
+      />
+      
+      );
     }
     else if (!isAttending && loggedInUser) {
       return (
@@ -54,7 +61,6 @@ export const EventInfo = ({ hostId, id, game, time, date, attendees, loggedInUse
       )
     }
   }
-console.log(attendees)
   return (
     <div>
         <h1 className='event-title'>{game}</h1>
@@ -71,7 +77,7 @@ console.log(attendees)
 }
 
 EventInfo.propTypes = {
-  hostId: PropTypes.string.isRequired,
+  hostId: PropTypes.number.isRequired,
   id: PropTypes.string.isRequired,
   game: PropTypes.string.isRequired,
   time: PropTypes.string.isRequired,
