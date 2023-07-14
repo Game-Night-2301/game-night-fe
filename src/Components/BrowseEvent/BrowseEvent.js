@@ -12,11 +12,11 @@ const BrowseEvent = ({ selectedUser, logoutUser }) => {
   const { loading, error, data } = useQuery(getAllEvents, { variables: { id: selectedUser }, skip: !selectedUser });
 
   const displayEvents = () => {
-    if(!data?.user.sortedEvents?.length) {
-      return <h2>No Events</h2>
+    if (!data?.user.sortedEvents?.length) {
+      return <h2>No Events</h2>;
     } else {
-      const filteredEvents = filterEvents(data.user.sortedEvents)
-      const cleanedEvents = cleanEvents(filteredEvents)
+      const filteredEvents = filterEvents(data.user.sortedEvents);
+      const cleanedEvents = cleanEvents(filteredEvents);
       return cleanedEvents.map(event => {
         return (
           <Card
@@ -33,28 +33,28 @@ const BrowseEvent = ({ selectedUser, logoutUser }) => {
             description={event.description}
             distance={event.distanceFrom}
           />
-        )
-      })
+        );
+      });
     }
-  }
-  
+  };
+
   return (
     <>
-      <Header logoutUser={logoutUser}/>
+      <Header logoutUser={logoutUser} />
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error.message}</p>}
-      {data && 
+      {data &&
         <>
-          <BrowserHeader text="Open Games"/>
+          <BrowserHeader text="Open Games" />
           <section className='browse-event-container'>
             {displayEvents()}
           </section>
         </>
       }
     </>
-  )
-}
-export default BrowseEvent
+  );
+};
+export default BrowseEvent;
 
 BrowseEvent.propTypes = {
   selectedUser: PropTypes.string.isRequired,

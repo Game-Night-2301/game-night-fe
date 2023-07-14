@@ -22,7 +22,7 @@
 
 .game-card-title {
   font-size: 1.5rem;
-  font-family: 'Avenir Next', sans-serif;
+  font-family: "Avenir Next", sans-serif;
   font-weight: 600;
   margin: 0;
 }
@@ -65,7 +65,8 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
-.game-key, .game-value {
+.game-key,
+.game-value {
   color: rgb(89, 89, 89);
   font-size: 0.9rem;
 }

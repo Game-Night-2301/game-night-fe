@@ -1,16 +1,16 @@
 .errorContainer {
-    width: 75%;
-    margin: auto;
-    padding: 20px;
-    box-sizing: border-box;
-    display: flex; 
-    justify-content: center;
-    background : rgba(255, 255, 255, 1);
-    opacity : 0.85;
-    border-radius : 8px;
-    -moz-border-radius : 8px;
-    -webkit-border-radius : 8px;
-    filter: alpha(opacity=85) progid:DXImageTransform.Microsoft.Alpha(opacity=85);
+  width: 75%;
+  margin: auto;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  background: rgba(255, 255, 255, 1);
+  opacity: 0.85;
+  border-radius: 8px;
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  filter: alpha(opacity=85) progid: DXImageTransform.Microsoft.Alpha(opacity=85);
 }
 
 .message {
@@ -18,7 +18,7 @@
   align-items: center;
   justify-content: center;
   color: rgba(255, 160, 228, 1);
-  font-family:"Bangers", cursive; ;
+  font-family: "Bangers", cursive;
   text-align: center;
   height: 30%;
   margin: 0;

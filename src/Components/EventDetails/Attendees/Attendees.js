@@ -4,14 +4,14 @@ import userIcon from '../../../assets/usericon.svg';
 import Tooltip from '@mui/material/Tooltip';
 import './Attendees.css';
 
-export const Attendees = ( { attendees, id, game} ) => {
-  const renderAttendees = attendees.map( attendee => {
-      return (
-        <Tooltip title={attendee.username}>
+export const Attendees = ({ attendees, id, game }) => {
+  const renderAttendees = attendees.map(attendee => {
+    return (
+      <Tooltip title={attendee.username}>
         <img src={userIcon} key={attendee.id} alt={attendee.id} className="attendee-img" />
-        </Tooltip>
-      )
-    });
+      </Tooltip>
+    );
+  });
 
   return (
     <div className="attendees-wrapper">
@@ -21,9 +21,9 @@ export const Attendees = ( { attendees, id, game} ) => {
         {renderAttendees}
       </div>
     </div>
-    
-  )
-}
+
+  );
+};
 
 Attendees.propTypes = {
   attendees: PropTypes.arrayOf(
