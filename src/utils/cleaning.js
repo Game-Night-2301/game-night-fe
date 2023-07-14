@@ -53,3 +53,10 @@ export const detailsDateFormatter = (date) => {
 
   return dayjs(date).format(`dddd, MMMM D`) + suffix;
 };
+
+export const capitalizeFirstLetter = (str) => {
+  if (typeof str !== 'string') {
+    return str;
+  }
+  return str.charAt(0).toUpperCase() + str.slice(1);
+};
