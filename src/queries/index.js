@@ -74,6 +74,10 @@ export const getEvent = gql`
       state
       city
       zip
+      lat
+      lon
+      startTime
+      endTime
       title
       cancelled
       description
@@ -81,13 +85,40 @@ export const getEvent = gql`
       game
       gameType
       playerCount
+      gameDetails {
+        id
+        name
+        minPlayers
+        maxPlayers
+        minPlaytime
+        maxPlaytime
+        description
+        imageUrl
+        averageUserRating
+        averageStrategyComplexity
+      }
+      host {
+        id
+        username
+      }
       attendees {
         id
         username
       }
+
     }
   }
 `;
+
+export const fullQuery = gql`
+  query {
+    event(id: 1) {
+      full
+    }
+  }
+`;
+
+
 
 export const getAllEvents = gql`
   query getAllEvents($id: ID!) {
