@@ -1,0 +1,12 @@
+{
+  "data": {
+    "createEvent": {
+      "errors": [],
+      "event": {
+        "id": "9",
+        "__typename": "Event"
+      },
+      "__typename": "CreateEventPayload"
+    }
+  }
+}
