@@ -1,8 +1,8 @@
 .event-body {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100%;
   height: 100%;
 }
@@ -11,10 +11,29 @@
   margin-top: 0;
 }
 
+.event-details-page {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+}
+
 .event-right {
-  padding: 2em;
-  width: 50%;
-  margin-top: 5em;
+  padding: 1em 2em;
+  width: 90%;
+  justify-self: end;
   background-color: #e2dfe832;
   border-radius: 5px;
+  margin-bottom: 2em;
+}
+
+@media screen and (max-width: 1172px) {
+  .event-details-page {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .event-right {
+    width: 100%;
+    margin: 2em 0;
+  }
+
 }

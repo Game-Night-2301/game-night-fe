@@ -114,14 +114,14 @@ export const EventInfo = ({
     }
   };
   return (
-    <div>
+    <section className="event-info-wrapper">
       <div className="event-header"><h1 className="event-title">{gameDetails.name}</h1>{renderRolePill()}</div>
-      <div>
+      <div className="event-details-wrapper">
       <h2 className="event-date">{detailsDateFormatter(date)}</h2>
       <h2 className="event-time">
         {startTime} - {endTime}
       </h2>
-      <div>
+      <div className="game-image-wrapper">
         <img
           className="game-image"
           src={gameDetails.imageUrl}
@@ -130,7 +130,7 @@ export const EventInfo = ({
         </div>
       </div>
       <div className="event-button-holder">{renderButton()}</div>
-    </div>
+    </section>
   );
 };
 
