@@ -45,12 +45,11 @@ describe('Profile Page', () => {
     cy.url().should('include', '/profile');
     cy.get('h5').contains('Personal Info').should('exist');
     cy.get('.profile-text').within(() => {
-      cy.contains('.profile-text-key', 'Name').next('.profile-text-value').should('have.text', '');
+      cy.contains('.profile-text-key', 'Name').next('.profile-text-value').should('have.text', 'Galdor of the Havens');
       cy.contains('.profile-text-key', 'Games Owned').next('.profile-text-value').should('have.text', '5');
-      cy.contains('.profile-text-key', 'Location').next('.profile-text-value').should('have.text', ', ');
+      cy.contains('.profile-text-key', 'Location').next('.profile-text-value').should('have.text', 'Montpelier, Vermont');
     });
     cy.get('h5').contains('Game Collection').should('exist');
-
     cy.get('.games-grid').within(() => {
       cy.get('.user-game').should('have.length', 5);
       cy.contains('.user-game', 'Welcome to...');

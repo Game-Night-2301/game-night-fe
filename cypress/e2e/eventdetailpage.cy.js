@@ -36,13 +36,10 @@ beforeEach(() => {
 
 it('should display the event page with the correct elements', () => {
   cy.get('.welcome-button-container').find('button').contains('User 1').click();
-  cy.get('.browse-event-container')
-      .should('be.visible')
-      .get('.card')
-      .first()
-      .click()
-      .then(() => {
-        cy.url().should('include', '/events/');
-      });
+  cy.get('.browse-event-container').should('be.visible');
+  cy.get('.card').first().click();
+  cy.wait('@getEvent').then(() => {
+    cy.url().should('include', '/events/7');
   });
+});
 });

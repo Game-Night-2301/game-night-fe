@@ -14,7 +14,7 @@ import { capitalizeFirstLetter } from '../../utils/cleaning';
 const ProfilePage = ({ logoutUser, selectedUser, userData }) => {
   const { loading, error, data } = useQuery(getUserGames, { variables: { id: selectedUser } });
   const [expandedGame, setExpandedGame] = useState("");
-
+console.log(userData);
   const handleExpandClick = (gameName) => {
     if (expandedGame === gameName) {
       setExpandedGame("");

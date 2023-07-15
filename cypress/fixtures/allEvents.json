@@ -5,7 +5,7 @@
           {
               "__typename": "Event",
               "id": "7",
-              "date": "2023-10-21T00:00:00Z",
+              "date": "2023-10-21T08:00:00Z",
               "address": "205 Dorset St",
               "city": "South Burlington",
               "state": "Vermont",
@@ -44,7 +44,7 @@
           {
               "__typename": "Event",
               "id": "5",
-              "date": "2023-10-15T00:00:00Z",
+              "date": "2023-10-15T08:00:00Z",
               "address": "580 Shelburne Rd ",
               "city": "Burlington",
               "state": "Vermont",
@@ -78,7 +78,7 @@
           {
               "__typename": "Event",
               "id": "6",
-              "date": "2023-10-04T00:00:00Z",
+              "date": "2023-10-04T08:00:00Z",
               "address": "37 N Main St",
               "city": "Rutland",
               "state": "Vermont",

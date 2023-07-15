@@ -1,6 +1,11 @@
 {
   "user": {
       "__typename": "User",
+      "id": "1",
+      "username": "Galdor of the Havens",
+      "password": "password",
+      "city": "montpelier",
+      "state": "vermont",
       "ownedGames": [
           {
               "__typename": "Game",
