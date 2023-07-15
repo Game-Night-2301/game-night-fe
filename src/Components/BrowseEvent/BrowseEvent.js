@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import Header from '../ReusableComponents/Header/Header';
 import BrowserHeader from '../ReusableComponents/BrowserHeader/BrowserHeader';
 import Card from '../BrowseEvent/Card/Card';
+import PageLoader from '../ReusableComponents/PageLoader/PageLoader';
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
 import { getAllEvents } from '../../queries/index';
@@ -44,17 +45,14 @@ const BrowseEvent = ({ selectedUser, logoutUser }) => {
     }
   };
 
+  if (loading) return <PageLoader />;
+  if (error) return <p>Error: {error.message}</p>;
+
   return (
     <>
       <Header logoutUser={logoutUser} />
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error.message}</p>}
-      {data && (
-        <>
-          <BrowserHeader text="Open Games" />
-          <section className="browse-event-container">{displayEvents()}</section>
-        </>
-      )}
+      <BrowserHeader text="Open Games" />
+      <section className="browse-event-container">{displayEvents()}</section>
     </>
   );
 };

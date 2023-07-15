@@ -7,6 +7,7 @@ import ProfilePage from '../Profile/Profile';
 import './App.css';
 import Form from '../EventCreation/Form/Form';
 import Error from '../Error/Error';
+import PageLoader from '../ReusableComponents/PageLoader/PageLoader';
 import { EventDetails } from '../EventDetails/EventDetails';
 import {
   getUser,
@@ -41,8 +42,8 @@ function App() {
     setLoggedIn(false);
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error : {error.message}</p>;
+  if (loading) return <PageLoader />;
+  if (error) return <Redirect to="/error" />;
 
   return (
     <Router>

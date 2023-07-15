@@ -4,9 +4,10 @@ import './EventDetails.css';
 import { Attendees } from './Attendees/Attendees';
 import { Description } from './Description/Description';
 import { EventInfo } from './EventInfo/EventInfo';
+import PageLoader from '../ReusableComponents/PageLoader/PageLoader';
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
-import { useParams } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import { fullQuery, getEvent } from '../../queries/index';
 
 export const EventDetails = ({ loggedInUser, logoutUser }) => {
@@ -21,8 +22,8 @@ export const EventDetails = ({ loggedInUser, logoutUser }) => {
 
   
 
-  if (loading) return <p>Loading...</p>; 
-  if (error) return <p>Error :</p>; 
+  if (loading) return <PageLoader />; 
+  if (error) return <Redirect to="/error" />; 
 
   return (
     <div>
