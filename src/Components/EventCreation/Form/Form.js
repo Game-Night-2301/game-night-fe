@@ -26,7 +26,6 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
   const [minEndTime, setMinEndTime] = useState(null);
   const [endTime, setEndTime] = useState();
   const [eventDescription, setEventDescription] = useState();
-
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
