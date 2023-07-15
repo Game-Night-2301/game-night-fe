@@ -70,7 +70,7 @@ describe('Create Event Page', () => {
     cy.get(".MuiButton-root").contains('Submit')
   });
 
-  it.skip('Navigate to and fill out and submit the form', () => {
+  it('Navigate to and fill out and submit the form', () => {
     cy.get('.welcome-button-container').find('button').contains('User 1').click();
     cy.get('.profile-link').click();
     cy.get('.menu-link').should('be.visible');
@@ -80,6 +80,7 @@ describe('Create Event Page', () => {
       .get('.MuiList-root > [tabindex="0"]').click()
     cy.get("#category").click()
       .get('.MuiList-root > [tabindex="0"]').click()
+    cy.get('#location').type('Costco')
     cy.get("#address").type("402 S Walnut")
     cy.get("#city").type("Truth or Consequences")
     cy.get("#state").type("New Mexico")
@@ -97,6 +98,12 @@ describe('Create Event Page', () => {
     cy.get('.profile-link').click();
     cy.get('.menu-link').should('be.visible');
     cy.get('.menu-link').contains('Create Event').click();
+
+    cy.get("#address").type("402 S Walnut")
+    cy.get("#city").type("Truth or Consequences")
+    cy.get("#state").type("New Mexico")
+    cy.get("#zip").type("86753")
+    cy.get(".event-time-and-date > :nth-child(1) > .MuiInputBase-root").type("12/31/2023")
 
     cy.get(".MuiButton-root").contains('Submit')
       .should("have.attr", "disabled")
