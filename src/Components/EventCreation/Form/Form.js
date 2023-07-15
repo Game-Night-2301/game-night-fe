@@ -12,6 +12,7 @@ import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { createEventMutation } from '../../../queries';
 import { Tooltip } from '@mui/material';
+import PropTypes from 'prop-types'
 
 const Form = ({ logoutUser, loggedInUser, userData }) => {
   const [game, setGame] = useState(null);
@@ -40,6 +41,22 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
     setErrorMessage('');
   };
 
+  const clearInputs = () => {
+    setGame(null);
+    setCategory('');
+    setLocation('');
+    setAddress('');
+    setCity('');
+    setEState('');
+    setZip('');
+    setDate(null);
+    setStartTime(null);
+    setMaxStartTime(null);
+    setMinEndTime(null);
+    setEndTime(null);
+    setEventDescription('');
+  };
+
   const handleError = (message) => {
     setSuccessMessage('');
     setErrorMessage(message);
@@ -56,6 +73,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
       setTimeout(() => {
         setReqCompleted(true)
         clearMessages()
+        clearInputs()
       }, 4000)
     } catch (error) {
       console.log(error)
@@ -343,3 +361,9 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
 };
 
 export default Form;
+
+Form.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  loggedInUser: PropTypes.number.isRequired,
+  userData: PropTypes.object.isRequired,
+};
