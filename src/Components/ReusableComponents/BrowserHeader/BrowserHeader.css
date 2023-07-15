@@ -10,6 +10,7 @@
   padding-bottom: 0.5rem;
   border-bottom: 0.1px solid rgba(255, 160, 228, 1);
   width: 100%;
+  white-space: nowrap;
 }
 
 .browser-header-no-margin {

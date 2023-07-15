@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './RecommendationsPage.css'
+import './RecommendationsPage.css';
 import { useLazyQuery } from '@apollo/client';
 import { getUserRecommendations } from '../../queries/index';
 import Header from '../ReusableComponents/Header/Header';
@@ -8,32 +8,39 @@ import RecOutput from './RecOutput/RecOutput';
 
 const RecommendationsPage = ({ logoutUser, selectedUser }) => {
   const [dataReceived, setDataReceived] = useState(false);
-  const [getUserRecs, { loading, data, error }] = useLazyQuery(getUserRecommendations, {
-    onCompleted: () => {
-      setDataReceived(true);
+  const [getUserRecs, { loading, data, error }] = useLazyQuery(
+    getUserRecommendations,
+    {
+      onCompleted: () => {
+        setDataReceived(true);
+      },
     }
-  });
+  );
 
   const handleRecSubmit = async () => {
-      getUserRecs({ variables: { id: selectedUser } });
-  }
+    getUserRecs({ variables: { id: selectedUser } });
+  };
 
   useEffect(() => {
     if (dataReceived) {
-      console.log(data)
+      console.log(data);
     }
-  }, [dataReceived])
-
+  }, [dataReceived]);
 
   return (
     <>
-      <Header logoutUser={logoutUser}/>
+      <Header logoutUser={logoutUser} />
       <section className="profile-page recs-page">
-        <AIRecs handleRecSubmit={handleRecSubmit} received={dataReceived} loading={loading} setDataReceived={setDataReceived}/>
+        <AIRecs
+          handleRecSubmit={handleRecSubmit}
+          received={dataReceived}
+          loading={loading}
+          setDataReceived={setDataReceived}
+        />
         <RecOutput recommendations={data} />
       </section>
     </>
-  )
-}
+  );
+};
 
 export default RecommendationsPage;
