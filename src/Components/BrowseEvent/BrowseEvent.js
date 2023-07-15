@@ -26,15 +26,18 @@ const BrowseEvent = ({ selectedUser, logoutUser }) => {
             key={event.id}
             userId={selectedUser}
             id={event.id}
+            game={event.game}
             title={event.title}
             city={event.city}
             state={event.state}
             zip={event.zip}
             date={event.date}
             attendees={event.attendees}
-            host={event.hostId}
+            hostId={event.hostId}
+            gameName={event.gameName}
             description={event.description}
             distance={event.distanceFrom}
+            maxPlayers={event.maxPlayers}
           />
         );
       });
