@@ -12,6 +12,7 @@ import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { createEventMutation } from '../../../queries';
 import { Tooltip } from '@mui/material';
+import PropTypes from 'prop-types'
 
 const Form = ({ logoutUser, loggedInUser, userData }) => {
   const [game, setGame] = useState(null);
@@ -312,3 +313,9 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
 };
 
 export default Form;
+
+Form.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  loggedInUser: PropTypes.number.isRequired,
+  userData: PropTypes.object.isRequired,
+};
