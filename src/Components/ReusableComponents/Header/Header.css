@@ -4,7 +4,7 @@
   align-items: center;
   padding-top: 3rem;
   width: 100%;
-  margin-bottom: 5rem;
+  margin-bottom: 9rem;
 }
 
 .logo {
@@ -44,4 +44,11 @@
 
 .user-container {
   display: flex;
+}
+
+@media screen and (max-width: 1172px) {
+  .header {
+    margin-bottom: 6rem;
+  }
+
 }

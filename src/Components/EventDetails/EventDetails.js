@@ -24,33 +24,33 @@ export const EventDetails = ({ loggedInUser, logoutUser }) => {
   if (error) return <Redirect to="/error" />; 
 
   return (
-    <div>
-      <Header logoutUser={logoutUser} />
-      <div className="event-body">
-        <EventInfo
-          className="event-info"
-          loggedInUser={loggedInUser}
-          hostId={data.event.hostId}
-          id={data.event.id}
-          game={data.event.game}
-          date={data.event.date}
-          startTime={data.event.startTime}
-          endTime={data.event.endTime}
-          attendees={data.event.attendees}
-          cancelled={data.event.cancelled}
-          gameDetails={data.event.gameDetails}
-          full={fullData.event.full}
-        />
-        <div className="event-right">
-          <Description gameDescription={data.event.gameDetails.description} description={data.event.description} lat={data.event.lat} lon={data.event.lon} 
+    <>
+    <Header logoutUser={logoutUser} />
+    <div className="event-details-page">
+      <EventInfo
+        className="event-info"
+        loggedInUser={loggedInUser}
+        hostId={data.event.hostId}
+        id={data.event.id}
+        game={data.event.game}
+        date={data.event.date}
+        startTime={data.event.startTime}
+        endTime={data.event.endTime}
+        attendees={data.event.attendees}
+        cancelled={data.event.cancelled}
+        gameDetails={data.event.gameDetails}
+        full={fullData.event.full}
+      />
+      <div className="event-right">
+        <Description gameDescription={data.event.gameDetails.description} description={data.event.description} lat={data.event.lat} lon={data.event.lon} 
           address={data.event.address} 
           city={data.event.city} 
           state={data.event.state} 
           zip={data.event.zip}/>
-          <Attendees attendees={data.event.attendees} />
-        </div>
+        <Attendees attendees={data.event.attendees} />
       </div>
     </div>
+    </>
   );
 };
 
