@@ -28,8 +28,9 @@
 .welcome-page-subtitle {
   font-family: 'Avenir Next';
   font-weight: 300;
-  font-size: 3.5rem;
+  font-size: 3rem;
   margin-top: 0;
+  font-style: italic;
 }
 
 .welcome-button-container {
