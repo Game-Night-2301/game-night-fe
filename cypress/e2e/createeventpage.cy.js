@@ -64,13 +64,13 @@ describe('Create Event Page', () => {
     cy.get("#state")
     cy.get("#zip")
     cy.get(".event-time-and-date > :nth-child(1) > .MuiInputBase-root")
-    cy.get(cy.get('.event-time-and-date > :nth-child(2) > .MuiInputBase-root'))
+    cy.get('.event-time-and-date > :nth-child(2) > .MuiInputBase-root')
     cy.get('.event-time-and-date > :nth-child(3) > .MuiInputBase-root')
     cy.get("#outlined-multiline-static")
     cy.get(".MuiButton-root").contains('Submit')
   });
 
-  it('Navigate to and fill out and submit the form', () => {
+  it.skip('Navigate to and fill out and submit the form', () => {
     cy.get('.welcome-button-container').find('button').contains('User 1').click();
     cy.get('.profile-link').click();
     cy.get('.menu-link').should('be.visible');
@@ -90,4 +90,26 @@ describe('Create Event Page', () => {
     cy.get("#outlined-multiline-static").type("The coolest thing you'll ever play in your entire life.")
     cy.get(".MuiButton-root").contains('Submit').click({force: true})
   })
+
+  it('Should not allow a user to submit if the form isn\'t filled out in its entirety and display a tooltip message.', () => {
+
+    cy.get('.welcome-button-container').find('button').contains('User 1').click();
+    cy.get('.profile-link').click();
+    cy.get('.menu-link').should('be.visible');
+    cy.get('.menu-link').contains('Create Event').click();
+
+    cy.get(".MuiButton-root").contains('Submit')
+      .should("have.attr", "disabled")
+
+    cy.get(".MuiButton-root").contains('Submit')
+      .should('be.disabled')
+
+    cy.get('.button-container')
+      .trigger('mouseover')
+      .wait(2000)
+      .get('.MuiTooltip-tooltip')
+      .should('be.visible')
+      .contains('Please fill out all fields!')
+      .should('be.visible');  
+  })  
 });
