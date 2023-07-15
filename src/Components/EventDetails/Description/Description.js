@@ -35,7 +35,7 @@ export const Description = ({
     <div className="description-wrapper">
       <h4 className="description-header">Event Information</h4>
       <hr className="description-line" />
-      <Accordion className="custom-accordion" sx={{ background: 'transparent' }}>
+      <Accordion defaultExpanded className="custom-accordion" sx={{ background: 'transparent' }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon sx={{ color: 'white' }}/>}
           aria-controls="panel1a-content"

@@ -5,7 +5,7 @@
   border: none;
   overflow: hidden;
   margin: 5rem;
-  text-shadow: -.5px -.5px 0 rgb(255, 103, 212), .5px -.5px 0 rgb(255, 103, 212), -.5px .5px 0 rgb(255, 103, 212), .5px .5px 0 rgb(255, 103, 212);
+  text-shadow: 1px 1px 1px #802381
 }
 
 .button-disabled {
