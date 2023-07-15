@@ -24,6 +24,7 @@ export const EventDetails = ({ loggedInUser, logoutUser }) => {
 
   if (loading) return <PageLoader />; 
   if (error) return <Redirect to="/error" />; 
+  console.log(data)
 
   return (
     <div>
