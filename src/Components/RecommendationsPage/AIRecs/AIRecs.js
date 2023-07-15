@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import './AIRecs.css'
+import './AIRecs.css';
 import BrowserHeader from '../../ReusableComponents/BrowserHeader/BrowserHeader';
 import { Collapse, Box } from '@mui/material';
 import Button from '../../ReusableComponents/Button/Button';
 
-const AIRecs = ({handleRecSubmit, received, loading, setDataReceived}) => {
+const AIRecs = ({ handleRecSubmit, received, loading, setDataReceived }) => {
   const [requested, setRequested] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
   const intervalRef = useRef();
@@ -12,7 +12,7 @@ const AIRecs = ({handleRecSubmit, received, loading, setDataReceived}) => {
   useEffect(() => {
     if (loading) {
       intervalRef.current = setInterval(() => {
-        setElapsedTime(prevTime => prevTime + 1);
+        setElapsedTime((prevTime) => prevTime + 1);
       }, 1000);
     } else {
       clearInterval(intervalRef.current);
@@ -33,8 +33,12 @@ const AIRecs = ({handleRecSubmit, received, loading, setDataReceived}) => {
 
   return (
     <section className="ai-recs-section">
-      <BrowserHeader text="Request Personalized Game Recommendations"/>
-      <section className={`ai-recs-panel recommend-me-panel card ${requested ? 'panel-collapsed' : ''}`}>
+      <BrowserHeader text="Personalized Game Recommendations" />
+      <section
+        className={`ai-recs-panel recommend-me-panel card ${
+          requested ? 'panel-collapsed' : ''
+        }`}
+      >
         <div className="ai-recs-number-wrapper">
           <p className="ai-recs-header-number">1</p>
         </div>
@@ -42,24 +46,41 @@ const AIRecs = ({handleRecSubmit, received, loading, setDataReceived}) => {
           <div className={`ai-recs-body ${requested ? 'hidden' : ''}`}>
             <div className="ai-body-text">
               <h4 className="ai-recs-header">Request Your Recommendations</h4>
-              <p className="ai-recs-text">We'll use your existing game collection to build a personalized recommendations list informed by what you're already drawn to in games and what we think you might enjoy.</p>
+              <p className="ai-recs-text">
+                We'll use your existing game collection to build a personalized
+                recommendations list informed by what you're already drawn to in
+                games and what we think you might enjoy.
+              </p>
             </div>
-            <Button text="Go" className="ai-submit" onClick={() => handleRequestButtonClick()} />
+            <Button
+              text="Go"
+              className="ai-submit"
+              onClick={() => handleRequestButtonClick()}
+            />
           </div>
         </Collapse>
         <Collapse in={requested} timeout="auto">
-        <h4 className="ai-recs-header collapsed-header">Request</h4>
+          <h4 className="ai-recs-header collapsed-header">Request</h4>
         </Collapse>
       </section>
-      <section className={`ai-recs-panel process-panel card ${!loading ? 'panel-collapsed' : ''}`}>
+      <section
+        className={`ai-recs-panel process-panel card ${
+          !loading ? 'panel-collapsed' : ''
+        }`}
+      >
         <div className="ai-recs-number-wrapper">
           <p className="ai-recs-header-number">2</p>
         </div>
         <Collapse in={loading} timeout="auto">
-          <div className={`ai-recs-body process-body ${!loading ? 'hidden' : ''}`}>
+          <div
+            className={`ai-recs-body process-body ${!loading ? 'hidden' : ''}`}
+          >
             <div className="ai-body-text">
               <h4 className="ai-recs-header">Processing</h4>
-              <p className="ai-recs-text">Hold onto your ass while we crunch this data. If it takes longer than anticipated someone will be fired.</p>
+              <p className="ai-recs-text">
+                Hold onto your ass while we crunch this data. If it takes longer
+                than anticipated someone will be fired.
+              </p>
             </div>
             <div className="time-wrapper">
               <Box className="time-box">
@@ -75,17 +96,31 @@ const AIRecs = ({handleRecSubmit, received, loading, setDataReceived}) => {
           <h4 className="ai-recs-header collapsed-header">Processing</h4>
         </Collapse>
       </section>
-      <section className={`ai-recs-panel results-panel card ${!received ? 'panel-collapsed' : ''}`}>
+      <section
+        className={`ai-recs-panel results-panel card ${
+          !received ? 'panel-collapsed' : ''
+        }`}
+      >
         <div className="ai-recs-number-wrapper">
           <p className="ai-recs-header-number">3</p>
         </div>
         <Collapse in={received} timeout="auto">
-          <div className={`ai-recs-body results-body ${!received ? 'hidden' : ''}`}>
+          <div
+            className={`ai-recs-body results-body ${!received ? 'hidden' : ''}`}
+          >
             <div className="ai-body-text">
               <h4 className="ai-recs-header">Recommendation Results</h4>
-              <p className="ai-recs-text">A team of scientists has been working day and night to create your recommendations. We think you're going to like the results - go take a look.</p>
+              <p className="ai-recs-text">
+                A team of scientists has been working day and night to create
+                your recommendations. We think you're going to like the results
+                - go take a look.
+              </p>
             </div>
-            <Button text="Again" className="ai-submit" onClick={() => handleRefreshButtonClick()}/>
+            <Button
+              text="Again"
+              className="ai-submit"
+              onClick={() => handleRefreshButtonClick()}
+            />
           </div>
         </Collapse>
         <Collapse in={!received} timeout="auto">
@@ -93,8 +128,7 @@ const AIRecs = ({handleRecSubmit, received, loading, setDataReceived}) => {
         </Collapse>
       </section>
     </section>
-
-  )
-}
+  );
+};
 
 export default AIRecs;
