@@ -33,7 +33,8 @@
 }
 
 .game-image {
-  width: 17em;
+  width: 15em;
+  margin-bottom: 1em;
 }
 
 .event-details-wrapper {

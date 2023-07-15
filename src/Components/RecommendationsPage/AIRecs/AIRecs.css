@@ -53,7 +53,7 @@
 .ai-recs-number-wrapper {
   height: 100%;
   min-width: 12%;
-  background: #5d53e6;
+  background: #802381;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,7 +84,7 @@
 }
 
 .ai-recs-text {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-family: 'Avenir Next', sans-serif;
   font-weight: 400;
   margin: 0.5rem 0 0 0;
@@ -111,7 +111,7 @@
 }
 
 .time-box {
-  background-color: rgb(93, 83, 230, 0.8);
+  background-color:#E094D2;
   border-radius: 8px;
   height: 2rem;
   width: 10rem;
