@@ -2,7 +2,7 @@
   "data": {
       "event": {
           "id": "1",
-          "date": "2023/12/12T00:00:00Z",
+          "date": "2023/12/12T08:00:00Z",
           "address": "123 Street street",
           "state": "fake state",
           "city": "face city",

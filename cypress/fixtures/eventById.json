@@ -2,7 +2,7 @@
     "event": {
         "__typename": "Event",
         "id": "7",
-        "date": "2023-10-21T00:00:00Z",
+        "date": "2023-10-21T08:00:00Z",
         "address": "205 Dorset St",
         "state": "Vermont",
         "city": "South Burlington",

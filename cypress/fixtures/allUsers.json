@@ -74,7 +74,7 @@
         "attendingEvents": [
           {
             "id": "1",
-            "date": "2023-01-01T00:00:00Z",
+            "date": "2023-01-01T08:00:00Z",
             "address": "1 One street",
             "city": "1 city",
             "state": "1 state",
@@ -90,7 +90,7 @@
           },
           {
             "id": "2",
-            "date": "2023-02-02T00:00:00Z",
+            "date": "2023-02-02T08:00:00Z",
             "address": "2 One street",
             "city": "2 city",
             "state": "2 state",
@@ -108,7 +108,7 @@
         "hostedEvents": [
           {
             "id": "1",
-            "date": "2023-01-01T00:00:00Z",
+            "date": "2023-01-01T08:00:00Z",
             "address": "1 One street",
             "city": "1 city",
             "state": "1 state",
@@ -197,7 +197,7 @@
         "attendingEvents": [
           {
             "id": "1",
-            "date": "2023-01-01T00:00:00Z",
+            "date": "2023-01-01T08:00:00Z",
             "address": "1 One street",
             "city": "1 city",
             "state": "1 state",
@@ -213,7 +213,7 @@
           },
           {
             "id": "2",
-            "date": "2023-02-02T00:00:00Z",
+            "date": "2023-02-02T08:00:00Z",
             "address": "2 One street",
             "city": "2 city",
             "state": "2 state",
@@ -231,7 +231,7 @@
         "hostedEvents": [
           {
             "id": "2",
-            "date": "2023-02-02T00:00:00Z",
+            "date": "2023-02-02T08:00:00Z",
             "address": "2 One street",
             "city": "2 city",
             "state": "2 state",
@@ -259,7 +259,7 @@
         "attendingEvents": [
           {
             "id": "1",
-            "date": "2023-01-01T00:00:00Z",
+            "date": "2023-01-01T08:00:00Z",
             "address": "1 One street",
             "city": "1 city",
             "state": "1 state",
@@ -288,7 +288,7 @@
         "attendingEvents": [
           {
             "id": "2",
-            "date": "2023-02-02T00:00:00Z",
+            "date": "2023-02-02T08:00:00Z",
             "address": "2 One street",
             "city": "2 city",
             "state": "2 state",
@@ -317,7 +317,7 @@
         "attendingEvents": [
           {
             "id": "2",
-            "date": "2023-02-02T00:00:00Z",
+            "date": "2023-02-02T08:00:00Z",
             "address": "2 One street",
             "city": "2 city",
             "state": "2 state",
