@@ -59,7 +59,7 @@ const UserGame = ({ name, imageUrl, maxPlayers, minPlayers, maxPlaytime, minPlay
             </section>
             <div dangerouslySetInnerHTML={{ __html: description }} className="description-text" />
           </Collapse>
-          <Button onClick={() => handleExpandClick(name)} aria-expanded={expanded} aria-label="show more">
+          <Button onClick={() => handleExpandClick(name)} aria-expanded={expanded} aria-label="show more" style={{ color: '#FFA0E4' }}>
             {expanded ? 'Hide Description' : 'Show Description'}
           </Button>
         </div>

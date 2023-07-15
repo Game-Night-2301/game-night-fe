@@ -15,12 +15,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.profile-image img {
   width: 12rem;
   height: 10rem;
   border-radius: 50%;
+  margin-bottom: 2em;
 }
 
 .user-name {
@@ -75,9 +73,29 @@
 
 .games-grid {
   margin-top: 2rem;
+  height: 65vh;
+  width: 30em;
   display: grid;
-  grid-gap: 3rem;
+  grid-gap: .1em;
+  overflow-y: auto;
 }
+
+
+.games-grid::-webkit-scrollbar {
+  width: 0.5em;
+  background-color: transparent;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.games-grid:hover::-webkit-scrollbar {
+  opacity: 1;
+}
+
+.games-grid::-webkit-scrollbar-thumb {
+  background-color: #6A5B87;
+}
+
 
 @media (max-width: 980px) {
   .profile-page {
