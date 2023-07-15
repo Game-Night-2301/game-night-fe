@@ -50,13 +50,13 @@ export const EventInfo = ({
 
   const renderRolePill = () => {
     if (cancelled) {
-      return <Pills tags={[{ value: 'Cancelled' }]} />;
+      return <Pills tags={[{ value: 'Cancelled', className:'event-pill'}]} />;
     } else if (isHost) {
-      return <Pills tags={[{ value: 'Host' }]} />;
+      return <Pills tags={[{ value: 'Host', className:'event-pill'}]} />;
     } else if (isAttending) {
-      return <Pills tags={[{ value: 'Attending' }]} />;
+      return <Pills tags={[{ value: 'Attending', className:'event-pill'}]} />;
     } else if (full) {
-      return <Pills tags={[{ value: 'Event Full' }]} />;
+      return <Pills tags={[{ value: 'Event Full', className:'event-pill'}]} />;
     }
   };
 
@@ -115,8 +115,8 @@ export const EventInfo = ({
   };
   return (
     <div>
-      <h1 className="event-title">{gameDetails.name}</h1>
-      <div className="event-pill-holder">{renderRolePill()}</div>
+      <div className="event-header"><h1 className="event-title">{gameDetails.name}</h1>{renderRolePill()}</div>
+      <div>
       <h2 className="event-date">{detailsDateFormatter(date)}</h2>
       <h2 className="event-time">
         {startTime} - {endTime}
@@ -127,6 +127,7 @@ export const EventInfo = ({
           src={gameDetails.imageUrl}
           alt={gameDetails.name}
         />
+        </div>
       </div>
       <div className="event-button-holder">{renderButton()}</div>
     </div>
