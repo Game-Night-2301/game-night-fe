@@ -41,6 +41,8 @@ const BrowseEvent = ({ selectedUser, logoutUser }) => {
     }
   };
 
+  console.log(data)
+
   return (
     <>
       <Header logoutUser={logoutUser} />
