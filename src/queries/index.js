@@ -115,8 +115,8 @@ export const getEvent = gql`
 `;
 
 export const fullQuery = gql`
-  query {
-    event(id: 1) {
+query getEvent($id: ID!) {
+    event(id: $id) {
       full
     }
   }
