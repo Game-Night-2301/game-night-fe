@@ -11,16 +11,25 @@
 
 .event-date {
   font-size: 1.25em;
-  margin-bottom: 0.5em;
+  margin-bottom: .75em;
   font-weight: 400;
 }
 
 .event-time {
   font-size: 1em;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
   font-weight: 200;
 }
 
 .game-image {
-  width: 10em;
+  width: 17em;
+}
+
+.event-header{
+  display: flex;
+  align-items: center;
+}
+
+.event-pill{
+  font-size: 1em;
 }

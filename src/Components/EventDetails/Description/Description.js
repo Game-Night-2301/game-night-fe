@@ -35,40 +35,42 @@ export const Description = ({
     <div className="description-wrapper">
       <h4 className="description-header">Event Information</h4>
       <hr className="description-line" />
-      <Accordion>
+      <Accordion defaultExpanded className="custom-accordion" sx={{ background: 'transparent' }}>
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={<ExpandMoreIcon sx={{ color: 'white' }}/>}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Host Message</Typography>
+          <Typography className="description-drop-down">Host Message</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography className="description-text">{description}</Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion className="custom-accordion" sx={{ background: 'transparent', overflow: "auto" }}>
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={<ExpandMoreIcon sx={{ color: 'white' }}/>}
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography>Game Description</Typography>
+          <Typography className="description-drop-down">Game Description</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography className="description-text">{parsedText}</Typography>
+          <div className="scroll-wrapper">
+            <Typography className="description-text">{parsedText}</Typography>
+          </div>
         </AccordionDetails>
       </Accordion>
-      <Accordion>
+      <Accordion className="custom-accordion" sx={{ background: 'transparent' }}>
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={<ExpandMoreIcon sx={{ color: 'white' }}/>}
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography>Event Location</Typography>
+          <Typography className="description-drop-down">Event Location</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <Typography>
+          <Typography className="description-text">
             Address: {address}, {city}, {state}. {zip}
           </Typography>
           <div className="map-box">

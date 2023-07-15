@@ -15,7 +15,7 @@ export const Attendees = ({ attendees }) => {
 
   return (
     <div className="attendees-wrapper">
-      <h4 className="attendee-header">People</h4>
+      <h4 className="attendee-header">Attendees</h4>
       <hr className="attendee-line" />
       <div className="attendees-holder">{renderAttendees}</div>
     </div>
