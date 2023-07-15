@@ -22,7 +22,7 @@ export const EventDetails = ({ loggedInUser, logoutUser }) => {
   
 
   if (loading) return <p>Loading...</p>; 
-  if (error) return <p>Error :</p>; 
+  if (error) return <p>Error</p>; 
 
   return (
     <div>
@@ -40,7 +40,7 @@ export const EventDetails = ({ loggedInUser, logoutUser }) => {
           attendees={data.event.attendees}
           cancelled={data.event.cancelled}
           gameDetails={data.event.gameDetails}
-          full={fullData}
+          full={fullData.event.full}
         />
         <div className="event-right">
           <Description gameDescription={data.event.gameDetails.description} description={data.event.description} lat={data.event.lat} lon={data.event.lon} 

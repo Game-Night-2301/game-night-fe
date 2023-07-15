@@ -22,5 +22,14 @@
 }
 
 .game-image {
-  width: 10em;
+  width: 15em;
+}
+
+.event-header{
+  display: flex;
+  align-items: center;
+}
+
+.event-pill{
+  font-size: 1em;
 }
