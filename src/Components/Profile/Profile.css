@@ -1,6 +1,6 @@
 .profile-page {
   display: grid;
-  grid-template-columns: 0.7fr 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 
 .profile-details {
@@ -77,4 +77,15 @@
   margin-top: 2rem;
   display: grid;
   grid-gap: 3rem;
+}
+
+@media (max-width: 980px) {
+  .profile-page {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profile-details, .games-collection {
+    width: 100%;
+  }
 }
