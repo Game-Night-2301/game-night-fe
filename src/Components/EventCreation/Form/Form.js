@@ -12,11 +12,11 @@ import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { createEventMutation } from '../../../queries';
 import { Tooltip } from '@mui/material';
-import PropTypes from 'prop-types'
 
 const Form = ({ logoutUser, loggedInUser, userData }) => {
   const [game, setGame] = useState(null);
   const [category, setCategory] = useState('');
+  const [location, setLocation] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [state, setEState] = useState('');
@@ -35,6 +35,11 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
     setErrorMessage('');
   };
 
+  const clearMessages = () => {
+    setSuccessMessage('');
+    setErrorMessage('');
+  };
+
   const handleError = (message) => {
     setSuccessMessage('');
     setErrorMessage(message);
@@ -47,7 +52,13 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
     try {
       const data = await createEvent({ variables: { input } });
       handleSuccess('Your event is set, and your next adventure awaits!');
+      setReqCompleted(false)
+      setTimeout(() => {
+        setReqCompleted(true)
+        clearMessages()
+      }, 4000)
     } catch (error) {
+      console.log(error)
       handleError(
         'Critical fail! Your event was unable to be created, please try again!'
       );
@@ -116,6 +127,10 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
     setCategory(e.target.value);
   };
 
+  const handleLocationChange = (e) => {
+    setLocation(e.target.value);
+  };
+
   const handleAddressChange = (e) => {
     setAddress(e.target.value);
   };
@@ -129,7 +144,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
   };
 
   const handleZipChange = (e) => {
-    setZip(zip);
+    setZip(e.target.value);
   };
 
   const handleEventDescriptionChange = (e) => {
@@ -143,14 +158,15 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
       city: city,
       state: state,
       zip: parseInt(zip),
-      title: game,
+      title: location,
       description: eventDescription,
       host: loggedInUser,
-      game: game,
+      game: parseInt(game),
       gameType: category,
       startTime: dayjs(startTime).format('HH:mm:ss'),
       endTime: dayjs(endTime).format('HH:mm:ss'),
     };
+    console.log(newEvent)
     onCreateEvent(newEvent);
   };
 
@@ -210,6 +226,14 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
           <h2 className="form-header">Location</h2>
           <hr className="line" />
           <div className="location-details">
+          <TextField
+              required
+              onChange={(e) => handleLocationChange(e)}
+              id="location"
+              value={location}
+              label="Location"
+              sx={{ margin: '1em' }}
+            />
             <TextField
               required
               onChange={(e) => handleAddressChange(e)}
@@ -252,7 +276,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
                   minDate={dayjs()}
                   value={date}
                   sx={{ margin: '1em' }}
-                  onChange={(newDate) => handleDateChange(newDate)}
+                  onChange={(date) => handleDateChange(date)}
                 />
 
                 <TimePicker
@@ -306,6 +330,12 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
               />
             </span>
           </Tooltip>
+          <div className="message-wrapper">
+            {successMessage && (
+              <p className="success-message">{successMessage}</p>
+            )}
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
+          </div>
         </div>
       </form>
     </div>
@@ -313,9 +343,3 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
 };
 
 export default Form;
-
-Form.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
-  loggedInUser: PropTypes.number.isRequired,
-  userData: PropTypes.object.isRequired,
-};
