@@ -12,7 +12,9 @@
 }
 
 .event-right {
+  padding: 2em;
   width: 50%;
   margin-top: 5em;
-  padding-left: 8em;
+  background-color: #e2dfe832;
+  border-radius: 5px;
 }

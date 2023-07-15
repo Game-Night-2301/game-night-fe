@@ -1,6 +1,11 @@
 .description-header,
-.description-text {
+.description-text, 
+.description-drop-down{
   color: #fefefe;
+}
+
+.description-drop-down {
+  font-size: 2.5em;
 }
 
 .description-header {
@@ -12,7 +17,6 @@
 .description-text {
   font-size: 1em;
   font-weight: 300;
-  color: black;
 }
 
 .description-line {
@@ -29,4 +33,13 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+.custom-accordion {
+  border-bottom: 1px solid #FFA0E4;
+}
+
+.scroll-wrapper {
+  max-height: 14em;
+  overflow-y: auto;
 }

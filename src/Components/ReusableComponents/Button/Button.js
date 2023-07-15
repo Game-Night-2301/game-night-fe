@@ -9,8 +9,12 @@ const Button = ({ text, onClick, disabled, className }) => {
     }
   };
 
+    const buttonStyle = {
+      fontWeight: 'bold',
+    }
+
   return (
-    <MuiButton variant="contained" className={`button ${className} ${disabled ? 'button-disabled' : ''}`} onClick={handleClick} disabled={disabled}>
+    <MuiButton variant="contained" style={buttonStyle} className={`button ${className} ${disabled ? 'button-disabled' : ''}`} onClick={handleClick} disabled={disabled}>
       {text}
     </MuiButton>
   );
