@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
 export const cleanEvents = (events) => {
-  return events.map(({id, date, address, city, state, zip, attendees, time, cancelled, hostId, title, description, gameType, game, playerCount }) => {
+  return events.map(({id, date, address, city, state, zip, attendees, time, cancelled, hostId, title, description, gameType, game, playerCount, gameDetails, maxPlayers }) => {
     return {
       id: id,
       date: dayjs(date).format('MM/DD/YYYY'),
@@ -15,6 +15,8 @@ export const cleanEvents = (events) => {
       description: description,
       hostId: hostId,
       game: game,
+      maxPlayers: gameDetails.maxPlayers,
+      gameName: gameDetails.name,
       gameType: gameType,
       playerCount: playerCount,
       attendees: attendees

@@ -137,10 +137,7 @@ export const getAllEvents = gql`
         title
         cancelled
         description
-        host {
-          id
-          username
-        }
+        hostId
         game
         gameType
         gameDetails {
