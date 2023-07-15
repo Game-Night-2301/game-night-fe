@@ -8,7 +8,7 @@ describe('Browse Page', () => {
       }).as('getUser');
     });
 
-    cy.fixture('eventById.json').then((getEvent) => {
+    cy.fixture('event.json').then((getEvent) => {
       cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
         if (req.body.operationName === 'getEvent') {
           req.reply({ data: getEvent });
