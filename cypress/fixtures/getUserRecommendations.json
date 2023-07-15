@@ -1,0 +1,46 @@
+{
+  "user": {
+      "__typename": "User",
+      "recommendedGames": [
+          {
+              "__typename": "Game",
+              "id": "939",
+              "name": "Shakespeare",
+              "minPlayers": 1,
+              "maxPlayers": 4,
+              "minPlaytime": 20,
+              "maxPlaytime": 90,
+              "description": "<p>In Shakespeare, the play is the thing! You will have six days to put together the best possible theatrical performance and the company that gets the most flattering reviews will win! Assemble a talented troupe to wow the crowd and critics alike!<br /><br />Each day players will take part in a closed bid to determine turn order. Then they will spend their turn enlisting craftsmen and actors and building beautiful sets and costumes. Choose your actions wisely, opening night is approaching fast!</p>",
+              "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559254898769-51uYppirmtL.jpg",
+              "averageUserRating": 3.4444444444444446,
+              "averageStrategyComplexity": 0
+          },
+          {
+              "__typename": "Game",
+              "id": "305",
+              "name": "Alien Frontiers",
+              "minPlayers": 2,
+              "maxPlayers": 4,
+              "minPlaytime": 90,
+              "maxPlaytime": 90,
+              "description": "<p><strong>Alien Frontiers </strong>is a game of resource management, worker placement, and area control set in a retro-future scifi universe. The dice you receive at the start of the game represent the spaceships in your fleet. Docking your ships at the orbital facilities will earn resources, expand your fleet, raid your opponents, discover alien technology, trade commodities, and build colony domes to land on the planet. Winning will require careful consideration as you assign your fleet, integrate the alien technology and territory bonuses into your expansion plans, and block the other players from building colonies of their own.</p>",
+              "imageUrl": "https://s3-us-west-1.amazonaws.com/5cc.images/games/uploaded/1559257382065-61aWH4-C2BFL.jpg",
+              "averageUserRating": 3.587563888888892,
+              "averageStrategyComplexity": 3
+          },
+          {
+              "__typename": "Game",
+              "id": "370",
+              "name": "Azul: Summer Pavilion",
+              "minPlayers": 2,
+              "maxPlayers": 4,
+              "minPlaytime": 30,
+              "maxPlaytime": 45,
+              "description": "<p>At the turn of the 16th Century, King Manuel I commissioned Portugal's greatest artisans to construct grandiose buildings. After completing the Palaces of Evora and Sintra, the king sought to build a summer pavilion to honor the most famous members of the royal family. This construction was intended for the most talented artisans — whose skills meet the splendor that the royal family deserves. Sadly, King Manuel I died before construction ever began.</p>\r\n<p>In <em><strong>Azul: Summer Pavilion</strong></em>, players return to Portugal to accomplish the task that never began. As a master artisan, you must use the finest materials to create the summer pavilion while carefully avoiding wasting supplies. Only the best will rise to the challenge to honor the Portuguese royal family.</p>\r\n<p><em>Azul: Summer Pavilion</em> lasts six rounds, and in each round players draft tiles, then place them on their individual player board to score points. Each of the six colors of tiles is wild during one of the rounds.</p>\r\n<p>At the start of each round, draw tiles at random from the bag to refill each of the five, seven, or nine factories with four tiles each. Draw tiles as needed to refill the ten supply spaces on the central scoring board. Players then take turns drafting tiles. You can choose to take all of the tiles of a non-wild color on a factory and place them next to your board; if any wild tiles are on this factory, you must take one of them. Place all remaining tiles in the center of the table. Alternatively, you can take all tiles of a non-wild color from the center of play; you must also take one wild tile, if present.</p>\r\n<p>After all tiles have been claimed, players then take turns placing tiles on their individual boards. Each board depicts seven stars that would be composed of six tiles; each space on a star shows a number from 1-6, and six of the stars are for tiles of a single color while the seventh will be composed of one tile of each color. To place a tile on the blue 5, for example, you must discard five blue or wild tiles from next to your player board (with at least one blue being required), placing one blue tile in the blue 5 space and the rest in the discard tower. You score 1 point for this tile and 1 point for each tile within this star connected to the newly placed tile.</p>\r\n<p>If you complete surround a pillar, statue, or window on your game board with tiles, you get an immediate bonus, taking 1-3 tiles from the central supply spaces and placing them next to your board. At the end of the round, you can carry over at most four tiles to the next round; discard any others, losing 1 point for each such tile.</p>\r\n<p>After six rounds, you score a bonus for each of the seven stars that you've filled completely. Additionally, you score a bonus for having covered all seven spaces of value 1, 2, 3 or 4. You lose 1 point for each remaining tile unused, then whoever has the most points wins.</p>\r\n<p><em>—description from the publisher</em></p>",
+              "imageUrl": "https://cdn.shopify.com/s/files/1/0513/4077/1515/products/azul-summer-pavilion-board-game.jpg?v=1609628633",
+              "averageUserRating": 4.040853658536586,
+              "averageStrategyComplexity": 3
+          }
+      ]
+  }
+}
