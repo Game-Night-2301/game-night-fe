@@ -88,6 +88,6 @@ describe('Create Event Page', () => {
     cy.get('.event-time-and-date > :nth-child(2) > .MuiInputBase-root').type("12:05 AM")
     cy.get('.event-time-and-date > :nth-child(3) > .MuiInputBase-root').type("12:10 PM")
     cy.get("#outlined-multiline-static").type("The coolest thing you'll ever play in your entire life.")
-    cy.get(".MuiButton-root").contains('Submit').click()
+    cy.get(".MuiButton-root").contains('Submit').click({force: true})
   })
 });

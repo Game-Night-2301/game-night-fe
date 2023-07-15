@@ -20,6 +20,10 @@ const Header = ({ logoutUser }) => {
       }
     },
     {
+      label: 'Recommendations',
+      link: '/recommendations',
+    },
+    {
       label: 'Logout',
       link: '/',
       handler: () => {

@@ -20,8 +20,6 @@ export const EventDetails = ({ loggedInUser, logoutUser }) => {
     id
   }, skip: !id });
 
-  
-
   if (loading) return <PageLoader />; 
   if (error) return <Redirect to="/error" />; 
 

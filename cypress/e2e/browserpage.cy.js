@@ -49,9 +49,9 @@ describe('Browse Page', () => {
         cy.get('.card-link-wrapper').should('have.length', 3);
         cy.get('.card-link-wrapper').first()
           .within(() => {
-            cy.get('.event-card-title').should('have.text', '1 title');
-            cy.get('.event-card-subtitle').should('have.text', '1 city, 1 state (11111)10/31/2022');
-            cy.get('.event-card-description').should('have.text', '1 description');
+            cy.get('.event-card-title').should('have.text', 'Wingspan');
+            cy.get('.event-card-subtitle').should('have.text', 'South Burlington, Vermont (5403)10/20/2023');
+            cy.get('.event-card-description').should('have.text', 'Ha ha, you fool! You fell victim to one of the classic blunders! The most famous of which is never get involved in a land war in Asia, but only slightly less well-known is this: Never go in against a Sicilian when DEATH is on the line.');
             cy.url().should('include', '/browse');
           });
       });

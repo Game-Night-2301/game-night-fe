@@ -12,6 +12,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "apollo3-cache-persist": "^0.14.1",
     "chalk": "^5.3.0",
     "cors": "^2.8.5",
     "dayjs": "^1.11.9",
