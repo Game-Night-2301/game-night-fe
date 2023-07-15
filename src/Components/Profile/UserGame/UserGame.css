@@ -1,7 +1,7 @@
 .user-game {
-  width: 100%;
+  width: 95%;
   height: 12rem;
-  margin: 1rem 0;
+  margin: 0rem 0 1rem 0;
   display: grid;
   grid-template-columns: 1fr 4fr;
   align-items: center;
@@ -17,7 +17,7 @@
 .game-card {
   display: flex;
   flex-direction: column;
-  width: 95%;
+  width: 90%;
   height: auto;
   margin: 2rem 0 2rem 1rem;
 }
@@ -69,7 +69,7 @@
 
 .game-key,
 .game-value {
-  color: rgb(89, 89, 89);
+  color: white;
   font-size: 0.9rem;
 }
 
@@ -83,7 +83,7 @@
 
 .description-text * {
   font-size: 0.9rem;
-  color: black;
+  color: white;
 }
 
 .game-card-header {
@@ -95,11 +95,25 @@
 .game-card-body {
   max-height: 15rem;
   overflow-y: auto;
-  width: 90%;
   padding: 0.75rem 0 0.25rem 0;
   margin: 0 0.5rem 0 2rem;
 }
 
+.game-card-body::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+.game-card-body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.game-card-body::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.35);
+}
+
+.games-grid {
+  width: 100%;
+}
 
 @media (max-width: 1840px) {
   .card-image {
