@@ -1,32 +1,36 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './RecommendationsPage.css'
-import { useQuery, useMutation } from '@apollo/client';
-// import { requestRecommendationMutation } from '../../../queries';
-import { getUserGames } from '../../queries/index';
+import { useLazyQuery } from '@apollo/client';
+import { getUserRecommendations } from '../../queries/index';
 import Header from '../ReusableComponents/Header/Header';
 import AIRecs from './AIRecs/AIRecs';
 import RecOutput from './RecOutput/RecOutput';
 
 const RecommendationsPage = ({ logoutUser, selectedUser }) => {
-  const [received, setReceived] = useState(false);
-  const { loading, error, data } = useQuery(getUserGames, { variables: { id: selectedUser } });
+  const [dataReceived, setDataReceived] = useState(false);
+  const [getUserRecs, { loading, data, error }] = useLazyQuery(getUserRecommendations, {
+    onCompleted: () => {
+      setDataReceived(true);
+    }
+  });
 
-  
-  const handleRecSubmit = () => {
-    const userGamesArray = data.user.ownedGames;
+  const handleRecSubmit = async () => {
+      getUserRecs({ variables: { id: selectedUser } });
+  }
 
-    // do mutation and pass in array
-    // pass data to RecOutput
-    // pass loading, data to AIRecs to progress through form collapsibles
-    // when data is received setReceived to true so that the results bit will pop up.
-  };
+  useEffect(() => {
+    if (dataReceived) {
+      console.log(data)
+    }
+  }, [dataReceived])
+
 
   return (
     <>
       <Header logoutUser={logoutUser}/>
       <section className="profile-page recs-page">
-        <AIRecs handleRecSubmit={handleRecSubmit} received={received}/>
-        <RecOutput />
+        <AIRecs handleRecSubmit={handleRecSubmit} received={dataReceived} loading={loading} setDataReceived={setDataReceived}/>
+        <RecOutput recommendations={data} />
       </section>
     </>
   )

@@ -4,10 +4,8 @@ import BrowserHeader from '../../ReusableComponents/BrowserHeader/BrowserHeader'
 import { Collapse, Box } from '@mui/material';
 import Button from '../../ReusableComponents/Button/Button';
 
-const AIRecs = ({handleRecSubmit, data}) => {
-  const [loading, setLoading] = useState(false);
-  const [received, setReceived] = useState(true);
-  const [requested, setRequested] = useState(true);
+const AIRecs = ({handleRecSubmit, received, loading, setDataReceived}) => {
+  const [requested, setRequested] = useState(false);
   const [elapsedTime, setElapsedTime] = useState(0);
   const intervalRef = useRef();
 
@@ -25,14 +23,12 @@ const AIRecs = ({handleRecSubmit, data}) => {
 
   const handleRequestButtonClick = () => {
     setRequested(true);
-    setLoading(true);
     handleRecSubmit();
   };
 
   const handleRefreshButtonClick = () => {
-    // clear to just allow them to click the button again - mostly designed to prevent too many requests
-    setReceived(false);
     setRequested(false);
+    setDataReceived(false);
   };
 
   return (
@@ -48,7 +44,7 @@ const AIRecs = ({handleRecSubmit, data}) => {
               <h4 className="ai-recs-header">Request Your Recommendations</h4>
               <p className="ai-recs-text">We'll use your existing game collection to build a personalized recommendations list informed by what you're already drawn to in games and what we think you might enjoy.</p>
             </div>
-            <Button text="Go" className="ai-submit" onClick={() => setLoading(true)} />
+            <Button text="Go" className="ai-submit" onClick={() => handleRequestButtonClick()} />
           </div>
         </Collapse>
         <Collapse in={requested} timeout="auto">
@@ -89,7 +85,7 @@ const AIRecs = ({handleRecSubmit, data}) => {
               <h4 className="ai-recs-header">Recommendation Results</h4>
               <p className="ai-recs-text">A team of scientists has been working day and night to create your recommendations. We think you're going to like the results - go take a look.</p>
             </div>
-            <Button text="Again" className="ai-submit" onClick={() => setLoading(true)} />
+            <Button text="Again" className="ai-submit" onClick={() => handleRefreshButtonClick()}/>
           </div>
         </Collapse>
         <Collapse in={!received} timeout="auto">

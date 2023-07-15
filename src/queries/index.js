@@ -250,3 +250,22 @@ export const cancelEvent = gql`
     }
   }
 `;
+
+export const getUserRecommendations = gql`
+query getUser($id: ID!) {
+	user(id: $id) {
+    recommendedGames {
+      id
+      name
+      minPlayers
+      maxPlayers
+      minPlaytime
+      maxPlaytime
+      description
+      imageUrl
+      averageUserRating
+      averageStrategyComplexity
+    }
+  }
+}
+`;
