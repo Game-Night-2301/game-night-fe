@@ -26,7 +26,6 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
   const [minEndTime, setMinEndTime] = useState(null);
   const [endTime, setEndTime] = useState();
   const [eventDescription, setEventDescription] = useState();
-
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -41,12 +40,11 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
   };
   const [reqCompleted, setReqCompleted] = useState(false);
 
-  const [createEvent, { data, loading, error }] =
-    useMutation(createEventMutation);
+  const [createEvent, { data, loading, error }] = useMutation(createEventMutation);
 
   const onCreateEvent = async (input) => {
     try {
-      const { data } = await createEvent({ variables: { input } });
+      const data = await createEvent({ variables: { input } });
       handleSuccess('Your event is set, and your next adventure awaits!');
     } catch (error) {
       handleError(
@@ -54,6 +52,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
       );
     }
   };
+
   useEffect(() => {
     if (
       game &&
@@ -129,17 +128,6 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
   };
 
   const handleZipChange = (e) => {
-    const zip = e.target.value;
-    if (!/^\d*$/.test(zip)) {
-      alert('Zip code can only contain digits');
-      setZip(null);
-      return;
-    }
-    if (zip.length !== 5) {
-      alert('Zip code must be exactly 5 digits long');
-      setZip(null);
-      return;
-    }
     setZip(zip);
   };
 
@@ -308,7 +296,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
             title={!reqCompleted ? 'Please fill out all fields!' : ''}
             placement="top"
           >
-            <span>
+            <span className="button-container">
               <Button
                 className="form-button"
                 text="Submit"

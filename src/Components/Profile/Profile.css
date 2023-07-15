@@ -78,3 +78,14 @@
   display: grid;
   grid-gap: 3rem;
 }
+
+@media (max-width: 980px) {
+  .profile-page {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profile-details, .games-collection {
+    width: 100%;
+  }
+}

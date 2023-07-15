@@ -2,6 +2,8 @@ import './Profile.css';
 import Header from '../ReusableComponents/Header/Header';
 import BrowserHeader from '../ReusableComponents/BrowserHeader/BrowserHeader';
 import UserGame from './UserGame/UserGame';
+import PageLoader from '../ReusableComponents/PageLoader/PageLoader';
+import { Redirect } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { useState } from 'react';
 import { getUserGames } from '../../queries/index';
@@ -36,6 +38,9 @@ const ProfilePage = ({ logoutUser, selectedUser, userData }) => {
       });
     }
   };
+
+  if (loading) return <PageLoader />;
+  if (error) return <Redirect to="/error" />;
 
   return (
     <>

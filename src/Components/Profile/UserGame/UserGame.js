@@ -15,9 +15,9 @@ const UserGame = ({ name, imageUrl, maxPlayers, minPlayers, maxPlaytime, minPlay
       </div>
       <article className="card game-card">
         <div className="card-header game-card-header">
-          <h5 className="event-card-title">{name}</h5>
+          <h5 className="event-card-title game-card-title">{name}</h5>
         </div>
-        <div className="card-body">
+        <div className="card-body game-card-body">
           <Collapse in={!expanded} timeout="auto">
             <section className="game-card-high-level">
               <div className="profile-key-value game-key-value">
@@ -60,7 +60,7 @@ const UserGame = ({ name, imageUrl, maxPlayers, minPlayers, maxPlaytime, minPlay
             <div dangerouslySetInnerHTML={{ __html: description }} className="description-text" />
           </Collapse>
           <Button onClick={() => handleExpandClick(name)} aria-expanded={expanded} aria-label="show more">
-            {expanded ? 'Show Less' : 'More Info'}
+            {expanded ? 'Hide Description' : 'Show Description'}
           </Button>
         </div>
       </article>

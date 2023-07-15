@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useQuery } from '@apollo/client';
+import { ApolloClient, useQuery, useApolloClient, gql } from '@apollo/client';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import BrowseEvent from '../BrowseEvent/BrowseEvent';
 import ProfilePage from '../Profile/Profile';
+import RecommendationsPage from '../RecommendationsPage/RecommendationsPage';
 import './App.css';
 import Form from '../EventCreation/Form/Form';
 import Error from '../Error/Error';
+import PageLoader from '../ReusableComponents/PageLoader/PageLoader';
 import { EventDetails } from '../EventDetails/EventDetails';
 import {
   getUser,
@@ -21,28 +23,58 @@ import {
 
 
 function App() {
+  const client = useApolloClient(); // get the client instance
   const [loggedIn, setLoggedIn] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
-
   const { loading, error, data } = useQuery(getUser, { variables: { id: selectedUser }, skip: !selectedUser });
 
   useEffect(() => {
-    if (!loading && !error && data) {
+    const cacheData = client.readQuery({
+      query: gql`
+        query GetLoggedInUser {
+          loggedInUser
+        }
+      `,
+    });
+
+    if (cacheData && cacheData.loggedInUser) {
+      setLoggedIn(true);
+      setSelectedUser(cacheData.loggedInUser);
     }
-  }, [loading, error, data, selectedUser]);
+  }, [client]);
 
   const loginUser = (userId) => {
+    client.writeQuery({
+      query: gql`
+        query GetLoggedInUser {
+          loggedInUser
+        }
+      `,
+      data: {
+        loggedInUser: userId,
+      },
+    });
+    setLoggedIn(true); 
     setSelectedUser(userId);
-    setLoggedIn(true);
   };
 
   const logoutUser = () => {
-    setSelectedUser(null);
+    client.writeQuery({
+      query: gql`
+        query GetLoggedInUser {
+        loggedInUser
+        }
+      `,
+      data: {
+        loggedInUser: null,
+      },
+    });
     setLoggedIn(false);
+    setSelectedUser(null);
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error : {error.message}</p>;
+  if (loading) return <PageLoader />;
+  if (error) return <Redirect to="/error" />;
 
   return (
     <Router>
@@ -61,6 +93,9 @@ function App() {
               </Route>
               <Route exact path="/events/:id">
                 <EventDetails loggedInUser={selectedUser} logoutUser={logoutUser} />
+              </Route>
+              <Route exact path="/recommendations">
+                <RecommendationsPage logoutUser={logoutUser} selectedUser={selectedUser} />
               </Route>
               <Route path="/error">
                 <Error error="Oops! Looks like we rolled a critical error. Time to reshuffle the digital deck!" />

@@ -1,11 +1,14 @@
 .button {
   background: rgba(255, 160, 228, 1) !important;
   opacity: 0.9;
-  border-radius: 8px;
+  border-radius: 14px;
   border: none;
   overflow: hidden;
   margin: 5rem;
-  text-shadow: 1px 1px 1px #802381
+  text-shadow: 1px 1px 1px #802381;
+  font-family: 'Avenir Next', sans-serif;
+  font-weight: 600 !important;
+  font-size: 1.3rem !important;
 }
 
 .button-disabled {
@@ -15,12 +18,25 @@
 }
 
 .form-button {
-  width: 100%;
+  width: 50%;
   margin: 0;
 }
 
 .button:hover {
   animation: glowing 2s infinite;
+}
+
+.welcome-button {
+  width: 15rem;
+  height: 3.5rem;
+}
+
+.ai-submit {
+  margin-left: 2rem !important;
+  width: 8rem !important;
+  height: 5rem !important;
+  background-color: rgb(93, 83, 230, 0.8) !important;
+  border-radius: 12px !important;
 }
 
 @keyframes glowing {
