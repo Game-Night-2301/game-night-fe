@@ -1,13 +1,22 @@
 import './RecOutput.css';
+import { useState } from 'react';
 import BrowserHeader from '../../ReusableComponents/BrowserHeader/BrowserHeader';
 import UserGame from '../../Profile/UserGame/UserGame';
 
 const RecOutput = ({ recommendations }) => {
-  // Destructure the recommendations prop directly
+  const [expandedGame, setExpandedGame] = useState("");
+  const handleExpandClick = (gameName) => {
+    if (expandedGame === gameName) {
+      setExpandedGame("");
+    } else {
+      setExpandedGame(gameName);
+    }
+  };
   const mapRecs = () => {
     if (recommendations && recommendations.user) {
       return recommendations.user.recommendedGames.map((game) => {
-        return <UserGame key={game.id} {...game} />;
+        return <UserGame key={game.id} {...game} expanded={expandedGame === game.name}
+        hidden={expandedGame && expandedGame !== game.name} handleExpand={handleExpandClick}/>;
       });
     }
   };
