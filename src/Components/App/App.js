@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ApolloClient, useQuery, useApolloClient, gql } from '@apollo/client';
+import { useQuery, useApolloClient, gql } from '@apollo/client';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import BrowseEvent from '../BrowseEvent/BrowseEvent';
@@ -10,16 +10,7 @@ import Form from '../EventCreation/Form/Form';
 import Error from '../Error/Error';
 import PageLoader from '../ReusableComponents/PageLoader/PageLoader';
 import { EventDetails } from '../EventDetails/EventDetails';
-import {
-  getUser,
-  // getAllUsers, 
-  // getEvent,
-  // getAllEvents,
-  // createEvent,
-  // addUserToEvent,
-  // removeUserFromEvent,
-  // cancelEvent
-} from '../../queries/index';
+import { getUser } from '../../queries/index';
 
 
 function App() {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Header from '../ReusableComponents/Header/Header';
 import './EventDetails.css';
 import { Attendees } from './Attendees/Attendees';
