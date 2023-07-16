@@ -68,3 +68,52 @@ describe('Browse Page', () => {
     cy.url().should('include', '/profile');
   });
 });
+
+describe('Browser Page - Error Handling', () => {
+  beforeEach(() => {
+    cy.fixture('getUserById.json').then((getUser) => {
+      cy.fixture('allEvents.json').then((getAllEvents) => {
+        cy.fixture('fullQuery.json').then((fullQuery) => {
+          cy.fixture('getUserGames.json').then((getUserGames) => {
+            cy.fixture('event.json').then((getEvent) => {
+              cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
+                if (req.body.operationName === 'getUser') {
+                  req.reply({ data: getUser });
+                } else if (req.body.operationName === 'getAllEvents') {
+                  req.reply({ data: getAllEvents });
+                } else if (req.body.operationName === 'fullQuery') {
+                  req.reply({ data: fullQuery });
+                } else if (req.body.operationName === 'getUser') {
+                  req.reply({ data: getUserGames });
+                } else if (req.body.operationName === 'getEvent') {
+                  req.reply({ data: getEvent });
+                }
+              }).as('GraphQL');
+            });
+          });
+        });
+      });
+    });
+  });
+
+  it('should display the error page when an error occurs while retrieving browser page', () => {
+    cy.fixture('sadPath.json').then((sadPath) => {
+      cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
+        if (req.body.operationName === 'getAllEvents') {
+          req.reply({
+            statusCode: 500,
+            body: { errors: sadPath }
+          });
+        }
+      }).as('sadPath');
+    });
+
+    cy.visit('https://game-night-fe.vercel.app/');
+    cy.get('.welcome-button-container').find('button').contains('User 1').click();
+    cy.get('.message').should(
+      'have.text',
+      'Oops! Looks like we rolled a critical error. Time to reshuffle the digital deck!'
+    );
+    cy.url().should('include', '/error');
+  });
+});

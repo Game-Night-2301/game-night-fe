@@ -50,13 +50,13 @@ export const EventInfo = ({
 
   const renderRolePill = () => {
     if (cancelled) {
-      return <Pills tags={[{ value: 'Cancelled', className:'event-pill'}]} />;
+      return <Pills tags={[{ value: 'Cancelled', className: 'event-pill' }]} />;
     } else if (isHost) {
-      return <Pills tags={[{ value: 'Host', className:'event-pill'}]} />;
+      return <Pills tags={[{ value: 'Host', className: 'event-pill' }]} />;
     } else if (isAttending) {
-      return <Pills tags={[{ value: 'Attending', className:'event-pill'}]} />;
+      return <Pills tags={[{ value: 'Attending', className: 'event-pill' }]} />;
     } else if (full) {
-      return <Pills tags={[{ value: 'Event Full', className:'event-pill'}]} />;
+      return <Pills tags={[{ value: 'Event Full', className: 'event-pill' }]} />;
     }
   };
 
@@ -117,16 +117,16 @@ export const EventInfo = ({
     <section className="event-info-wrapper">
       <div className="event-header"><h1 className="event-title">{gameDetails.name}</h1>{renderRolePill()}</div>
       <div className="event-details-wrapper">
-      <h2 className="event-date">{detailsDateFormatter(date)}</h2>
-      <h2 className="event-time">
-        {startTime} - {endTime}
-      </h2>
-      <div className="game-image-wrapper">
-        <img
-          className="game-image"
-          src={gameDetails.imageUrl}
-          alt={gameDetails.name}
-        />
+        <h2 className="event-date">{detailsDateFormatter(date)}</h2>
+        <h2 className="event-time">
+          {startTime} - {endTime}
+        </h2>
+        <div className="game-image-wrapper">
+          <img
+            className="game-image"
+            src={gameDetails.imageUrl}
+            alt={gameDetails.name}
+          />
         </div>
       </div>
       <div className="event-button-holder">{renderButton()}</div>
