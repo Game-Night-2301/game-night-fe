@@ -31,7 +31,7 @@ describe('Create Event Page', () => {
           }
         }).as('CreateEvent');
       });
-      
+
       cy.visit('https://game-night-fe.vercel.app/');
     });
   });
