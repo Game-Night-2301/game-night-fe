@@ -96,7 +96,7 @@ describe('Browser Page - Error Handling', () => {
     });
   });
 
-  it('should display the error page when an error occurs while retrieving event details', () => {
+  it('should display the error page when an error occurs while retrieving browser page', () => {
     cy.fixture('sadPath.json').then((sadPath) => {
       cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
         if (req.body.operationName === 'getAllEvents') {
