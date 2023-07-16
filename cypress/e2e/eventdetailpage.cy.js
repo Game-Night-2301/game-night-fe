@@ -168,15 +168,15 @@ describe('Event Detail Error Page', () => {
   });
 
   it('should display the error page when an error occurs while retrieving event details', () => {
-    cy.fixture('errorEventDetail.json').then((errorEventDetails) => {
+    cy.fixture('sadPath.json').then((sadPath) => {
       cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
         if (req.body.operationName === 'getEvent') {
           req.reply({
             statusCode: 500,
-            body: { errors: errorEventDetails }
+            body: { errors: sadPath }
           });
         }
-      }).as('errorEventDetails');
+      }).as('sadPath');
     });
 
     cy.visit('https://game-night-fe.vercel.app');

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React from 'react';
 import Header from '../ReusableComponents/Header/Header';
 import BrowserHeader from '../ReusableComponents/BrowserHeader/BrowserHeader';
 import Card from '../BrowseEvent/Card/Card';
@@ -6,7 +6,8 @@ import PageLoader from '../ReusableComponents/PageLoader/PageLoader';
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
 import { getAllEvents } from '../../queries/index';
-import { cleanEvents, filterEvents, sortEvents } from '../../utils/cleaning';
+import { cleanEvents, filterEvents } from '../../utils/cleaning';
+import './BrowseEvent.css';
 
 const BrowseEvent = ({ selectedUser, logoutUser }) => {
   const { loading, error, data } = useQuery(getAllEvents, {

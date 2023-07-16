@@ -4,6 +4,7 @@ import './Header.css';
 import logo from '../../../assets/Dice.svg';
 import usericon from '../../../assets/usericon.svg';
 import DropDown from '../DropDown/DropDown';
+import PropTypes from 'prop-types'
 
 const Header = ({ logoutUser }) => {
   const menuItems = [
@@ -52,3 +53,7 @@ const Header = ({ logoutUser }) => {
 };
 
 export default Header;
+
+Header.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+};

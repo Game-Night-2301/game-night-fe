@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Pills from '../../ReusableComponents/Pills/Pills';
 import { NavLink } from 'react-router-dom';
@@ -6,26 +6,8 @@ import { useQuery } from '@apollo/client';
 import { getUserGames } from '../../../queries/index';
 import './Card.css';
 
-const Card = ({
-  userId,
-  attendees,
-  id,
-  maxPlayers,
-  city,
-  state,
-  zip,
-  title,
-  date,
-  hostId,
-  description,
-  distance,
-  gameName,
-}) => {
-  const { loading, error, data } = useQuery(getUserGames, {
-    variables: { id: userId },
-    skip: !id,
-  });
-  const [cardGame, setCardGame] = useState(null);
+const Card = ({ userId, attendees, id, maxPlayers, city, state, date, hostId, description, distance, gameName }) => {
+  const { loading, error, data } = useQuery(getUserGames, { variables: { id: userId }, skip: !id });
 
   const renderPills = () => {
     const isHost = hostId === userId;
@@ -70,8 +52,6 @@ Card.propTypes = {
   id: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   state: PropTypes.string.isRequired,
-  zip: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   hostId: PropTypes.number,
   description: PropTypes.string.isRequired,

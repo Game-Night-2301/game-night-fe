@@ -3,6 +3,7 @@ import './AIRecs.css';
 import BrowserHeader from '../../ReusableComponents/BrowserHeader/BrowserHeader';
 import { Collapse, Box } from '@mui/material';
 import Button from '../../ReusableComponents/Button/Button';
+import PropTypes from 'prop-types'
 
 const AIRecs = ({ handleRecSubmit, received, loading, setDataReceived }) => {
   const [requested, setRequested] = useState(false);
@@ -132,3 +133,10 @@ const AIRecs = ({ handleRecSubmit, received, loading, setDataReceived }) => {
 };
 
 export default AIRecs;
+
+AIRecs.propTypes = {
+  handleRecSubmit: PropTypes.func.isRequired,
+  received: PropTypes.bool.isRequired,
+  loading: PropTypes.bool.isRequired,
+  setDataReceived: PropTypes.func.isRequired,
+};

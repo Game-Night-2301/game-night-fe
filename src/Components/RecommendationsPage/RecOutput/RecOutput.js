@@ -2,6 +2,7 @@ import './RecOutput.css';
 import { useState } from 'react';
 import BrowserHeader from '../../ReusableComponents/BrowserHeader/BrowserHeader';
 import UserGame from '../../Profile/UserGame/UserGame';
+import PropTypes from 'prop-types'
 
 const RecOutput = ({ recommendations }) => {
   const [expandedGame, setExpandedGame] = useState('');
@@ -53,3 +54,17 @@ const RecOutput = ({ recommendations }) => {
 };
 
 export default RecOutput;
+
+RecOutput.propTypes = {
+  recommendations: PropTypes.shape({
+    user: PropTypes.shape({
+      recommendedGames: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+    }),
+  }),
+};
+

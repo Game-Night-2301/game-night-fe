@@ -1,5 +1,6 @@
 import React from 'react';
 import './Pills.css';
+import PropTypes from 'prop-types'
 
 const Pills = ({ tags }) => {
   const pills = tags.map((tag, index) => (
@@ -14,3 +15,13 @@ const Pills = ({ tags }) => {
 };
 
 export default Pills;
+
+Pills.propTypes = {
+  tags: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.string.isRequired,
+      className: PropTypes.string
+    })
+  ).isRequired
+};

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, MenuItem, IconButton } from '@mui/material';
+import { Menu, MenuItem } from '@mui/material';
 import './DropDown.css';
+import PropTypes from 'prop-types'
 
 const DropDown = ({ menuItems, renderTrigger }) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -35,3 +36,15 @@ const DropDown = ({ menuItems, renderTrigger }) => {
 };
 
 export default DropDown;
+
+DropDown.propTypes = {
+  menuItems: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      link: PropTypes.string.isRequired,
+      handler: PropTypes.func
+    })
+  ).isRequired,
+  renderTrigger: PropTypes.func.isRequired
+};
+

@@ -4,7 +4,7 @@ import dice from '../../assets/Dice.svg';
 import './WelcomePage.css';
 import PropTypes from 'prop-types';
 
-function WelcomePage({ loginUser, logoutUser, loggedIn }) {
+function WelcomePage({ loginUser }) {
   const handleLogin = (userId) => {
     loginUser(userId);
   };
@@ -33,7 +33,5 @@ function WelcomePage({ loginUser, logoutUser, loggedIn }) {
 export default WelcomePage;
 
 WelcomePage.propTypes = {
-  loginUser: PropTypes.func,
-  logoutUser: PropTypes.func,
-  loggedIn: PropTypes.bool,
+  loginUser: PropTypes.func.isRequired,
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import './BrowserHeader.css';
+import PropTypes from 'prop-types'
 
 const BrowserHeader = ({ text, nomargin }) => {
   return (
@@ -16,3 +17,7 @@ const BrowserHeader = ({ text, nomargin }) => {
 };
 
 export default BrowserHeader;
+
+BrowserHeader.propTypes = {
+  text: PropTypes.string.isRequired,
+};

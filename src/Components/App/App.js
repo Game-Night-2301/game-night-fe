@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ApolloClient, useQuery, useApolloClient, gql } from '@apollo/client';
+import { useQuery, useApolloClient, gql } from '@apollo/client';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import WelcomePage from '../WelcomePage/WelcomePage';
 import BrowseEvent from '../BrowseEvent/BrowseEvent';
