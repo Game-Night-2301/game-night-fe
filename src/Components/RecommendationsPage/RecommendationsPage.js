@@ -25,7 +25,6 @@ const RecommendationsPage = ({ logoutUser, selectedUser }) => {
 
   useEffect(() => {
     if (dataReceived) {
-      console.log(data);
     }
   }, [dataReceived]);
 

@@ -71,7 +71,11 @@ function App() {
     <Router>
       <main className="App">
         <Switch>
-          {loggedIn ? (
+          {error ? (
+            <Route>
+              <Redirect to="/error" />
+            </Route>
+          ) : loggedIn ? (
             <>
               <Route exact path="/browse">
                 <BrowseEvent selectedUser={selectedUser} logoutUser={logoutUser} />
@@ -112,6 +116,6 @@ function App() {
       </main>
     </Router>
   );
-}
+          }; 
 
 export default App;

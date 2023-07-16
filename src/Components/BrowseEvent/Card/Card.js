@@ -7,7 +7,7 @@ import { getUserGames } from '../../../queries/index';
 import './Card.css';
 
 const Card = ({ userId, attendees, id, maxPlayers, city, state, date, hostId, description, distance, gameName }) => {
-  const { loading, error, data } = useQuery(getUserGames, { variables: { id: userId }, skip: !id });
+  const { data } = useQuery(getUserGames, { variables: { id: userId }, skip: !id });
 
   const renderPills = () => {
     const isHost = hostId === userId;

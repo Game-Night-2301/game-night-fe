@@ -15,18 +15,18 @@ import { Tooltip } from '@mui/material';
 import PropTypes from 'prop-types';
 
 const Form = ({ logoutUser, loggedInUser, userData }) => {
-  const [game, setGame] = useState(null);
+  const [game, setGame] = useState('');
   const [category, setCategory] = useState('');
   const [location, setLocation] = useState('');
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [state, setEState] = useState('');
-  const [zip, setZip] = useState();
-  const [date, setDate] = useState();
-  const [startTime, setStartTime] = useState();
-  const [maxStartTime, setMaxStartTime] = useState(null);
-  const [minEndTime, setMinEndTime] = useState(null);
-  const [endTime, setEndTime] = useState();
+  const [zip, setZip] = useState('');
+  const [date, setDate] = useState(dayjs().startOf('day'));
+  const [startTime, setStartTime] = useState(dayjs().startOf('hour'));
+  const [maxStartTime, setMaxStartTime] = useState(dayjs().startOf('hour'));
+  const [minEndTime, setMinEndTime] = useState(dayjs().startOf('hour').add(1, 'hour'));
+  const [endTime, setEndTime] = useState(dayjs().startOf('hour').add(1, 'hour'));
   const [eventDescription, setEventDescription] = useState();
   const [successMessage, setSuccessMessage] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -42,18 +42,18 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
   };
 
   const clearInputs = () => {
-    setGame(null);
+    setGame('');
     setCategory('');
     setLocation('');
     setAddress('');
     setCity('');
     setEState('');
     setZip('');
-    setDate(null);
-    setStartTime(null);
-    setMaxStartTime(null);
-    setMinEndTime(null);
-    setEndTime(null);
+    setDate(dayjs().startOf('day'));
+    setStartTime(dayjs().startOf('hour'));
+    setMaxStartTime(dayjs().startOf('hour'));
+    setMinEndTime(dayjs().startOf('hour').add(1, 'hour'));
+    setEndTime(dayjs().startOf('hour').add(1, 'hour'));
     setEventDescription('');
   };
 
@@ -77,7 +77,6 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
         clearInputs();
       }, 4000);
     } catch (error) {
-      console.log(error);
       handleError(
         'Critical fail! Your event was unable to be created, please try again!'
       );
@@ -185,7 +184,6 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
       startTime: dayjs(startTime).format('HH:mm:ss'),
       endTime: dayjs(endTime).format('HH:mm:ss'),
     };
-    console.log(newEvent);
     onCreateEvent(newEvent);
   };
 

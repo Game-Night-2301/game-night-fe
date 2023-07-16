@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
 import { getAllEvents } from '../../queries/index';
 import { cleanEvents, filterEvents } from '../../utils/cleaning';
+import { Redirect } from 'react-router-dom';
 
 const BrowseEvent = ({ selectedUser, logoutUser }) => {
   const { loading, error, data } = useQuery(getAllEvents, {
@@ -45,7 +46,7 @@ const BrowseEvent = ({ selectedUser, logoutUser }) => {
   };
 
   if (loading) return <PageLoader />;
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <Redirect to="/error" />;
 
   return (
     <>
