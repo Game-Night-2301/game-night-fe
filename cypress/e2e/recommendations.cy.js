@@ -33,9 +33,6 @@ describe('Profile Page', () => {
     });
 
     cy.visit('https://game-night-fe.vercel.app/');
-  });
-
-  it('should navigate to profile page', () => {
     cy.get('button').contains('User 1').click();
     cy.wait('@getAllEvents').its('response.body').should('have.property', 'data');
     cy.get('img.profile-link').click();
@@ -44,12 +41,69 @@ describe('Profile Page', () => {
     cy.url().should('include', '/recommendations');
   });
 
-  it.skip('should display three panels for requesting, processing, and results', () => {
+  it('should display three panels for requesting, processing, and results', () => {
     cy.get('.ai-recs-panel').should('have.length', 3);
     cy.get('.recommend-me-panel').within(() => {
-      cy.get('.MuiCollapse-entered > .MuiCollapse-wrapper > .MuiCollapse-wrapperInner > .ai-recs-body > .ai-body-text > .ai-recs-header').should('')
+      cy.get('.MuiCollapse-entered > .MuiCollapse-wrapper > .MuiCollapse-wrapperInner > .ai-recs-body > .ai-body-text > .ai-recs-header').contains('Request Your Recommendations');
       cy.get('.ai-recs-text').contains('We\'ll use your existing game collection to build a personalized recommendations list informed by what you\'re already drawn to in games and what we think you might enjoy.');
       cy.get('.ai-submit').contains('Go');
     });
   });
+
+  it('should allow the user to submit a request for recommendations', () => {
+    cy.get('.recommend-me-panel').within(() => {
+      cy.get('.ai-submit').click();
+    });
+    cy.wait('@getUserRecommendations').its('response.body').should('have.property', 'data');
+    cy.get('.recommend-me-panel').within(() => {
+      cy.get('.ai-recs-header').contains('Request');
+    });
+  });
+
+  it('should open the loading panel while the request is being processed', () => {
+    cy.get('.recommend-me-panel').within(() => {
+      cy.get('.ai-submit').click();
+    });
+    cy.wait('@getUserRecommendations').its('response.body').should('have.property', 'data');
+    cy.get('.process-panel').within(() => {
+      cy.get('.ai-recs-header').contains('Processing');
+    });
+  });
+
+  it('should display the results panel when the request is complete', () => {
+    cy.get('.recommend-me-panel').within(() => {
+      cy.get('.ai-submit').click();
+    });
+    cy.wait('@getUserRecommendations').its('response.body').should('have.property', 'data');
+    cy.get('.results-panel').within(() => {
+      cy.get('.ai-recs-header').contains('Results');
+    });
+  });
+
+
+  it('should display a list of recommended games', () => {
+    cy.get('.recommend-me-panel').within(() => {
+      cy.get('.ai-submit').click();
+    });
+    cy.wait('@getUserRecommendations').its('response.body').should('have.property', 'data');
+    cy.get('.games-grid').within(() => {
+      cy.get('.card').should('have.length', 3);
+      cy.get(':nth-child(1) > .card > .card-header > .event-card-title').contains('Shakespeare');
+      cy.get(':nth-child(3) > .card > .card-header > .event-card-title').contains('Azul: Summer Pavilion');
+    });
+  })
+
+  it('the recommend games cards should show additional information when show description is clicked', () => {
+    cy.get('.recommend-me-panel').within(() => {
+      cy.get('.ai-submit').click();
+    });
+    cy.wait('@getUserRecommendations').its('response.body').should('have.property', 'data');
+    cy.get('.games-grid').within(() => {
+      cy.get('.card').first().within(() => {
+        cy.get('.MuiButtonBase-root').click();
+        cy.get('.description-text').should('be.visible');
+        cy.get('.description-text').contains('<p>In Shakespeare, the play is the thing! You will have six days to put together the best possible theatrical performance and the company that gets the most flattering reviews will win! Assemble a talented troupe to wow the crowd and critics alike!<br /><br />Each day players will take part in a closed bid to determine turn order. Then they will spend their turn enlisting craftsmen and actors and building beautiful sets and costumes. Choose your actions wisely, opening night is approaching fast!</p>');
+      });
+    });
+  })
 });
