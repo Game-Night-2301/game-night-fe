@@ -6,7 +6,7 @@ import { getUserRecommendations } from '../../queries/index';
 import Header from '../ReusableComponents/Header/Header';
 import AIRecs from './AIRecs/AIRecs';
 import RecOutput from './RecOutput/RecOutput';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const RecommendationsPage = ({ logoutUser, selectedUser }) => {
   const [dataReceived, setDataReceived] = useState(false);

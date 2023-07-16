@@ -45,7 +45,7 @@ function App() {
         loggedInUser: userId,
       },
     });
-    setLoggedIn(true); 
+    setLoggedIn(true);
     setSelectedUser(userId);
   };
 
@@ -116,6 +116,6 @@ function App() {
       </main>
     </Router>
   );
-          }; 
+};
 
 export default App;

@@ -2,7 +2,7 @@ import './RecOutput.css';
 import { useState } from 'react';
 import BrowserHeader from '../../ReusableComponents/BrowserHeader/BrowserHeader';
 import UserGame from '../../Profile/UserGame/UserGame';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const RecOutput = ({ recommendations }) => {
   const [expandedGame, setExpandedGame] = useState('');
