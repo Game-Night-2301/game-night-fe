@@ -190,6 +190,14 @@ describe('Event Detail Error Page', () => {
       'Oops! Looks like we rolled a critical error. Time to reshuffle the digital deck!'
     );
   });
+  it('should not display any event information', () => {
+    cy.visit('http://localhost:3000/events/8');
+    cy.contains('Host Message').should('not.exist');
+    cy.contains('Game Description').should('not.exist');
+    cy.contains('Event Location').should('not.exist');
+    cy.contains('Attendees').should('not.exist');
+    });
+    
 });
 
 
