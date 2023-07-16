@@ -8,7 +8,7 @@
   border-radius: 5px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
-  background: #6A5B87;
+  background: #6a5b87;
   box-shadow: 3px 3px 10px rgba(234, 232, 232, 0.315);
   overflow: hidden;
   margin: 2.5rem 0;
@@ -20,7 +20,7 @@
   align-items: center;
   height: 23%;
   padding: 0.3rem 0.3rem 0.3rem 3rem;
-  border-bottom: 1px solid #FFA0E4 ;
+  border-bottom: 1px solid #ffa0e4;
 }
 
 .card-header-left {

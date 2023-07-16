@@ -12,7 +12,7 @@ import { TimePicker } from '@mui/x-date-pickers/TimePicker';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { createEventMutation } from '../../../queries';
 import { Tooltip } from '@mui/material';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const Form = ({ logoutUser, loggedInUser, userData }) => {
   const [game, setGame] = useState(null);
@@ -63,20 +63,21 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
   };
   const [reqCompleted, setReqCompleted] = useState(false);
 
-  const [createEvent, { data, loading, error }] = useMutation(createEventMutation);
+  const [createEvent, { data, loading, error }] =
+    useMutation(createEventMutation);
 
   const onCreateEvent = async (input) => {
     try {
       const data = await createEvent({ variables: { input } });
       handleSuccess('Your event is set, and your next adventure awaits!');
-      setReqCompleted(false)
+      setReqCompleted(false);
       setTimeout(() => {
-        setReqCompleted(true)
-        clearMessages()
-        clearInputs()
-      }, 4000)
+        setReqCompleted(true);
+        clearMessages();
+        clearInputs();
+      }, 4000);
     } catch (error) {
-      console.log(error)
+      console.log(error);
       handleError(
         'Critical fail! Your event was unable to be created, please try again!'
       );
@@ -184,7 +185,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
       startTime: dayjs(startTime).format('HH:mm:ss'),
       endTime: dayjs(endTime).format('HH:mm:ss'),
     };
-    console.log(newEvent)
+    console.log(newEvent);
     onCreateEvent(newEvent);
   };
 
@@ -244,7 +245,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
           <h2 className="form-header">Location</h2>
           <hr className="line" />
           <div className="location-details">
-          <TextField
+            <TextField
               required
               onChange={(e) => handleLocationChange(e)}
               id="location"

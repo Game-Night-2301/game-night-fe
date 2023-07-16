@@ -11,14 +11,12 @@ const Header = ({ logoutUser }) => {
     {
       label: 'Create Event',
       link: '/create',
-      handler: () => {
-      }
+      handler: () => {},
     },
     {
       label: 'Profile',
       link: '/profile',
-      handler: () => {
-      }
+      handler: () => {},
     },
     {
       label: 'Recommendations',
@@ -29,12 +27,17 @@ const Header = ({ logoutUser }) => {
       link: '/',
       handler: () => {
         logoutUser();
-      }
-    }
+      },
+    },
   ];
 
   const renderDropDownTrigger = (handleOpenMenu) => (
-    <img src={usericon} alt="User Icon" className="profile-link" onClick={handleOpenMenu} />
+    <img
+      src={usericon}
+      alt="User Icon"
+      className="profile-link"
+      onClick={handleOpenMenu}
+    />
   );
 
   return (
@@ -47,7 +50,6 @@ const Header = ({ logoutUser }) => {
       </div>
     </header>
   );
-
 };
 
 export default Header;

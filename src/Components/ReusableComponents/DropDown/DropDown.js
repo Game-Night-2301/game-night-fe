@@ -25,7 +25,9 @@ const DropDown = ({ menuItems, renderTrigger }) => {
       >
         {menuItems.map((item, index) => (
           <MenuItem key={index} onClick={item.handler}>
-            <Link to={item.link} className="menu-link">{item.label}</Link>
+            <Link to={item.link} className="menu-link">
+              {item.label}
+            </Link>
           </MenuItem>
         ))}
       </Menu>

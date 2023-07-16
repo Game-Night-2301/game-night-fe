@@ -35,25 +35,36 @@ export const Description = ({
     <div className="description-wrapper">
       <h4 className="description-header">Event Information</h4>
       <hr className="description-line" />
-      <Accordion defaultExpanded className="custom-accordion" sx={{ background: 'transparent' }}>
+      <Accordion
+        defaultExpanded
+        className="custom-accordion"
+        sx={{ background: 'transparent' }}
+      >
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon sx={{ color: 'white' }}/>}
+          expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />}
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography className="description-drop-down">Host Message</Typography>
+          <Typography className="description-drop-down">
+            Host Message
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography className="description-text">{description}</Typography>
         </AccordionDetails>
       </Accordion>
-      <Accordion className="custom-accordion" sx={{ background: 'transparent', overflow: "auto" }}>
+      <Accordion
+        className="custom-accordion"
+        sx={{ background: 'transparent', overflow: 'auto' }}
+      >
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon sx={{ color: 'white' }}/>}
+          expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />}
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography className="description-drop-down">Game Description</Typography>
+          <Typography className="description-drop-down">
+            Game Description
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <div className="scroll-wrapper">
@@ -61,13 +72,18 @@ export const Description = ({
           </div>
         </AccordionDetails>
       </Accordion>
-      <Accordion className="custom-accordion" sx={{ background: 'transparent' }}>
+      <Accordion
+        className="custom-accordion"
+        sx={{ background: 'transparent' }}
+      >
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon sx={{ color: 'white' }}/>}
+          expandIcon={<ExpandMoreIcon sx={{ color: 'white' }} />}
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography className="description-drop-down">Event Location</Typography>
+          <Typography className="description-drop-down">
+            Event Location
+          </Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography className="description-text">

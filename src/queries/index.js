@@ -1,72 +1,73 @@
 import { gql } from '@apollo/client';
 
 export const getUser = gql`
-query getUser($id: ID!) {
-  user(id: $id) {
+  query getUser($id: ID!) {
+    user(id: $id) {
+      id
+      username
+      password
+      city
+      state
+      lat
+      lon
+      attendingEvents {
         id
-        username
-        password
+        date
+        address
         city
         state
+        zip
+        title
+        cancelled
+        description
+        hostId
+        game
+        gameType
         lat
         lon
-        attendingEvents {
-          id
-          date
-          address
-          city
-          state
-          zip
-          title
-          cancelled
-          description
-          hostId
-          game
-          gameType
-          lat
-          lon
-        }
-        hostedEvents {
-          id
-          date
-          address
-          city
-          state
-          zip
-          title
-          cancelled
-          description
-          hostId
-          game
-          gameType
-          lat
-          lon
-        }
-        ownedGames {
-          id
-          name
-        }  	
+      }
+      hostedEvents {
+        id
+        date
+        address
+        city
+        state
+        zip
+        title
+        cancelled
+        description
+        hostId
+        game
+        gameType
+        lat
+        lon
+      }
+      ownedGames {
+        id
+        name
+      }
     }
-  }`;
-
-export const getAllUsers = gql `
-{
-  users {
-    id
-    username
-    password
-    city
-    state
-    lat
-    lon
-    attendingEvents {
-      id
-    }
-    hostedEvents {
-      id
-    }  	
   }
-}
+`;
+
+export const getAllUsers = gql`
+  {
+    users {
+      id
+      username
+      password
+      city
+      state
+      lat
+      lon
+      attendingEvents {
+        id
+      }
+      hostedEvents {
+        id
+      }
+    }
+  }
 `;
 
 export const getEvent = gql`
@@ -109,20 +110,17 @@ export const getEvent = gql`
         id
         username
       }
-
     }
   }
 `;
 
 export const fullQuery = gql`
-query getEvent($id: ID!) {
+  query getEvent($id: ID!) {
     event(id: $id) {
       full
     }
   }
 `;
-
-
 
 export const getAllEvents = gql`
   query getAllEvents($id: ID!) {
@@ -204,14 +202,14 @@ export const getUserProfile = gql`
 `;
 
 export const createEventMutation = gql`
-mutation CreateEvent($input: CreateEventInput!) {
-  createEvent(input: $input) {
-    event {
-      id
+  mutation CreateEvent($input: CreateEventInput!) {
+    createEvent(input: $input) {
+      event {
+        id
+      }
+      errors
     }
-    errors
   }
-}
 `;
 
 export const addUserToEvent = gql`
@@ -230,7 +228,7 @@ export const removeUserFromEvent = gql`
   mutation deleteUserEvent($input: DeleteUserEventInput!) {
     deleteUserEvent(input: $input) {
       event {
-        attendees{
+        attendees {
           id
           username
         }
@@ -252,20 +250,20 @@ export const cancelEvent = gql`
 `;
 
 export const getUserRecommendations = gql`
-query getUser($id: ID!) {
-	user(id: $id) {
-    recommendedGames {
-      id
-      name
-      minPlayers
-      maxPlayers
-      minPlaytime
-      maxPlaytime
-      description
-      imageUrl
-      averageUserRating
-      averageStrategyComplexity
+  query getUser($id: ID!) {
+    user(id: $id) {
+      recommendedGames {
+        id
+        name
+        minPlayers
+        maxPlayers
+        minPlaytime
+        maxPlaytime
+        description
+        imageUrl
+        averageUserRating
+        averageStrategyComplexity
+      }
     }
   }
-}
 `;

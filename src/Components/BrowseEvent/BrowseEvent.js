@@ -7,12 +7,11 @@ import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
 import { getAllEvents } from '../../queries/index';
 import { cleanEvents, filterEvents } from '../../utils/cleaning';
-import './BrowseEvent.css';
 
 const BrowseEvent = ({ selectedUser, logoutUser }) => {
   const { loading, error, data } = useQuery(getAllEvents, {
     variables: { id: selectedUser },
-    skip: !selectedUser
+    skip: !selectedUser,
   });
 
   const displayEvents = () => {
@@ -21,7 +20,7 @@ const BrowseEvent = ({ selectedUser, logoutUser }) => {
     } else {
       const filteredEvents = filterEvents(data.user.sortedEvents);
       const cleanedEvents = cleanEvents(filteredEvents);
-      return cleanedEvents.map(event => {
+      return cleanedEvents.map((event) => {
         return (
           <Card
             key={event.id}
@@ -57,7 +56,6 @@ const BrowseEvent = ({ selectedUser, logoutUser }) => {
   );
 };
 export default BrowseEvent;
-
 
 BrowseEvent.propTypes = {
   selectedUser: PropTypes.number,

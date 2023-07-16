@@ -15,8 +15,16 @@ function WelcomePage({ loginUser }) {
       <img src={dice} alt="Dice logo" className="dice" />
       <h3 className="welcome-page-subtitle">Define your roll</h3>
       <div className="welcome-button-container">
-          <Button className="welcome-button" text="User 1" onClick={() => handleLogin(1)} />
-          <Button className="welcome-button" text="User 2" onClick={() => handleLogin(2)} />
+        <Button
+          className="welcome-button"
+          text="User 1"
+          onClick={() => handleLogin(1)}
+        />
+        <Button
+          className="welcome-button"
+          text="User 2"
+          onClick={() => handleLogin(2)}
+        />
       </div>
     </div>
   );

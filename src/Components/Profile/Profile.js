@@ -12,11 +12,13 @@ import PropTypes from 'prop-types';
 import { capitalizeFirstLetter } from '../../utils/cleaning';
 
 const ProfilePage = ({ logoutUser, selectedUser, userData }) => {
-  const { loading, error, data } = useQuery(getUserGames, { variables: { id: selectedUser } });
-  const [expandedGame, setExpandedGame] = useState("");
+  const { loading, error, data } = useQuery(getUserGames, {
+    variables: { id: selectedUser },
+  });
+  const [expandedGame, setExpandedGame] = useState('');
   const handleExpandClick = (gameName) => {
     if (expandedGame === gameName) {
-      setExpandedGame("");
+      setExpandedGame('');
     } else {
       setExpandedGame(gameName);
     }
@@ -24,7 +26,7 @@ const ProfilePage = ({ logoutUser, selectedUser, userData }) => {
 
   const mapUserGames = () => {
     if (data?.user?.ownedGames?.length) {
-      return data.user.ownedGames.map(game => {
+      return data.user.ownedGames.map((game) => {
         return (
           <UserGame
             key={game.id}
@@ -58,20 +60,23 @@ const ProfilePage = ({ logoutUser, selectedUser, userData }) => {
               </div>
               <div className="profile-key-value">
                 <p className="profile-text-key">Games Owned</p>
-                <p className="profile-text-value">{data.user.ownedGames.length}</p>
+                <p className="profile-text-value">
+                  {data.user.ownedGames.length}
+                </p>
               </div>
               <div className="profile-key-value">
                 <p className="profile-text-key">Location</p>
-                <p className="profile-text-value">{capitalizeFirstLetter(userData.city)}, {capitalizeFirstLetter(userData.state)}</p>
+                <p className="profile-text-value">
+                  {capitalizeFirstLetter(userData.city)},{' '}
+                  {capitalizeFirstLetter(userData.state)}
+                </p>
               </div>
             </section>
           </div>
         </div>
         <div className="games-collection">
           <BrowserHeader text="Game Collection" nomargin="true" />
-          <div className="games-grid">
-            {mapUserGames()}
-          </div>
+          <div className="games-grid">{mapUserGames()}</div>
         </div>
       </div>
     </>

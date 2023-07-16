@@ -1,12 +1,12 @@
-import './PageLoader.css'
-import React from 'react'
+import './PageLoader.css';
+import React from 'react';
 
 const PageLoader = () => {
-    return (
-        <div className="page-loader">
-            <div className="loader"></div>
-        </div>
-    )
-}
+  return (
+    <div className="page-loader">
+      <div className="loader"></div>
+    </div>
+  );
+};
 
-export default PageLoader
+export default PageLoader;

@@ -5,10 +5,10 @@ import UserGame from '../../Profile/UserGame/UserGame';
 import PropTypes from 'prop-types'
 
 const RecOutput = ({ recommendations }) => {
-  const [expandedGame, setExpandedGame] = useState("");
+  const [expandedGame, setExpandedGame] = useState('');
   const handleExpandClick = (gameName) => {
     if (expandedGame === gameName) {
-      setExpandedGame("");
+      setExpandedGame('');
     } else {
       setExpandedGame(gameName);
     }
@@ -16,8 +16,15 @@ const RecOutput = ({ recommendations }) => {
   const mapRecs = () => {
     if (recommendations && recommendations.user) {
       return recommendations.user.recommendedGames.map((game) => {
-        return <UserGame key={game.id} {...game} expanded={expandedGame === game.name}
-        hidden={expandedGame && expandedGame !== game.name} handleExpand={handleExpandClick}/>;
+        return (
+          <UserGame
+            key={game.id}
+            {...game}
+            expanded={expandedGame === game.name}
+            hidden={expandedGame && expandedGame !== game.name}
+            handleExpand={handleExpandClick}
+          />
+        );
       });
     }
   };

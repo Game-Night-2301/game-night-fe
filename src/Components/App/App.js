@@ -14,7 +14,7 @@ import { getUser } from '../../queries/index';
 
 
 function App() {
-  const client = useApolloClient(); // get the client instance
+  const client = useApolloClient();
   const [loggedIn, setLoggedIn] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const { loading, error, data } = useQuery(getUser, { variables: { id: selectedUser }, skip: !selectedUser });
