@@ -1,7 +1,0 @@
-{
-  "user": {
-      "__typename": "User",
-      "ownedGames": [
-      ]
-  }
-}

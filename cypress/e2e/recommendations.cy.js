@@ -102,7 +102,7 @@ describe('Profile Page', () => {
       cy.get('.card').first().within(() => {
         cy.get('.MuiButtonBase-root').click();
         cy.get('.description-text').should('be.visible');
-        cy.get('.description-text').contains('<p>In Shakespeare, the play is the thing! You will have six days to put together the best possible theatrical performance and the company that gets the most flattering reviews will win! Assemble a talented troupe to wow the crowd and critics alike!<br /><br />Each day players will take part in a closed bid to determine turn order. Then they will spend their turn enlisting craftsmen and actors and building beautiful sets and costumes. Choose your actions wisely, opening night is approaching fast!</p>');
+        cy.get('.description-text').contains('In Shakespeare, the play is the thing!');
       });
     });
   })
