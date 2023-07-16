@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import Error from '../Error/Error';
+import { Redirect } from 'react-router-dom';
 import './RecommendationsPage.css';
 import { useLazyQuery } from '@apollo/client';
 import { getUserRecommendations } from '../../queries/index';
@@ -26,6 +28,8 @@ const RecommendationsPage = ({ logoutUser, selectedUser }) => {
       console.log(data);
     }
   }, [dataReceived]);
+
+  if (error) return <Redirect to="/error" />;
 
   return (
     <>
