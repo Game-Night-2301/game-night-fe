@@ -144,21 +144,21 @@ describe('Recommmendations Page - Error Handling', () => {
   });
 
   it('should display an error message if the request fails', () => {
-      cy.fixture('sadRecs.json').then((sadRecs) => {
+      cy.fixture('sadPath.json').then((sadPath) => {
         cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
           if (req.body.operationName === 'getUser') {
             req.reply({
               statusCode: 500,
-              body: { errors: sadRecs }
+              body: { errors: sadPath }
             });
           }
-        }).as('sadRecs');
+        }).as('sadPath');
       });
 
       cy.get('.recommend-me-panel').within(() => {
           cy.get('.ai-submit').click();
       });
-      cy.wait('@sadRecs').its('response.body').should('have.property', 'errors');
+      cy.wait('@sadPath').its('response.body').should('have.property', 'errors');
       cy.wait(2000);
       cy.url().should('include', '/error');
       cy.get('.message').should('have.text', 'Oops! Looks like we rolled a critical error. Time to reshuffle the digital deck!');

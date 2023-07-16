@@ -60,3 +60,54 @@ describe('Profile Page', () => {
     });
   });
 });
+
+describe('Profile Error Page', () => {
+  beforeEach(() => {
+    cy.fixture('getUserById.json').then((getUser) => {
+      cy.fixture('getUserGames.json').then((getUserGames) => {
+        cy.fixture('allEvents.json').then((getAllEvents) => {
+          cy.intercept(
+            'POST',
+            'https://game-night-backend-172o.onrender.com/graphql',
+            (req) => {
+              if (req.body.operationName === 'getUser') {
+                req.reply({ data: getUser });
+              } else if (req.body.operationName === 'getUserGames') {
+                req.reply({ data: getUserGames });
+              } else if (req.body.operationName === 'getAllEvents') {
+                req.reply({ data: getAllEvents });
+              }
+            }
+          ).as('GraphQL');
+        });
+      });
+    });
+  });
+
+  it('should display the error page when an error occurs while navigating to the profile page', () => {
+    cy.visit('https://game-night-fe.vercel.app/');
+    cy.get('button').contains('User 1').click();
+    cy.get('img.profile-link').click();
+    cy.get('.MuiList-root');
+    cy.fixture('sadPath.json').then((sadPath) => {
+      cy.intercept(
+        'POST',
+        'https://game-night-backend-172o.onrender.com/graphql',
+        (req) => {
+          if (req.body.operationName === 'getUser') {
+            req.reply({
+              statusCode: 500,
+              body: { errors: sadPath },
+            });
+          }
+        }
+      ).as('sadPath');
+    });
+    cy.get('.menu-link').contains('Profile').should('be.visible').click();
+    cy.get('.message').should(
+      'have.text',
+      'Oops! Looks like we rolled a critical error. Time to reshuffle the digital deck!'
+    );
+    cy.url().should('include', '/error');
+  });
+});
