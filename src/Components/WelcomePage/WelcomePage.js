@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../ReusableComponents/Button/Button';
 import dice from '../../assets/Dice.svg';
 import './WelcomePage.css';
 import PropTypes from 'prop-types';
 
-function WelcomePage({ loginUser, logoutUser, loggedIn }) {
+function WelcomePage({ loginUser }) {
+  const [error, setError] = useState(null);
+
   const handleLogin = (userId) => {
-    loginUser(userId);
+    try {
+      if (userId === 1 || userId === 2) {
+        loginUser(userId);
+      } else if (userId === null) {
+        throw new Error('Failed to log in');
+      }
+    } catch (error) {
+      setError(error.message);
+    }
   };
 
   return (
@@ -14,10 +24,14 @@ function WelcomePage({ loginUser, logoutUser, loggedIn }) {
       <h1 className="welcome-page-title">Game Night</h1>
       <img src={dice} alt="Dice logo" className="dice" />
       <h3 className="welcome-page-subtitle">Define your roll</h3>
-      <div className="welcome-button-container">
+      {error ? (
+        <div className="error-message">{error}</div>
+      ) : (
+        <div className="welcome-button-container">
           <Button className="welcome-button" text="User 1" onClick={() => handleLogin(1)} />
           <Button className="welcome-button" text="User 2" onClick={() => handleLogin(2)} />
-      </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -26,6 +40,4 @@ export default WelcomePage;
 
 WelcomePage.propTypes = {
   loginUser: PropTypes.func,
-  logoutUser: PropTypes.func,
-  loggedIn: PropTypes.bool,
 };
