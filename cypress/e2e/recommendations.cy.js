@@ -102,6 +102,7 @@ describe('Recommendations Page', () => {
       cy.get('.card').first().within(() => {
         cy.get('.MuiButtonBase-root').click();
         cy.get('.description-text').should('be.visible');
+        cy.get('.description-text').contains('In Shakespeare, the play is the thing!');
       });
     });
   })
