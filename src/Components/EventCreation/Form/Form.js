@@ -79,7 +79,6 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
         clearInputs();
       }, 4000);
     } catch (error) {
-      console.log(error);
       handleError(
         'Critical fail! Your event was unable to be created, please try again!'
       );
@@ -187,7 +186,6 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
       startTime: dayjs(startTime).format('HH:mm:ss'),
       endTime: dayjs(endTime).format('HH:mm:ss'),
     };
-    console.log(newEvent);
     onCreateEvent(newEvent);
   };
 

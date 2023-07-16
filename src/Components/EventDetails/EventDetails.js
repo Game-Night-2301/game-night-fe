@@ -32,7 +32,6 @@ export const EventDetails = ({ loggedInUser, logoutUser }) => {
 
   if (loading || fullLoading) return <PageLoader />;
   if (error || fullError) return <Redirect to="/error" />;
-  console.log(fullData);
   return (
     <>
       <Header logoutUser={logoutUser} />

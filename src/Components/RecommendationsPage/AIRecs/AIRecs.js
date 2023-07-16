@@ -3,7 +3,7 @@ import './AIRecs.css';
 import BrowserHeader from '../../ReusableComponents/BrowserHeader/BrowserHeader';
 import { Collapse, Box } from '@mui/material';
 import Button from '../../ReusableComponents/Button/Button';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 const AIRecs = ({ handleRecSubmit, received, loading, setDataReceived }) => {
   const [requested, setRequested] = useState(false);
@@ -36,9 +36,8 @@ const AIRecs = ({ handleRecSubmit, received, loading, setDataReceived }) => {
     <section className="ai-recs-section">
       <BrowserHeader text="Personalized Game Recommendations" />
       <section
-        className={`ai-recs-panel recommend-me-panel card ${
-          requested ? 'panel-collapsed' : ''
-        }`}
+        className={`ai-recs-panel recommend-me-panel card ${requested ? 'panel-collapsed' : ''
+          }`}
       >
         <div className="ai-recs-number-wrapper">
           <p className="ai-recs-header-number">1</p>
@@ -65,9 +64,8 @@ const AIRecs = ({ handleRecSubmit, received, loading, setDataReceived }) => {
         </Collapse>
       </section>
       <section
-        className={`ai-recs-panel process-panel card ${
-          !loading ? 'panel-collapsed' : ''
-        }`}
+        className={`ai-recs-panel process-panel card ${!loading ? 'panel-collapsed' : ''
+          }`}
       >
         <div className="ai-recs-number-wrapper">
           <p className="ai-recs-header-number">2</p>
@@ -98,9 +96,8 @@ const AIRecs = ({ handleRecSubmit, received, loading, setDataReceived }) => {
         </Collapse>
       </section>
       <section
-        className={`ai-recs-panel results-panel card ${
-          !received ? 'panel-collapsed' : ''
-        }`}
+        className={`ai-recs-panel results-panel card ${!received ? 'panel-collapsed' : ''
+          }`}
       >
         <div className="ai-recs-number-wrapper">
           <p className="ai-recs-header-number">3</p>
