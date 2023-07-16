@@ -145,7 +145,7 @@ describe('Form Page - Error Handling', () => {
   });
 
   
-  it('should display the error page when an error occurs while navigating to the profile page', () => {
+  it('should display the error page when an error occurs while navigating to the Create Event page', () => {
     cy.visit('https://game-night-fe.vercel.app/');
     cy.get('button').contains('User 1').click();
     cy.get('img.profile-link').click();
