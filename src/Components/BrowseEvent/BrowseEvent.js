@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
 import { getAllEvents } from '../../queries/index';
 import { cleanEvents, filterEvents } from '../../utils/cleaning';
-import './BrowseEvent.css';
 
 const BrowseEvent = ({ selectedUser, logoutUser }) => {
   const { loading, error, data } = useQuery(getAllEvents, {
