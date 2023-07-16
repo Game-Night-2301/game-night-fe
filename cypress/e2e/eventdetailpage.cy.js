@@ -43,10 +43,10 @@ beforeEach(() => {
   cy.visit('https://game-night-fe.vercel.app/');
   cy.get('.welcome-button-container').find('button').contains('User 1').click();
   cy.get('.browse-event-container').should('be.visible');
-  cy.get('.card').first().click();
 });
 
   it('should display the event page with the correct elements', () => {
+    cy.get('.card').first().click();
     cy.wait('@getEvent').then(() => {
       cy.url().should('include', '/events/7');
 
@@ -80,6 +80,11 @@ beforeEach(() => {
         .get('.MuiTooltip-tooltip')
         .should('be.visible')
         .contains('Herugar Bolger')                 
-    });
+    }); 
   });
+
+  // it('Should allow a user to join an event', () => {
+  //   cy.get('[href="/events/5"] > .card').click()
+  //   cy.url().should('include', '/events/5')
+  // })
 });
