@@ -10,20 +10,11 @@ import Form from '../EventCreation/Form/Form';
 import Error from '../Error/Error';
 import PageLoader from '../ReusableComponents/PageLoader/PageLoader';
 import { EventDetails } from '../EventDetails/EventDetails';
-import {
-  getUser,
-  // getAllUsers, 
-  // getEvent,
-  // getAllEvents,
-  // createEvent,
-  // addUserToEvent,
-  // removeUserFromEvent,
-  // cancelEvent
-} from '../../queries/index';
+import { getUser } from '../../queries/index';
 
 
 function App() {
-  const client = useApolloClient(); // get the client instance
+  const client = useApolloClient();
   const [loggedIn, setLoggedIn] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
   const { loading, error, data } = useQuery(getUser, { variables: { id: selectedUser }, skip: !selectedUser });

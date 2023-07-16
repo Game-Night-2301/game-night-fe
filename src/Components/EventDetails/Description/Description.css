@@ -1,5 +1,5 @@
 .description-header,
-.description-text, 
+.description-text,
 .description-drop-down,
 .attendee-header {
   color: #fefefe;
@@ -9,7 +9,8 @@
   font-size: 1.5rem;
 }
 
-.description-header, .attendee-header {
+.description-header,
+.attendee-header {
   font-size: 2rem;
   font-weight: 300;
   margin-bottom: 0em;
@@ -37,7 +38,7 @@
 }
 
 .custom-accordion {
-  border-bottom: 1px solid #FFA0E4;
+  border-bottom: 1px solid #ffa0e4;
 }
 
 .scroll-wrapper {

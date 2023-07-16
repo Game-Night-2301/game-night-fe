@@ -22,7 +22,7 @@
 
 .event-date {
   font-size: 1.7em;
-  margin-bottom: .75em;
+  margin-bottom: 0.75em;
   font-weight: 400;
 }
 
@@ -50,12 +50,12 @@
   width: 100%;
 }
 
-.event-header{
+.event-header {
   display: flex;
   align-items: center;
 }
 
-.event-pill{
+.event-pill {
   font-size: 1em;
 }
 
@@ -72,7 +72,8 @@
     align-items: center;
   }
 
-  .event-date, .event-time {
+  .event-date,
+  .event-time {
     text-align: center;
     margin: 0.2rem 0;
   }
@@ -91,5 +92,4 @@
   .event-button-holder {
     margin-bottom: 2em;
   }
-
 }

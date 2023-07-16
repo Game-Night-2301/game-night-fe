@@ -24,7 +24,7 @@
 
 .game-card-title {
   font-size: 1.3rem;
-  font-family: "Avenir Next", sans-serif;
+  font-family: 'Avenir Next', sans-serif;
   font-weight: 600;
   margin-left: 2rem;
   padding: 0;
@@ -47,7 +47,7 @@
 }
 
 .card-image:before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -125,4 +125,3 @@
     width: 100%;
   }
 }
-

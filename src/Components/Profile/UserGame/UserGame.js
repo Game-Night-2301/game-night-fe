@@ -3,7 +3,20 @@ import { Collapse, Button } from '@mui/material';
 import './UserGame.css';
 import PropTypes from 'prop-types';
 
-const UserGame = ({ name, imageUrl, maxPlayers, minPlayers, maxPlaytime, minPlaytime, averageUserRating, averageStrategyComplexity, description, handleExpand, expanded, hidden }) => {
+const UserGame = ({
+  name,
+  imageUrl,
+  maxPlayers,
+  minPlayers,
+  maxPlaytime,
+  minPlaytime,
+  averageUserRating,
+  averageStrategyComplexity,
+  description,
+  handleExpand,
+  expanded,
+  hidden,
+}) => {
   const handleExpandClick = () => {
     handleExpand(name);
   };
@@ -22,19 +35,27 @@ const UserGame = ({ name, imageUrl, maxPlayers, minPlayers, maxPlaytime, minPlay
             <section className="game-card-high-level">
               <div className="profile-key-value game-key-value">
                 <p className="profile-text-key game-key">Players</p>
-                <p className="profile-text-value game-value">{minPlayers} - {maxPlayers}</p>
+                <p className="profile-text-value game-value">
+                  {minPlayers} - {maxPlayers}
+                </p>
               </div>
               <div className="profile-key-value game-key-value">
                 <p className="profile-text-key game-key">Estimated Playtime</p>
-                <p className="profile-text-value game-value">{minPlaytime} - {maxPlaytime}</p>
+                <p className="profile-text-value game-value">
+                  {minPlaytime} - {maxPlaytime}
+                </p>
               </div>
               <div className="profile-key-value game-key-value">
                 <p className="profile-text-key game-key">Average User Rating</p>
-                <p className="profile-text-value game-value">{averageUserRating.toFixed(2)}</p>
+                <p className="profile-text-value game-value">
+                  {averageUserRating.toFixed(2)}
+                </p>
               </div>
               <div className="profile-key-value game-key-value">
                 <p className="profile-text-key game-key">Complexity</p>
-                <p className="profile-text-value game-value">{averageStrategyComplexity.toFixed(2)} / 5</p>
+                <p className="profile-text-value game-value">
+                  {averageStrategyComplexity.toFixed(2)} / 5
+                </p>
               </div>
             </section>
           </Collapse>
@@ -42,24 +63,40 @@ const UserGame = ({ name, imageUrl, maxPlayers, minPlayers, maxPlaytime, minPlay
             <section className="game-card-high-level">
               <div className="profile-key-value game-key-value">
                 <p className="profile-text-key game-key">Players</p>
-                <p className="profile-text-value game-value">{minPlayers} - {maxPlayers}</p>
+                <p className="profile-text-value game-value">
+                  {minPlayers} - {maxPlayers}
+                </p>
               </div>
               <div className="profile-key-value game-key-value">
                 <p className="profile-text-key game-key">Estimated Playtime</p>
-                <p className="profile-text-value game-value">{minPlaytime} - {maxPlaytime}</p>
+                <p className="profile-text-value game-value">
+                  {minPlaytime} - {maxPlaytime}
+                </p>
               </div>
               <div className="profile-key-value game-key-value">
                 <p className="profile-text-key game-key">Average User Rating</p>
-                <p className="profile-text-value game-value">{averageUserRating.toFixed(2)}</p>
+                <p className="profile-text-value game-value">
+                  {averageUserRating.toFixed(2)}
+                </p>
               </div>
               <div className="profile-key-value game-key-value">
                 <p className="profile-text-key game-key">Complexity</p>
-                <p className="profile-text-value game-value">{averageStrategyComplexity.toFixed(2)} / 5</p>
+                <p className="profile-text-value game-value">
+                  {averageStrategyComplexity.toFixed(2)} / 5
+                </p>
               </div>
             </section>
-            <div dangerouslySetInnerHTML={{ __html: description }} className="description-text" />
+            <div
+              dangerouslySetInnerHTML={{ __html: description }}
+              className="description-text"
+            />
           </Collapse>
-          <Button onClick={() => handleExpandClick(name)} aria-expanded={expanded} aria-label="show more" style={{ color: '#FFA0E4' }}>
+          <Button
+            onClick={() => handleExpandClick(name)}
+            aria-expanded={expanded}
+            aria-label="show more"
+            style={{ color: '#FFA0E4' }}
+          >
             {expanded ? 'Hide Description' : 'Show Description'}
           </Button>
         </div>

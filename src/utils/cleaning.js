@@ -1,40 +1,60 @@
 import dayjs from 'dayjs';
 
 export const cleanEvents = (events) => {
-  return events.map(({id, date, address, city, state, zip, attendees, time, cancelled, hostId, title, description, gameType, game, playerCount, gameDetails, maxPlayers }) => {
-    return {
-      id: id,
-      date: dayjs(date).format('MM/DD/YYYY'),
-      start: dayjs(time).format('h:mm A'),
-      address: address,
-      state: state,
-      city: city,
-      zip: zip,
-      title: title,
-      cancelled: cancelled,
-      description: description,
-      hostId: hostId,
-      game: game,
-      maxPlayers: gameDetails.maxPlayers,
-      gameName: gameDetails.name,
-      gameType: gameType,
-      playerCount: playerCount,
-      attendees: attendees
+  return events.map(
+    ({
+      id,
+      date,
+      address,
+      city,
+      state,
+      zip,
+      attendees,
+      time,
+      cancelled,
+      hostId,
+      title,
+      description,
+      gameType,
+      game,
+      playerCount,
+      gameDetails,
+      maxPlayers,
+    }) => {
+      return {
+        id: id,
+        date: dayjs(date).format('MM/DD/YYYY'),
+        start: dayjs(time).format('h:mm A'),
+        address: address,
+        state: state,
+        city: city,
+        zip: zip,
+        title: title,
+        cancelled: cancelled,
+        description: description,
+        hostId: hostId,
+        game: game,
+        maxPlayers: gameDetails.maxPlayers,
+        gameName: gameDetails.name,
+        gameType: gameType,
+        playerCount: playerCount,
+        attendees: attendees,
+      };
     }
-  })
-}
+  );
+};
 
 export const filterEvents = (events) => {
-  return events.filter(event => {
+  return events.filter((event) => {
     return !event.cancelled;
-  })
-}
+  });
+};
 
 export const sortEvents = (events) => {
   return events.sort((a, b) => {
-    return new Date(b.date) - new Date(a.date)
-  })
-}
+    return new Date(b.date) - new Date(a.date);
+  });
+};
 
 export const detailsDateFormatter = (date) => {
   const dayOfMonth = dayjs(date).format('D');
@@ -42,14 +62,11 @@ export const detailsDateFormatter = (date) => {
 
   if (dayOfMonth === '1' || dayOfMonth === '21' || dayOfMonth === '31') {
     suffix = 'st';
-  } 
-  else if (dayOfMonth === '2' || dayOfMonth === '22') {
+  } else if (dayOfMonth === '2' || dayOfMonth === '22') {
     suffix = 'nd';
-  } 
-  else if (dayOfMonth === '3' || dayOfMonth === '23') {
+  } else if (dayOfMonth === '3' || dayOfMonth === '23') {
     suffix = 'rd';
-  } 
-  else {
+  } else {
     suffix = 'th';
   }
 

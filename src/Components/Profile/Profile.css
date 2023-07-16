@@ -76,10 +76,9 @@
   height: 65vh;
   width: 30em;
   display: grid;
-  grid-gap: .1em;
+  grid-gap: 0.1em;
   overflow-y: auto;
 }
-
 
 .games-grid::-webkit-scrollbar {
   width: 0.5em;
@@ -93,9 +92,8 @@
 }
 
 .games-grid::-webkit-scrollbar-thumb {
-  background-color: #6A5B87;
+  background-color: #6a5b87;
 }
-
 
 @media (max-width: 980px) {
   .profile-page {
@@ -103,7 +101,8 @@
     flex-direction: column;
   }
 
-  .profile-details, .games-collection {
+  .profile-details,
+  .games-collection {
     width: 100%;
   }
 }

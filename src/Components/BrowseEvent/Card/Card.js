@@ -6,39 +6,56 @@ import { useQuery } from '@apollo/client';
 import { getUserGames } from '../../../queries/index';
 import './Card.css';
 
-const Card = ({ userId, attendees, id, maxPlayers, city, state, zip, title, date, hostId, description, distance, gameName }) => {
-  const { loading, error, data } = useQuery(getUserGames, { variables: { id: userId }, skip: !id });
+const Card = ({
+  userId,
+  attendees,
+  id,
+  maxPlayers,
+  city,
+  state,
+  zip,
+  title,
+  date,
+  hostId,
+  description,
+  distance,
+  gameName,
+}) => {
+  const { loading, error, data } = useQuery(getUserGames, {
+    variables: { id: userId },
+    skip: !id,
+  });
   const [cardGame, setCardGame] = useState(null);
 
   const renderPills = () => {
-      const isHost = hostId === userId;
-      const isAttending = attendees.includes(userId);
-      const isFull = maxPlayers === attendees.length;
+    const isHost = hostId === userId;
+    const isAttending = attendees.includes(userId);
+    const isFull = maxPlayers === attendees.length;
 
-      const tags = [
-        isHost && { value: 'host' },
-        isAttending && { value: 'attending' },
-        isFull && { value: 'full' },
-      ].filter(Boolean);
+    const tags = [
+      isHost && { value: 'host' },
+      isAttending && { value: 'attending' },
+      isFull && { value: 'full' },
+    ].filter(Boolean);
 
-      return <Pills tags={tags} />;
+    return <Pills tags={tags} />;
   };
 
   return (
     <NavLink to={`/events/${id}`} className="card-link-wrapper">
-      <section className='card'>
-        <div className='card-header'>
-          <div className='card-header-left'>
-            <h3 className='event-card-title'>{gameName}</h3>
-            <h4 className='event-card-subtitle'>{city}, {state}</h4>
-            <h4 className='event-card-subtitle event-card-date'>{date}</h4>
+      <section className="card">
+        <div className="card-header">
+          <div className="card-header-left">
+            <h3 className="event-card-title">{gameName}</h3>
+            <h4 className="event-card-subtitle">
+              {city}, {state}
+            </h4>
+            <h4 className="event-card-subtitle event-card-date">{date}</h4>
           </div>
-          <div className='event-pill-holder'>
-            {data && renderPills()}
-          </div>
+          <div className="event-pill-holder">{data && renderPills()}</div>
         </div>
-        <div className='card-body'>
-          <p className='event-card-description'>{description}</p>
+        <div className="card-body">
+          <p className="event-card-description">{description}</p>
         </div>
       </section>
     </NavLink>
