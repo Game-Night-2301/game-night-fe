@@ -1,0 +1,7 @@
+{
+  "data": {
+    "users": {
+      "errors": ["Please fill out all fields before submission"]
+    }
+  }
+}

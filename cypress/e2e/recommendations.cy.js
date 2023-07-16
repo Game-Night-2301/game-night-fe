@@ -1,4 +1,4 @@
-describe('Profile Page', () => {
+describe('Recommendations Page', () => {
   beforeEach(() => {
     cy.fixture('getUserById.json').then((getUser) => {
       cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
@@ -106,4 +106,61 @@ describe('Profile Page', () => {
       });
     });
   })
+});
+
+describe('Recommmendations Page - Error Handling', () => {
+    
+  beforeEach(() => {
+      cy.fixture('getUserById.json').then((getUser) => {
+        cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
+          if (req.body.operationName === 'getUser') {
+            req.reply({ data: getUser });
+          }
+        }).as('getUserById');
+      });
+
+      cy.fixture('getUserGames.json').then((getUserGames) => {
+        cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
+          if (req.body.operationName === 'getUser') {
+            req.reply({ data: getUserGames });
+          }
+        }).as('getUserGames');
+      });
+
+      cy.fixture('allEvents.json').then((getAllEvents) => {
+        cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
+          if (req.body.operationName === 'getAllEvents') {
+            req.reply({ data: getAllEvents });
+          }
+        }).as('getAllEvents');
+      });
+
+      cy.visit('https://game-night-fe.vercel.app/');
+      cy.get('button').contains('User 1').click();
+      cy.wait('@getAllEvents').its('response.body').should('have.property', 'data');
+      cy.get('img.profile-link').click();
+      cy.get('.MuiList-root');
+      cy.get('.menu-link').contains('Recommendations').should('be.visible').click();
+  });
+
+  it('should display an error message if the request fails', () => {
+      cy.fixture('sadRecs.json').then((sadRecs) => {
+        cy.intercept('POST', 'https://game-night-backend-172o.onrender.com/graphql', (req) => {
+          if (req.body.operationName === 'getUser') {
+            req.reply({
+              statusCode: 500,
+              body: { errors: sadRecs }
+            });
+          }
+        }).as('sadRecs');
+      });
+
+      cy.get('.recommend-me-panel').within(() => {
+          cy.get('.ai-submit').click();
+      });
+      cy.wait('@sadRecs').its('response.body').should('have.property', 'errors');
+      cy.wait(2000);
+      cy.url().should('include', '/error');
+      cy.get('.message').should('have.text', 'Oops! Looks like we rolled a critical error. Time to reshuffle the digital deck!');
+  });
 });
