@@ -14,5 +14,4 @@ export default BrowserHeader;
 
 BrowserHeader.propTypes = {
   text: PropTypes.string.isRequired,
-  nomargin: PropTypes.bool,
 };

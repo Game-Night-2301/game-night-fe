@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Error from '../Error/Error';
 import { Redirect } from 'react-router-dom';
 import './RecommendationsPage.css';
 import { useLazyQuery } from '@apollo/client';
@@ -7,6 +6,7 @@ import { getUserRecommendations } from '../../queries/index';
 import Header from '../ReusableComponents/Header/Header';
 import AIRecs from './AIRecs/AIRecs';
 import RecOutput from './RecOutput/RecOutput';
+import PropTypes from 'prop-types'
 
 const RecommendationsPage = ({ logoutUser, selectedUser }) => {
   const [dataReceived, setDataReceived] = useState(false);
@@ -48,3 +48,8 @@ const RecommendationsPage = ({ logoutUser, selectedUser }) => {
 };
 
 export default RecommendationsPage;
+
+RecommendationsPage.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  selectedUser: PropTypes.number.isRequired,
+};
