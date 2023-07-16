@@ -63,6 +63,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
     setSuccessMessage('');
     setErrorMessage(message);
   };
+  
   const [reqCompleted, setReqCompleted] = useState(false);
 
   const [createEvent, { data, loading, error }] =
