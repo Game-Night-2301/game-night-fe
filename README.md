@@ -1,10 +1,12 @@
 <a name="readme-top"></a>
 
 <!-- PROJECT SHIELDS -->
-[![Contributors][contributors-shield]][contributors-url]
+<!-- [![Contributors][contributors-shield]][https://img.shields.io/github/contributors/Game-Night-2301/game-night-fe.svg?style=for-the-badge]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
+[![Issues][issues-shield]][issues-url] -->
+
+<!-- These require shields.io which I've not figured out how to use -->
 
 <!-- PROJECT LOGO -->
 <br />
@@ -51,8 +53,13 @@ Game Night is an excellent way to take the hassle out of scheduling get-together
 - [Production Website](https://game-night-fe.vercel.app/)
 - Backend can be accessed using `graphQL` queries to the following URL: https://game-night-backend-172o.onrender.com/graphql
 - Github repositories:
+* Front End: [Repo](https://github.com/Game-Night-2301/game-night-fe)
+* Back End: [Repo](https://github.com/Game-Night-2301/game-night-be)
+
+<!-- if you want to do it the way BE did it, it does look really nice, but still uses shield io
   * Front End: [![Github][Github]][project-fe-gh-url]
-  * Back End: [![Github][Github]][project-be-gh-url]
+  * Back End: [![Github][Github]][project-be-gh-url] -->
+  
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -76,24 +83,22 @@ Game Night is an excellent way to take the hassle out of scheduling get-together
 
 To demo Game Night on your local machine, follow these steps: 
 
-<!-- ### Front End Repository
+### Front End Repository
 
-1. Get a free Board Game Atlas API Key [here](https://www.boardgameatlas.com/signup)
-2. Register for an OpenAI API Key [here](https://platform.openai.com/overview)
-3. Clone this repo `git@github.com:Game-Night-2301/game-night-be.git`
-4. Navigate to the local repository: `cd game-night-be`
-5. Run: `bundle install`
-6. Run: `rails db:{drop,create,migrate,seed}`
-7. Run: `bundle exec figaro install`
-8. Add `BOARD_GAME_ATLAS_CLIENT_ID` and `OPENAI_ACCESS_TOKEN` to `config/application.yml` file
-9. Run: `rails s` to start the Rails server
-10. Visit: http://localhost:3000/graphiql
+1. Fork the [repository](https://github.com/Game-Night-2301/game-night-fe) to your GitHub account.
+2. Copy the SSH key from GitHub by navigating to the code dropdown.
+3. Using the terminal, run the following command: `git clone [SSH key here]`.
+4. Change into the repository directory: `cd game-night-fe`.
+5. Open the repository in your preferred code editor, such as Visual Studio Code.
+6. Install the necessary dependencies by running: `npm install`.
+7. Start the application by running: `npm start`.
+8. Click the hyperlink where the project is running to launch the application in your web browser, or enter `http://localhost:3000/` into your web browser's address bar.
 
 
 ### Back End Repository
 1. Clone the front end [here](https://github.com/Game-Night-2301/game-night-be)
 2. Follow instructions in the back-end repo `README`
- -->
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -334,8 +339,10 @@ mutation {
 <!-- Technical Solutions -->
 ## Technical Solutions
 
+Our small team working on the Game Night application faced unexpected challenges as we delved into GraphQL integration on both the front-end and back-end, we soon realized that Cypress required some adjustments to accommodate the unique aspects of GraphQL queries and mutations. We spent considerable time troubleshooting and adapting our testing approach to handle GraphQL interactions effectively. Despite the unexpected hurdles, our team's perseverance and collaborative efforts paid off. We not only learned how to use GraphQL effectively but also enhanced our proficiency with Cypress by finding innovative solutions to overcome the challenges. Additionally, during our development journey, we also had the opportunity to explore and incorporate GitHub Actions, which allowed us to automate various aspects of our build, test, and deployment processes. The combination of mastering GraphQL, overcoming Cypress challenges, and adopting GitHub Actions resulted in an application that exceeded our initial expectations. We take great pride in the final product we delivered and the valuable lessons we learned along the way.
 
-WRITE SOME PARAGRAPHS ABOUT STRETCH TECH, OPENAI, ETC...
+<!-- maybe expand here?? -->
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -385,28 +392,22 @@ Additional features, functionality, and potential refactors:
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 1:26
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/Game-Night-2301/game-night-be.svg?style=for-the-badge
+<!-- [contributors-shield]: https://img.shields.io/github/contributors/Game-Night-2301/game-night-fe.svg?style=for-the-badge
 [contributors-url]: https://github.com/Game-Night-2301/game-night-be/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Game-Night-2301/game-night-be.svg?style=for-the-badge
+[forks-shield]: https://img.shields.io/github/forks/Game-Night-2301/game-night-fe.svg?style=for-the-badge
 [forks-url]: https://github.com/Game-Night-2301/game-night-be/network/members
-[stars-shield]: https://img.shields.io/github/stars/Game-Night-2301/game-night-be.svg?style=for-the-badge
+[stars-shield]: https://img.shields.io/github/stars/Game-Night-2301/game-night-fe.svg?style=for-the-badge
 [stars-url]: https://github.com/Game-Night-2301/game-night-be/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Game-Night-2301/game-night-be.svg?style=for-the-badge
+[issues-shield]: https://img.shields.io/github/issues/Game-Night-2301/game-night-fe.svg?style=for-the-badge
 [issues-url]: https://github.com/Game-Night-2301/game-night-be/issues
-[license-shield]: https://img.shields.io/github/license/Game-Night-2301/game-night-be.svg?style=for-the-badge
+[license-shield]: https://img.shields.io/github/license/Game-Night-2301/game-night-fe.svg?style=for-the-badge
 [license-url]: https://github.com/Game-Night-2301/game-night-be/blob/main/LICENSE.txt
 [linkedin]: https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
 [stephen-li-url]: https://www.linkedin.com/in/smcphee19/
-[Ruby]: https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white
-[Ruby-url]: https://www.ruby-lang.org/en/
-[Rails]: https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white
-[Rails-url]: https://rubyonrails.org/
-[Postgres]: https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white
-[Postgres-url]: https://www.postgresql.org/
 [Github_Actions]: https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white
 [GHA_url]: https://docs.github.com/en/actions
 [Github]: https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white
 [project-fe-gh-url]: https://github.com/Game-Night-2301/game-night-fe
 [project-be-gh-url]: https://github.com/Game-Night-2301/game-night-be
-[stephen-gh-url]: https://github.com/SMcPhee19# graphQL schema and types
+[stephen-gh-url]: https://github.com/SMcPhee19# graphQL schema and types -->
 
