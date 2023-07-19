@@ -10,7 +10,7 @@ import { useQuery } from '@apollo/client';
 import { useParams, Redirect } from 'react-router-dom';
 import { fullQuery, getEvent } from '../../queries/index';
 
-export const EventDetails = ({ loggedInUser, logoutUser }) => {
+export const EventDetails = ({ user }) => {
   const { id } = useParams();
   const { loading, error, data } = useQuery(getEvent, {
     variables: {
@@ -34,11 +34,10 @@ export const EventDetails = ({ loggedInUser, logoutUser }) => {
   if (error || fullError) return <Redirect to="/error" />;
   return (
     <>
-      <Header logoutUser={logoutUser} />
+      <Header />
       <div className="event-details-page">
         <EventInfo
           className="event-info"
-          loggedInUser={loggedInUser}
           hostId={data.event.hostId}
           id={data.event.id}
           game={data.event.game}
@@ -66,9 +65,4 @@ export const EventDetails = ({ loggedInUser, logoutUser }) => {
       </div>
     </>
   );
-};
-
-EventDetails.propTypes = {
-  loggedInUser: PropTypes.number.isRequired,
-  logoutUser: PropTypes.func.isRequired,
 };

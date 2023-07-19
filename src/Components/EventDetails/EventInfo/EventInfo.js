@@ -11,6 +11,7 @@ import {
   cancelEvent,
   removeUserFromEvent,
 } from '../../../queries';
+import { useSelector } from 'react-redux';
 
 export const EventInfo = ({
   hostId,
@@ -19,15 +20,15 @@ export const EventInfo = ({
   endTime,
   date,
   attendees,
-  loggedInUser,
   cancelled,
   gameDetails,
   full,
 }) => {
+  const user = useSelector((state) => state.user);
   const isAttending = attendees.some(
-    (attendee) => parseInt(attendee.id) === loggedInUser
+    (attendee) => parseInt(attendee.id) === parseInt(user.id)
   );
-  const isHost = loggedInUser === hostId;
+  const isHost = parseInt(user.id) === hostId;
 
   const [
     joinEvent,
@@ -69,7 +70,7 @@ export const EventInfo = ({
             cancelGroupEvent({
               variables: {
                 input: {
-                  hostId: parseInt(loggedInUser),
+                  hostId: parseInt(user.id),
                   id: parseInt(id),
                   cancelled: true,
                 },
@@ -78,7 +79,7 @@ export const EventInfo = ({
           }}
         />
       );
-    } else if (!isAttending && loggedInUser && !cancelled && !full) {
+    } else if (!isAttending && user.id && !cancelled && !full) {
       return (
         <Button
           text="Join"
@@ -87,7 +88,7 @@ export const EventInfo = ({
             joinEvent({
               variables: {
                 input: {
-                  userId: parseInt(loggedInUser),
+                  userId: parseInt(user.id),
                   eventId: parseInt(id),
                 },
               },
@@ -103,7 +104,7 @@ export const EventInfo = ({
             leaveEvent({
               variables: {
                 input: {
-                  userId: parseInt(loggedInUser),
+                  userId: parseInt(user.id),
                   eventId: parseInt(id),
                 },
               },
@@ -156,6 +157,5 @@ EventInfo.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
     })
-  ).isRequired,
-  loggedInUser: PropTypes.number.isRequired,
+  ).isRequired
 };

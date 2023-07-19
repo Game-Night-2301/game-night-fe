@@ -172,35 +172,6 @@ export const getUserGames = gql`
   }
 `;
 
-export const getUserProfile = gql`
-  query getUser($id: ID!) {
-    user(id: $id) {
-      id
-      username
-      city
-      state
-      attendingEvents {
-        id
-      }
-      hostedEvents {
-        id
-      }
-      ownedGames {
-        id
-        name
-        minPlayers
-        maxPlayers
-        minPlaytime
-        maxPlaytime
-        description
-        imageUrl
-        averageUserRating
-        averageStrategyComplexity
-      }
-    }
-  }
-`;
-
 export const createEventMutation = gql`
   mutation CreateEvent($input: CreateEventInput!) {
     createEvent(input: $input) {

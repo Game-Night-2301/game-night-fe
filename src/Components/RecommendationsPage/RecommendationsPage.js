@@ -7,8 +7,10 @@ import Header from '../ReusableComponents/Header/Header';
 import AIRecs from './AIRecs/AIRecs';
 import RecOutput from './RecOutput/RecOutput';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
-const RecommendationsPage = ({ logoutUser, selectedUser }) => {
+const RecommendationsPage = () => {
+  const user = useSelector((state) => state.user);
   const [dataReceived, setDataReceived] = useState(false);
   const [getUserRecs, { loading, data, error }] = useLazyQuery(
     getUserRecommendations,
@@ -20,7 +22,7 @@ const RecommendationsPage = ({ logoutUser, selectedUser }) => {
   );
 
   const handleRecSubmit = async () => {
-    getUserRecs({ variables: { id: selectedUser } });
+    getUserRecs({ variables: { id: user.id } });
   };
 
   useEffect(() => {
@@ -32,7 +34,7 @@ const RecommendationsPage = ({ logoutUser, selectedUser }) => {
 
   return (
     <>
-      <Header logoutUser={logoutUser} />
+      <Header />
       <section className="profile-page recs-page">
         <AIRecs
           handleRecSubmit={handleRecSubmit}

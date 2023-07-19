@@ -9,11 +9,13 @@ import { useState } from 'react';
 import { getUserGames } from '../../queries/index';
 import userIcon from '../../assets/usericon.svg';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 import { capitalizeFirstLetter } from '../../utils/cleaning';
 
-const ProfilePage = ({ logoutUser, selectedUser, userData }) => {
+const ProfilePage = () => {
+  const user = useSelector((state) => state.user);
   const { loading, error, data } = useQuery(getUserGames, {
-    variables: { id: selectedUser },
+    variables: { id: user?.id },
   });
   const [expandedGame, setExpandedGame] = useState('');
   const handleExpandClick = (gameName) => {
@@ -45,7 +47,7 @@ const ProfilePage = ({ logoutUser, selectedUser, userData }) => {
 
   return (
     <>
-      <Header logoutUser={logoutUser} />
+      <Header />
       <div className="profile-page">
         <div className="profile-details">
           <div className="profile-image">
@@ -56,7 +58,7 @@ const ProfilePage = ({ logoutUser, selectedUser, userData }) => {
             <section className="profile-text">
               <div className="profile-key-value">
                 <p className="profile-text-key">Name</p>
-                <p className="profile-text-value">{userData.username}</p>
+                <p className="profile-text-value">{user.username}</p>
               </div>
               <div className="profile-key-value">
                 <p className="profile-text-key">Games Owned</p>
@@ -67,8 +69,8 @@ const ProfilePage = ({ logoutUser, selectedUser, userData }) => {
               <div className="profile-key-value">
                 <p className="profile-text-key">Location</p>
                 <p className="profile-text-value">
-                  {capitalizeFirstLetter(userData.city)},{' '}
-                  {capitalizeFirstLetter(userData.state)}
+                  {capitalizeFirstLetter(user.city)},{' '}
+                  {capitalizeFirstLetter(user.state)}
                 </p>
               </div>
             </section>
