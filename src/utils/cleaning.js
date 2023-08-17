@@ -38,7 +38,7 @@ export const cleanEvents = (events) => {
         maxPlayers: gameDetails.maxPlayers,
         gameName: gameDetails.name,
         gameType: gameType,
-        distanceFrom: round(distanceFrom, 2),
+        distanceFrom: +distanceFrom.toFixed(1),
         playerCount: playerCount,
         attendees: attendees,
       };

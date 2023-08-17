@@ -73,3 +73,13 @@
   width: 60%;
   justify-content: flex-end;
 }
+
+@media screen and (max-width: 850px) {
+  .event-card-title, .event-card-subtitle, .event-card-date {
+    font-size: 0.7rem;
+  }
+
+  .event-card-subtitle {
+    margin-left: 0.4rem;
+  }
+}
