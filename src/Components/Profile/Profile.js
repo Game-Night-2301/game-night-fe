@@ -10,9 +10,12 @@ import { getUserGames } from '../../queries/index';
 import userIcon from '../../assets/usericon.svg';
 import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
+import Button from '../ReusableComponents/Button/Button';
+import GameModal from './GameModal/GameModal';
 import { capitalizeFirstLetter } from '../../utils/cleaning';
 
-const ProfilePage = () => {
+const ProfilePage = ({updateUser}) => {
+  const [modalOpen, setModalOpen] = useState(false);
   const user = useSelector((state) => state.user);
   const { loading, error, data } = useQuery(getUserGames, {
     variables: { id: user?.id },
@@ -25,6 +28,10 @@ const ProfilePage = () => {
       setExpandedGame(gameName);
     }
   };
+
+  const onClose = () => {
+    setModalOpen(false);
+  }
 
   const mapUserGames = () => {
     if (data?.user?.ownedGames?.length) {
@@ -44,6 +51,12 @@ const ProfilePage = () => {
 
   if (loading) return <PageLoader />;
   if (error) return <Redirect to="/error" />;
+  if (modalOpen) return (
+    <>
+      <Header />
+      <GameModal onClose={onClose} updateUser={updateUser} />
+    </>
+  )
 
   return (
     <>
@@ -78,6 +91,7 @@ const ProfilePage = () => {
         </div>
         <div className="games-collection">
           <BrowserHeader text="Game Collection" nomargin="true" />
+          <Button className="add-game-btn" onClick={() => setModalOpen(true)} text="Add Games"/>
           <div className="games-grid">{mapUserGames()}</div>
         </div>
       </div>

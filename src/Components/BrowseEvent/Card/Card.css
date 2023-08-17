@@ -9,7 +9,7 @@
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   background: #6a5b87;
-  box-shadow: 3px 3px 10px rgba(234, 232, 232, 0.315);
+  box-shadow: 1px 1px 5px rgba(234, 232, 232, 0.115);
   overflow: hidden;
   margin: 2.5rem 0;
 }

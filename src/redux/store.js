@@ -3,7 +3,7 @@ import userReducer from './user/reducer';
 
 export default configureStore({
   reducer: {
-    user: userReducer,
+    user: userReducer
   }
 });
 

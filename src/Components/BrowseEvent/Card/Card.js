@@ -8,7 +8,7 @@ import './Card.css';
 
 const Card = ({ userId, attendees, id, maxPlayers, city, state, date, hostId, description, distance, gameName }) => {
   const { data } = useQuery(getUserGames, { variables: { id: userId }, skip: !id });
-
+  console.log(distance)
   const renderPills = () => {
     const isHost = hostId === userId;
     const isAttending = attendees.includes(userId);
@@ -30,7 +30,7 @@ const Card = ({ userId, attendees, id, maxPlayers, city, state, date, hostId, de
           <div className="card-header-left">
             <h3 className="event-card-title">{gameName}</h3>
             <h4 className="event-card-subtitle">
-              {city}, {state}
+              {city}, {state} ({distance} miles)
             </h4>
             <h4 className="event-card-subtitle event-card-date">{date}</h4>
           </div>

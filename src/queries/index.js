@@ -208,6 +208,29 @@ export const removeUserFromEvent = gql`
   }
 `;
 
+export const addOwnedGame = gql`
+  mutation createdUserGame($input: CreateUserGameInput!) {
+    createUserGame(input: $input) {
+      userGame {
+        id
+        userId
+        gameId
+        newGame {
+          name
+          minPlayers
+          maxPlayers
+          minPlaytime
+          maxPlaytime
+          description
+          imageUrl
+          averageUserRating
+          averageStrategyComplexity
+        }
+      }
+    }
+  }
+`
+
 export const cancelEvent = gql`
   mutation cancelEvent($input: CancelEventInput!) {
     cancelEvent(input: $input) {
@@ -237,4 +260,21 @@ export const getUserRecommendations = gql`
       }
     }
   }
+`;
+
+export const searchGames = gql`
+query gameSearch($term: String!) {
+  gameSearch(term: $term) {
+    id
+    name
+    minPlayers
+    maxPlayers
+    minPlaytime
+    maxPlaytime
+    description
+    imageUrl
+    averageUserRating
+    averageStrategyComplexity
+  }
+}
 `;

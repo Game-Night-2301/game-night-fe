@@ -40,6 +40,20 @@ function App() {
     }
   };
 
+  const updateUser = async (userId) => {
+    try {
+      const { data } = await client.query({
+        query: getUser,
+        variables: { id: userId },
+        fetchPolicy: "network-only",
+      });
+      dispatch(setUser(data.user));
+      localStorage.setItem('user', JSON.stringify(data.user));
+    } catch (error) {
+      localStorage.removeItem('user');
+    }
+  };
+
   if (user) {
     return (
       <Router>
@@ -49,7 +63,7 @@ function App() {
               <BrowseEvent/>
             </Route>
             <Route exact path="/profile">
-                <ProfilePage />
+                <ProfilePage updateUser={updateUser}/>
             </Route>
             <Route exact path="/create">
               <Form />
