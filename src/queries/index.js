@@ -172,35 +172,6 @@ export const getUserGames = gql`
   }
 `;
 
-export const getUserProfile = gql`
-  query getUser($id: ID!) {
-    user(id: $id) {
-      id
-      username
-      city
-      state
-      attendingEvents {
-        id
-      }
-      hostedEvents {
-        id
-      }
-      ownedGames {
-        id
-        name
-        minPlayers
-        maxPlayers
-        minPlaytime
-        maxPlaytime
-        description
-        imageUrl
-        averageUserRating
-        averageStrategyComplexity
-      }
-    }
-  }
-`;
-
 export const createEventMutation = gql`
   mutation CreateEvent($input: CreateEventInput!) {
     createEvent(input: $input) {
@@ -237,6 +208,29 @@ export const removeUserFromEvent = gql`
   }
 `;
 
+export const addOwnedGame = gql`
+  mutation createdUserGame($input: CreateUserGameInput!) {
+    createUserGame(input: $input) {
+      userGame {
+        id
+        userId
+        gameId
+        newGame {
+          name
+          minPlayers
+          maxPlayers
+          minPlaytime
+          maxPlaytime
+          description
+          imageUrl
+          averageUserRating
+          averageStrategyComplexity
+        }
+      }
+    }
+  }
+`
+
 export const cancelEvent = gql`
   mutation cancelEvent($input: CancelEventInput!) {
     cancelEvent(input: $input) {
@@ -266,4 +260,21 @@ export const getUserRecommendations = gql`
       }
     }
   }
+`;
+
+export const searchGames = gql`
+query gameSearch($term: String!) {
+  gameSearch(term: $term) {
+    id
+    name
+    minPlayers
+    maxPlayers
+    minPlaytime
+    maxPlaytime
+    description
+    imageUrl
+    averageUserRating
+    averageStrategyComplexity
+  }
+}
 `;

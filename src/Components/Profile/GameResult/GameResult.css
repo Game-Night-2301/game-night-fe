@@ -1,0 +1,39 @@
+.game-result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10%;
+  padding: 0.1rem 1.5rem;
+  background: black;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  background: rgb(147, 145, 145);
+  box-shadow: 3px 3px 10px rgba(234, 232, 232, 0.315);
+  overflow: hidden;
+  margin: 0.1rem 0;
+}
+
+.result-title, .result-owned {
+  color: rgb(248, 247, 247);
+  font-size: 0.9rem;
+}
+
+.result-owned {
+  font-weight: 600;
+}
+
+.select-title-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+}
+
+.in-collection {
+  background-color: #6a5b87;
+}

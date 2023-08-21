@@ -8,11 +8,12 @@ import { useQuery } from '@apollo/client';
 import { getAllEvents } from '../../queries/index';
 import { cleanEvents, filterEvents } from '../../utils/cleaning';
 import { Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
-const BrowseEvent = ({ selectedUser, logoutUser }) => {
+const BrowseEvent = () => {
+  const user = useSelector((state) => state.user);
   const { loading, error, data } = useQuery(getAllEvents, {
-    variables: { id: selectedUser },
-    skip: !selectedUser,
+    variables: { id: Number(user.id) }
   });
 
   const displayEvents = () => {
@@ -25,7 +26,7 @@ const BrowseEvent = ({ selectedUser, logoutUser }) => {
         return (
           <Card
             key={event.id}
-            userId={selectedUser}
+            userId={user.id}
             id={event.id}
             game={event.game}
             title={event.title}
@@ -50,7 +51,7 @@ const BrowseEvent = ({ selectedUser, logoutUser }) => {
 
   return (
     <>
-      <Header logoutUser={logoutUser} />
+      <Header/>
       <BrowserHeader text="Open Games" />
       <section className="browse-event-container">{displayEvents()}</section>
     </>

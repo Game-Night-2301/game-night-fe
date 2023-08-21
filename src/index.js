@@ -11,6 +11,8 @@ import {
   createHttpLink,
 } from '@apollo/client';
 import { persistCache } from 'apollo3-cache-persist';
+import { Provider } from 'react-redux';
+import store from '../src/redux/store';
 
 const link = createHttpLink({
   uri: 'https://game-night-backend-172o.onrender.com/graphql',
@@ -31,7 +33,9 @@ root.render(
   <Router>
     <ApolloProvider client={client}>
       <React.StrictMode>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </React.StrictMode>
     </ApolloProvider>
   </Router>

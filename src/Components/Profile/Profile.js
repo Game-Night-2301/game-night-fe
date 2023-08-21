@@ -9,11 +9,16 @@ import { useState } from 'react';
 import { getUserGames } from '../../queries/index';
 import userIcon from '../../assets/usericon.svg';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import Button from '../ReusableComponents/Button/Button';
+import GameModal from './GameModal/GameModal';
 import { capitalizeFirstLetter } from '../../utils/cleaning';
 
-const ProfilePage = ({ logoutUser, selectedUser, userData }) => {
+const ProfilePage = ({updateUser}) => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const user = useSelector((state) => state.user);
   const { loading, error, data } = useQuery(getUserGames, {
-    variables: { id: selectedUser },
+    variables: { id: user?.id },
   });
   const [expandedGame, setExpandedGame] = useState('');
   const handleExpandClick = (gameName) => {
@@ -23,6 +28,10 @@ const ProfilePage = ({ logoutUser, selectedUser, userData }) => {
       setExpandedGame(gameName);
     }
   };
+
+  const onClose = () => {
+    setModalOpen(false);
+  }
 
   const mapUserGames = () => {
     if (data?.user?.ownedGames?.length) {
@@ -42,10 +51,16 @@ const ProfilePage = ({ logoutUser, selectedUser, userData }) => {
 
   if (loading) return <PageLoader />;
   if (error) return <Redirect to="/error" />;
+  if (modalOpen) return (
+    <>
+      <Header />
+      <GameModal onClose={onClose} updateUser={updateUser} />
+    </>
+  )
 
   return (
     <>
-      <Header logoutUser={logoutUser} />
+      <Header />
       <div className="profile-page">
         <div className="profile-details">
           <div className="profile-image">
@@ -56,7 +71,7 @@ const ProfilePage = ({ logoutUser, selectedUser, userData }) => {
             <section className="profile-text">
               <div className="profile-key-value">
                 <p className="profile-text-key">Name</p>
-                <p className="profile-text-value">{userData.username}</p>
+                <p className="profile-text-value">{user.username}</p>
               </div>
               <div className="profile-key-value">
                 <p className="profile-text-key">Games Owned</p>
@@ -67,8 +82,8 @@ const ProfilePage = ({ logoutUser, selectedUser, userData }) => {
               <div className="profile-key-value">
                 <p className="profile-text-key">Location</p>
                 <p className="profile-text-value">
-                  {capitalizeFirstLetter(userData.city)},{' '}
-                  {capitalizeFirstLetter(userData.state)}
+                  {capitalizeFirstLetter(user.city)},{' '}
+                  {capitalizeFirstLetter(user.state)}
                 </p>
               </div>
             </section>
@@ -76,6 +91,7 @@ const ProfilePage = ({ logoutUser, selectedUser, userData }) => {
         </div>
         <div className="games-collection">
           <BrowserHeader text="Game Collection" nomargin="true" />
+          <Button className="add-game-btn" onClick={() => setModalOpen(true)} text="Add Games"/>
           <div className="games-grid">{mapUserGames()}</div>
         </div>
       </div>

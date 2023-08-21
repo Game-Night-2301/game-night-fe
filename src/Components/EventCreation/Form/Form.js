@@ -15,8 +15,10 @@ import { Tooltip } from '@mui/material';
 import { Redirect } from 'react-router-dom';
 import PageLoader from '../../ReusableComponents/PageLoader/PageLoader';
 import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
 
-const Form = ({ logoutUser, loggedInUser, userData }) => {
+const Form = () => {
+  const user = useSelector((state) => state.user);
   const [game, setGame] = useState('');
   const [category, setCategory] = useState('');
   const [location, setLocation] = useState('');
@@ -117,7 +119,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
   ]);
 
   const populateGameOptions = () => {
-    return userData.ownedGames.map((game, i) => {
+    return user.ownedGames.map((game, i) => {
       return (
         <MenuItem key={i} value={game.id}>
           {game.name}
@@ -181,7 +183,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
       zip: parseInt(zip),
       title: location,
       description: eventDescription,
-      host: loggedInUser,
+      host: parseInt(user.id),
       game: parseInt(game),
       gameType: category,
       startTime: dayjs(startTime).format('HH:mm:ss'),
@@ -196,7 +198,7 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
 
   return (
     <div>
-      <Header logoutUser={logoutUser} />
+      <Header />
       <form className="form">
         <div className="container">
           <h2 className="form-header">Game</h2>
@@ -367,9 +369,3 @@ const Form = ({ logoutUser, loggedInUser, userData }) => {
 };
 
 export default Form;
-
-Form.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
-  loggedInUser: PropTypes.number.isRequired,
-  userData: PropTypes.object.isRequired,
-};

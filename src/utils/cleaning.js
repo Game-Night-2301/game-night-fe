@@ -19,6 +19,7 @@ export const cleanEvents = (events) => {
       game,
       playerCount,
       gameDetails,
+      distanceFrom,
       maxPlayers,
     }) => {
       return {
@@ -37,6 +38,7 @@ export const cleanEvents = (events) => {
         maxPlayers: gameDetails.maxPlayers,
         gameName: gameDetails.name,
         gameType: gameType,
+        distanceFrom: +distanceFrom.toFixed(1),
         playerCount: playerCount,
         attendees: attendees,
       };
@@ -79,3 +81,10 @@ export const capitalizeFirstLetter = (str) => {
   }
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
+
+const round = (value, significantFigures) => {
+  const exponent = Math.floor(Math.log10(value))
+  const nIntegers = exponent + 1
+  const precision = 10 ** (nIntegers - significantFigures)
+  return Math.round(value / precision) * precision
+}

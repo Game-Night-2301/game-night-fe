@@ -106,3 +106,14 @@
     width: 100%;
   }
 }
+
+.add-game-button {
+  margin: 1rem 0;
+  width: 100%;
+  height: 3rem;
+  border-radius: 12px;
+  background-color: #6a5b87;
+  color: white;
+  font-size: 1.2rem;
+  border: none;
+}

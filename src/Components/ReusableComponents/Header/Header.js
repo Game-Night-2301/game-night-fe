@@ -5,8 +5,16 @@ import logo from '../../../assets/Dice.svg';
 import usericon from '../../../assets/usericon.svg';
 import DropDown from '../DropDown/DropDown';
 import PropTypes from 'prop-types'
+import { useDispatch } from 'react-redux';
+import { logoutUser } from '../../../redux/user/actions';
 
-const Header = ({ logoutUser }) => {
+const Header = () => {
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    localStorage.removeItem('user');
+  };
+  
   const menuItems = [
     {
       label: 'Create Event',
@@ -26,7 +34,7 @@ const Header = ({ logoutUser }) => {
       label: 'Logout',
       link: '/',
       handler: () => {
-        logoutUser();
+        handleLogout();
       },
     },
   ];

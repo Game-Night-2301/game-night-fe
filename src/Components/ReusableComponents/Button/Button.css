@@ -1,5 +1,5 @@
 .button {
-  background: rgba(255, 160, 228, 1) !important;
+  background: rgb(144, 29, 111) !important;
   opacity: 0.9;
   border-radius: 14px;
   border: none;
@@ -9,12 +9,14 @@
   font-family: 'Avenir Next', sans-serif;
   font-weight: 600 !important;
   font-size: 1.3rem !important;
+  color: rgb(241, 241, 241) !important;
 }
 
 .button-disabled {
-  background-color: #cccccc;
-  color: #808080;
-  cursor: not-allowed;
+  background-color: #cccccc !important;
+  color: #808080 !important;
+  cursor: not-allowed !important;
+  text-shadow: none !important;
 }
 
 .form-button {
@@ -38,14 +40,27 @@
   border-radius: 12px !important;
 }
 
+.game-modal-btn {
+  width: 100%;
+  height: 3rem;
+  margin: 0.5rem 0 !important;
+}
+
+.add-game-btn {
+  width: 100%;
+  height: 3rem;
+  margin: 0.5rem 0 !important;
+  font-size: 0.9rem !important;
+}
+
 @keyframes glowing {
   0% {
-    box-shadow: 0 0 5px #fefefe;
+    box-shadow: 0 0 2px rgb(227, 225, 225);
   }
   50% {
-    box-shadow: 0 0 30px 5px #fefefe;
+    box-shadow: 0 0 15px 2px rgb(227, 225, 225);
   }
   100% {
-    box-shadow: 0 0 5px #fefefe;
+    box-shadow: 0 0 2px rgb(227, 225, 225);
   }
 }
