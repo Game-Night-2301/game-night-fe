@@ -91,7 +91,9 @@ const ProfilePage = ({updateUser}) => {
         </div>
         <div className="games-collection">
           <BrowserHeader text="Game Collection" nomargin="true" />
-          <Button className="add-game-btn" onClick={() => setModalOpen(true)} text="Add Games"/>
+          <div className="button-wrapper">
+            <Button className="add-game-btn" onClick={() => setModalOpen(true)} text="Add Games"/>
+          </div>
           <div className="games-grid">{mapUserGames()}</div>
         </div>
       </div>

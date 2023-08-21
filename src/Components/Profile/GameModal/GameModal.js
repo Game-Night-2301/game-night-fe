@@ -103,7 +103,9 @@ const GameModal = ({ updateUser, onClose }) => {
             value={searchTerm}
             onChange={handleSearchChange}
           />
-          <Button onClick={handleSearchSubmit} className="game-modal-btn" text="Submit"/>
+          <div className="button-wrapper" >
+            <Button onClick={handleSearchSubmit} className="game-modal-btn" text="Submit"/>
+          </div>
           <Box className="game-results">
             <p className="result-error">No games were found in the database matching your search term. Please review your entry for typos and try searching again.</p>
           </Box>
@@ -125,7 +127,9 @@ const GameModal = ({ updateUser, onClose }) => {
             value={searchTerm}
             onChange={handleSearchChange}
           />
-          <Button onClick={handleSearchSubmit} className="game-modal-btn" text="Submit"/>
+          <div className="button-wrapper" >
+            <Button onClick={handleSearchSubmit} className="game-modal-btn" text="Submit"/>
+          </div>
           {loading && <section className="loader-container"><div className="loader"></div></section>}
           {searchResultsPopulated && (
             <Box className="game-results">

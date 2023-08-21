@@ -117,3 +117,8 @@
   font-size: 1.2rem;
   border: none;
 }
+
+.button-wrapper {
+  display: flex;
+  justify-content: center;
+}
