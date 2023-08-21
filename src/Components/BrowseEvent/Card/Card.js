@@ -30,7 +30,7 @@ const Card = ({ userId, attendees, id, maxPlayers, city, state, date, hostId, de
           <div className="card-header-left">
             <h3 className="event-card-title">{gameName}</h3>
             <h4 className="event-card-subtitle">
-              {city}, {state} ({distance} miles)
+              {city}, {state} ({distance} mi away)
             </h4>
             <h4 className="event-card-subtitle event-card-date">{date}</h4>
           </div>
