@@ -50,7 +50,7 @@ describe('Browse Page', () => {
         cy.get('.card-link-wrapper').first()
           .within(() => {
             cy.get('.event-card-title').should('have.text', 'Wingspan');
-            cy.get('.event-card-subtitle').should('have.text', 'South Burlington, Vermont (33.1 mi away)10/21/2023');
+            cy.get('.event-card-subtitle').should('have.text', 'South Burlington, Vermont (33.1 miles)10/21/2023');
             cy.get('.event-card-description').should('have.text', 'Ha ha, you fool! You fell victim to one of the classic blunders! The most famous of which is never get involved in a land war in Asia, but only slightly less well-known is this: Never go in against a Sicilian when DEATH is on the line.');
             cy.url().should('include', '/browse');
           });
