@@ -8,7 +8,6 @@ import './Card.css';
 
 const Card = ({ userId, attendees, id, maxPlayers, city, state, date, hostId, description, distance, gameName }) => {
   const { data } = useQuery(getUserGames, { variables: { id: userId }, skip: !id });
-  console.log(distance)
   const renderPills = () => {
     const isHost = hostId === userId;
     const isAttending = attendees.includes(userId);
