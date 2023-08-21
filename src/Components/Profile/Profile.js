@@ -102,11 +102,5 @@ const ProfilePage = ({updateUser}) => {
 export default ProfilePage;
 
 ProfilePage.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
-  selectedUser: PropTypes.number.isRequired,
-  userData: PropTypes.shape({
-    username: PropTypes.string.isRequired,
-    city: PropTypes.string.isRequired,
-    state: PropTypes.string.isRequired,
-  }).isRequired,
+  updateUser: PropTypes.func.isRequired
 };

@@ -50,7 +50,3 @@ const RecommendationsPage = () => {
 
 export default RecommendationsPage;
 
-RecommendationsPage.propTypes = {
-  logoutUser: PropTypes.func.isRequired,
-  selectedUser: PropTypes.number.isRequired,
-};

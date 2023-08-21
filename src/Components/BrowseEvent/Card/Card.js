@@ -47,7 +47,7 @@ const Card = ({ userId, attendees, id, maxPlayers, city, state, date, hostId, de
 export default Card;
 
 Card.propTypes = {
-  userId: PropTypes.number.isRequired,
+  userId: PropTypes.string.isRequired,
   attendees: PropTypes.arrayOf(PropTypes.object).isRequired,
   id: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
